@@ -18,7 +18,7 @@ public class PlayerTurnState : ICombatState
     public void Execute()
     {//skil secme bura
         // Örnek: Oyuncunun hazır olduğu varsayılarak (örneğin P tuşu) input state'e geçiş.
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             manager.SetState(new PlayerInputState(manager));
         }

@@ -6,7 +6,6 @@ using UnityEngine;
 public class IdleState : ICombatState
 {
     private CombatStateManager manager;
-    private List<Hero> turnList;
     private int currentTurn;
     
 //hangi karaktere geçiliceği burda tutulucak hesap baska sc 
@@ -17,17 +16,29 @@ public class IdleState : ICombatState
     }
 
     public void Enter()
-    { 
-
+    {
+        
     }
 
     public void Execute()
     {
-        // Örnek geçiş koşulu: Space tuşuna basıldığında oyuncu sırasına geçilsin.
+        // Sıradaki karakteri alıyoruz
+        Hero currentHero = manager.turnOrder[manager.currentTurnIndex];
+
+        Debug.Log($"Idle State: Sıradaki karakter = {currentHero.name}, " +
+                  $"ID = {currentHero.id}, heroEnemy = {currentHero.heroEnemy}");
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            manager.SetState(new PlayerTurnState(manager));
+            // heroEnemy alanına göre hangi state'e geçeceğimize karar veriyoruz
+            if (currentHero.heroEnemy == "Hero") {
+                        Debug.Log("Karakter Hero. PlayerTurnState'e geçiliyor.");
+                        manager.SetState(new PlayerTurnState(manager)); }
+            else
+            {
+                        Debug.Log("Karakter Enemy. EnemyTurnState'e geçiliyor.");
+                        manager.SetState(new EnemyTurnState(manager)); }
         }
+        
     }
 
     public void Exit()

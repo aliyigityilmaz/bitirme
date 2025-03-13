@@ -18,8 +18,8 @@ public class EnemyTurnState : ICombatState
     public void Execute()
     {
         // Örnek: E tuşuna basıldığında enemy turn tamamlanıp Idle state'e dönüş.
-        if (Input.GetKeyDown(KeyCode.E))
-        {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {manager.NextTurn();
             manager.SetState(new IdleState(manager));
         }
     }

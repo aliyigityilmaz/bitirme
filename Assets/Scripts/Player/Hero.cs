@@ -2,6 +2,7 @@
 public class Hero 
 {
     public string name;
+    public string heroEnemy;
     public int id;
     public int health;
     public int turnSpeed;

@@ -19,9 +19,9 @@ public class PlayerActionState : ICombatState
     public void Execute()
     {
         // Örnek: A tuşuna basıldığında aksiyon tamamlanıp enemy turn state'e geçelim.
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            manager.SetState(new EnemyTurnState(manager));
+        if (Input.GetKeyDown(KeyCode.Space))
+        {   manager.NextTurn();
+            manager.SetState(new IdleState(manager));
         }
     }
 

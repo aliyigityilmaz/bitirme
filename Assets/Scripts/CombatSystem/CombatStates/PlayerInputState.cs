@@ -17,7 +17,7 @@ public class PlayerInputState : ICombatState
     public void Execute()
     {
         // Örnek: Girdi alındığında (örneğin I tuşu) oyuncu aksiyonuna geçilsin.
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             manager.SetState(new PlayerActionState(manager));
         }
