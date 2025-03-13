@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> dialogueQueue;
     private bool isDialogueActive = false;
     private PlayerController player;
+    private QuestGiver currentQuestGiver;
 
     private void Awake()
     {
@@ -43,25 +44,20 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue(DialogueData dialogue)
+    public void StartDialogue(DialogueData dialogue, QuestGiver questGiver = null)
     {
         if (isDialogueActive) return;
 
+        currentQuestGiver = questGiver; // Eðer bir QuestGiver NPC ile konuþuyorsak onu kaydet
+
         dialogueQueue = new Queue<string>(dialogue.dialogueLines);
         dialoguePanel.SetActive(true);
-        if (dialogue.npcName!=null)
-        {
-            nameText.text = dialogue.npcName;
-        }
-        else
-        {
-            nameText.text = "";
-        }
+
+        nameText.text = dialogue.npcName ?? "";
+
         isDialogueActive = true;
-        if (player != null)
-        {
-            player.isTalking = true; // Oyuncu konuþma sýrasýnda hareket edemesin
-        }
+        if (player != null) player.isTalking = true;
+
         ShowNextSentence();
     }
 
@@ -81,9 +77,12 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         isDialogueActive = false;
 
-        if (player != null)
+        if (player != null) player.isTalking = false;
+
+        if (currentQuestGiver != null)
         {
-            player.isTalking = false; // Diyalog bitince oyuncu hareket edebilir
+            currentQuestGiver.GiveQuest(); // Eðer bu bir görev veren NPC ise görevi ver
+            currentQuestGiver = null;
         }
     }
 }

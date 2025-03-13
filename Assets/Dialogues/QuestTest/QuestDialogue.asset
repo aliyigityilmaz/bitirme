@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fad6347be23db0847b29443f429d06c0, type: 3}
-  m_Name: Test2
+  m_Name: QuestDialogue
   m_EditorClassIdentifier: 
-  npcName: 
+  npcName: "da\u011Fc\u0131"
   dialogueLines:
-  - szcxvsdfasdf
-  - "awdfjsadhof\u0131jhsdaf"
-  - lmvklczdmxnvknfksdnvknf
+  - abe
+  - "abe sen \u015Fimdi \u015Fu da\u011Flar\u0131 g\xF6r\xFCyon"
+  - "o da\u011Flar berkaya girsin"
