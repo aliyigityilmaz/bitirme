@@ -11,11 +11,12 @@ public class PlayerTurnState : ICombatState
 
     public void Enter()
     {
+        //ui burda 
         Debug.Log("Entering Player Turn State");
     }
 
     public void Execute()
-    {
+    {//skil secme bura
         // Örnek: Oyuncunun hazır olduğu varsayılarak (örneğin P tuşu) input state'e geçiş.
         if (Input.GetKeyDown(KeyCode.P))
         {

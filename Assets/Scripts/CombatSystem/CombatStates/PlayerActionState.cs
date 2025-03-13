@@ -11,7 +11,7 @@ public class PlayerActionState : ICombatState
     }
 
     public void Enter()
-    {
+    {// damage hesaplama
         Debug.Log("Entering Player Action State");
         // Burada skill, animasyon veya saldırı gibi işlemleri tetikleyebilirsiniz.
     }

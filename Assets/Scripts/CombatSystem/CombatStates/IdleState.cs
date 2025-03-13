@@ -1,8 +1,14 @@
+using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class IdleState : ICombatState
 {
     private CombatStateManager manager;
+    private List<Hero> turnList;
+    private int currentTurn;
+    
 //hangi karaktere geçiliceği burda tutulucak hesap baska sc 
 //her karakter vurdugunda tur sayıcak tur hesabı burda tutuulucak
     public IdleState(CombatStateManager manager)
@@ -11,8 +17,8 @@ public class IdleState : ICombatState
     }
 
     public void Enter()
-    { //idle animler 
-        Debug.Log("Entering Idle State");
+    { 
+
     }
 
     public void Execute()
