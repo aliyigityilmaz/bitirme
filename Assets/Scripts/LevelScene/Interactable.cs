@@ -7,7 +7,8 @@ public abstract class Interactable : MonoBehaviour
         Talkable,
         Pickup,
         Door,
-        QuestGiver
+        QuestGiver,
+        Enemy
     }
 
     public InteractableType interactableType;
