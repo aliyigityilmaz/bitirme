@@ -11,8 +11,10 @@ public class PlayerTurnState : ICombatState
 
     public void Enter()
     {
-        //ui burda 
+        SkillUIManager.Instance.skillPanel.SetActive(true);
         Debug.Log("Entering Player Turn State");
+        Hero activeHero = manager.turnOrder[manager.currentTurnIndex];
+        SkillUIManager.Instance.InitializeSkills(activeHero);
     }
 
     public void Execute()
@@ -27,5 +29,6 @@ public class PlayerTurnState : ICombatState
     public void Exit()
     {
         Debug.Log("Exiting Player Turn State");
+        //SkillUIManager.Instance.skillPanel.SetActive(false);
     }
 }

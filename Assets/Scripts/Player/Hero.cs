@@ -1,3 +1,5 @@
+using UnityEditor.Experimental.GraphView;
+
 [System.Serializable]
 public class Hero 
 {
@@ -9,6 +11,8 @@ public class Hero
     public int armor;
     public int criticalChance;
 
+    public Skill[] skills;
+    public Skill[] GetSkills() { return skills; }
     public Hero(string name, int id, int health, int turnSpeed, int armor, int criticalChance)
     {
         this.name = name;
