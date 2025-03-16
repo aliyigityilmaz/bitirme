@@ -13,7 +13,67 @@ MonoBehaviour:
   m_Name: Test2
   m_EditorClassIdentifier: 
   npcName: 
-  dialogueLines:
-  - szcxvsdfasdf
-  - "awdfjsadhof\u0131jhsdaf"
-  - lmvklczdmxnvknfksdnvknf
+  dialogueEntries:
+  - dialogueLine: "Siki\u015F siki\u015F benim i\xE7in tek i\u015F"
+    responses: []
+  - dialogueLine: "O kadar \xE7ok yapt\u0131m ki kapt\u0131m aids"
+    responses: []
+  - dialogueLine: "Doktora gittim dedi senin sonun le\u015F"
+    responses:
+    - responseText: "senin sonun le\u015F"
+      responseType: 0
+      assignedQuest:
+        questName: 
+        questDescription: 
+        isCompleted: 0
+  - dialogueLine: bledaaa
+    responses: []
+  - dialogueLine: "kafalar milyonluk kafalar kimyonlu hatunu bol buldum a\u011Fz\u0131ma
+      osurdu"
+    responses:
+    - responseText: skirt skirt
+      responseType: 0
+      assignedQuest:
+        questName: 
+        questDescription: 
+        isCompleted: 0
+    - responseText: "ko\u015F"
+      responseType: 0
+      assignedQuest:
+        questName: 
+        questDescription: 
+        isCompleted: 0
+  - dialogueLine: parmaktan sonra
+    responses:
+    - responseText: lets goo
+      responseType: 0
+      assignedQuest:
+        questName: 
+        questDescription: 
+        isCompleted: 0
+    - responseText: "ben ka\xE7anzi"
+      responseType: 1
+      assignedQuest:
+        questName: 
+        questDescription: 
+        isCompleted: 0
+  - dialogueLine: bays
+    responses:
+    - responseText: yok la devam
+      responseType: 0
+      assignedQuest:
+        questName: 
+        questDescription: 
+        isCompleted: 0
+    - responseText: taam
+      responseType: 1
+      assignedQuest:
+        questName: 
+        questDescription: 
+        isCompleted: 0
+    - responseText: "abi dilenci de\u011Filim ama 5 liran var m\u0131d\u0131r"
+      responseType: 2
+      assignedQuest:
+        questName: 5 lira 5 lira
+        questDescription: 5 lira al 5 lira al 5 lira almazsan
+        isCompleted: 0

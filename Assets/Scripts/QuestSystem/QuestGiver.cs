@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class QuestGiver : Interactable
 {
-    public DialogueData initialDialogue; // Görev verilmeden önceki konuþma
-    public DialogueData questGivenDialogue; // Görev verildiðinde ama tamamlanmadýðýnda
-    public DialogueData questCompletedDialogue; // Görev tamamlandýktan sonraki konuþma
-    public Quest quest; // NPC'nin verdiði görev
+    public DialogueData initialDialogue;
+    public DialogueData questGivenDialogue;
+    public DialogueData questCompletedDialogue;
+    public Quest quest; // Verilecek görev
 
-    private bool isQuestGiven = false;
+    public bool isQuestGiven = false;
 
     public override void Interact()
     {
@@ -25,12 +25,14 @@ public class QuestGiver : Interactable
         }
     }
 
+    // Görev ekleme metodu (DialogueManager burayý çaðýracak)
     public void GiveQuest()
     {
-        if (!isQuestGiven)
+        if (!isQuestGiven && quest != null)
         {
-            isQuestGiven = true;
             QuestManager.Instance.AddQuest(quest);
+            isQuestGiven = true;
+            Debug.Log("Quest Given: " + quest.questName);
         }
     }
 }

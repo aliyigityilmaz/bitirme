@@ -5,8 +5,7 @@ public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance;
 
-    [SerializeField]
-    private Dictionary<string, Quest> activeQuests = new Dictionary<string, Quest>();
+    private List<Quest> activeQuests = new List<Quest>();
 
     private void Awake()
     {
@@ -14,27 +13,37 @@ public class QuestManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
+    // Yeni bir görev ekler (Eðer zaten ekli deðilse)
     public void AddQuest(Quest quest)
     {
-        if (!activeQuests.ContainsKey(quest.questName))
+        if (quest == null) return;
+
+        if (!activeQuests.Contains(quest))
         {
-            activeQuests[quest.questName] = quest;
-            QuestUIManager.Instance.AddQuestUI(quest); // UI güncelle
+            activeQuests.Add(quest);
+            Debug.Log("New Quest Added: " + quest.questName);
+        }
+        else
+        {
+            Debug.Log("Quest already active: " + quest.questName);
         }
     }
 
+    // Görevi tamamlandý olarak iþaretler
     public void CompleteQuest(string questName)
     {
-        if (activeQuests.ContainsKey(questName))
+        Quest quest = activeQuests.Find(q => q.questName == questName);
+        if (quest != null)
         {
-            activeQuests[questName].isCompleted = true;
-            QuestUIManager.Instance.CompleteQuestUI(questName); // UI'dan kaldýr
+            quest.isCompleted = true;
+            Debug.Log("Quest Completed: " + quest.questName);
         }
     }
 
-
+    // Görev tamamlandý mý?
     public bool IsQuestCompleted(string questName)
     {
-        return activeQuests.ContainsKey(questName) && activeQuests[questName].isCompleted;
+        Quest quest = activeQuests.Find(q => q.questName == questName);
+        return quest != null && quest.isCompleted;
     }
 }

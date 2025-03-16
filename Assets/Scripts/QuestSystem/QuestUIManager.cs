@@ -1,15 +1,17 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections.Generic;
 using TMPro;
 
 public class QuestUIManager : MonoBehaviour
 {
     public static QuestUIManager Instance;
 
-    public GameObject questPrefab; // Quest UI prefab�
-    public Transform questListContainer; // Vertical Group buraya ba�l� olacak
+    public GameObject questUIPanel;
+    public Transform questContainer;
+    public GameObject questPrefab;
 
-    private Dictionary<string, GameObject> questUIItems = new Dictionary<string, GameObject>();
+    private Dictionary<string, GameObject> activeQuestUI = new Dictionary<string, GameObject>();
 
     private void Awake()
     {
@@ -19,21 +21,20 @@ public class QuestUIManager : MonoBehaviour
 
     public void AddQuestUI(Quest quest)
     {
-        if (questUIItems.ContainsKey(quest.questName)) return; // Zaten ekliyse tekrar ekleme
+        if (activeQuestUI.ContainsKey(quest.questName)) return;
 
-        GameObject questItem = Instantiate(questPrefab, questListContainer);
-        questItem.GetComponent<TextMeshProUGUI>().text = quest.questName;
-        questItem.transform.Find("QuestDesc").GetComponent<TextMeshProUGUI>().text=quest.questDescription;
+        GameObject questUI = Instantiate(questPrefab, questContainer);
+        questUI.GetComponentInChildren<TextMeshProUGUI>().text = quest.questName;
 
-        questUIItems[quest.questName] = questItem;
+        activeQuestUI[quest.questName] = questUI;
     }
 
     public void CompleteQuestUI(string questName)
     {
-        if (questUIItems.ContainsKey(questName))
+        if (activeQuestUI.ContainsKey(questName))
         {
-            Destroy(questUIItems[questName]); // UI'dan kald�r
-            questUIItems.Remove(questName);
+            Destroy(activeQuestUI[questName]);
+            activeQuestUI.Remove(questName);
         }
     }
 }

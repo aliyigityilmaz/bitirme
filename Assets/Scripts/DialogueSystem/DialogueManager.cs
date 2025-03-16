@@ -1,6 +1,5 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 
@@ -11,11 +10,20 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI nameText;
     public GameObject dialoguePanel;
+    public GameObject responsePanel;
+    public Transform responseContainer;
+    public GameObject responsePrefab;
 
-    private Queue<string> dialogueQueue;
-    private bool isDialogueActive = false;
+    public Sprite normalIcon;
+    public Sprite endIcon;
+    public Sprite questIcon;
+
+    private Queue<DialogueEntry> dialogueQueue;
     private PlayerController player;
     private QuestGiver currentQuestGiver;
+
+    private List<GameObject> responseButtons = new List<GameObject>();
+    private int selectedResponseIndex = 0;
 
     private void Awake()
     {
@@ -25,38 +33,42 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        player = FindFirstObjectByType<PlayerController>(); // Oyuncuyu bul
+        player = FindFirstObjectByType<PlayerController>();
         dialoguePanel.SetActive(false);
+        responsePanel.SetActive(false);
     }
 
     private void Update()
     {
-        if (isDialogueActive)
+        if (!dialoguePanel.activeSelf) return;
+
+        if (responsePanel.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                ShowNextSentence();
-            }
-            else if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                EndDialogue();
-            }
+            // W veya S ile seçenekleri değiştir
+            if (Input.GetKeyDown(KeyCode.W)) ChangeSelectedResponse(-1);
+            if (Input.GetKeyDown(KeyCode.S)) ChangeSelectedResponse(1);
+
+            // E ile seçimi onayla
+            if (Input.GetKeyDown(KeyCode.E)) HandleResponseSelection();
+        }
+        else
+        {
+            // E ile sıradaki cümleye geç
+            if (Input.GetKeyDown(KeyCode.E)) ShowNextSentence();
         }
     }
 
     public void StartDialogue(DialogueData dialogue, QuestGiver questGiver = null)
     {
-        if (isDialogueActive) return;
+        if (dialogue == null || dialogue.dialogueEntries.Length == 0) return;
 
-        currentQuestGiver = questGiver; // E�er bir QuestGiver NPC ile konu�uyorsak onu kaydet
-
-        dialogueQueue = new Queue<string>(dialogue.dialogueLines);
+        currentQuestGiver = questGiver;
+        dialogueQueue = new Queue<DialogueEntry>(dialogue.dialogueEntries);
         dialoguePanel.SetActive(true);
+        responsePanel.SetActive(false);
 
         nameText.text = dialogue.npcName ?? "";
-
-        isDialogueActive = true;
-        if (player != null) player.isTalking = true;
+        player.isTalking = true;
 
         ShowNextSentence();
     }
@@ -69,20 +81,117 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        dialogueText.text = dialogueQueue.Dequeue();
+        DialogueEntry currentEntry = dialogueQueue.Dequeue();
+        dialogueText.text = currentEntry.dialogueLine;
+
+        if (currentEntry.responses.Length > 0)
+        {
+            ShowResponses(currentEntry.responses);
+        }
+        else
+        {
+            responsePanel.SetActive(false);
+        }
+    }
+
+    private void ShowResponses(DialogueResponse[] responses)
+    {
+        responsePanel.SetActive(true);
+
+        foreach (Transform child in responseContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        responseButtons.Clear();
+        selectedResponseIndex = 0; // İlk yanıtı seçili yap
+
+        for (int i = 0; i < responses.Length; i++)
+        {
+            GameObject responseButton = Instantiate(responsePrefab, responseContainer);
+            responseButtons.Add(responseButton);
+
+            TextMeshProUGUI buttonText = responseButton.GetComponentInChildren<TextMeshProUGUI>();
+            buttonText.text = responses[i].responseText;
+
+            Image iconImage = responseButton.transform.Find("Icon").GetComponent<Image>();
+            iconImage.sprite = GetIconForResponse(responses[i].responseType);
+
+            int index = i;
+            responseButton.GetComponent<Button>().onClick.AddListener(() => HandleResponse(responses[index]));
+
+            buttonText.color = (i == selectedResponseIndex) ? Color.yellow : Color.white;
+        }
+    }
+
+    private void ChangeSelectedResponse(int direction)
+    {
+        if (responseButtons.Count == 0) return;
+
+        // Önceki seçili butonu beyaz yap
+        responseButtons[selectedResponseIndex].GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
+
+        // Yeni seçili indeksi belirle
+        selectedResponseIndex += direction;
+
+        if (selectedResponseIndex < 0) selectedResponseIndex = responseButtons.Count - 1;
+        if (selectedResponseIndex >= responseButtons.Count) selectedResponseIndex = 0;
+
+        // Yeni seçili butonu sarıya boyayalım
+        responseButtons[selectedResponseIndex].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+    }
+
+    private void HandleResponseSelection()
+    {
+        if (responseButtons.Count == 0) return;
+        responseButtons[selectedResponseIndex].GetComponent<Button>().onClick.Invoke();
+    }
+
+    private Sprite GetIconForResponse(ResponseType type)
+    {
+        switch (type)
+        {
+            case ResponseType.Normal:
+                return normalIcon;
+            case ResponseType.End:
+                return endIcon;
+            case ResponseType.AcceptQuest:
+                return questIcon;
+            default:
+                return null;
+        }
+    }
+
+    private void HandleResponse(DialogueResponse response)
+    {
+        switch (response.responseType)
+        {
+            case ResponseType.Normal:
+                ShowNextSentence();
+                break;
+            case ResponseType.End:
+                EndDialogue();
+                break;
+            case ResponseType.AcceptQuest:
+                if (currentQuestGiver != null && response.assignedQuest != null)
+                {
+                    QuestManager.Instance.AddQuest(response.assignedQuest);
+                    currentQuestGiver.isQuestGiven = true;
+                    StartDialogue(currentQuestGiver.questGivenDialogue, currentQuestGiver);
+                }
+                else
+                {
+                    ShowNextSentence();
+                }
+                break;
+        }
     }
 
     private void EndDialogue()
     {
         dialoguePanel.SetActive(false);
-        isDialogueActive = false;
-
-        if (player != null) player.isTalking = false;
-
-        if (currentQuestGiver != null)
-        {
-            currentQuestGiver.GiveQuest(); // E�er bu bir g�rev veren NPC ise g�revi ver
-            currentQuestGiver = null;
-        }
+        responsePanel.SetActive(false);
+        player.isTalking = false;
+        currentQuestGiver = null;
     }
 }
