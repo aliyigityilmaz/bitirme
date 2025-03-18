@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class EnemyTargetable : MonoBehaviour
+public class HeroTargetable : MonoBehaviour
 {
-    public Hero enemyData;
+    public Hero heroData;
 
     private void OnMouseDown()
     {
@@ -10,9 +10,9 @@ public class EnemyTargetable : MonoBehaviour
         {
             Skill selectedSkill = CombatStateManager.Instance.selectedSkill;
 
-            if (selectedSkill != null && selectedSkill.skillType == SkillType.Damage)
+            if (selectedSkill != null && selectedSkill.skillType == SkillType.Heal)
             {
-                CombatStateManager.Instance.OnEnemySelected(enemyData);
+                CombatStateManager.Instance.OnHeroSelected(heroData);
                 SkillUIManager.Instance.skillPanel.SetActive(false);
             }
         }

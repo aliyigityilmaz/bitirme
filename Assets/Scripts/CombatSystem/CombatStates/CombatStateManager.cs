@@ -60,11 +60,27 @@ public class CombatStateManager : MonoBehaviour
         {
             Hero activeHero = turnOrder[currentTurnIndex];
             selectedSkill = activeHero.GetSkills()[selectedSkillIndex];
+            Debug.Log("Selected skill: " + selectedSkill.skillName);
+            Debug.Log("Selected enemy: " + enemy.name);
             selectedEnemy = enemy;
             selectedSkillIndex = -1;
             IsTargetSelectionActive = false;
             SetState(new PlayerInputState(this));
         }
     }
+    public void OnHeroSelected(Hero hero)
+    {
+        if (selectedSkillIndex != -1)
+        {
+            Hero activeHero = turnOrder[currentTurnIndex];
+            selectedSkill = activeHero.GetSkills()[selectedSkillIndex];
+            selectedEnemy = hero;
+            selectedSkillIndex = -1;
+            IsTargetSelectionActive = false;
 
+            Debug.Log($"Target Selected: {selectedEnemy.name}");
+
+            SetState(new PlayerInputState(this));
+        }
+    }
 }

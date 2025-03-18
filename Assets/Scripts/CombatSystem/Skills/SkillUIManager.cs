@@ -35,10 +35,13 @@ public class SkillUIManager : MonoBehaviour
         }
         skillPanel.SetActive(true);
     }
-
     public void OnSkillButtonClicked(int index)
     {
         CombatStateManager.Instance.selectedSkillIndex = index;
+        Hero activeHero = CombatStateManager.Instance.turnOrder[CombatStateManager.Instance.currentTurnIndex];
+        CombatStateManager.Instance.selectedSkill = activeHero.GetSkills()[index];
         CombatStateManager.Instance.IsTargetSelectionActive = true;
+        Debug.Log($"Skill Selected: {CombatStateManager.Instance.selectedSkill.skillName}");
     }
+
 }

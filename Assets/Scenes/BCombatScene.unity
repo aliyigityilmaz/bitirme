@@ -385,7 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData:
     name: 
-    heroEnemy: Enemy
+    team: 1
     id: 0
     health: 0
     turnSpeed: 0
@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 250008877}
   - component: {fileID: 250008876}
   - component: {fileID: 250008875}
+  - component: {fileID: 250008878}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -500,6 +501,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250008873}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &250008878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250008873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d26488ee5cafa0d47902e1d95d726072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroData:
+    name: 
+    team: 0
+    id: 0
+    health: 0
+    turnSpeed: 0
+    armor: 0
+    criticalChance: 0
+    skills: []
 --- !u!1 &300441614
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,7 +645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData:
     name: 
-    heroEnemy: Enemy
+    team: 1
     id: 0
     health: 0
     turnSpeed: 0
@@ -1550,7 +1572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData:
     name: 
-    heroEnemy: Enemy
+    team: 1
     id: 0
     health: 0
     turnSpeed: 0
@@ -1677,6 +1699,7 @@ GameObject:
   - component: {fileID: 969121704}
   - component: {fileID: 969121703}
   - component: {fileID: 969121702}
+  - component: {fileID: 969121705}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1773,6 +1796,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969121700}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &969121705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969121700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d26488ee5cafa0d47902e1d95d726072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroData:
+    name: Main
+    team: 0
+    id: 0
+    health: 20
+    turnSpeed: 800
+    armor: 0
+    criticalChance: 0
+    skills: []
 --- !u!1 &994453438
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,6 +2047,7 @@ GameObject:
   - component: {fileID: 1069265239}
   - component: {fileID: 1069265238}
   - component: {fileID: 1069265237}
+  - component: {fileID: 1069265240}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2099,6 +2144,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1069265235}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1069265240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069265235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d26488ee5cafa0d47902e1d95d726072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroData:
+    name: 
+    team: 0
+    id: 0
+    health: 0
+    turnSpeed: 0
+    armor: 0
+    criticalChance: 0
+    skills: []
 --- !u!1 &1110363110
 GameObject:
   m_ObjectHideFlags: 0
@@ -2137,10 +2203,12 @@ MonoBehaviour:
   IsTargetSelectionActive: 0
   selectedSkill:
     skillName: 
+    skillType: 0
     baseDamage: 0
+    baseHeal: 0
   selectedEnemy:
     name: 
-    heroEnemy: 
+    team: 0
     id: 0
     health: 0
     turnSpeed: 0
@@ -2176,75 +2244,109 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroList:
   - name: Main
-    heroEnemy: Hero
-    id: 1
-    health: 200
-    turnSpeed: 999999999
-    armor: 100
-    criticalChance: 25
+    team: 0
+    id: 0
+    health: 0
+    turnSpeed: 800
+    armor: 0
+    criticalChance: 0
     skills:
-    - skillName: "D\xFCz vuru\u015F"
+    - skillName: Heal
+      skillType: 1
       baseDamage: 0
-    - skillName: 2. Skill
-      baseDamage: 0
+      baseHeal: 20
+    - skillName: Damaj
+      skillType: 0
+      baseDamage: 20
+      baseHeal: 0
     - skillName: Ulti
+      skillType: 0
+      baseDamage: 20
+      baseHeal: 0
+  - name: Hero 2
+    team: 0
+    id: 1
+    health: 0
+    turnSpeed: 500
+    armor: 0
+    criticalChance: 0
+    skills:
+    - skillName: Hero 2 Skill
+      skillType: 0
       baseDamage: 0
-  - name: Healer
-    heroEnemy: 
+      baseHeal: 0
+  - name: Hero 3
+    team: 0
     id: 2
-    health: 150
+    health: 0
     turnSpeed: 300
-    armor: 100
-    criticalChance: 25
-    skills: []
-  - name: 
-    heroEnemy: 
+    armor: 0
+    criticalChance: 0
+    skills:
+    - skillName: Hero 3 Skill
+      skillType: 0
+      baseDamage: 0
+      baseHeal: 0
+  - name: Hero 4
+    team: 0
     id: 3
+    health: 0
+    turnSpeed: 150
+    armor: 0
+    criticalChance: 0
+    skills:
+    - skillName: Hero 4 Skill
+      skillType: 0
+      baseDamage: 0
+      baseHeal: 0
+  - name: Enemy 1
+    team: 1
+    id: 4
+    health: 0
+    turnSpeed: 500
+    armor: 0
+    criticalChance: 0
+    skills:
+    - skillName: Enemy 1 Skill
+      skillType: 0
+      baseDamage: 0
+      baseHeal: 0
+  - name: Enemy 2
+    team: 1
+    id: 5
+    health: 0
+    turnSpeed: 250
+    armor: 0
+    criticalChance: 0
+    skills:
+    - skillName: Enemy 2 Skill
+      skillType: 0
+      baseDamage: 0
+      baseHeal: 0
+  - name: Enemy 3
+    team: 1
+    id: 6
     health: 0
     turnSpeed: 200
     armor: 0
     criticalChance: 0
-    skills: []
-  - name: 
-    heroEnemy: 
-    id: 4
+    skills:
+    - skillName: Enemy 3 Skill
+      skillType: 0
+      baseDamage: 0
+      baseHeal: 0
+  - name: Enemy 4
+    team: 1
+    id: 7
     health: 0
     turnSpeed: 100
     armor: 0
     criticalChance: 0
-    skills: []
-  - name: 
-    heroEnemy: 
-    id: 4
-    health: 0
-    turnSpeed: 100
-    armor: 0
-    criticalChance: 0
-    skills: []
-  - name: 
-    heroEnemy: 
-    id: 4
-    health: 0
-    turnSpeed: 100
-    armor: 0
-    criticalChance: 0
-    skills: []
-  - name: 
-    heroEnemy: 
-    id: 4
-    health: 0
-    turnSpeed: 100
-    armor: 0
-    criticalChance: 0
-    skills: []
-  - name: 
-    heroEnemy: 
-    id: 4
-    health: 0
-    turnSpeed: 100
-    armor: 0
-    criticalChance: 0
-    skills: []
+    skills:
+    - skillName: Test
+      skillType: 0
+      baseDamage: 20
+      baseHeal: 0
 --- !u!114 &1110363114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3380,6 +3482,7 @@ GameObject:
   - component: {fileID: 1557933295}
   - component: {fileID: 1557933294}
   - component: {fileID: 1557933293}
+  - component: {fileID: 1557933296}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3476,6 +3579,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557933291}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1557933296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557933291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d26488ee5cafa0d47902e1d95d726072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroData:
+    name: Secondary
+    team: 0
+    id: 1
+    health: 50
+    turnSpeed: 0
+    armor: 0
+    criticalChance: 0
+    skills: []
 --- !u!1 &1559481072
 GameObject:
   m_ObjectHideFlags: 0
@@ -4382,7 +4506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData:
     name: 
-    heroEnemy: Enemy
+    team: 1
     id: 0
     health: 0
     turnSpeed: 0
