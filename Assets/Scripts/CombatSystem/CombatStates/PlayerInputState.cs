@@ -16,6 +16,12 @@ public class PlayerInputState : ICombatState
     // Otomatik işlem süresi (örneğin 2 saniye, oyuncu basmazsa)
     private float maxReactionTime = 2.0f;
 
+    // Birden fazla tuş basışı için:
+    // Gereken tuş sayısı = seçilen skillin index + 1 (örneğin 1. skill için 1, 3. skill için 3)
+    private int requiredPresses;
+    private int currentPressCount;
+    private float totalMultiplier;
+
     public PlayerInputState(CombatStateManager manager)
     {
         this.manager = manager;
@@ -23,52 +29,56 @@ public class PlayerInputState : ICombatState
 
     public void Enter()
     {
-        Debug.Log("Entering Player Input State (harf tabanlı timing)");
-        // Rastgele bir harf seçiyoruz
+        Debug.Log("Entering Player Input State (harf tabanlı timing - multi press)");
+
+        // Seçilen skillin index'ine göre kaç basış gerektiğini belirle (index 0 ise 1 basış, index 2 ise 3 basış)
+        requiredPresses = manager.selectedSkillIndex + 1;
+        currentPressCount = 0;
+        totalMultiplier = 0f;
+
+        // İlk round'u başlat
+        SetupNextRound();
+    }
+
+    private void SetupNextRound()
+    {
+        // Her round için rastgele yeni bir harf seç ve zamanı sıfırla
         int index = Random.Range(0, allowedKeys.Length);
         targetKey = allowedKeys[index];
         letterDisplayTime = Time.time;
         inputProcessed = false;
 
-        // Hangi harfe basılacağı console’da yazdırılıyor
-        Debug.Log("Basmanız gereken harf: " + targetKey);
-
-        // UI'ye bağlı Text ve Slider'ı ayarla
+        // UI'yi güncelle (Slider ve Text)
         SkillUIManager.Instance.SliderConnect(targetKey, maxReactionTime);
+        Debug.Log("Round " + (currentPressCount + 1) + " of " + requiredPresses + ": Basmanız gereken harf: " + targetKey);
     }
 
     public void Execute()
     {
         if (!inputProcessed)
         {
-            // Geçen süreyi hesapla ve slider'ı güncelle
             float elapsedTime = Time.time - letterDisplayTime;
             SkillUIManager.Instance.UpdateSlider(elapsedTime);
 
-            // Seçilen harfi KeyCode olarak elde ediyoruz
             KeyCode targetKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), targetKey.ToString());
-
-            // Eğer oyuncu doğru harfe basarsa
             if (Input.GetKeyDown(targetKeyCode))
             {
-                float reactionTime = elapsedTime;
-                ProcessInput(reactionTime);
+                ProcessRound(elapsedTime);
             }
-            // Maksimum süreden sonra otomatik düşük vurma uygulasın
             else if (elapsedTime > maxReactionTime)
             {
                 Debug.Log("Zaman aşımı! Otomatik olarak düşük vurma uygulanıyor.");
-                ProcessInput(maxReactionTime);
+                ProcessRound(maxReactionTime);
             }
         }
     }
 
-    private void ProcessInput(float reactionTime)
+    private void ProcessRound(float reactionTime)
     {
         inputProcessed = true;
         float multiplier;
 
-        // Zaman aralıklarına göre multiplikatör belirliyoruz
+        // Zaman aralıklarına göre bu round için multiplikatör hesapla
         if (reactionTime >= 0.9f && reactionTime <= 1.1f)
         {
             multiplier = 1.5f;
@@ -85,26 +95,35 @@ public class PlayerInputState : ICombatState
             Debug.Log("Poor timing! (Zayıf vurma)");
         }
 
-        // Aktif kahraman ve seçilen yetenek bilgilerini alıyoruz.
-        Hero activeHero = manager.turnOrder[manager.currentTurnIndex];
-        Debug.Log($"Selected skill index in Input: {manager.selectedSkillIndex}");
+        totalMultiplier += multiplier;
+        currentPressCount++;
 
-        if (activeHero == null)
+        if (currentPressCount < requiredPresses)
         {
-            Debug.LogError("Error: activeHero is null!");
+            // Eğer daha fazla basış gerekiyorsa yeni round başlat
+            SetupNextRound();
         }
+        else
+        {
+            // Tüm round'lar tamamlandığında, ortalama multiplier'ı hesapla
+            float finalMultiplier = totalMultiplier / requiredPresses;
+            Debug.Log("Tüm roundlar tamamlandı. Final multiplier: " + finalMultiplier);
+            ApplySkill(finalMultiplier);
+        }
+    }
 
+    private void ApplySkill(float finalMultiplier)
+    {
+        Hero activeHero = manager.turnOrder[manager.currentTurnIndex];
         Skill selectedSkill = activeHero.GetSkills()[manager.selectedSkillIndex];
         manager.selectedSkill = selectedSkill;
-
-        // Final değeri (hasar veya iyileştirme) hesaplıyoruz.
-        float finalValue = selectedSkill.baseDamage * multiplier;
+        float finalValue = selectedSkill.baseDamage * finalMultiplier;
 
         if (selectedSkill.skillType == SkillType.Damage)
         {
             if (manager.selectedEnemy != null)
             {
-                manager.selectedEnemy.health -= (int)finalValue;
+                //manager.selectedEnemy.health -= (int)finalValue;
                 Debug.Log($"{activeHero.name} {manager.selectedEnemy.name} üzerinde {(int)finalValue} hasar yaptı.");
             }
         }
@@ -112,19 +131,16 @@ public class PlayerInputState : ICombatState
         {
             if (manager.selectedEnemy != null)
             {
-                manager.selectedEnemy.health += (int)finalValue;
+                //manager.selectedEnemy.health += (int)finalValue;
                 Debug.Log($"{activeHero.name} {manager.selectedEnemy.name} üzerinde {(int)finalValue} iyileştirme yaptı.");
             }
         }
-
-        // İşlem tamamlandıktan sonra sonraki duruma geçiyoruz.
         manager.SetState(new PlayerActionState(manager));
     }
 
     public void Exit()
     {
         Debug.Log("Exiting Player Input State");
-        // UI elemanlarını kapatıyoruz
         SkillUIManager.Instance.HideSlider();
     }
 }
