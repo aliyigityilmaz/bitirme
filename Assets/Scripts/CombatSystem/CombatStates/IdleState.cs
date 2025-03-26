@@ -17,31 +17,29 @@ public class IdleState : ICombatState
 
     public void Enter()
     {
-        
-    }
-
-    public void Execute()
-    {
         // Sıradaki karakteri alıyoruz
         Hero currentHero = manager.turnOrder[manager.currentTurnIndex];
 
         Debug.Log($"Idle State: Sıradaki karakter = {currentHero.name}, " +
                  $"ID = {currentHero.id}, Team = {currentHero.team}");
-        if (Input.GetKeyDown(KeyCode.Space))
+        // heroEnemy alanına göre hangi state'e geçeceğimize karar veriyoruz
+        if (currentHero.team == TeamType.Hero)
         {
-            // heroEnemy alanına göre hangi state'e geçeceğimize karar veriyoruz
-            if (currentHero.team == TeamType.Hero)
-            {
-                Debug.Log("Karakter Hero. PlayerTurnState'e geçiliyor.");
-                manager.SetState(new PlayerTurnState(manager));
-            }
-            else
-            {
-                Debug.Log("Karakter Enemy. EnemyTurnState'e geçiliyor.");
-                manager.SetState(new EnemyTurnState(manager));
-            }
-
+            Debug.Log("Karakter Hero. PlayerTurnState'e geçiliyor.");
+            manager.SetState(new PlayerTurnState(manager));
         }
+        else
+        {
+            Debug.Log("Karakter Enemy. EnemyTurnState'e geçiliyor.");
+            manager.SetState(new EnemyTurnState(manager));
+        }
+
+
+    }
+
+    public void Execute()
+    {
+
     }
     public void Exit()
     {
