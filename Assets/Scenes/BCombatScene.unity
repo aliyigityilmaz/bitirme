@@ -386,12 +386,20 @@ MonoBehaviour:
   enemyData:
     name: Enemy 2323
     team: 1
-    id: 0
+    id: 2
     health: 0
-    turnSpeed: 0
+    turnSpeed: 200
     armor: 0
     criticalChance: 0
-    skills: []
+    skills:
+    - skillName: Basic Attack
+      skillType: 0
+      baseDamage: 10
+      baseHeal: 0
+    - skillName: Advanced
+      skillType: 0
+      baseDamage: 20
+      baseHeal: 0
     charAnimator: {fileID: 0}
 --- !u!1 &250008873
 GameObject:
@@ -517,9 +525,9 @@ MonoBehaviour:
   heroData:
     name: 
     team: 0
-    id: 0
+    id: 2
     health: 0
-    turnSpeed: 0
+    turnSpeed: 150
     armor: 0
     criticalChance: 0
     skills:
@@ -662,15 +670,15 @@ MonoBehaviour:
     team: 1
     id: 0
     health: 100
-    turnSpeed: 700
+    turnSpeed: 400
     armor: 0
     criticalChance: 0
     skills:
-    - skillName: 
+    - skillName: Basic Attack
       skillType: 0
       baseDamage: 10
       baseHeal: 0
-    - skillName: 
+    - skillName: Advanced
       skillType: 0
       baseDamage: 25
       baseHeal: 0
@@ -1673,12 +1681,20 @@ MonoBehaviour:
   enemyData:
     name: 
     team: 1
-    id: 0
+    id: 1
     health: 0
-    turnSpeed: 0
+    turnSpeed: 300
     armor: 0
     criticalChance: 0
-    skills: []
+    skills:
+    - skillName: Basic Attack
+      skillType: 0
+      baseDamage: 10
+      baseHeal: 0
+    - skillName: Advanced
+      skillType: 0
+      baseDamage: 20
+      baseHeal: 0
     charAnimator: {fileID: 0}
 --- !u!1 &892570888
 GameObject:
@@ -2245,9 +2261,9 @@ MonoBehaviour:
   heroData:
     name: 
     team: 0
-    id: 0
+    id: 3
     health: 0
-    turnSpeed: 0
+    turnSpeed: 50
     armor: 0
     criticalChance: 0
     skills:
@@ -3817,7 +3833,7 @@ MonoBehaviour:
     team: 0
     id: 1
     health: 50
-    turnSpeed: 0
+    turnSpeed: 250
     armor: 0
     criticalChance: 0
     skills:
@@ -4741,12 +4757,20 @@ MonoBehaviour:
   enemyData:
     name: 
     team: 1
-    id: 0
+    id: 3
     health: 0
-    turnSpeed: 0
+    turnSpeed: 100
     armor: 0
     criticalChance: 0
-    skills: []
+    skills:
+    - skillName: Basic Attack
+      skillType: 0
+      baseDamage: 10
+      baseHeal: 0
+    - skillName: Advanced
+      skillType: 0
+      baseDamage: 20
+      baseHeal: 0
     charAnimator: {fileID: 0}
 --- !u!1 &1790968889
 GameObject:
@@ -4896,7 +4920,7 @@ MonoBehaviour:
     team: 0
     id: 0
     health: 20
-    turnSpeed: 800
+    turnSpeed: 500
     armor: 0
     criticalChance: 0
     skills:
