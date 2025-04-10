@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public enum TeamType
 {
     Hero,
@@ -15,6 +17,7 @@ public class Hero
     public int armor;
     public int criticalChance;
     public Skill[] skills;
+    public Animator charAnimator;
     public Skill[] GetSkills() { return skills; }
 
     public Hero(string name, int id, int health, int turnSpeed, int armor, int criticalChance, TeamType team)

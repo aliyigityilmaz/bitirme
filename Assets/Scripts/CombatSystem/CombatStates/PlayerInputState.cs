@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerInputState : ICombatState
 {
     private CombatStateManager manager;
-
+    public static PlayerInputState instance;
     // Kullanılacak harfler dizisi
     private char[] allowedKeys = new char[] { 'A', 'S', 'D', 'F' };
     private char targetKey;         // Seçilen hedef harf
@@ -21,7 +21,7 @@ public class PlayerInputState : ICombatState
     private int requiredPresses;
     private int currentPressCount;
     private float totalMultiplier;
-
+    public float finalDamage;
     public PlayerInputState(CombatStateManager manager)
     {
         this.manager = manager;
@@ -29,6 +29,7 @@ public class PlayerInputState : ICombatState
 
     public void Enter()
     {
+        instance = this;
         Debug.Log("Entering Player Input State (harf tabanlı timing - multi press)");
 
         // Seçilen skillin index'ine göre kaç basış gerektiğini belirle (index 0 ise 1 basış, index 2 ise 3 basış)
@@ -108,34 +109,9 @@ public class PlayerInputState : ICombatState
             // Tüm round'lar tamamlandığında, ortalama multiplier'ı hesapla
             float finalMultiplier = totalMultiplier / requiredPresses;
             Debug.Log("Tüm roundlar tamamlandı. Final multiplier: " + finalMultiplier);
-            ApplySkill(finalMultiplier);
+            finalDamage = finalMultiplier;
+            manager.SetState(new PlayerActionState(manager));
         }
-    }
-
-    private void ApplySkill(float finalMultiplier)
-    {
-        Hero activeHero = manager.turnOrder[manager.currentTurnIndex];
-        Skill selectedSkill = activeHero.GetSkills()[manager.selectedSkillIndex];
-        manager.selectedSkill = selectedSkill;
-        float finalValue = selectedSkill.baseDamage * finalMultiplier;
-
-        if (selectedSkill.skillType == SkillType.Damage)
-        {
-            if (manager.selectedEnemy != null)
-            {
-                //manager.selectedEnemy.health -= (int)finalValue;
-                Debug.Log($"{activeHero.name} {manager.selectedEnemy.name} üzerinde {(int)finalValue} hasar yaptı.");
-            }
-        }
-        else if (selectedSkill.skillType == SkillType.Heal)
-        {
-            if (manager.selectedEnemy != null)
-            {
-                //manager.selectedEnemy.health += (int)finalValue;
-                Debug.Log($"{activeHero.name} {manager.selectedEnemy.name} üzerinde {(int)finalValue} iyileştirme yaptı.");
-            }
-        }
-        manager.SetState(new PlayerActionState(manager));
     }
 
     public void Exit()
