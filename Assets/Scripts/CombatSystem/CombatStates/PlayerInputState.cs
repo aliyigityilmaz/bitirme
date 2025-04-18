@@ -3,25 +3,28 @@ using UnityEngine;
 
 public class PlayerInputState : ICombatState
 {
-    private CombatStateManager manager;
     public static PlayerInputState instance;
-    // Kullanılacak harfler dizisi
-    private char[] allowedKeys = new char[] { 'A', 'S', 'D', 'F' };
-    private char targetKey;         // Seçilen hedef harf
-    private float letterDisplayTime; // Harf gösterildiği an
+    private CombatStateManager manager;
+    // Kullanılacak tuşlar: W, A, S, D
+    private char[] allowedKeys = new char[] { 'W', 'A', 'S', 'D' };
+    private char targetKey;         // Seçilen tuş
+    private float roundStartTime;   // Round başlangıç zamanı
     private bool inputProcessed = false;
 
-    // İdeal reaksiyon süresi (saniye cinsinden)
-    private float idealReactionTime = 1.0f;
-    // Otomatik işlem süresi (örneğin 2 saniye, oyuncu basmazsa)
-    private float maxReactionTime = 2.0f;
+    // Şarkı notaları – her kahramanın kendine ait 6 notası; burada ilk 3 nota kullanılacak.
+    private float[] songNotesTime;
+    private float currentNoteDuration; // Round için seçilen nota süresi
+    private AudioClip[] songNotes;
 
-    // Birden fazla tuş basışı için:
-    // Gereken tuş sayısı = seçilen skillin index + 1 (örneğin 1. skill için 1, 3. skill için 3)
+    // Round sayısı (örnekte 2-6 arası rastgele belirleniyor fakat ilk 3 nota kullanılacağı için sınırlandırıyoruz)
     private int requiredPresses;
     private int currentPressCount;
     private float totalMultiplier;
+    private AudioForCombat afc;
+    private AudioClip currentAudioClip;
     public float finalDamage;
+    
+
     public PlayerInputState(CombatStateManager manager)
     {
         this.manager = manager;
@@ -29,63 +32,94 @@ public class PlayerInputState : ICombatState
 
     public void Enter()
     {
-        instance = this;
-        Debug.Log("Entering Player Input State (harf tabanlı timing - multi press)");
+        afc = AudioForCombat.Instance;
+        Debug.Log("Yeni ritim mekaniği ile PlayerInputState'e girildi");
 
-        // Seçilen skillin index'ine göre kaç basış gerektiğini belirle (index 0 ise 1 basış, index 2 ise 3 basış)
-        requiredPresses = manager.selectedSkillIndex + 1;
+        // Turn-based sistemde sıradaki aktif kahraman alınır.
+        Hero activeHero = manager.turnOrder[manager.currentTurnIndex];
+
+        // Aktif kahramanın kendine özgü şarkı notalarını almak için HeroSongNotes kullanılır.
+        songNotesTime = HeroSongNotes.GetSongNotesForHero(activeHero);
+if (activeHero.id == 1)
+            songNotes = afc.heroMainNotes;
+        if (activeHero.id == 2)
+            songNotes = afc.heroSniperNotes;
+        if (activeHero.id == 3)
+            songNotes = afc.heroTankNotes;
+        if (activeHero.id == 4)
+            songNotes = afc.heroHealerNotes;
+        // Eğer yeterli nota yoksa default bir dizi tanımlanır.
+        if (songNotesTime == null || songNotesTime.Length < 3)
+        {
+            songNotesTime = new float[] { 1.0f, 1.2f, 0.8f, 1.0f, 1.1f, 0.9f };
+        }
+        
+
+        // Örnekte, round sayısını 2 ile 6 arasında rastgele belirleyip 3 round ile sınırlandırıyoruz.
+        requiredPresses = Mathf.Min(Random.Range(3, 7) );
         currentPressCount = 0;
         totalMultiplier = 0f;
 
-        // İlk round'u başlat
         SetupNextRound();
+        
+
     }
 
     private void SetupNextRound()
     {
-        // Her round için rastgele yeni bir harf seç ve zamanı sıfırla
-        int index = Random.Range(0, allowedKeys.Length);
-        targetKey = allowedKeys[index];
-        letterDisplayTime = Time.time;
+        // Round başında, rastgele bir tuş seçilir.
+        int keyIndex = Random.Range(0, allowedKeys.Length);
+        targetKey = allowedKeys[keyIndex];
+        roundStartTime = Time.time;
         inputProcessed = false;
 
-        // UI'yi güncelle (Slider ve Text)
-        SkillUIManager.Instance.SliderConnect(targetKey, maxReactionTime);
-        Debug.Log("Round " + (currentPressCount + 1) + " of " + requiredPresses + ": Basmanız gereken harf: " + targetKey);
+        // Aktif round için nota süresi, kahramanın şarkı notası dizisindeki ilgili notadan alınır.
+        currentNoteDuration = songNotesTime[currentPressCount];
+        currentAudioClip=songNotes[currentPressCount];
+
+        // SkillUIManager üzerinden UI ayarları yapılır:
+        // SliderConnect metodu, tuş metnini (ör. "Press W") günceller ve slider'ın minimum, maksimum değerlerini ayarlar.
+        SkillUIManager.Instance.SliderConnect(targetKey, currentNoteDuration);
+        Debug.Log("Round " + (currentPressCount + 1) + " of " + requiredPresses + 
+                  ": Basılması gereken tuş: " + targetKey + ", Nota süresi: " + currentNoteDuration);
     }
 
     public void Execute()
     {
         if (!inputProcessed)
         {
-            float elapsedTime = Time.time - letterDisplayTime;
+            float elapsedTime = Time.time - roundStartTime;
+            // Round boyunca slider’ın değeri güncellenir.
             SkillUIManager.Instance.UpdateSlider(elapsedTime);
 
-            KeyCode targetKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), targetKey.ToString());
-            if (Input.GetKeyDown(targetKeyCode))
+            // Seçilen tuş kontrol edilir.
+            KeyCode keyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), targetKey.ToString());
+            if (Input.GetKeyDown(keyCode))
             {
-                ProcessRound(elapsedTime);
+                ProcessRound(currentNoteDuration, elapsedTime);
+                afc.PlayNote(currentAudioClip);
             }
-            else if (elapsedTime > maxReactionTime)
+            else if (elapsedTime > currentNoteDuration)
             {
-                Debug.Log("Zaman aşımı! Otomatik olarak düşük vurma uygulanıyor.");
-                ProcessRound(maxReactionTime);
+                Debug.Log("Zaman aşımı! Otomatik olarak zayıf vurma uygulanıyor.");
+                ProcessRound(currentNoteDuration, currentNoteDuration);
             }
         }
     }
 
-    private void ProcessRound(float reactionTime)
+    private void ProcessRound(float noteDuration, float elapsedTime)
     {
         inputProcessed = true;
+        // İdeal vuruş zamanı, nota süresinin tam yarısıdır.
+        float deviation = Mathf.Abs(elapsedTime - (noteDuration / 2f));
         float multiplier;
 
-        // Zaman aralıklarına göre bu round için multiplikatör hesapla
-        if (reactionTime >= 0.9f && reactionTime <= 1.1f)
+        if (deviation <= noteDuration * 0.1f)
         {
             multiplier = 1.5f;
             Debug.Log("Perfect timing! (Mükemmel vurma)");
         }
-        else if ((reactionTime >= 0.7f && reactionTime < 0.9f) || (reactionTime > 1.1f && reactionTime <= 1.3f))
+        else if (deviation <= noteDuration * 0.2f)
         {
             multiplier = 1.0f;
             Debug.Log("Normal timing! (Normal vurma)");
@@ -101,22 +135,21 @@ public class PlayerInputState : ICombatState
 
         if (currentPressCount < requiredPresses)
         {
-            // Eğer daha fazla basış gerekiyorsa yeni round başlat
             SetupNextRound();
         }
         else
         {
-            // Tüm round'lar tamamlandığında, ortalama multiplier'ı hesapla
             float finalMultiplier = totalMultiplier / requiredPresses;
             Debug.Log("Tüm roundlar tamamlandı. Final multiplier: " + finalMultiplier);
-            finalDamage = finalMultiplier;
             manager.SetState(new PlayerActionState(manager));
         }
     }
 
+    
+
     public void Exit()
     {
-        Debug.Log("Exiting Player Input State");
+        Debug.Log("PlayerInputState'ten çıkılıyor");
         SkillUIManager.Instance.HideSlider();
     }
 }
