@@ -12,8 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad6347be23db0847b29443f429d06c0, type: 3}
   m_Name: QuestDialogue
   m_EditorClassIdentifier: 
-  npcName: "da\u011Fc\u0131"
-  dialogueLines:
-  - abe
-  - "abe sen \u015Fimdi \u015Fu da\u011Flar\u0131 g\xF6r\xFCyon"
-  - "o da\u011Flar berkaya girsin"
+  npcName: Miounne
+  dialogueEntries:
+  - dialogueLine: "Mind you do not stray far from the path\u2500the Twelveswood is
+      no place for merry strolls through the underbrush."
+    responses:
+    - responseText: I will be careful
+      responseType: 2
+      assignedQuest:
+        questName: To the Twelveswood!
+        questDescription: Head to The Twelveswood and talk to Galfrid to complete
+          the quest.
+        isCompleted: 0
+    - responseText: I have other things to do...
+      responseType: 1
+      assignedQuest:
+        questName: 
+        questDescription: 
+        isCompleted: 0

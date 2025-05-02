@@ -13,33 +13,20 @@ MonoBehaviour:
   m_Name: TestDialogue
   m_EditorClassIdentifier: 
   npcName: Test
-  dialogueLines:
-  - Bunu yazan tosun okuyana gosun
-  - "B\xF6h\xF6h\xF6yt"
-  - zort
-  - "p\u0131rt"
-  - "Braelor'da The Grasslands ad\u0131 verilen bir b\xF6lge vard\u0131r. Bu b\xF6lgedeki
-    insanlar genellikle bal\u0131k\xE7\u0131l\u0131kla ya\u015Famlar\u0131n\u0131
-    s\xFCrd\xFCrmektedir. Ancak bal\u0131k\xE7\u0131lar bazen g\xFCzergahlar\u0131ndan
-    uzaklara giderek daha \xF6nce g\xF6rmedikleri diyarlardan da e\u015Fyalar getirmektedirler.
-    Bir g\xFCn para h\u0131rs\u0131yla g\xFCzergah\u0131n\u0131 terk eden bir gemi,
-    f\u0131rt\u0131nan\u0131n i\xE7inde kaybolur. F\u0131rt\u0131nadan \xE7\u0131kt\u0131klar\u0131nda
-    ise ufukta bir ada g\xF6r\xFCnmektedir. Bu adaya giderek kendi diyarlar\u0131na
-    yabanc\u0131 olan t\xFCm e\u015Fyalar\u0131 al\u0131rlar. Ancak bu denizlerde
-    ya\u015Fayan canl\u0131lardan bir tanesini de fark\u0131nda olmadan yanlar\u0131nda
-    getirmi\u015Flerdir. Bu canl\u0131 The Grasslands'de kaosa yol a\xE7ar. Gemiden
-    karaya malzeme ta\u015F\u0131nd\u0131\u011F\u0131 s\u0131rada m\xFCrettebattan
-    birini \xF6ld\xFCrm\xFC\u015Ft\xFCr. Ancak \xF6len ki\u015Fi hareket etmeye devam
-    ederek di\u011Fer insanlara sald\u0131rmaya ba\u015Flam\u0131\u015Ft\u0131r.
-    Yarat\u0131\u011F\u0131n \xF6ld\xFCrd\xFC\u011F\xFC insanlar da ilk kurban gibi
-    hareket etmeye ve sald\u0131rmaya devam etmi\u015Ftir adete onun emirlerini dinlemektedirler.
-    Bu y\xFCr\xFCyen \xF6l\xFClerin ayak bast\u0131\u011F\u0131 topraklar verimini
-    tamamen yitirmektedir. \xD6l\xFCler ordusu gitgide t\xFCm \xFClkeyi ele ge\xE7irir
-    ve kom\u015Fu k\u0131talara yay\u0131lmaya ba\u015Flar. \xD6l\xFClerin sadece
-    \xE7\xF6l \xFClkesi olan Ethar'a yakla\u015Fmad\u0131\u011F\u0131n\u0131 fark
-    eden Drehmur \u015Fehrinden haberler \xE7abuk yay\u0131l\u0131r. Ancak Ethar
-    iklim \u015Fartlar\u0131 sebebiyle ticaret ve ileti\u015Fimin geli\u015Fmedi\u011Fi
-    bir yer oldu\u011Fundan ye\u015Fil diyarlarda olanlardan haberi olmam\u0131\u015Ft\u0131r.
-    Ye\u015Fil diyarlar \xE7ap\u0131nda bu \xF6l\xFClere Newborns ad\u0131 verilir.
-    \u0130nsanlar Ethar'da ya\u015Fanabilecek en iyi yer olan Babilin Asma Bah\xE7elerine
-    g\xF6\xE7 etmeye ba\u015Flar."
+  dialogueEntries:
+  - dialogueLine: asdfsadfa
+    responses:
+    - responseText: Ab
+      responseType: 0
+      assignedQuest:
+        questName: 
+        questDescription: 
+        isCompleted: 0
+  - dialogueLine: asdfsadfa
+    responses:
+    - responseText: Ab
+      responseType: 0
+      assignedQuest:
+        questName: 
+        questDescription: 
+        isCompleted: 0

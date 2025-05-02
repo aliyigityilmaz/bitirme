@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
+using static System.Net.Mime.MediaTypeNames;
 
 public class QuestUIManager : MonoBehaviour
 {
@@ -24,7 +25,9 @@ public class QuestUIManager : MonoBehaviour
         if (activeQuestUI.ContainsKey(quest.questName)) return;
 
         GameObject questUI = Instantiate(questPrefab, questContainer);
-        questUI.GetComponentInChildren<TextMeshProUGUI>().text = quest.questName;
+        GameObject quesDesc = questUI.transform.Find("QuestDesc").gameObject;
+        questUI.GetComponent<TextMeshProUGUI>().text = quest.questName;
+        quesDesc.GetComponent<TextMeshProUGUI>().text = quest.questDescription;
 
         activeQuestUI[quest.questName] = questUI;
     }

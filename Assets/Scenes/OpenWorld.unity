@@ -1354,8 +1354,8 @@ MonoBehaviour:
   questGivenDialogue: {fileID: 11400000, guid: 5326d321eb9bb8541a5138d43e07eedd, type: 2}
   questCompletedDialogue: {fileID: 11400000, guid: 0ae79bd4ae163e24382398815923b096, type: 2}
   quest:
-    questName: Vur komando
-    questDescription: "da\u011Fc\u0131 komando da\u011Fc\u0131"
+    questName: To the Twelveswood!
+    questDescription: Head to the Twelveswood to find Galfrid.
     isCompleted: 0
   isQuestGiven: 0
 --- !u!65 &1240501241

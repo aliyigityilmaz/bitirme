@@ -6,6 +6,9 @@ public class QuestManager : MonoBehaviour
     public static QuestManager Instance;
 
     private List<Quest> activeQuests = new List<Quest>();
+    
+
+    
 
     private void Awake()
     {
@@ -21,6 +24,7 @@ public class QuestManager : MonoBehaviour
         if (!activeQuests.Contains(quest))
         {
             activeQuests.Add(quest);
+            QuestUIManager.Instance.AddQuestUI(quest); // Görev UI'sini güncelle
             Debug.Log("New Quest Added: " + quest.questName);
         }
         else

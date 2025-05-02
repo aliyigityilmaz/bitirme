@@ -12,13 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad6347be23db0847b29443f429d06c0, type: 3}
   m_Name: Test2
   m_EditorClassIdentifier: 
-  npcName: 
+  npcName: Miounne
   dialogueEntries:
   - dialogueLine: "Siki\u015F siki\u015F benim i\xE7in tek i\u015F"
     responses: []
-  - dialogueLine: "O kadar \xE7ok yapt\u0131m ki kapt\u0131m aids"
+  - dialogueLine: It is a training ground found just outside the city where the soldiers
+      of the Order of the Twin Adder are drilled in swordplay and other martial matters.
     responses: []
-  - dialogueLine: "Doktora gittim dedi senin sonun le\u015F"
+  - dialogueLine: "I mention this because an acquaintance of mine\u2500a gentleman
+      by the name of Galfrid\u2500is an instructor there, and I think you may be
+      of use to him. Go and introduce yourself, and find out if there is anything
+      you can do to help."
     responses:
     - responseText: "senin sonun le\u015F"
       responseType: 0
@@ -26,8 +30,22 @@ MonoBehaviour:
         questName: 
         questDescription: 
         isCompleted: 0
-  - dialogueLine: bledaaa
-    responses: []
+  - dialogueLine: "Mind you do not stray far from the path\u2500the Twelveswood is
+      no place for merry strolls through the underbrush."
+    responses:
+    - responseText: I will be careful
+      responseType: 2
+      assignedQuest:
+        questName: To the Twelveswood!
+        questDescription: Head to The Twelveswood and talk to Galfrid to complete
+          the quest.
+        isCompleted: 0
+    - responseText: I have other things to do...
+      responseType: 1
+      assignedQuest:
+        questName: 
+        questDescription: 
+        isCompleted: 0
   - dialogueLine: "kafalar milyonluk kafalar kimyonlu hatunu bol buldum a\u011Fz\u0131ma
       osurdu"
     responses:
@@ -77,3 +95,5 @@ MonoBehaviour:
         questName: 5 lira 5 lira
         questDescription: 5 lira al 5 lira al 5 lira almazsan
         isCompleted: 0
+  - dialogueLine: sewkx
+    responses: []
