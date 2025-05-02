@@ -8,8 +8,13 @@ public class EnemyTargetable : MonoBehaviour
     {
         if (CombatStateManager.Instance.IsTargetSelectionActive)
         {
-            CombatStateManager.Instance.OnEnemySelected(enemyData);
-            SkillUIManager.Instance.skillPanel.SetActive(false);
+            Skill selectedSkill = CombatStateManager.Instance.selectedSkill;
+
+            if (selectedSkill != null && selectedSkill.skillType == SkillType.Damage)
+            {
+                CombatStateManager.Instance.OnEnemySelected(enemyData);
+                SkillUIManager.Instance.skillPanel.SetActive(false);
+            }
         }
     }
 }
