@@ -33,6 +33,7 @@ public class PlayerInputState : ICombatState
 
     public void Enter()
     {
+        instance = this;
         afc = AudioForCombat.Instance;
         Debug.Log("Yeni ritim mekaniği ile PlayerInputState'e girildi");
 
@@ -169,6 +170,7 @@ public class PlayerInputState : ICombatState
             {
                 afc.PlayMusicWithCrossFade(songs[0]);
             }
+            finalDamage = finalMultiplier;
             manager.SetState(new PlayerActionState(manager));
             
         }
