@@ -15,6 +15,7 @@ public class PlayerInputState : ICombatState
     private float[] songNotesTime;
     private float currentNoteDuration; // Round için seçilen nota süresi
     private AudioClip[] songNotes;
+    private AudioClip[] songs;
 
     // Round sayısı (örnekte 2-6 arası rastgele belirleniyor fakat ilk 3 nota kullanılacağı için sınırlandırıyoruz)
     private int requiredPresses;
@@ -40,14 +41,29 @@ public class PlayerInputState : ICombatState
 
         // Aktif kahramanın kendine özgü şarkı notalarını almak için HeroSongNotes kullanılır.
         songNotesTime = HeroSongNotes.GetSongNotesForHero(activeHero);
-if (activeHero.id == 1)
+        if (activeHero.id == 1)
+        {
             songNotes = afc.heroMainNotes;
+            songs = afc.heroMainSong;
+        }
+
         if (activeHero.id == 2)
+        {
             songNotes = afc.heroSniperNotes;
+            songs = afc.heroSniperSong;
+        }
+
         if (activeHero.id == 3)
+        {
             songNotes = afc.heroTankNotes;
+            songs = afc.heroTankSong;
+        }
+
         if (activeHero.id == 4)
+        {
             songNotes = afc.heroHealerNotes;
+            songs = afc.heroHealerSong;
+        }
         // Eğer yeterli nota yoksa default bir dizi tanımlanır.
         if (songNotesTime == null || songNotesTime.Length < 3)
         {
@@ -141,9 +157,23 @@ if (activeHero.id == 1)
         {
             float finalMultiplier = totalMultiplier / requiredPresses;
             Debug.Log("Tüm roundlar tamamlandı. Final multiplier: " + finalMultiplier);
+            if (1f<finalMultiplier && finalMultiplier<=1.5)
+            {
+                afc.PlayMusicWithCrossFade(songs[2]);
+            }
+            if (0.5<finalMultiplier && finalMultiplier<=1)
+            {
+                afc.PlayMusicWithCrossFade(songs[1]);
+            }
+            if ( finalMultiplier <=0.5)
+            {
+                afc.PlayMusicWithCrossFade(songs[0]);
+            }
             manager.SetState(new PlayerActionState(manager));
+            
         }
     }
+    
 
     
 
