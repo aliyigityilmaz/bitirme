@@ -5,44 +5,51 @@ using System.Collections;
 
 public class AudioForCombat : MonoBehaviour
 {
-        #region Static Instance
-        private static AudioForCombat instance;
+    #region Static Instance
+    private static AudioForCombat instance;
 
-        public static AudioForCombat Instance
+    public static AudioForCombat Instance
+    {
+        get
         {
-            get
+            if (instance == null)
+                instance = FindObjectOfType<AudioForCombat>();
             {
                 if (instance == null)
-                    instance = FindObjectOfType<AudioForCombat>();
                 {
-                    if (instance == null)
-                    {
-                        instance = new GameObject("SpawnedAudioManager", typeof(AudioForCombat))
-                            .GetComponent<AudioForCombat>();
-                    }
+                    instance = new GameObject("SpawnedAudioManager", typeof(AudioForCombat))
+                        .GetComponent<AudioForCombat>();
                 }
-                return instance;
             }
-            private set { instance = value; }
+            return instance;
         }
-        #endregion
+        private set { instance = value; }
+    }
+    #endregion
 
-        [Header("Sources")]
+    [Header("Sources")]
     public AudioSource combatMusicSource1;
     public AudioSource combatMusicSource2;
     public AudioSource combatNoteSource;
+    [Header("Main Combat Sounds")]
+    public AudioClip combatMusicClip1;
+    public AudioClip combatMusicClip2;
     [Header("HeroMainSounds")]
-    public AudioClip heroMainSong;
-    public AudioClip []heroMainNotes;
+    public AudioClip[] heroMainSong;
+    public AudioClip[] heroMainNotes;
+
     [Header("HeroSniperSounds")]
-    public AudioClip heroSniperSong;
-    public AudioClip []heroSniperNotes;
+    public AudioClip[] heroSniperSong;
+    public AudioClip[] heroSniperNotes;
+
     [Header("HeroTankSounds")]
-    public AudioClip heroTankSong;
-    public AudioClip []heroTankNotes;
+    public AudioClip[] heroTankSong;
+    public AudioClip[] heroTankNotes;
+
     [Header("HeroHealerSounds")]
-    public AudioClip heroHealerSong;
-    public AudioClip []heroHealerNotes;
+    public AudioClip[] heroHealerSong;
+    public AudioClip[] heroHealerNotes;
+
     private bool firstMusicSourcePlayin;
 
 
@@ -52,41 +59,90 @@ public class AudioForCombat : MonoBehaviour
         combatMusicSource2.loop = true;
     }
 
+    #region One‑shot SFX
     public void PlayNote(AudioClip clip)
     {
         combatNoteSource.PlayOneShot(clip);
     }
+    #endregion
 
+    #region Instant play (no fade)
     public void PlayMusic(AudioClip musicClip)
     {
         AudioSource activeSource = (firstMusicSourcePlayin) ? combatMusicSource1 : combatMusicSource2;
-            
+
         activeSource.clip = musicClip;
-        activeSource.volume = 1;
+        activeSource.volume = 1f;
         activeSource.Play();
     }
-    public void PlayMusicWithFade(AudioClip newClip, float tranitionTime = 1.0f)
-    {
-        AudioSource activeSource = (firstMusicSourcePlayin) ?combatMusicSource1 : combatMusicSource2;
+    #endregion
 
-        StartCoroutine(UpdateMusicWithFade(activeSource, newClip, tranitionTime));
+    
+
+    
+    public void PlayMusicWithFade(AudioClip newClip, float transitionTime = 1f)
+    {
+        AudioSource activeSource = firstMusicSourcePlayin ? combatMusicSource1 : combatMusicSource2;
+        StartCoroutine(FadeOutIn(activeSource, newClip, transitionTime));
     }
-     
-    IEnumerator UpdateMusicWithFade(AudioSource activeSource,AudioClip newClip,float transationTime)
-    {
-        //if (!activeSource.isPlaying)
-        //activeSource.Play();
-            
-        float t = 0.0f;
 
-        for (t = 0;  t< transationTime; t+=Time.deltaTime)
+    
+    public void PlayMusicWithCrossFade(AudioClip newClip, float transitionTime = 1f)
+    {
+        AudioSource from = firstMusicSourcePlayin ? combatMusicSource1 : combatMusicSource2;
+        AudioSource to   = firstMusicSourcePlayin ? combatMusicSource2 : combatMusicSource1;
+
+        to.clip = newClip;
+        StartCoroutine(CrossFade(from, to, transitionTime));
+
+        // roll the flag so bir sonraki çağrıda kaynaklar yer değiştirsin
+        firstMusicSourcePlayin = !firstMusicSourcePlayin;
+    }
+
+    private IEnumerator FadeOutIn(AudioSource src, AudioClip newClip, float time)
+    {
+        float startVol = src.volume;
+        float t = 0f;
+
+        // Fade‑out
+        while (t < time)
         {
-            activeSource.volume =  (t / transationTime);
+            t += Time.deltaTime;
+            src.volume = Mathf.Lerp(startVol, 0f, t / time);
             yield return null;
         }
-            
-        activeSource.Stop();
-        activeSource.clip = newClip;
-        activeSource.Play();
+
+        src.Stop();
+        src.clip = newClip;
+        src.Play();
+
+        // Fade‑in
+        t = 0f;
+        while (t < time)
+        {
+            t += Time.deltaTime;
+            src.volume = Mathf.Lerp(0f, startVol, t / time);
+            yield return null;
+        }
     }
+
+    private IEnumerator CrossFade(AudioSource from, AudioSource to, float time)
+    {
+        to.volume = 0f;
+        to.Play();
+
+        float t = 0f;
+        while (t < time)
+        {
+            t += Time.deltaTime;
+            float k = t / time; // 0 ➜ 1
+            from.volume = Mathf.Lerp(1f, 0f, k);
+            to.volume   = Mathf.Lerp(0f, 1f, k);
+            yield return null;
+        }
+
+        from.Stop();
+    }
+
+    
 }

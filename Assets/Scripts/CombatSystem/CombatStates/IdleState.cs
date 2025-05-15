@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class IdleState : ICombatState
 {
+    private AudioForCombat afc;
     private CombatStateManager manager;
     private int currentTurn;
     
@@ -17,6 +18,7 @@ public class IdleState : ICombatState
 
     public void Enter()
     {
+        afc = AudioForCombat.Instance;
         // Sıradaki karakteri alıyoruz
         Hero currentHero = manager.turnOrder[manager.currentTurnIndex];
 
@@ -34,7 +36,7 @@ public class IdleState : ICombatState
             manager.SetState(new EnemyTurnState(manager));
         }
 
-
+        afc.PlayMusicWithCrossFade(afc.combatMusicClip1);
     }
 
     public void Execute()
