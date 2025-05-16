@@ -130,7 +130,7 @@ Material:
     - _EmissionSaturation: 6.76
     - _EnvironmentReflections: 1
     - _FlatDissolve: 1
-    - _FlowAmmount: 0
+    - _FlowAmmount: 0.35
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0

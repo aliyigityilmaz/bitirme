@@ -130,7 +130,7 @@ Material:
     - _EmissionSaturation: 5
     - _EnvironmentReflections: 1
     - _FlatDissolve: 1
-    - _FlowAmmount: 0.05
+    - _FlowAmmount: 0.1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -166,7 +166,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flowmap_Panning: {r: 0, g: 0, b: 0, a: 0}
     - _HighColor: {r: 0, g: 0, b: 0, a: 0}
-    - _MainColor: {r: 1, g: 1, b: 1, a: 0}
+    - _MainColor: {r: 0, g: 0, b: 0, a: 0}
     - _MinMaxSmoothStepDissolve: {r: 0, g: 0.2, b: 0, a: 0}
     - _Panning: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
