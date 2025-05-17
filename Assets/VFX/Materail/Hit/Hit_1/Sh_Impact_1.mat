@@ -113,7 +113,7 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Blend: 2
+    - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
     - _CastShadows: 1
@@ -125,9 +125,9 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DstBlend: 1
+    - _DstBlend: 10
     - _DstBlendAlpha: 0
-    - _EmissionSaturation: 0.97
+    - _EmissionSaturation: 1.53
     - _EnvironmentReflections: 1
     - _FlatDissolve: 0.52
     - _FlowAmmount: 0
@@ -136,7 +136,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OpacitySaturation: 10
+    - _OpacitySaturation: 4.55
     - _Parallax: 0.005
     - _PreLerp: 1
     - _QueueControl: 0

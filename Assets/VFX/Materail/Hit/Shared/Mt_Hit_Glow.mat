@@ -100,7 +100,7 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Blend: 0
+    - _Blend: 2
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
     - _CastShadows: 1
@@ -112,7 +112,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DstBlend: 10
+    - _DstBlend: 1
     - _DstBlendAlpha: 0
     - _EmissionSaturation: 1.99
     - _EnvironmentReflections: 1
@@ -131,7 +131,7 @@ Material:
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
-    - _SoftParticle: 0
+    - _SoftParticle: 5
     - _SpecularHighlights: 1
     - _SrcBlend: 5
     - _SrcBlendAlpha: 1
@@ -139,7 +139,7 @@ Material:
     - _UseDissolveNoise: 0
     - _UseDissolve_VertexAlphaByDeffault: 0
     - _UseFlowmap: 0
-    - _UseSoftParticles: 0
+    - _UseSoftParticles: 1
     - _UseVertexForAlpha: 1
     - _UserLerp: 0
     - _WorkflowMode: 1
