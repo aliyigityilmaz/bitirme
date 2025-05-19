@@ -64,7 +64,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: ed8cc02a3b3267a439474ebb02fe42dd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5bba5bbbe64f6ac45a60c2eaa43a09f5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -114,7 +114,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _DstBlendAlpha: 0
-    - _EmissionSaturation: 1.23
+    - _EmissionSaturation: 0.57
     - _EnvironmentReflections: 1
     - _FlatDissolve: 1
     - _FlowAmmount: 0.1
@@ -123,7 +123,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OpacitySaturation: 2.1
+    - _OpacitySaturation: 5.85
     - _Parallax: 0.005
     - _PreLerp: 1
     - _QueueControl: 0
@@ -152,8 +152,8 @@ Material:
     - _DissolveNoise_Panning: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flowmap_Panning: {r: 0, g: 0, b: 0, a: 0}
-    - _HighColor: {r: 0.3584906, g: 0.3500356, b: 0.3500356, a: 0}
-    - _MainColor: {r: 1, g: 1, b: 1, a: 0}
+    - _HighColor: {r: 1, g: 0.9753064, b: 0, a: 0}
+    - _MainColor: {r: 0.9622642, g: 0.61923873, b: 0.29503384, a: 0}
     - _MinMaxSmoothStepDissolve: {r: 0, g: 0.2, b: 0, a: 0}
     - _Panning: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
