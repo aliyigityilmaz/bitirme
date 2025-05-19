@@ -400,6 +400,7 @@ MonoBehaviour:
       skillType: 0
       baseDamage: 0
       baseHeal: 0
+    charAnimator: {fileID: 0}
 --- !u!1 &224699372
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +614,7 @@ MonoBehaviour:
       skillType: 0
       baseDamage: 0
       baseHeal: 0
+    charAnimator: {fileID: 0}
 --- !u!1 &300441614
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +753,7 @@ MonoBehaviour:
       skillType: 0
       baseDamage: 0
       baseHeal: 0
+    charAnimator: {fileID: 0}
 --- !u!1 &304866531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,6 +1820,7 @@ MonoBehaviour:
       skillType: 0
       baseDamage: 0
       baseHeal: 0
+    charAnimator: {fileID: 0}
 --- !u!1 &891273287
 GameObject:
   m_ObjectHideFlags: 0
@@ -2138,6 +2142,7 @@ MonoBehaviour:
       skillType: 0
       baseDamage: 0
       baseHeal: 0
+    charAnimator: {fileID: 0}
 --- !u!1 &994453438
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,6 +2499,7 @@ MonoBehaviour:
       skillType: 0
       baseDamage: 0
       baseHeal: 0
+    charAnimator: {fileID: 0}
 --- !u!1 &1110363110
 GameObject:
   m_ObjectHideFlags: 0
@@ -2545,6 +2551,7 @@ MonoBehaviour:
     armor: 0
     criticalChance: 0
     skills: []
+    charAnimator: {fileID: 0}
 --- !u!4 &1110363112
 Transform:
   m_ObjectHideFlags: 0
@@ -2593,6 +2600,7 @@ MonoBehaviour:
       skillType: 0
       baseDamage: 20
       baseHeal: 0
+    charAnimator: {fileID: 0}
   - name: Hero 2
     team: 0
     id: 1
@@ -2605,6 +2613,7 @@ MonoBehaviour:
       skillType: 0
       baseDamage: 0
       baseHeal: 0
+    charAnimator: {fileID: 0}
   - name: Hero 3
     team: 0
     id: 2
@@ -2617,6 +2626,7 @@ MonoBehaviour:
       skillType: 0
       baseDamage: 0
       baseHeal: 0
+    charAnimator: {fileID: 0}
   - name: Hero 4
     team: 0
     id: 3
@@ -2629,6 +2639,7 @@ MonoBehaviour:
       skillType: 0
       baseDamage: 0
       baseHeal: 0
+    charAnimator: {fileID: 0}
   - name: Enemy 1
     team: 1
     id: 4
@@ -2641,6 +2652,7 @@ MonoBehaviour:
       skillType: 0
       baseDamage: 0
       baseHeal: 0
+    charAnimator: {fileID: 0}
   - name: Enemy 2
     team: 1
     id: 5
@@ -2653,6 +2665,7 @@ MonoBehaviour:
       skillType: 0
       baseDamage: 0
       baseHeal: 0
+    charAnimator: {fileID: 0}
   - name: Enemy 3
     team: 1
     id: 6
@@ -2665,6 +2678,7 @@ MonoBehaviour:
       skillType: 0
       baseDamage: 0
       baseHeal: 0
+    charAnimator: {fileID: 0}
   - name: Enemy 4
     team: 1
     id: 7
@@ -2677,6 +2691,7 @@ MonoBehaviour:
       skillType: 0
       baseDamage: 20
       baseHeal: 0
+    charAnimator: {fileID: 0}
 --- !u!114 &1110363114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2711,23 +2726,34 @@ MonoBehaviour:
   combatMusicSource1: {fileID: 815779861}
   combatMusicSource2: {fileID: 2074991918}
   combatNoteSource: {fileID: 2111259477}
-  heroMainSong: {fileID: 8300000, guid: dbf96e99530fa6b4a87e58ef7cffefc9, type: 3}
+  combatMusicClip1: {fileID: 8300000, guid: dbf96e99530fa6b4a87e58ef7cffefc9, type: 3}
+  combatMusicClip2: {fileID: 0}
+  heroMainSong:
+  - {fileID: 8300000, guid: ae855463667554e439fef302bea09921, type: 3}
+  - {fileID: 8300000, guid: ae855463667554e439fef302bea09921, type: 3}
+  - {fileID: 8300000, guid: ae855463667554e439fef302bea09921, type: 3}
   heroMainNotes:
-  - {fileID: 8300000, guid: 780fa2ead3c36e649b0a68ed01456bc8, type: 3}
-  - {fileID: 8300000, guid: 665e2e58b4b8d144e8793bff9b3f210c, type: 3}
-  - {fileID: 8300000, guid: 073a849d63b532a4483fdaf8f1f6a14f, type: 3}
-  - {fileID: 8300000, guid: 7188de62e70b9d943b85d61bb8a7dab4, type: 3}
-  - {fileID: 8300000, guid: e9ef877fb8d5c3342a0b871b16aa5d07, type: 3}
-  - {fileID: 8300000, guid: dd8afee7f38e5d44c9461594d8e30ab7, type: 3}
-  heroSniperSong: {fileID: 8300000, guid: dbf96e99530fa6b4a87e58ef7cffefc9, type: 3}
+  - {fileID: 8300000, guid: f67106a764c56d6409c03d7521f6a5c0, type: 3}
+  - {fileID: 8300000, guid: a7662e9d59def2340a26406684badff8, type: 3}
+  - {fileID: 8300000, guid: 5ba388130bba2cd41accfe8335ae75c2, type: 3}
+  - {fileID: 8300000, guid: efa25b00abcbde94bae96fcb6065571d, type: 3}
+  - {fileID: 8300000, guid: b331105cc6803f6449a4a4c6d6302bc0, type: 3}
+  - {fileID: 8300000, guid: f67106a764c56d6409c03d7521f6a5c0, type: 3}
+  heroSniperSong:
+  - {fileID: 8300000, guid: 0e0b76afe4537ec4bb5d43e0476d266f, type: 3}
+  - {fileID: 8300000, guid: 0e0b76afe4537ec4bb5d43e0476d266f, type: 3}
+  - {fileID: 8300000, guid: 0e0b76afe4537ec4bb5d43e0476d266f, type: 3}
   heroSniperNotes:
-  - {fileID: 8300000, guid: 780fa2ead3c36e649b0a68ed01456bc8, type: 3}
-  - {fileID: 8300000, guid: 665e2e58b4b8d144e8793bff9b3f210c, type: 3}
-  - {fileID: 8300000, guid: 073a849d63b532a4483fdaf8f1f6a14f, type: 3}
-  - {fileID: 8300000, guid: 7188de62e70b9d943b85d61bb8a7dab4, type: 3}
-  - {fileID: 8300000, guid: e9ef877fb8d5c3342a0b871b16aa5d07, type: 3}
-  - {fileID: 8300000, guid: dd8afee7f38e5d44c9461594d8e30ab7, type: 3}
-  heroTankSong: {fileID: 8300000, guid: dbf96e99530fa6b4a87e58ef7cffefc9, type: 3}
+  - {fileID: 8300000, guid: 2d1fd223ea8a0204aa2add3728ea89dc, type: 3}
+  - {fileID: 8300000, guid: 384d8d420a720d74bb5af031cf4071e8, type: 3}
+  - {fileID: 8300000, guid: 2d1fd223ea8a0204aa2add3728ea89dc, type: 3}
+  - {fileID: 8300000, guid: 384d8d420a720d74bb5af031cf4071e8, type: 3}
+  - {fileID: 8300000, guid: 2d1fd223ea8a0204aa2add3728ea89dc, type: 3}
+  - {fileID: 8300000, guid: 384d8d420a720d74bb5af031cf4071e8, type: 3}
+  heroTankSong:
+  - {fileID: 8300000, guid: dbf96e99530fa6b4a87e58ef7cffefc9, type: 3}
+  - {fileID: 8300000, guid: dbf96e99530fa6b4a87e58ef7cffefc9, type: 3}
+  - {fileID: 8300000, guid: dbf96e99530fa6b4a87e58ef7cffefc9, type: 3}
   heroTankNotes:
   - {fileID: 8300000, guid: 780fa2ead3c36e649b0a68ed01456bc8, type: 3}
   - {fileID: 8300000, guid: 665e2e58b4b8d144e8793bff9b3f210c, type: 3}
@@ -2735,7 +2761,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7188de62e70b9d943b85d61bb8a7dab4, type: 3}
   - {fileID: 8300000, guid: e9ef877fb8d5c3342a0b871b16aa5d07, type: 3}
   - {fileID: 8300000, guid: dd8afee7f38e5d44c9461594d8e30ab7, type: 3}
-  heroHealerSong: {fileID: 8300000, guid: dbf96e99530fa6b4a87e58ef7cffefc9, type: 3}
+  heroHealerSong:
+  - {fileID: 8300000, guid: dbf96e99530fa6b4a87e58ef7cffefc9, type: 3}
+  - {fileID: 8300000, guid: dbf96e99530fa6b4a87e58ef7cffefc9, type: 3}
+  - {fileID: 8300000, guid: dbf96e99530fa6b4a87e58ef7cffefc9, type: 3}
   heroHealerNotes:
   - {fileID: 8300000, guid: 780fa2ead3c36e649b0a68ed01456bc8, type: 3}
   - {fileID: 8300000, guid: 665e2e58b4b8d144e8793bff9b3f210c, type: 3}
@@ -4121,8 +4150,8 @@ MonoBehaviour:
     name: Sniper
     team: 0
     id: 2
-    health: 30000
-    turnSpeed: 0
+    health: 0
+    turnSpeed: 30000
     armor: 0
     criticalChance: 0
     skills:
@@ -4134,6 +4163,7 @@ MonoBehaviour:
       skillType: 0
       baseDamage: 0
       baseHeal: 0
+    charAnimator: {fileID: 0}
 --- !u!1 &1559481072
 GameObject:
   m_ObjectHideFlags: 0
@@ -5145,6 +5175,7 @@ MonoBehaviour:
       skillType: 0
       baseDamage: 0
       baseHeal: 0
+    charAnimator: {fileID: 0}
 --- !u!1 &1790968889
 GameObject:
   m_ObjectHideFlags: 0

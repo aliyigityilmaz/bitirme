@@ -30,5 +30,6 @@ public class Hero
         this.criticalChance = criticalChance;
         this.team = team;
     }
+    
 
 }

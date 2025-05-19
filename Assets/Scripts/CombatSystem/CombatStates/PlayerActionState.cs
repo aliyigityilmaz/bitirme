@@ -38,6 +38,7 @@ public class PlayerActionState : ICombatState
                 isAnimStarted = false; 
             }
         }
+        
     }
 
     public void Exit()
