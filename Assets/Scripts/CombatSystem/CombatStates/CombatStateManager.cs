@@ -77,7 +77,7 @@ public class CombatStateManager : MonoBehaviour
             IsTargetSelectionActive = false;
 
             Debug.Log($"Target Selected: {selectedEnemy.name}");
-
+            selectedEnemy.charAnimator.SetTrigger("TakeDamage");
             SetState(new PlayerInputState(this));
         }
     }
