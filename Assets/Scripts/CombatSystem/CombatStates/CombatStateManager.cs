@@ -67,6 +67,8 @@ public class CombatStateManager : MonoBehaviour
             SetState(new PlayerInputState(this));
         }
     }
+    // Add this method to CombatStateManager
+   
     public void OnHeroSelected(Hero hero)
     {
         if (selectedSkillIndex != -1)
@@ -80,5 +82,36 @@ public class CombatStateManager : MonoBehaviour
             selectedEnemy.charAnimator.SetTrigger("TakeDamage");
             SetState(new PlayerInputState(this));
         }
-    }
+    } 
+    public void CheckForDeaths()
+         {
+             // Remove dead characters from turnOrder
+             for (int i = turnOrder.Count - 1; i >= 0; i--)
+             {
+                 if (turnOrder[i].health <= 0)
+                 {
+                     Debug.Log($"{turnOrder[i].name} has died!");
+                     // Optionally trigger death animation/effects here
+                     turnOrder.RemoveAt(i);
+                     // Adjust currentTurnIndex if needed
+                     if (i <= currentTurnIndex && currentTurnIndex > 0)
+                         currentTurnIndex--;
+                 }
+             }
+     
+             // Check for end of combat
+             bool allHeroesDead = !turnOrder.Any(h => h.team == TeamType.Hero);
+             bool allEnemiesDead = !turnOrder.Any(h => h.team == TeamType.Enemy);
+     
+             if (allHeroesDead)
+             {
+                 Debug.Log("All heroes are dead. Game Over!");
+                 // Set state to defeat/end
+             }
+             else if (allEnemiesDead)
+             {
+                 Debug.Log("All enemies are dead. Victory!");
+                 // Set state to victory/end
+             }
+         }
 }
