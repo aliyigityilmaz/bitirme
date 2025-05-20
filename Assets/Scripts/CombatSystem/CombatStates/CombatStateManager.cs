@@ -20,6 +20,7 @@ public class CombatStateManager : MonoBehaviour
     //skill ve enemy bilgisini saklamak için
     public Skill selectedSkill;
     public Hero selectedEnemy;
+    
 
 
     private void Start()

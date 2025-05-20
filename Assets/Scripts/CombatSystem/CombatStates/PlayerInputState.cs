@@ -21,6 +21,7 @@ public class PlayerInputState : ICombatState
     private int requiredPresses;
     private int currentPressCount;
     private float totalMultiplier;
+    private CombatCameraManager combatCameraManager;
     private AudioForCombat afc;
     private AudioClip currentAudioClip;
     public float finalDamage;
@@ -37,6 +38,7 @@ public class PlayerInputState : ICombatState
         afc = AudioForCombat.Instance;
         Debug.Log("Yeni ritim mekaniği ile PlayerInputState'e girildi");
         afc.PlayMusicWithCrossFade(afc.combatMusicClip2,0f);
+        combatCameraManager = CombatCameraManager.instance;
 
         // Turn-based sistemde sıradaki aktif kahraman alınır.
         Hero activeHero = manager.turnOrder[manager.currentTurnIndex];
@@ -47,24 +49,28 @@ public class PlayerInputState : ICombatState
         {
             songNotes = afc.heroMainNotes;
             songs = afc.heroMainSong;
+            combatCameraManager.SetCameraPosition(combatCameraManager.cameraTransformHero1);
         }
 
         if (activeHero.id == 2)
         {
             songNotes = afc.heroSniperNotes;
             songs = afc.heroSniperSong;
+            combatCameraManager.SetCameraPosition(combatCameraManager.cameraTransformHero2);
         }
 
         if (activeHero.id == 3)
         {
             songNotes = afc.heroTankNotes;
             songs = afc.heroTankSong;
+            combatCameraManager.SetCameraPosition(combatCameraManager.cameraTransformHero3);
         }
 
         if (activeHero.id == 4)
         {
             songNotes = afc.heroHealerNotes;
             songs = afc.heroHealerSong;
+            combatCameraManager.SetCameraPosition(combatCameraManager.cameraTransformHero4);
         }
         // Eğer yeterli nota yoksa default bir dizi tanımlanır.
         if (songNotesTime == null || songNotesTime.Length < 3)       

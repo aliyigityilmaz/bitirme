@@ -387,6 +387,7 @@ MonoBehaviour:
     name: 
     team: 1
     id: 0
+    baseHealth: 0
     health: 0
     turnSpeed: 0
     armor: 0
@@ -401,6 +402,37 @@ MonoBehaviour:
       baseDamage: 0
       baseHeal: 0
     charAnimator: {fileID: 0}
+--- !u!1 &107991902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 107991903}
+  m_Layer: 0
+  m_Name: CamPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &107991903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107991902}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.32999992, z: -1.9300003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 250008874}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &224699372
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +540,8 @@ Transform:
   m_LocalPosition: {x: -0.3937273, y: 5.425974, z: -7.5403852}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 107991903}
   m_Father: {fileID: 384721543}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &250008875
@@ -601,6 +634,7 @@ MonoBehaviour:
     name: 
     team: 0
     id: 3
+    baseHealth: 0
     health: 0
     turnSpeed: 0
     armor: 0
@@ -740,6 +774,7 @@ MonoBehaviour:
     name: 
     team: 1
     id: 0
+    baseHealth: 0
     health: 0
     turnSpeed: 0
     armor: 0
@@ -1807,6 +1842,7 @@ MonoBehaviour:
     name: 
     team: 1
     id: 0
+    baseHealth: 0
     health: 0
     turnSpeed: 0
     armor: 0
@@ -2036,7 +2072,8 @@ Transform:
   m_LocalPosition: {x: -7.9537277, y: 5.425974, z: -7.5403852}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1406417166}
   m_Father: {fileID: 384721543}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &969121702
@@ -2129,6 +2166,7 @@ MonoBehaviour:
     name: Main
     team: 0
     id: 1
+    baseHealth: 0
     health: 20
     turnSpeed: 200000
     armor: 0
@@ -2393,7 +2431,8 @@ Transform:
   m_LocalPosition: {x: 4.1462727, y: 5.425974, z: -7.5403852}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1972929926}
   m_Father: {fileID: 384721543}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1069265237
@@ -2486,6 +2525,7 @@ MonoBehaviour:
     name: 
     team: 0
     id: 4
+    baseHealth: 0
     health: 0
     turnSpeed: 0
     armor: 0
@@ -2513,6 +2553,7 @@ GameObject:
   - component: {fileID: 1110363113}
   - component: {fileID: 1110363114}
   - component: {fileID: 1110363115}
+  - component: {fileID: 1110363116}
   m_Layer: 0
   m_Name: ScriptHandler
   m_TagString: Untagged
@@ -2546,6 +2587,7 @@ MonoBehaviour:
     name: 
     team: 0
     id: 0
+    baseHealth: 0
     health: 0
     turnSpeed: 0
     armor: 0
@@ -2583,6 +2625,7 @@ MonoBehaviour:
   - name: Main
     team: 0
     id: 0
+    baseHealth: 0
     health: 0
     turnSpeed: 800
     armor: 0
@@ -2604,6 +2647,7 @@ MonoBehaviour:
   - name: Hero 2
     team: 0
     id: 1
+    baseHealth: 0
     health: 0
     turnSpeed: 500
     armor: 0
@@ -2617,6 +2661,7 @@ MonoBehaviour:
   - name: Hero 3
     team: 0
     id: 2
+    baseHealth: 0
     health: 0
     turnSpeed: 300
     armor: 0
@@ -2630,6 +2675,7 @@ MonoBehaviour:
   - name: Hero 4
     team: 0
     id: 3
+    baseHealth: 0
     health: 0
     turnSpeed: 150
     armor: 0
@@ -2643,6 +2689,7 @@ MonoBehaviour:
   - name: Enemy 1
     team: 1
     id: 4
+    baseHealth: 0
     health: 0
     turnSpeed: 500
     armor: 0
@@ -2656,6 +2703,7 @@ MonoBehaviour:
   - name: Enemy 2
     team: 1
     id: 5
+    baseHealth: 0
     health: 0
     turnSpeed: 250
     armor: 0
@@ -2669,6 +2717,7 @@ MonoBehaviour:
   - name: Enemy 3
     team: 1
     id: 6
+    baseHealth: 0
     health: 0
     turnSpeed: 200
     armor: 0
@@ -2682,6 +2731,7 @@ MonoBehaviour:
   - name: Enemy 4
     team: 1
     id: 7
+    baseHealth: 0
     health: 0
     turnSpeed: 100
     armor: 0
@@ -2772,6 +2822,55 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7188de62e70b9d943b85d61bb8a7dab4, type: 3}
   - {fileID: 8300000, guid: e9ef877fb8d5c3342a0b871b16aa5d07, type: 3}
   - {fileID: 8300000, guid: dd8afee7f38e5d44c9461594d8e30ab7, type: 3}
+--- !u!114 &1110363116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110363110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b034b00ada34a2baa3102809830a67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatCamera: {fileID: 2092096055}
+  mainCameraTransform: {fileID: 1649490528}
+  cameraTransformHero1: {fileID: 1406417166}
+  cameraTransformHero2: {fileID: 1122765999}
+  cameraTransformHero3: {fileID: 107991903}
+  cameraTransformHero4: {fileID: 1972929926}
+--- !u!1 &1122765998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1122765999}
+  m_Layer: 0
+  m_Name: CamPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1122765999
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122765998}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.32999992, z: -1.9300003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1557933292}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1147738054
 GameObject:
   m_ObjectHideFlags: 0
@@ -3751,6 +3850,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387878403}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1406417165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1406417166}
+  m_Layer: 0
+  m_Name: CamPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1406417166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406417165}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.714, y: 0.489, z: -2.384}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 969121701}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1450810359
 GameObject:
   m_ObjectHideFlags: 0
@@ -4057,7 +4187,8 @@ Transform:
   m_LocalPosition: {x: -4.3737273, y: 5.425974, z: -7.5403852}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1122765999}
   m_Father: {fileID: 384721543}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1557933293
@@ -4150,6 +4281,7 @@ MonoBehaviour:
     name: Sniper
     team: 0
     id: 2
+    baseHealth: 0
     health: 0
     turnSpeed: 30000
     armor: 0
@@ -4603,6 +4735,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635166722}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1649490527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1649490528}
+  m_Layer: 0
+  m_Name: MainCamPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1649490528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649490527}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
+  m_LocalPosition: {x: -13.42, y: 12.62, z: -15.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1652285367
 GameObject:
   m_ObjectHideFlags: 0
@@ -5162,6 +5325,7 @@ MonoBehaviour:
     name: 
     team: 1
     id: 0
+    baseHealth: 0
     health: 0
     turnSpeed: 0
     armor: 0
@@ -5494,6 +5658,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872446665}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1972929925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1972929926}
+  m_Layer: 0
+  m_Name: CamPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1972929926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972929925}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.32999992, z: -1.9300003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1069265236}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2012587001
 GameObject:
   m_ObjectHideFlags: 0
@@ -6224,6 +6419,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1649490528}
   - {fileID: 2092096056}
   - {fileID: 1147738056}
   - {fileID: 1845736468}

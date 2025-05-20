@@ -21,7 +21,6 @@ public class IdleState : ICombatState
         afc = AudioForCombat.Instance;
         // Sıradaki karakteri alıyoruz
         Hero currentHero = manager.turnOrder[manager.currentTurnIndex];
-        CombatStateManager.Instance.CheckForDeaths();
 
         Debug.Log($"Idle State: Sıradaki karakter = {currentHero.name}, " +
                  $"ID = {currentHero.id}, Team = {currentHero.team}");
