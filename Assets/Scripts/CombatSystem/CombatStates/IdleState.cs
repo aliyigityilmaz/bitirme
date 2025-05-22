@@ -38,6 +38,7 @@ public class IdleState : ICombatState
 
         afc.PlayMusicWithCrossFade(afc.combatMusicClip1);
     }
+    
 
     public void Execute()
     {

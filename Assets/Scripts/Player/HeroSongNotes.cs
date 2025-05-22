@@ -40,7 +40,7 @@ public static class HeroSongNotes
     /// </summary>
     private static float[] GetSongNotesForHero1()
     {
-        return new float[] { 1.0f, 0.5f, 1.1f, 0.9f, 1.3f, 1.0f };
+        return new float[] { 0.6f, 0.6f, 0.6f, 0.6f, 0.6f, 0.6f };
     }
 
     /// <summary>
@@ -48,7 +48,7 @@ public static class HeroSongNotes
     /// </summary>
     private static float[] GetSongNotesForHero2()
     {
-        return new float[] { 0.8f, 1.0f, 1.3f, 1.2f, 1.1f, 1.0f };
+        return new float[] { 0.6f, 0.6f, 0.6f, 0.6f, 0.6f, 0.6f };
     }
 
     /// <summary>
@@ -56,7 +56,7 @@ public static class HeroSongNotes
     /// </summary>
     private static float[] GetSongNotesForHero3()
     {
-        return new float[] { 1.1f, 0.9f, 1.0f, 1.0f, 1.2f, 1.3f };
+        return new float[] { 0.6f, 0.6f, 0.6f, 0.6f, 0.6f, 0.6f };
     }
 
     /// <summary>
@@ -64,7 +64,7 @@ public static class HeroSongNotes
     /// </summary>
     private static float[] GetSongNotesForHero4()
     {
-        return new float[] { 1.0f, 1.1f, 0.8f, 1.3f, 1.0f, 1.2f };
+        return new float[] { 0.6f, 0.6f, 0.6f, 0.6f, 0.6f, 0.6f };
     }
 
     /// <summary>
@@ -72,6 +72,6 @@ public static class HeroSongNotes
     /// </summary>
     private static float[] GetDefaultSongNotes()
     {
-        return new float[] { 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f };
+        return new float[] { 0.6f, 0.6f, 0.6f, 0.6f, 0.6f, 0.6f };
     }
 }

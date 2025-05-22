@@ -21,6 +21,7 @@ public class PlayerInputState : ICombatState
     private int requiredPresses;
     private int currentPressCount;
     private float totalMultiplier;
+    private CombatCameraManager combatCameraManager;
     private AudioForCombat afc;
     private AudioClip currentAudioClip;
     public float finalDamage;
@@ -30,12 +31,14 @@ public class PlayerInputState : ICombatState
     {
         this.manager = manager;
     }
-
+    
     public void Enter()
     {
         instance = this;
         afc = AudioForCombat.Instance;
         Debug.Log("Yeni ritim mekaniği ile PlayerInputState'e girildi");
+        afc.PlayMusicWithCrossFade(afc.combatMusicClip2,0f);
+        combatCameraManager = CombatCameraManager.instance;
 
         // Turn-based sistemde sıradaki aktif kahraman alınır.
         Hero activeHero = manager.turnOrder[manager.currentTurnIndex];
@@ -46,35 +49,40 @@ public class PlayerInputState : ICombatState
         {
             songNotes = afc.heroMainNotes;
             songs = afc.heroMainSong;
+            combatCameraManager.SetCameraPosition(combatCameraManager.cameraTransformHero1);
         }
 
         if (activeHero.id == 2)
         {
             songNotes = afc.heroSniperNotes;
             songs = afc.heroSniperSong;
+            combatCameraManager.SetCameraPosition(combatCameraManager.cameraTransformHero2);
         }
 
         if (activeHero.id == 3)
         {
             songNotes = afc.heroTankNotes;
             songs = afc.heroTankSong;
+            combatCameraManager.SetCameraPosition(combatCameraManager.cameraTransformHero3);
         }
 
         if (activeHero.id == 4)
         {
             songNotes = afc.heroHealerNotes;
             songs = afc.heroHealerSong;
+            combatCameraManager.SetCameraPosition(combatCameraManager.cameraTransformHero4);
         }
         // Eğer yeterli nota yoksa default bir dizi tanımlanır.
-        if (songNotesTime == null || songNotesTime.Length < 3)
+        if (songNotesTime == null || songNotesTime.Length < 3)       
         {
-            songNotesTime = new float[] { 1.0f, 1.2f, 0.8f, 1.0f, 1.1f, 0.9f };
+            songNotesTime = new float[] { 1.0f, 1.2f, 0.8f, 1.0f, 1.1f, 0.9f }; 
+            
         }
         
 
         // Örnekte, round sayısını 2 ile 6 arasında rastgele belirleyip 3 round ile sınırlandırıyoruz.
-        requiredPresses = Mathf.Min(Random.Range(3, 7) );
-        currentPressCount = 0;
+        requiredPresses = 6;
+        currentPressCount = 0; 
         totalMultiplier = 0f;
 
         SetupNextRound();
@@ -82,6 +90,8 @@ public class PlayerInputState : ICombatState
 
     }
 
+    
+    
     private void SetupNextRound()
     {
         // Round başında, rastgele bir tuş seçilir.

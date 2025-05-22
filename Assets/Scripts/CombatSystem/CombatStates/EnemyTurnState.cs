@@ -65,6 +65,7 @@ public class EnemyTurnState : ICombatState
 
         int damage = randomSkill.baseDamage;
         targetHero.health -= damage;
+        targetHero.charAnimator.SetTrigger("TakeDamage");
         Debug.Log($"{targetHero.name}'s health is now {targetHero.health} after taking {damage} damage.");
 
 

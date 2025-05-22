@@ -5,6 +5,7 @@ public class PlayerActionState : ICombatState
     private CombatStateManager manager;
     private float damageTimer = 2f;
     private bool isAnimStarted = false;
+    private CombatCameraManager cameraManager;
     //skil vurması
     public PlayerActionState(CombatStateManager manager)
     {
@@ -38,11 +39,13 @@ public class PlayerActionState : ICombatState
                 isAnimStarted = false; 
             }
         }
+        
     }
 
     public void Exit()
     {
         Debug.Log("Exiting Player Action State");
+        CombatCameraManager.instance.SetCameraPosition(CombatCameraManager.instance. mainCameraTransform);
     }
 
     public void ApplySkill(float finalMultiplier)
