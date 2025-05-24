@@ -114,7 +114,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _DstBlendAlpha: 0
-    - _EmissionSaturation: 10
+    - _EmissionSaturation: 1.22
     - _EnvironmentReflections: 1
     - _FlatDissolve: 1
     - _FlowAmmount: 0
@@ -123,7 +123,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OpacitySaturation: 9.26
+    - _OpacitySaturation: 6.52
     - _Parallax: 0.005
     - _PreLerp: 1
     - _QueueControl: 0
@@ -131,7 +131,7 @@ Material:
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
-    - _SoftParticle: 0
+    - _SoftParticle: 4.91
     - _SpecularHighlights: 1
     - _SrcBlend: 5
     - _SrcBlendAlpha: 1
