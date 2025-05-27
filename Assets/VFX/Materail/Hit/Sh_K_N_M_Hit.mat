@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sh_3_Hit
+  m_Name: Sh_K_N_M_Hit
   m_Shader: {fileID: -6465566751694194690, guid: c1dee1b665b124a49b6696a4ae6986c5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -70,14 +70,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Flowmap_Texture:
         m_Texture: {fileID: 2800000, guid: e1f9cd77ffdd7a84b86f1dfc145722d7, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 2, y: 2}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 1fee4e45eb64de9479caa3aaada1a3bf, type: 3}
+        m_Texture: {fileID: 2800000, guid: bab7b9f00c90d5945900d48c69248354, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
