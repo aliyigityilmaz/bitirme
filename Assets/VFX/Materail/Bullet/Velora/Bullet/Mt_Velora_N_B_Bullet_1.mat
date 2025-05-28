@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: test
+  m_Name: Mt_Velora_N_B_Bullet_1
   m_Shader: {fileID: -6465566751694194690, guid: c1dee1b665b124a49b6696a4ae6986c5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -17,7 +17,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
@@ -48,23 +48,23 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DissolveNoise:
-        m_Texture: {fileID: 2800000, guid: 632eacca01acdf744b4a849e7a9a9ff1, type: 3}
-        m_Scale: {x: 2, y: 2}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Flowmap_Texture:
-        m_Texture: {fileID: 2800000, guid: 565faf949e6500f4880175034ff8fca1, type: 3}
-        m_Scale: {x: 2, y: 2}
+        m_Texture: {fileID: 2800000, guid: c07e0b485f339cb4d8f9bb5773d20682, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 06414326c929add46930711f9b746b61, type: 3}
+        m_Texture: {fileID: 2800000, guid: 263c826d39a83bc448a4b79f5a39369d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -81,10 +81,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Tex:
-        m_Texture: {fileID: 2800000, guid: 7eaa0c675d105154e9d305fb2e2f7585, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -110,38 +106,37 @@ Material:
     - _CastShadows: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Cull: 2
+    - _Cull: 0
     - _CustomDataForDissolve: 0
     - _CustomDataPanning: 0
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Dissolve_scale: 35
     - _DstBlend: 10
     - _DstBlendAlpha: 0
-    - _EmissionSaturation: 4.44
+    - _EmissionSaturation: 0.64
     - _EnvironmentReflections: 1
-    - _FlatDissolve: 0.552
-    - _FlowAmmount: 0.23
+    - _FlatDissolve: 0.52
+    - _FlowAmmount: 0.18
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OpacitySaturation: 2.09
+    - _OpacitySaturation: 1.6
     - _Parallax: 0.005
-    - _PreLerp: 0.26
+    - _PreLerp: 0.83
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
-    - _SoftParticle: 5
+    - _SoftParticle: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 5
     - _SrcBlendAlpha: 1
     - _Surface: 1
-    - _UseDissolveNoise: 1
+    - _UseDissolveNoise: 0
     - _UseDissolve_VertexAlphaByDeffault: 0
     - _UseFlowmap: 1
     - _UseSoftParticles: 0
@@ -154,20 +149,17 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color_1: {r: 0, g: 0.07073355, b: 1, a: 0}
-    - _DissolveNoise_Panning: {r: 4.15, g: 3.85, b: 0, a: 0}
+    - _DissolveNoise_Panning: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Flowmap_Panning: {r: 0.2, g: 0, b: 0, a: 0}
-    - _HighColor: {r: 0, g: 0.90932775, b: 1, a: 0}
-    - _MainColor: {r: 0.07471521, g: 0.31211615, b: 0.6886792, a: 0}
+    - _Flowmap_Panning: {r: 0, g: 0, b: 0, a: 0}
+    - _HighColor: {r: 0, g: 0, b: 0, a: 0}
+    - _MainColor: {r: 0.3726415, g: 1, b: 0.6349346, a: 0}
     - _MinMaxSmoothStepDissolve: {r: 0, g: 0.2, b: 0, a: 0}
-    - _Panning: {r: 0, g: 0, b: 0, a: 0}
+    - _Panning: {r: 0.3, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _TexSpeed: {r: -1, g: 0, b: 0, a: 0}
-    - _dissolvespeed: {r: -0.5, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &4404224598550248839
+--- !u!114 &3659455484798116118
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
