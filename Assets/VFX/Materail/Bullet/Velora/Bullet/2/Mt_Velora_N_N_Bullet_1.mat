@@ -151,7 +151,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flowmap_Panning: {r: 0, g: 0, b: 0, a: 0}
     - _HighColor: {r: 0, g: 0, b: 0, a: 0}
-    - _MainColor: {r: 0.3726415, g: 1, b: 0.6349346, a: 0}
+    - _MainColor: {r: 0.22733049, g: 0.8490566, b: 0.19624422, a: 0}
     - _MinMaxSmoothStepDissolve: {r: 0, g: 0.2, b: 0, a: 0}
     - _Panning: {r: 0.3, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

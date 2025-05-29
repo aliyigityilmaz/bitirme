@@ -119,7 +119,7 @@ Material:
     - _Dissolve_scale: 35
     - _DstBlend: 10
     - _DstBlendAlpha: 0
-    - _EmissionSaturation: 6.74
+    - _EmissionSaturation: 7.92
     - _EnvironmentReflections: 1
     - _FlatDissolve: 0.667
     - _FlowAmmount: 0.15
@@ -130,7 +130,7 @@ Material:
     - _OcclusionStrength: 1
     - _OpacitySaturation: 0.91
     - _Parallax: 0.005
-    - _PreLerp: 0.83
+    - _PreLerp: 1.5
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -159,7 +159,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flowmap_Panning: {r: -0.3, g: 0, b: 0, a: 0}
     - _HighColor: {r: 0, g: 1, b: 0.50156784, a: 0}
-    - _MainColor: {r: 0, g: 0.7924528, b: 0.41957846, a: 0}
+    - _MainColor: {r: 0.17007832, g: 0.735849, b: 0.41867456, a: 0}
     - _MinMaxSmoothStepDissolve: {r: 0, g: 3, b: 0, a: 0}
     - _Panning: {r: -0.4, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mt_Spark
+  m_Name: Mt_V_Hit
   m_Shader: {fileID: -6465566751694194690, guid: c1dee1b665b124a49b6696a4ae6986c5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Flowmap_Texture:
-        m_Texture: {fileID: 2800000, guid: 565faf949e6500f4880175034ff8fca1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8c7866a57eab9c14f885249810713bb4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -64,7 +64,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: b2518fb0ca252e042ad7e98e3e52c863, type: 3}
+        m_Texture: {fileID: 2800000, guid: 004446cc59bc6e6439d37c8c0ba6f382, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -114,18 +114,18 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _DstBlendAlpha: 0
-    - _EmissionSaturation: 7.1
+    - _EmissionSaturation: 1.7
     - _EnvironmentReflections: 1
-    - _FlatDissolve: 0.679
-    - _FlowAmmount: 0.15
+    - _FlatDissolve: 1
+    - _FlowAmmount: 0.1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OpacitySaturation: 8.5
+    - _OpacitySaturation: 8.64
     - _Parallax: 0.005
-    - _PreLerp: 1.01
+    - _PreLerp: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -137,11 +137,11 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 1
     - _UseDissolveNoise: 0
-    - _UseDissolve_VertexAlphaByDeffault: 1
-    - _UseFlowmap: 0
+    - _UseDissolve_VertexAlphaByDeffault: 0
+    - _UseFlowmap: 1
     - _UseSoftParticles: 1
     - _UseVertexForAlpha: 1
-    - _UserLerp: 0
+    - _UserLerp: 1
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0
@@ -153,7 +153,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flowmap_Panning: {r: 0, g: 0, b: 0, a: 0}
     - _HighColor: {r: 1, g: 1, b: 1, a: 0}
-    - _MainColor: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0}
+    - _MainColor: {r: 0, g: 0, b: 0, a: 0}
     - _MinMaxSmoothStepDissolve: {r: 0, g: 0, b: 0, a: 0}
     - _Panning: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

@@ -118,7 +118,7 @@ Material:
     - _Metallic: 0
     - _NormalPower: 1
     - _OcclusionStrength: 1
-    - _OpacitySaturation: 10
+    - _OpacitySaturation: 100
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0

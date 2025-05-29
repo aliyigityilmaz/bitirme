@@ -125,7 +125,7 @@ Material:
     - _OcclusionStrength: 1
     - _OpacitySaturation: 1.77
     - _Parallax: 0.005
-    - _PreLerp: 0.54
+    - _PreLerp: -1.07
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
