@@ -19608,7 +19608,7 @@ GameObject:
   - component: {fileID: 3185435437020422282}
   - component: {fileID: 4961403766695480087}
   m_Layer: 0
-  m_Name: Ps_Aelina_Normal_U_Bullet
+  m_Name: Ps_Velora_Normal_U_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
