@@ -115,7 +115,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _Emission_Strength: 0.14
+    - _Emission_Strength: 0.38
     - _EnvironmentReflections: 1
     - _Fade_Depth: 11.05
     - _Fresnel_Opacity: -0.66

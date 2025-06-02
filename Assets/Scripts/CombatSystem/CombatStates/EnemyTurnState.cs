@@ -15,7 +15,7 @@ public class EnemyTurnState : ICombatState
     public void Enter()
     {
         Debug.Log("Entering Enemy Turn State");
-        manager.StartCoroutine(PerformEnemyAction());
+        manager.StartCoroutine(DelayedEnemyActionStart());
     }
 
     public void Execute()
@@ -27,7 +27,11 @@ public class EnemyTurnState : ICombatState
     {
         Debug.Log("Exiting Enemy Turn State");
     }
-
+    private IEnumerator DelayedEnemyActionStart()
+    {
+        yield return new WaitForSeconds(2f);
+        yield return manager.StartCoroutine(PerformEnemyAction());
+    }
     private IEnumerator PerformEnemyAction()
     {
         Hero enemyHero = manager.turnOrder[manager.currentTurnIndex];
@@ -66,9 +70,19 @@ public class EnemyTurnState : ICombatState
         int damage = randomSkill.baseDamage;
         targetHero.health -= damage;
         targetHero.charAnimator.SetTrigger("TakeDamage");
+        if (targetHero.health <= 0)
+        {
+            var allHeroTargets = Object.FindObjectsOfType<HeroTargetable>();
+            foreach (var ht in allHeroTargets)
+            {
+                if (ht.heroData == targetHero)
+                {
+                    ht.Die();
+                    break;
+                }
+            }
+        }
         Debug.Log($"{targetHero.name}'s health is now {targetHero.health} after taking {damage} damage.");
-
-
         EndTurn();
     }
     private void EndTurn()

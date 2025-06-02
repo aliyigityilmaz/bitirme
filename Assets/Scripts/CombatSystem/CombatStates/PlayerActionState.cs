@@ -60,6 +60,20 @@ public class PlayerActionState : ICombatState
             if (manager.selectedEnemy != null)
             {
                 manager.selectedEnemy.health -= (int)finalValue;
+                if (manager.selectedEnemy.health <= 0)
+                {
+                    Debug.Log($"{manager.selectedEnemy.name} has died!");
+
+                    EnemyTargetable[] allHeroTargets = GameObject.FindObjectsOfType<EnemyTargetable>();
+                    foreach (var ht in allHeroTargets)
+                    {
+                        if (ht.enemyData == manager.selectedEnemy)
+                        {
+                            ht.Die();
+                            break;
+                        }
+                    }
+                }
                 Debug.Log($"{activeHero.name} {manager.selectedEnemy.name} üzerinde {(int)finalValue} hasar yaptı.");
                 manager.NextTurn();
                 manager.SetState(new IdleState(manager));
