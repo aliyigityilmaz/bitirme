@@ -152,8 +152,8 @@ Material:
     - _UseDissolveNoise: 0
     - _UseDissolve_VertexAlphaByDeffault: 0
     - _UseFlowmap: 1
-    - _UseSoftParticles: 0
-    - _UseVertexForAlpha: 0
+    - _UseSoftParticles: 1
+    - _UseVertexForAlpha: 1
     - _UserLerp: 0
     - _WorkflowMode: 1
     - _ZTest: 4
