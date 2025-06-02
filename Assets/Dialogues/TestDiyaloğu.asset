@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad6347be23db0847b29443f429d06c0, type: 3}
+  m_Name: "TestDiyalo\u011Fu"
+  m_EditorClassIdentifier: 
+  npcName: Test
+  dialogueEntries:
+  - dialogueLine: 
+    responses: []
+  - dialogueLine: "Selam\u0131n aleyk\xFCm"
+    responses:
+    - responseText: "Aleyk\xFCm selam"
+      responseType: 0
+      assignedQuest: {fileID: 0}
+    - responseText: Berkay kimsin diye soruyo
+      responseType: 2
+      assignedQuest: {fileID: 0}
+    - responseText: "\u0130\u015Fim g\xFCc\xFCm var karde\u015Fim"
+      responseType: 1
+      assignedQuest: {fileID: 0}
