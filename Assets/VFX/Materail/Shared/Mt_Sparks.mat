@@ -116,7 +116,7 @@ Material:
     - _DstBlendAlpha: 0
     - _EmissionSaturation: 7.1
     - _EnvironmentReflections: 1
-    - _FlatDissolve: 0.679
+    - _FlatDissolve: 1
     - _FlowAmmount: 0.15
     - _GlossMapScale: 0
     - _Glossiness: 0

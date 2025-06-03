@@ -77,7 +77,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 1ca3f5d4c23d0ec44b0fe2c709eff183, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9299efc301f49d34d9881c967f63b2a3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -113,7 +113,7 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Blend: 2
+    - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
     - _CastShadows: 1
@@ -125,9 +125,9 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DstBlend: 1
+    - _DstBlend: 10
     - _DstBlendAlpha: 0
-    - _EmissionSaturation: 5.21
+    - _EmissionSaturation: 9.64
     - _EnvironmentReflections: 1
     - _FlatDissolve: 1
     - _FlowAmmount: 0.1
@@ -136,7 +136,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OpacitySaturation: 8.33
+    - _OpacitySaturation: 10
     - _Parallax: 0.005
     - _PreLerp: 1
     - _QueueControl: 0
@@ -154,7 +154,7 @@ Material:
     - _UseFlowmap: 0
     - _UseSoftParticles: 1
     - _UseVertexForAlpha: 1
-    - _UserLerp: 1
+    - _UserLerp: 0
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0
