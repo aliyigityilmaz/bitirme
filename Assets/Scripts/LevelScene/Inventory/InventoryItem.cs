@@ -2,10 +2,11 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Collectible,
-    CharacterItem,
-    QuestItem
+    CharacterItem = 0,
+    QuestItem = 1,
+    Collectible = 2
 }
+
 
 [System.Serializable]
 public class InventoryItem

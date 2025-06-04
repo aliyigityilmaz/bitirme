@@ -75,7 +75,17 @@ public class BackpackManager : MonoBehaviour
         foreach (Transform child in contentGrid)
             Destroy(child.gameObject);
 
-        var sorted = items.OrderBy(i => i.Type).ToList(); // enum sýrasýna göre: kýrmýzý, yeþil, gri
+        var sorted = items.OrderBy(i =>
+        {
+            switch (i.Type)
+            {
+                case ItemType.CharacterItem: return 0;
+                case ItemType.QuestItem: return 1;
+                case ItemType.Collectible: return 2;
+                default: return 3;
+            }
+        }).ToList();
+
 
         foreach (var item in sorted)
         {
