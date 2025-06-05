@@ -162,6 +162,32 @@ public class BackpackManager : MonoBehaviour
         }
     }
 
+    public bool CheckItem(string itemName)
+    {
+        return items.Any(item => item.ItemName == itemName);
+    }
 
+    public bool RemoveItem(string itemName)
+    {
+        var targetItem = items.FirstOrDefault(item => item.ItemName == itemName);
+        if (targetItem != null)
+        {
+            if (targetItem.IsStackable())
+            {
+                targetItem.quantity--;
+                if (targetItem.quantity <= 0)
+                    items.Remove(targetItem);
+            }
+            else
+            {
+                items.Remove(targetItem);
+            }
+
+            RefreshUI();
+            return true;
+        }
+
+        return false;
+    }
 
 }
