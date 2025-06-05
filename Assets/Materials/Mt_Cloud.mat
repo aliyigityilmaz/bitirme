@@ -99,7 +99,7 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Base_Scale: 0.02
+    - _Base_Scale: 0.01
     - _Base_Speed: 20
     - _Base_Strength: 100
     - _Blend: 2
@@ -109,13 +109,13 @@ Material:
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
-    - _Curvature_Radius: 4000
+    - _Curvature_Radius: 40000
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _Emission_Strength: 0.38
+    - _Emission_Strength: 1
     - _EnvironmentReflections: 1
     - _Fade_Depth: 11.05
     - _Fresnel_Opacity: -0.66
@@ -126,7 +126,7 @@ Material:
     - _Metallic: 0
     - _Noise_Edge_1: 2
     - _Noise_Edge_2: 2
-    - _Noise_Height: 30
+    - _Noise_Height: 0.14
     - _Noise_Power: 2
     - _Noise_Scale: 0.09
     - _Noise_Speed: 32.93

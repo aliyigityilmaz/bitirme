@@ -6,6 +6,8 @@ public abstract class Interactable : MonoBehaviour
     {
         Talkable,
         Pickup,
+        Collectible,
+        Chest,
         Door,
         QuestGiver,
         Enemy
