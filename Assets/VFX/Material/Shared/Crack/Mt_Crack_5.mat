@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mt_Smoke
-  m_Shader: {fileID: -6465566751694194690, guid: c1dee1b665b124a49b6696a4ae6986c5, type: 3}
+  m_Name: Mt_Crack_5
+  m_Shader: {fileID: -6465566751694194690, guid: 9d609898136947e4cb49959c8f71af6f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -47,16 +47,20 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _DissolveNoise:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+    - _EmissionDissolve:
+        m_Texture: {fileID: 2800000, guid: 7ffde95a66c0b3e4ea728d18d637fcc1, type: 3}
+        m_Scale: {x: 3, y: 3}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Flowmap_Texture:
-        m_Texture: {fileID: 2800000, guid: 565faf949e6500f4880175034ff8fca1, type: 3}
+    - _EmissionTexture:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _HeightMap:
+        m_Texture: {fileID: 2800000, guid: fbd9370e84b6d2e47a9e02af598b642f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -64,7 +68,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: cdb6a34bcb600004584d06463a0ed5ca, type: 3}
+        m_Texture: {fileID: 2800000, guid: fbd9370e84b6d2e47a9e02af598b642f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTexture_Dissolve:
+        m_Texture: {fileID: 2800000, guid: afb9171bffe3be947912fae99a6824a4, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _Main_Tex_Dissolve:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -100,32 +112,29 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Blend: 0
+    - _Blend: 2
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
     - _CastShadows: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Cull: 0
-    - _CustomDataForDissolve: 0
-    - _CustomDataPanning: 0
+    - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DstBlend: 10
+    - _DissolveAmmount: 1
+    - _DstBlend: 1
     - _DstBlendAlpha: 0
-    - _EmissionSaturation: 1.51
+    - _EmissionSaturation: 4.94
     - _EnvironmentReflections: 1
-    - _FlatDissolve: 1
-    - _FlowAmmount: 0.06
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _HeighMapIntensity: -6
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OpacitySaturation: 0.42
+    - _OpacitySaturation: 1.36
     - _Parallax: 0.005
-    - _PreLerp: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -136,12 +145,8 @@ Material:
     - _SrcBlend: 5
     - _SrcBlendAlpha: 1
     - _Surface: 1
-    - _UseDissolveNoise: 0
-    - _UseDissolve_VertexAlphaByDeffault: 0
-    - _UseFlowmap: 0
     - _UseSoftParticles: 1
-    - _UseVertexForAlpha: 1
-    - _UserLerp: 1
+    - _Use_Custom_Data_for_Dissolve_instead_of_VertexAlpha: 1
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0
@@ -149,17 +154,15 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DissolveNoise_Panning: {r: 0, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Flowmap_Panning: {r: 0, g: 0, b: 0, a: 0}
-    - _HighColor: {r: 1, g: 1, b: 1, a: 0}
-    - _MainColor: {r: 1, g: 1, b: 1, a: 0}
-    - _MinMaxSmoothStepDissolve: {r: 0, g: 0, b: 0, a: 0}
-    - _Panning: {r: 0, g: 0, b: 0, a: 0}
+    - _DissolveStep: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Emission_Dissolve_Step: {r: 0, g: 0, b: 0, a: 0}
+    - _RemapColor01: {r: 0, g: 0, b: 0, a: 0}
+    - _RemapColor02: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &4631257981001858996
+--- !u!114 &1563191676729266148
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
