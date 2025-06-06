@@ -668,7 +668,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 0
     angle: 24.63
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -20760,7 +20760,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.33962262, g: 0.33481663, b: 0.33481663, a: 0.7607843}
+        key0: {r: 0.33962262, g: 0.33481663, b: 0.33481663, a: 0.37254903}
         key1: {r: 0.1509434, g: 0.1488074, b: 0.1488074, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
