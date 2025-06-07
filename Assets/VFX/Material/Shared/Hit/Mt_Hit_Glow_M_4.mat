@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mt_Hit_Glow_M_3
+  m_Name: Mt_Hit_Glow_M_4
   m_Shader: {fileID: -6465566751694194690, guid: c1dee1b665b124a49b6696a4ae6986c5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -64,7 +64,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 9058c9ba421eb6144a429c5f6c7a6aca, type: 3}
+        m_Texture: {fileID: 2800000, guid: f5049ea85808b5945a741ef7e1afcf8a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
