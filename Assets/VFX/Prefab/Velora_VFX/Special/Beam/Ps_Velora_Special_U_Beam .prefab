@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2648514297135682721}
   - component: {fileID: 4479535667950381073}
   m_Layer: 0
-  m_Name: Ne_Beam_1
+  m_Name: Ne_Beam_1_V_P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4921,7 +4921,7 @@ GameObject:
   - component: {fileID: 4308479732603830867}
   - component: {fileID: 6004465417995318635}
   m_Layer: 0
-  m_Name: Ne_Beam_Particle_2
+  m_Name: Ne_Beam_Particle_2_V_P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9754,7 +9754,7 @@ GameObject:
   - component: {fileID: 4111832697167410803}
   - component: {fileID: 4264019329924525416}
   m_Layer: 0
-  m_Name: Ne_Beam_Particle
+  m_Name: Ne_Beam_Particle_V_P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14587,7 +14587,7 @@ GameObject:
   - component: {fileID: 553378475252317753}
   - component: {fileID: 3602756093908312178}
   m_Layer: 0
-  m_Name: Ne_Beam_Orb
+  m_Name: Ne_Beam_Orb_V_P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19577,7 +19577,7 @@ GameObject:
   - component: {fileID: 1416218919789209364}
   - component: {fileID: 3106883525659098131}
   m_Layer: 0
-  m_Name: Ne_Beam_Glow
+  m_Name: Ne_Beam_Glow_V_P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24567,7 +24567,7 @@ GameObject:
   - component: {fileID: 5744845535075779728}
   - component: {fileID: 403277149917553831}
   m_Layer: 0
-  m_Name: Ne_Beam_3
+  m_Name: Ne_Beam_3_V_P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34317,7 +34317,7 @@ GameObject:
   - component: {fileID: 3083352714115485966}
   - component: {fileID: 3917753859867996937}
   m_Layer: 0
-  m_Name: Ne_Beam_Emmisive
+  m_Name: Ne_Beam_Emmisive_V_P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39226,7 +39226,7 @@ GameObject:
   - component: {fileID: 2642572697692271851}
   - component: {fileID: 3940491715879017424}
   m_Layer: 0
-  m_Name: Ne_Beam_2
+  m_Name: Ne_Beam_2_V_P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

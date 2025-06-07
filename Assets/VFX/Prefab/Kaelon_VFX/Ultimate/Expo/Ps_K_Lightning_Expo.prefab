@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5548694267659875526}
   - component: {fileID: 6216159364666317993}
   m_Layer: 0
-  m_Name: Ne_Stones_2
+  m_Name: Ne_L_Stones_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9820,7 +9820,7 @@ GameObject:
   - component: {fileID: 8780956164548365204}
   - component: {fileID: 5941547484405000364}
   m_Layer: 0
-  m_Name: Ne_Stones_1
+  m_Name: Ne_L_Stones_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19562,7 +19562,7 @@ GameObject:
   - component: {fileID: 3336592389994353576}
   - component: {fileID: 1094158742231834386}
   m_Layer: 0
-  m_Name: Ne_Stones_4
+  m_Name: Ne_L_Stones_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29306,7 +29306,7 @@ GameObject:
   - component: {fileID: 6197702210507794192}
   - component: {fileID: 2620076210658280349}
   m_Layer: 0
-  m_Name: Ne_Crack
+  m_Name: Ne_L_Crack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39106,7 +39106,7 @@ GameObject:
   - component: {fileID: 8014443189470433997}
   - component: {fileID: 289616839751579877}
   m_Layer: 0
-  m_Name: Ne_Stones_3
+  m_Name: Ne_L_Stones_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53742,7 +53742,7 @@ GameObject:
   - component: {fileID: 2742900258703941794}
   - component: {fileID: 6205952382392930486}
   m_Layer: 0
-  m_Name: Ne_Stone_s
+  m_Name: Ne_L_Stone_s
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63412,7 +63412,7 @@ GameObject:
   - component: {fileID: 5476312348616379997}
   - component: {fileID: 152662641719655840}
   m_Layer: 0
-  m_Name: Ps_Crack
+  m_Name: Ps_L_Crack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82920,7 +82920,7 @@ GameObject:
   - component: {fileID: 822190014192503718}
   - component: {fileID: 5682325705587347790}
   m_Layer: 0
-  m_Name: Ne_Fire_Particle_2
+  m_Name: Ne_L_Particle_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

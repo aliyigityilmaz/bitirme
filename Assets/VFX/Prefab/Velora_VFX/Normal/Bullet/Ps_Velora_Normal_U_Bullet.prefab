@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8412977348991407210}
   - component: {fileID: 5630333876707618205}
   m_Layer: 0
-  m_Name: Ne_Particles_3
+  m_Name: Ne_Particles_3_V_U
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4845,7 +4845,7 @@ GameObject:
   - component: {fileID: 1880887877908662484}
   - component: {fileID: 870273174849545927}
   m_Layer: 0
-  m_Name: Ne_Bullet_2 (1)
+  m_Name: Ne_Bullet_3_V_U
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9736,7 +9736,7 @@ GameObject:
   - component: {fileID: 927456025922404008}
   - component: {fileID: 1906109651082994811}
   m_Layer: 0
-  m_Name: Ne_Bullet_2
+  m_Name: Ne_Bullet_2_V_U
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14626,7 +14626,7 @@ GameObject:
   - component: {fileID: 4842205293166132720}
   - component: {fileID: 8853185322434762867}
   m_Layer: 0
-  m_Name: Ne_Bullet_Trail
+  m_Name: Ne_Bullet_Trail_V_U
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14775,7 +14775,7 @@ GameObject:
   - component: {fileID: 5106954955691849267}
   - component: {fileID: 1629519475071472165}
   m_Layer: 0
-  m_Name: Ne_Particles
+  m_Name: Ne_Particles_V_U
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24447,7 +24447,7 @@ GameObject:
   - component: {fileID: 5950236406591552790}
   - component: {fileID: 2595196776659432102}
   m_Layer: 0
-  m_Name: Ne_Bullet
+  m_Name: Ne_Bullet_V_U
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29340,7 +29340,7 @@ GameObject:
   - component: {fileID: 7981448751087749779}
   - component: {fileID: 865258949219506339}
   m_Layer: 0
-  m_Name: Ne_Glow
+  m_Name: Ne_Glow_V_U
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34231,7 +34231,7 @@ GameObject:
   - component: {fileID: 3575743069015403343}
   - component: {fileID: 461283232540699501}
   m_Layer: 0
-  m_Name: Ne_Particles_2
+  m_Name: Ne_Particles_2_V_U
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

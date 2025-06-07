@@ -19511,7 +19511,7 @@ GameObject:
   - component: {fileID: 9163898482302884195}
   - component: {fileID: 6445478835730805785}
   m_Layer: 0
-  m_Name: Ne_Crack
+  m_Name: Ne_S_Crack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24420,7 +24420,7 @@ GameObject:
   - component: {fileID: 5222696796616094258}
   - component: {fileID: 1638683352724301504}
   m_Layer: 0
-  m_Name: Ps_Crack
+  m_Name: Ps_S_Crack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -422,7 +422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &377353142
 Transform:
   m_ObjectHideFlags: 0
@@ -817,10 +817,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ps_Kaelion_N_Mid_Slash
       objectReference: {fileID: 0}
-    - target: {fileID: 5976272425264129082, guid: 07cfc40c4881bd04197b13fc664c48da, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6333892801125652974, guid: 07cfc40c4881bd04197b13fc664c48da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -943,7 +939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &626183626
 Transform:
   m_ObjectHideFlags: 0
@@ -2018,6 +2014,7 @@ Transform:
   m_Children:
   - {fileID: 1573397504}
   - {fileID: 6665070266187179719}
+  - {fileID: 2925398010041004036}
   m_Father: {fileID: 1419540370}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1338008935
@@ -2035,7 +2032,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1338008936
 Transform:
   m_ObjectHideFlags: 0
@@ -3294,7 +3291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7824299803502312666, guid: 0b9943934e67d9d4f9dd61e57e8bb346, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8817424199652992298, guid: 0b9943934e67d9d4f9dd61e57e8bb346, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3418,6 +3415,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1769553472652111414, guid: eb5e022fcfc32474c8b2e6828fb1f4d3, type: 3}
   m_PrefabInstance: {fileID: 5871917232825183361}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2925398010041004036 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1050174543094372924, guid: 85668baae0fb3af4dbf168195e729b91, type: 3}
+  m_PrefabInstance: {fileID: 6380754238260294242}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2955398990051273610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3429,10 +3431,6 @@ PrefabInstance:
     - target: {fileID: 4099967707690303236, guid: 46e540cda15f8b34c86dbcbdfd48e18b, type: 3}
       propertyPath: m_Name
       value: 'Ps_Kaelion_N_Power_Slash '
-      objectReference: {fileID: 0}
-    - target: {fileID: 4099967707690303236, guid: 46e540cda15f8b34c86dbcbdfd48e18b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7186034391064025714, guid: 46e540cda15f8b34c86dbcbdfd48e18b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3553,10 +3551,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ps_Kaelon_N_Basic_Hit
       objectReference: {fileID: 0}
-    - target: {fileID: 2051337807671901773, guid: 47eb8e23c9f9b5b4c93632d3cfc43d70, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5164081074997789705, guid: 47eb8e23c9f9b5b4c93632d3cfc43d70, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3659,10 +3653,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Ps_Remor_N_Power_Slash '
       objectReference: {fileID: 0}
-    - target: {fileID: 5223335532574144581, guid: 72abead1f85c6ed4a921b41cbcee8a6e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3719,10 +3709,6 @@ PrefabInstance:
     - target: {fileID: 6891766135968408404, guid: 94a814858076f9140ba3c429048695ac, type: 3}
       propertyPath: m_Name
       value: Ps_K_Stone_Expo
-      objectReference: {fileID: 0}
-    - target: {fileID: 6891766135968408404, guid: 94a814858076f9140ba3c429048695ac, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3807,10 +3793,6 @@ PrefabInstance:
     - target: {fileID: 1559911090638798510, guid: 5212ac97126974640aea48fcc4bc496c, type: 3}
       propertyPath: m_Name
       value: Ps_K_Lightning_Expo
-      objectReference: {fileID: 0}
-    - target: {fileID: 1559911090638798510, guid: 5212ac97126974640aea48fcc4bc496c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6466753545880008311, guid: 5212ac97126974640aea48fcc4bc496c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3928,7 +3910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6260793472652274636, guid: 0eeea03009452a945b577602bbd1fd9f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8871897595542224520, guid: 0eeea03009452a945b577602bbd1fd9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4116,10 +4098,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ps_Kaelon_N_Mid_Hit
       objectReference: {fileID: 0}
-    - target: {fileID: 2157699248889254763, guid: e69c92e30d1e0f8448e793ae696534f5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7471693143029907737, guid: e69c92e30d1e0f8448e793ae696534f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4216,10 +4194,6 @@ PrefabInstance:
     - target: {fileID: 5980837507192651909, guid: 089bb6cf7317c9a4bb4f5fbea70168c2, type: 3}
       propertyPath: m_Name
       value: Ps_Remor_N_Basic_Slash
-      objectReference: {fileID: 0}
-    - target: {fileID: 5980837507192651909, guid: 089bb6cf7317c9a4bb4f5fbea70168c2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4536,6 +4510,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56dc8692070ed1b4592650dcccc99215, type: 3}
+--- !u!1001 &6380754238260294242
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1311073026}
+    m_Modifications:
+    - target: {fileID: 1050174543094372924, guid: 85668baae0fb3af4dbf168195e729b91, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050174543094372924, guid: 85668baae0fb3af4dbf168195e729b91, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050174543094372924, guid: 85668baae0fb3af4dbf168195e729b91, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050174543094372924, guid: 85668baae0fb3af4dbf168195e729b91, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050174543094372924, guid: 85668baae0fb3af4dbf168195e729b91, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050174543094372924, guid: 85668baae0fb3af4dbf168195e729b91, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050174543094372924, guid: 85668baae0fb3af4dbf168195e729b91, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050174543094372924, guid: 85668baae0fb3af4dbf168195e729b91, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050174543094372924, guid: 85668baae0fb3af4dbf168195e729b91, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050174543094372924, guid: 85668baae0fb3af4dbf168195e729b91, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801831747726351782, guid: 85668baae0fb3af4dbf168195e729b91, type: 3}
+      propertyPath: m_Name
+      value: Ps_R_Mace_Expo
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801831747726351782, guid: 85668baae0fb3af4dbf168195e729b91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 85668baae0fb3af4dbf168195e729b91, type: 3}
 --- !u!1001 &6396606925753111354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4645,10 +4680,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ps_K_Fire_Expo
       objectReference: {fileID: 0}
-    - target: {fileID: 6583006475346816203, guid: 3210024b30ff58e43ada25fa2933ed37, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4675,6 +4706,10 @@ PrefabInstance:
     - target: {fileID: 6014551563525862096, guid: 01b28e688912e144ba407c2a9e67f7d8, type: 3}
       propertyPath: m_Name
       value: Ps_R_Ice_Expo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014551563525862096, guid: 01b28e688912e144ba407c2a9e67f7d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8633877094754506131, guid: 01b28e688912e144ba407c2a9e67f7d8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4737,10 +4772,6 @@ PrefabInstance:
     - target: {fileID: 1129440813902792232, guid: 980217ba91fd4d04aace3b95e8bf4a32, type: 3}
       propertyPath: m_Name
       value: Ps_Remor_N_Mid_Slash
-      objectReference: {fileID: 0}
-    - target: {fileID: 1129440813902792232, guid: 980217ba91fd4d04aace3b95e8bf4a32, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7671757608317853953, guid: 980217ba91fd4d04aace3b95e8bf4a32, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4841,7 +4872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5109563728137446468, guid: 8b1a0b84a67ed5c48994b0dff1796ac1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5195,10 +5226,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ps_Kaelion_N_Basic_Slash
       objectReference: {fileID: 0}
-    - target: {fileID: 8488991481384017028, guid: bafcc4b1abd2498488413e847b3837f1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5223,7 +5250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 592766850974481354, guid: 2ba82fb5ce5ac994ba9650f8a8d9ac6f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2020665215022180769, guid: 2ba82fb5ce5ac994ba9650f8a8d9ac6f, type: 3}
       propertyPath: m_LocalPosition.x

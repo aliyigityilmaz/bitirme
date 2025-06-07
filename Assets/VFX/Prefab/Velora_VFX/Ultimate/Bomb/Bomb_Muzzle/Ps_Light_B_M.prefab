@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7690264203314806903}
   - component: {fileID: 8700801634219391978}
   m_Layer: 0
-  m_Name: Ne_Particles_2
+  m_Name: Ne_Particles_2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4844,7 +4844,7 @@ GameObject:
   - component: {fileID: 866693779488241074}
   - component: {fileID: 4533616078975871043}
   m_Layer: 0
-  m_Name: Ne_Bomb_Trail
+  m_Name: Ne_Bomb_Trail_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4993,7 +4993,7 @@ GameObject:
   - component: {fileID: 57437244904773979}
   - component: {fileID: 7236982401450502862}
   m_Layer: 0
-  m_Name: Ne_Bomb_2
+  m_Name: Ne_Bomb_2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14720,7 +14720,7 @@ GameObject:
   - component: {fileID: 8281188260520975475}
   - component: {fileID: 5439019849879145}
   m_Layer: 0
-  m_Name: Ne_Bomb
+  m_Name: Ne_Bomb_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5953313530461146814}
   - component: {fileID: 8074081969499820077}
   m_Layer: 0
-  m_Name: Ne_Ice_B_3
+  m_Name: Ne_Ice_M_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4912,7 +4912,7 @@ GameObject:
   - component: {fileID: 3375237232099756660}
   - component: {fileID: 4605049957696250997}
   m_Layer: 0
-  m_Name: Ne_Ice_B_1
+  m_Name: Ne_Ice_M_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9812,7 +9812,7 @@ GameObject:
   - component: {fileID: 2457621598200096610}
   - component: {fileID: 6564389953127734538}
   m_Layer: 0
-  m_Name: Ne_Ice_B_2
+  m_Name: Ne_Ice_M_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19547,7 +19547,7 @@ GameObject:
   - component: {fileID: 6956442233285709579}
   - component: {fileID: 2333994453808746151}
   m_Layer: 0
-  m_Name: Ne_Ice_Particle
+  m_Name: Ne_Ice_Particle_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24438,7 +24438,7 @@ GameObject:
   - component: {fileID: 4574550299082806670}
   - component: {fileID: 9005399234047780384}
   m_Layer: 0
-  m_Name: Ne_Ice_Smoke
+  m_Name: Ne_Ice_Smoke_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29271,7 +29271,7 @@ GameObject:
   - component: {fileID: 6533752334252138723}
   - component: {fileID: 5420000481196209496}
   m_Layer: 0
-  m_Name: Ps_Bomb
+  m_Name: Ps_Bomb_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34110,7 +34110,7 @@ GameObject:
   - component: {fileID: 7218568074845309061}
   - component: {fileID: 2455510335422171105}
   m_Layer: 0
-  m_Name: Ne_Ice_Smoke
+  m_Name: Ne_Ice_Smoke_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39001,7 +39001,7 @@ GameObject:
   - component: {fileID: 3720509964199608186}
   - component: {fileID: 2607962691277802215}
   m_Layer: 0
-  m_Name: Ne_Crack
+  m_Name: Ne_Crack_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43910,7 +43910,7 @@ GameObject:
   - component: {fileID: 3798045661779038714}
   - component: {fileID: 8189819456386831917}
   m_Layer: 0
-  m_Name: Ne_Ice_Particle_2
+  m_Name: Ne_Ice_Particle_2_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48743,7 +48743,7 @@ GameObject:
   - component: {fileID: 1438375488558425190}
   - component: {fileID: 6286373077919772132}
   m_Layer: 0
-  m_Name: Ne_Ice_Particle
+  m_Name: Ne_Ice_Particle_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53576,7 +53576,7 @@ GameObject:
   - component: {fileID: 534487036902056474}
   - component: {fileID: 3674958062206772399}
   m_Layer: 0
-  m_Name: Ps_Crack
+  m_Name: Ps_Crack_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58413,7 +58413,7 @@ GameObject:
   - component: {fileID: 1697946657296413323}
   - component: {fileID: 8034080453377522800}
   m_Layer: 0
-  m_Name: Ne_Ice_Glow
+  m_Name: Ne_Ice_Glow_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

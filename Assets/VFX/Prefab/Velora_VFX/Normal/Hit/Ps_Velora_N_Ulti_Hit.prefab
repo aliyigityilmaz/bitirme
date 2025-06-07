@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4814691119413909380}
   - component: {fileID: 5396424409146472180}
   m_Layer: 0
-  m_Name: Ne_Glow_1_B
+  m_Name: Ne_Glow_1_V_P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4903,7 +4903,7 @@ GameObject:
   - component: {fileID: 6400491987202224930}
   - component: {fileID: 8108850143103875573}
   m_Layer: 0
-  m_Name: Ne_Impact_B
+  m_Name: Ne_Impact_V_P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9794,7 +9794,7 @@ GameObject:
   - component: {fileID: 5994129333766223529}
   - component: {fileID: 1891888237848629972}
   m_Layer: 0
-  m_Name: Ne_Refraction_B
+  m_Name: Ne_Refraction_V_P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14703,7 +14703,7 @@ GameObject:
   - component: {fileID: 7576005440644392246}
   - component: {fileID: 5929307415038977225}
   m_Layer: 0
-  m_Name: Ne_Particles_B
+  m_Name: Ne_Particles_V_P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19594,7 +19594,7 @@ GameObject:
   - component: {fileID: 2359788983162684786}
   - component: {fileID: 4612107519762784576}
   m_Layer: 0
-  m_Name: Ne_Glow_B
+  m_Name: Ne_Glow_V_P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

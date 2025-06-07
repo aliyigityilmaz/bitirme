@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3830462829239981620}
   - component: {fileID: 2160188485904116077}
   m_Layer: 0
-  m_Name: Ne_Slash_K_Glow_U
+  m_Name: Ne_Slash_K_Glow_B_U
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4903,7 +4903,7 @@ GameObject:
   - component: {fileID: 7773490621533464629}
   - component: {fileID: 2476435406801223499}
   m_Layer: 0
-  m_Name: Ne_Slash_K_F
+  m_Name: Ne_Slash_K_B_F
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9803,7 +9803,7 @@ GameObject:
   - component: {fileID: 2130464119720307567}
   - component: {fileID: 6869786403604034035}
   m_Layer: 0
-  m_Name: Ne_Slash_K_B
+  m_Name: Ne_Slash_K_B_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 268982472007668811}
   - component: {fileID: 7241929152802113003}
   m_Layer: 0
-  m_Name: Ne_Expo_2
+  m_Name: Ne_F_Expo_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9740,7 +9740,7 @@ GameObject:
   - component: {fileID: 2694084253062817892}
   - component: {fileID: 1120967573011309861}
   m_Layer: 0
-  m_Name: Ne_Particle_2
+  m_Name: Ne_F_Particle_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24239,7 +24239,7 @@ GameObject:
   - component: {fileID: 4568021114200238312}
   - component: {fileID: 5984788828425481202}
   m_Layer: 0
-  m_Name: Ne_Particle
+  m_Name: Ne_F_Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29072,7 +29072,7 @@ GameObject:
   - component: {fileID: 3710250373240173550}
   - component: {fileID: 6527271568594045079}
   m_Layer: 0
-  m_Name: Ne_Smoke
+  m_Name: Ne_F_Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38796,7 +38796,7 @@ GameObject:
   - component: {fileID: 6892327611924130665}
   - component: {fileID: 2591741155574051753}
   m_Layer: 0
-  m_Name: Ne_Expo_1
+  m_Name: Ne_F_Expo_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43688,7 +43688,7 @@ GameObject:
   - component: {fileID: 8014540821267885215}
   - component: {fileID: 4194769569294566973}
   m_Layer: 0
-  m_Name: Ps_Crack
+  m_Name: Ps_F_Crack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53373,7 +53373,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6583006475346816203}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -53381,7 +53381,7 @@ Transform:
   - {fileID: 2735231101581811880}
   - {fileID: 6457110076337955443}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &2559848076574771724
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -58194,7 +58194,7 @@ GameObject:
   - component: {fileID: 7989068390380198383}
   - component: {fileID: 2104455636311174477}
   m_Layer: 0
-  m_Name: Ne_Crack
+  m_Name: Ne_F_Crack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

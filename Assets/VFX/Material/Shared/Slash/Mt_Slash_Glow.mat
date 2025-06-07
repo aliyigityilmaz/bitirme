@@ -137,7 +137,7 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 1
     - _UseDissolveNoise: 0
-    - _UseDissolve_VertexAlphaByDeffault: 1
+    - _UseDissolve_VertexAlphaByDeffault: 0
     - _UseFlowmap: 0
     - _UseSoftParticles: 1
     - _UseVertexForAlpha: 1

@@ -14703,7 +14703,7 @@ GameObject:
   - component: {fileID: 7917976187852468442}
   - component: {fileID: 5742706759470171046}
   m_Layer: 0
-  m_Name: Ne_Crack
+  m_Name: Ne_Stone_Crack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29368,7 +29368,7 @@ GameObject:
   - component: {fileID: 3726087239291055344}
   - component: {fileID: 6402928628325568423}
   m_Layer: 0
-  m_Name: Ne_Smoke
+  m_Name: Ne_Stone_Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29577,9 +29577,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 0
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.5904733, b: 0, a: 1}
+      minMaxState: 2
+      minColor: {r: 0.8676816, g: 1, b: 0, a: 0.4117647}
+      maxColor: {r: 1, g: 0.5904733, b: 0, a: 0.56078434}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5719973767525986800}
   - component: {fileID: 2430579634689775385}
   m_Layer: 0
-  m_Name: Ne_Particle_R
+  m_Name: Ne_K_U_Particle_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4845,7 +4845,7 @@ GameObject:
   - component: {fileID: 7477550486203851235}
   - component: {fileID: 2760433567035920743}
   m_Layer: 0
-  m_Name: Ne_Slash_3
+  m_Name: Ne_K_U_Slash_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9736,7 +9736,7 @@ GameObject:
   - component: {fileID: 1695176530913972912}
   - component: {fileID: 2381416813439779229}
   m_Layer: 0
-  m_Name: Ne_Particle_L
+  m_Name: Ne_K_U_Particle_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14569,7 +14569,7 @@ GameObject:
   - component: {fileID: 3447735358990238374}
   - component: {fileID: 4439578146622330042}
   m_Layer: 0
-  m_Name: Ne_Slash_2
+  m_Name: Ne_K_U_Slash_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24297,7 +24297,7 @@ GameObject:
   - component: {fileID: 1049683279561080247}
   - component: {fileID: 2585558506754700776}
   m_Layer: 0
-  m_Name: Ne_Trail
+  m_Name: Ne_K_U_Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24462,7 +24462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8583890461837187573}
   m_Layer: 0
-  m_Name: Trail
+  m_Name: K_U_Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24496,7 +24496,7 @@ GameObject:
   - component: {fileID: 6566577891939929060}
   - component: {fileID: 7135072399689837503}
   m_Layer: 0
-  m_Name: Ne_Particle
+  m_Name: Ne_K_U_Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29329,7 +29329,7 @@ GameObject:
   - component: {fileID: 5198157582888914127}
   - component: {fileID: 6085412228215139934}
   m_Layer: 0
-  m_Name: Ne_Slash
+  m_Name: Ne_K_U_Slash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

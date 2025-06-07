@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4459310776941629093}
   - component: {fileID: 4956915025389763175}
   m_Layer: 0
-  m_Name: Ne_Beam_Orb
+  m_Name: Ne_Beam_Orb_V_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9747,7 +9747,7 @@ GameObject:
   - component: {fileID: 8163885318388864477}
   - component: {fileID: 3822678072018098772}
   m_Layer: 0
-  m_Name: Ne_Beam_Particle
+  m_Name: Ne_Beam_Particle_V_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

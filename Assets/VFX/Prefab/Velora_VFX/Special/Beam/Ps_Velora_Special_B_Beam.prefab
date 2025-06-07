@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4232696742091337918}
   - component: {fileID: 124097617998478500}
   m_Layer: 0
-  m_Name: Ne_Beam_2
+  m_Name: Ne_Beam_2_V_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4921,7 +4921,7 @@ GameObject:
   - component: {fileID: 2671229645133881039}
   - component: {fileID: 1810562127910614581}
   m_Layer: 0
-  m_Name: Ne_Beam_3
+  m_Name: Ne_Beam_3_V_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14670,7 +14670,7 @@ GameObject:
   - component: {fileID: 9114449859310219205}
   - component: {fileID: 2192576687772005490}
   m_Layer: 0
-  m_Name: Ne_Beam_Emmisive
+  m_Name: Ne_Beam_Emmisive_V_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19579,7 +19579,7 @@ GameObject:
   - component: {fileID: 5963838431205872153}
   - component: {fileID: 4857002086488884706}
   m_Layer: 0
-  m_Name: Ne_Beam_Particle
+  m_Name: Ne_Beam_Particle_V_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24412,7 +24412,7 @@ GameObject:
   - component: {fileID: 4321695004981695870}
   - component: {fileID: 654577121350021751}
   m_Layer: 0
-  m_Name: Ne_Beam_1
+  m_Name: Ne_Beam_1_V_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29321,7 +29321,7 @@ GameObject:
   - component: {fileID: 8932285017414915446}
   - component: {fileID: 3805539430171189829}
   m_Layer: 0
-  m_Name: Ne_Beam_Glow
+  m_Name: Ne_Beam_Glow_V_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34311,7 +34311,7 @@ GameObject:
   - component: {fileID: 4011931566023901859}
   - component: {fileID: 318343081269157471}
   m_Layer: 0
-  m_Name: Ne_Beam_Orb
+  m_Name: Ne_Beam_Orb_V_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

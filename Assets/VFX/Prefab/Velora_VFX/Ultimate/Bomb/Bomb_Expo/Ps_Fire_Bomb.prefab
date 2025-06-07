@@ -4912,7 +4912,7 @@ GameObject:
   - component: {fileID: 772579870744425964}
   - component: {fileID: 1606910600923918497}
   m_Layer: 0
-  m_Name: Ne_Fire_Particle_2
+  m_Name: Ne_Fire_Particle_2_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9745,7 +9745,7 @@ GameObject:
   - component: {fileID: 2728691987127169454}
   - component: {fileID: 4022217090012416530}
   m_Layer: 0
-  m_Name: Ne_Fire_Smoke
+  m_Name: Ne_Fire_Smoke_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14636,7 +14636,7 @@ GameObject:
   - component: {fileID: 6780668352911181805}
   - component: {fileID: 7890821870810877018}
   m_Layer: 0
-  m_Name: Ps_Crack
+  m_Name: Ps_Crack_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19473,7 +19473,7 @@ GameObject:
   - component: {fileID: 8700857829880820619}
   - component: {fileID: 2873020502264026940}
   m_Layer: 0
-  m_Name: Ne_Crack
+  m_Name: Ne_Crack_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29217,7 +29217,7 @@ GameObject:
   - component: {fileID: 6262501009252464357}
   - component: {fileID: 3823726120853080265}
   m_Layer: 0
-  m_Name: Ne_Fire_Smoke
+  m_Name: Ne_Fire_Smoke_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34050,7 +34050,7 @@ GameObject:
   - component: {fileID: 7670991755480152466}
   - component: {fileID: 1332081452849577380}
   m_Layer: 0
-  m_Name: Ps_Bomb
+  m_Name: Ps_Bomb_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38889,7 +38889,7 @@ GameObject:
   - component: {fileID: 926673136237442727}
   - component: {fileID: 2213101449495802669}
   m_Layer: 0
-  m_Name: Ne_Fire_Particle
+  m_Name: Ne_Fire_Particle_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43722,7 +43722,7 @@ GameObject:
   - component: {fileID: 1342455002011621276}
   - component: {fileID: 2237541954893462477}
   m_Layer: 0
-  m_Name: Ne_Fire_Particle
+  m_Name: Ne_Fire_Particle_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48613,7 +48613,7 @@ GameObject:
   - component: {fileID: 6454020455052334133}
   - component: {fileID: 7412742667616614130}
   m_Layer: 0
-  m_Name: Ne_Fire_Glow
+  m_Name: Ne_Fire_Glow_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

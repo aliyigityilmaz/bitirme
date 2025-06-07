@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8026079779383460672}
   - component: {fileID: 5982989584148088350}
   m_Layer: 0
-  m_Name: Ne_Ice_Stone_2
+  m_Name: Ne_Ice_Stone_3_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4912,7 +4912,7 @@ GameObject:
   - component: {fileID: 1175941927790077107}
   - component: {fileID: 7169523554866846054}
   m_Layer: 0
-  m_Name: Ne_Ice_Stone_3
+  m_Name: Ne_Ice_Stone_2_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9812,7 +9812,7 @@ GameObject:
   - component: {fileID: 2047399258066545055}
   - component: {fileID: 5981094302271707776}
   m_Layer: 0
-  m_Name: Ne_Smoke
+  m_Name: Ne_Ice_Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24441,7 +24441,7 @@ GameObject:
   - component: {fileID: 6849092877633242069}
   - component: {fileID: 1317289944864802082}
   m_Layer: 0
-  m_Name: Ne_Ice_Stone_2
+  m_Name: Ne_Ice_Stone_2_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39144,7 +39144,7 @@ GameObject:
   - component: {fileID: 4650035391854890060}
   - component: {fileID: 2976222602999353906}
   m_Layer: 0
-  m_Name: Ne_Ice_Stone_3
+  m_Name: Ne_Ice_Stone_3_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63633,7 +63633,7 @@ GameObject:
   - component: {fileID: 4275127121744821052}
   - component: {fileID: 2210831099361910940}
   m_Layer: 0
-  m_Name: Ne_Ices
+  m_Name: Ne_Ices_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73358,7 +73358,7 @@ GameObject:
   - component: {fileID: 191059049104150233}
   - component: {fileID: 4725835905042320503}
   m_Layer: 0
-  m_Name: Ne_Ices
+  m_Name: Ne_Ices_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78249,7 +78249,7 @@ GameObject:
   - component: {fileID: 2670421917492437342}
   - component: {fileID: 5482417487847416252}
   m_Layer: 0
-  m_Name: Ne_Smoke_2
+  m_Name: Ne_Ice_Smoke_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

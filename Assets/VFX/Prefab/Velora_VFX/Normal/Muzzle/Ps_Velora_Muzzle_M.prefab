@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2933783569266368939}
   - component: {fileID: 138915001021732299}
   m_Layer: 0
-  m_Name: Ne_Muzzle_Glow
+  m_Name: Ne_Muzzle_Glow_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4903,7 +4903,7 @@ GameObject:
   - component: {fileID: 5312651599948781632}
   - component: {fileID: 8332700200389118810}
   m_Layer: 0
-  m_Name: Ne_Muzzle_Particle
+  m_Name: Ne_Muzzle_Particle_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9794,7 +9794,7 @@ GameObject:
   - component: {fileID: 4961171016091557052}
   - component: {fileID: 1068040838280688557}
   m_Layer: 0
-  m_Name: Ne_Muzzle
+  m_Name: Ne_Muzzle_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

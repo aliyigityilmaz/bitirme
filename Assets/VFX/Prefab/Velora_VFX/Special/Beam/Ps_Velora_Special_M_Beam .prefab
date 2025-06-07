@@ -4853,7 +4853,7 @@ GameObject:
   - component: {fileID: 3259024136733815595}
   - component: {fileID: 644351357078495458}
   m_Layer: 0
-  m_Name: Ne_Beam_2
+  m_Name: Ne_Beam_2_V_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9762,7 +9762,7 @@ GameObject:
   - component: {fileID: 1922935248709013015}
   - component: {fileID: 6522898172232279097}
   m_Layer: 0
-  m_Name: Ne_Beam_1
+  m_Name: Ne_Beam_1_V_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14671,7 +14671,7 @@ GameObject:
   - component: {fileID: 7165448336671161775}
   - component: {fileID: 9201678824549490739}
   m_Layer: 0
-  m_Name: Ne_Beam_Particle
+  m_Name: Ne_Beam_Particle_V_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19504,7 +19504,7 @@ GameObject:
   - component: {fileID: 2676373885774170272}
   - component: {fileID: 6817787040261759816}
   m_Layer: 0
-  m_Name: Ne_Beam_Particle_2
+  m_Name: Ne_Beam_Particle_2_V_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24337,7 +24337,7 @@ GameObject:
   - component: {fileID: 2789273841133374818}
   - component: {fileID: 3224328424780698954}
   m_Layer: 0
-  m_Name: Ne_Beam_3
+  m_Name: Ne_Beam_3_V_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29246,7 +29246,7 @@ GameObject:
   - component: {fileID: 2415244027869081561}
   - component: {fileID: 304670561466541817}
   m_Layer: 0
-  m_Name: Ne_Beam_Orb
+  m_Name: Ne_Beam_Orb_V_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34236,7 +34236,7 @@ GameObject:
   - component: {fileID: 7927182230729351031}
   - component: {fileID: 4743706873937979668}
   m_Layer: 0
-  m_Name: Ne_Beam_Glow
+  m_Name: Ne_Beam_Glow_V_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39226,7 +39226,7 @@ GameObject:
   - component: {fileID: 177717787676542382}
   - component: {fileID: 7746712054541453083}
   m_Layer: 0
-  m_Name: Ne_Beam_Emmisive
+  m_Name: Ne_Beam_Emmisive_V_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
