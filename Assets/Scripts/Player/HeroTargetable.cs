@@ -33,8 +33,7 @@ public class HeroTargetable : MonoBehaviour
         if (myCollider != null)
             myCollider.enabled = false;
 
-        gameObject.SetActive(false);
-
+        heroData.charAnimator.SetTrigger("Death");
         CombatStateManager.Instance.CheckBattleEnd();
     }
 }

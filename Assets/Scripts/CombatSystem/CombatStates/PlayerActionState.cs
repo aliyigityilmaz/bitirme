@@ -16,7 +16,80 @@ public class PlayerActionState : ICombatState
     {// damage hesaplama
         Debug.Log("Entering Player Action State");
         Hero activeHero = manager.turnOrder[manager.currentTurnIndex];
-        activeHero.charAnimator.SetTrigger("BasicAttack");
+        Skill selectedSkill = activeHero.GetSkills()[manager.selectedSkillIndex];
+        float multiplier = PlayerInputState.instance.finalDamage;
+        if (activeHero.id == 1)
+        {
+            if (selectedSkill.skillId == SkillId.NormalAttack)
+            {
+                activeHero.charAnimator.SetTrigger("NormalAttack");
+            }
+            else if (selectedSkill.skillId == SkillId.SpecialAttack)
+            {
+                activeHero.charAnimator.SetTrigger("SpecialAttack1");
+            }
+            else if (selectedSkill.skillId == SkillId.Ulti)
+            {
+                if (multiplier >= 1.4f)
+                    activeHero.charAnimator.SetTrigger("Ulti1");
+                else if (multiplier >= 0.9f)
+                    activeHero.charAnimator.SetTrigger("Ulti2");
+                else
+                    activeHero.charAnimator.SetTrigger("Ulti3");
+            }
+        }
+        else if (activeHero.id == 2)
+        {
+            if (selectedSkill.skillId == SkillId.NormalAttack)
+            {
+                activeHero.charAnimator.SetTrigger("NormalAttack");
+            }
+            else if (selectedSkill.skillId == SkillId.SpecialAttack)
+            {
+                activeHero.charAnimator.SetTrigger("SpecialAttack1");
+            }
+            else if (selectedSkill.skillId == SkillId.Ulti)
+            {
+                activeHero.charAnimator.SetTrigger("Ulti1");
+                if (multiplier >= 1.4f)
+                    activeHero.charAnimator.SetTrigger("Ulti1_3");
+                else if (multiplier >= 0.9f)
+                    activeHero.charAnimator.SetTrigger("Ulti1_2");
+                else
+                    activeHero.charAnimator.SetTrigger("Ulti1_1");
+            }
+        }
+        else if (activeHero.id == 3)
+        {
+            if (selectedSkill.skillId == SkillId.NormalAttack)
+            {
+                activeHero.charAnimator.SetTrigger("NormalAttack");
+            }
+            else if (selectedSkill.skillId == SkillId.SpecialAttack)
+            {
+                activeHero.charAnimator.SetTrigger("SpecialAttack1");
+            }
+            else if (selectedSkill.skillId == SkillId.Ulti)
+            {
+                activeHero.charAnimator.SetTrigger("Ulti1");
+            }
+
+        }
+        else if (activeHero.id == 4)
+        {
+            if (selectedSkill.skillId == SkillId.NormalAttack)
+            {
+                activeHero.charAnimator.SetTrigger("NormalAttack");
+            }
+            else if (selectedSkill.skillId == SkillId.SpecialAttack)
+            {
+                activeHero.charAnimator.SetTrigger("SpecialAttack1");
+            }
+            else if (selectedSkill.skillId == SkillId.Ulti)
+            {
+                activeHero.charAnimator.SetTrigger("Ulti1");
+            }
+        }
         isAnimStarted = true;
         damageTimer = 2f;
     }

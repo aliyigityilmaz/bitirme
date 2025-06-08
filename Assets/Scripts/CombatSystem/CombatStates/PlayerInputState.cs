@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -86,11 +87,7 @@ public class PlayerInputState : ICombatState
         totalMultiplier = 0f;
 
         SetupNextRound();
-        
-
     }
-
-    
     
     private void SetupNextRound()
     {
@@ -185,9 +182,7 @@ public class PlayerInputState : ICombatState
             
         }
     }
-    
 
-    
 
     public void Exit()
     {
