@@ -114,7 +114,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _DstBlendAlpha: 0
-    - _EmissionSaturation: 1.49
+    - _EmissionSaturation: 2.59
     - _EnvironmentReflections: 1
     - _FlatDissolve: 0.679
     - _FlowAmmount: 0.15

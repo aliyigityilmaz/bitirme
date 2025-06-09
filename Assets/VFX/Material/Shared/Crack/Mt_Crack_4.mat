@@ -125,7 +125,7 @@ Material:
     - _DissolveAmmount: 1
     - _DstBlend: 1
     - _DstBlendAlpha: 0
-    - _EmissionSaturation: 7.29
+    - _EmissionSaturation: 9.74
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -155,7 +155,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveStep: {r: 0, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 5.656854, g: 5.656854, b: 5.656854, a: 1}
     - _Emission_Dissolve_Step: {r: 0, g: 0, b: 0, a: 0}
     - _RemapColor01: {r: 0, g: 0, b: 0, a: 0}
     - _RemapColor02: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
