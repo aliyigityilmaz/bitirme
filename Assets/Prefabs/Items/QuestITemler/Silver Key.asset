@@ -16,5 +16,5 @@ MonoBehaviour:
   description: These keys are great for opening locked doors or high value chests!
     Try to find one and use it.
   icon: {fileID: 0}
-  type: 1
+  type: 2
   defaultQuantity: 1

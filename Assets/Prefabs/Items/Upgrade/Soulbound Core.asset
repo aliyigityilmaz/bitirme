@@ -17,5 +17,5 @@ MonoBehaviour:
     and their weapon. Found within ancient ruins, earned through pivotal decisions,
     or granted after moments of personal
   icon: {fileID: 21300000, guid: 284d5d2a0e6eb5045996ead4b4476e22, type: 3}
-  type: 0
+  type: 2
   defaultQuantity: 1

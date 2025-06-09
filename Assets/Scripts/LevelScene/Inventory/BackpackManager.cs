@@ -121,7 +121,7 @@ public class BackpackManager : MonoBehaviour
 
             // Sayý gösterimi
             var quantityText = slot.transform.Find("Count")?.GetComponent<TextMeshProUGUI>();
-            if (item.Type == ItemType.Collectible && item.quantity > 1)
+            if ((item.Type == ItemType.Collectible || item.Type == ItemType.Consumable || item.Type == ItemType.MobDrop) && item.quantity > 1)
             {
                 quantityText.text = item.quantity.ToString();
                 quantityText.gameObject.SetActive(true);

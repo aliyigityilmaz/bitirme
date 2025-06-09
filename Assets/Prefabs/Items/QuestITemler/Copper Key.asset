@@ -16,5 +16,5 @@ MonoBehaviour:
   description: It may look like its not fit for anything but it can open most of
     the chests in the open...
   icon: {fileID: 0}
-  type: 1
+  type: 2
   defaultQuantity: 1
