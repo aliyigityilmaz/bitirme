@@ -81,7 +81,6 @@ public class CombatStateManager : MonoBehaviour
             selectedSkill = activeHero.GetSkills()[selectedSkillIndex];
             selectedEnemy = hero;
             IsTargetSelectionActive = false;
-
             Debug.Log($"Target Selected: {selectedEnemy.name}");
             selectedEnemy.charAnimator.SetTrigger("TakeDamage");
             SetState(new PlayerInputState(this));

@@ -27,9 +27,9 @@ public class EnemyTargetable : MonoBehaviour
 
         if (myCollider != null)
             myCollider.enabled = false;
-
-        gameObject.SetActive(false);
-
+        enemyData.charAnimator.SetTrigger("Death");
+       //gameObject.SetActive(false);
+       
         CombatStateManager.Instance.CheckBattleEnd();
     }
 }

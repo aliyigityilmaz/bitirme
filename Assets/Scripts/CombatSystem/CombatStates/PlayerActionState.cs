@@ -133,6 +133,7 @@ public class PlayerActionState : ICombatState
             if (manager.selectedEnemy != null)
             {
                 manager.selectedEnemy.health -= (int)finalValue;
+                manager.selectedEnemy.charAnimator.SetTrigger("TakeDamage");
                 if (manager.selectedEnemy.health <= 0)
                 {
                     Debug.Log($"{manager.selectedEnemy.name} has died!");
