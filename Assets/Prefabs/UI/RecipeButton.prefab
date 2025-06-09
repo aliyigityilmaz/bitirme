@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Recipe Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a23bf56d18bce5a4d991543d8ff4245f, type: 2}
+  m_sharedMaterial: {fileID: -4698677872541820238, guid: a23bf56d18bce5a4d991543d8ff4245f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
