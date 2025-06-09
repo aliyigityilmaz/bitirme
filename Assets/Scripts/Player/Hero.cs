@@ -32,6 +32,12 @@ public class Hero
         this.criticalChance = criticalChance;
         this.team = team;
     }
-    
+    public void ReduceAllSkillCooldowns()
+    {
+        foreach (Skill skill in GetSkills())
+        {
+            skill.ReduceCooldown();
+        }
+    }
 
 }

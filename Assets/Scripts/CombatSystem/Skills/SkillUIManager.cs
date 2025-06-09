@@ -25,19 +25,35 @@ public class SkillUIManager : MonoBehaviour
         for (int i = 0; i < skillButtons.Length; i++)
         {
             if (i < skills.Length)
-            {
-                int index = i; // Closure sorununu önlemek için
+            { 
+                int index = i;
+                Skill skill = skills[i];
+
                 skillButtons[i].onClick.RemoveAllListeners();
                 skillButtons[i].onClick.AddListener(() => OnSkillButtonClicked(index));
+
                 skillButtons[i].gameObject.SetActive(true);
+                skillButtons[i].interactable = skill.IsAvailable();
+
+                // Ýsteðe baðlý: Cooldown bilgisi UI’da gösterilebilir.
+                Text buttonText = skillButtons[i].GetComponentInChildren<Text>();
+                if (buttonText != null)
+                {
+                    if (!skill.IsAvailable())
+                        buttonText.text = $"{skill.skillName} ({skill.currentCooldown})";
+                    else
+                        buttonText.text = skill.skillName;
+                }
             }
             else
             {
                 skillButtons[i].gameObject.SetActive(false);
             }
         }
+
         skillPanel.SetActive(true);
     }
+
 
     public void OnSkillButtonClicked(int index)
     {

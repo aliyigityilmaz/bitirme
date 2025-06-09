@@ -54,10 +54,21 @@ public class CombatStateManager : MonoBehaviour
         currentStateName = currentState.GetType().Name;
         Debug.Log("Combat State changed to: " + currentStateName);
     }
+    public void StartTurn()
+    {
+        //hero cooldown için
+        Hero activeHero = turnOrder[currentTurnIndex];
+
+        foreach (var skill in activeHero.GetSkills())
+        {
+            skill.ReduceCooldown();
+        }
+
+    }
     public void NextTurn()
     {
         currentTurnIndex = (currentTurnIndex + 1) % turnOrder.Count;
-        Debug.Log("Next turn index is now " + currentTurnIndex);
+        StartTurn();
     }
     public void OnEnemySelected(Hero enemy)
     {

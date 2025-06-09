@@ -125,6 +125,7 @@ public class PlayerActionState : ICombatState
     {
         Hero activeHero = manager.turnOrder[manager.currentTurnIndex];
         Skill selectedSkill = activeHero.GetSkills()[manager.selectedSkillIndex];
+        selectedSkill.Activate();
         manager.selectedSkill = selectedSkill;
         float finalValue = selectedSkill.baseDamage * finalMultiplier;
 

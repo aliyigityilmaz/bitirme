@@ -2428,11 +2428,17 @@ MonoBehaviour:
       skillId: 0
       baseDamage: 10
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     - skillName: Advanced
       skillType: 0
       skillId: 0
       baseDamage: 25
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     charAnimator: {fileID: 403810361}
 --- !u!65 &403810360
 BoxCollider:
@@ -4625,11 +4631,17 @@ MonoBehaviour:
       skillId: 0
       baseDamage: 10
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     - skillName: Advanced
       skillType: 0
       skillId: 0
       baseDamage: 25
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     charAnimator: {fileID: 774772489}
 --- !u!1 &798152764
 GameObject:
@@ -5268,11 +5280,17 @@ MonoBehaviour:
       skillId: 0
       baseDamage: 10
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     - skillName: Advanced
       skillType: 0
       skillId: 0
       baseDamage: 25
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     charAnimator: {fileID: 853075437}
 --- !u!65 &853075436
 BoxCollider:
@@ -7060,6 +7078,9 @@ MonoBehaviour:
     skillId: 0
     baseDamage: 0
     baseHeal: 0
+    cooldownTurns: 0
+    currentCooldown: 0
+    maxCooldown: 3
   selectedEnemy:
     name: 
     team: 0
@@ -7115,16 +7136,25 @@ MonoBehaviour:
       skillId: 0
       baseDamage: 0
       baseHeal: 20
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     - skillName: Damaj
       skillType: 0
       skillId: 0
       baseDamage: 20
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     - skillName: Ulti
       skillType: 0
       skillId: 0
       baseDamage: 20
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     charAnimator: {fileID: 0}
   - name: Hero 2
     team: 0
@@ -7140,6 +7170,9 @@ MonoBehaviour:
       skillId: 0
       baseDamage: 0
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     charAnimator: {fileID: 0}
   - name: Hero 3
     team: 0
@@ -7155,6 +7188,9 @@ MonoBehaviour:
       skillId: 0
       baseDamage: 0
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     charAnimator: {fileID: 0}
   - name: Hero 4
     team: 0
@@ -7170,6 +7206,9 @@ MonoBehaviour:
       skillId: 0
       baseDamage: 0
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     charAnimator: {fileID: 0}
   - name: Enemy 1
     team: 1
@@ -7185,6 +7224,9 @@ MonoBehaviour:
       skillId: 0
       baseDamage: 0
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     charAnimator: {fileID: 0}
   - name: Enemy 2
     team: 1
@@ -7200,6 +7242,9 @@ MonoBehaviour:
       skillId: 0
       baseDamage: 0
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     charAnimator: {fileID: 0}
   - name: Enemy 3
     team: 1
@@ -7215,6 +7260,9 @@ MonoBehaviour:
       skillId: 0
       baseDamage: 0
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     charAnimator: {fileID: 0}
   - name: Enemy 4
     team: 1
@@ -7230,6 +7278,9 @@ MonoBehaviour:
       skillId: 0
       baseDamage: 20
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     charAnimator: {fileID: 0}
 --- !u!114 &1110363114
 MonoBehaviour:
@@ -7392,11 +7443,17 @@ MonoBehaviour:
       skillId: 0
       baseDamage: 10
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     - skillName: Advanced
       skillType: 0
       skillId: 0
       baseDamage: 25
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 3
     charAnimator: {fileID: 1111374479}
 --- !u!65 &1111374478
 BoxCollider:
@@ -15460,7 +15517,7 @@ MonoBehaviour:
     team: 0
     id: 4
     baseHealth: 0
-    health: 5
+    health: 500
     turnSpeed: 50
     armor: 0
     criticalChance: 0
@@ -15470,16 +15527,25 @@ MonoBehaviour:
       skillId: 0
       baseDamage: 10
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 0
     - skillName: Advanced Attack
       skillType: 0
       skillId: 1
       baseDamage: 20
       baseHeal: 0
+      cooldownTurns: 2
+      currentCooldown: 0
+      maxCooldown: 2
     - skillName: Ulti
       skillType: 0
       skillId: 2
       baseDamage: 50
       baseHeal: 0
+      cooldownTurns: 3
+      currentCooldown: 0
+      maxCooldown: 3
     charAnimator: {fileID: 1698648971}
 --- !u!65 &919132147496939226
 BoxCollider:
@@ -15538,7 +15604,7 @@ MonoBehaviour:
     team: 0
     id: 3
     baseHealth: 0
-    health: 5
+    health: 500
     turnSpeed: 150
     armor: 0
     criticalChance: 0
@@ -15548,16 +15614,25 @@ MonoBehaviour:
       skillId: 0
       baseDamage: 10
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 0
     - skillName: Advanced Attack
       skillType: 0
       skillId: 1
       baseDamage: 20
       baseHeal: 0
+      cooldownTurns: 2
+      currentCooldown: 0
+      maxCooldown: 2
     - skillName: Ulti
       skillType: 0
       skillId: 2
       baseDamage: 50
       baseHeal: 0
+      cooldownTurns: 3
+      currentCooldown: 0
+      maxCooldown: 3
     charAnimator: {fileID: 1993410551}
 --- !u!65 &919132147793279654
 BoxCollider:
@@ -15616,7 +15691,7 @@ MonoBehaviour:
     team: 0
     id: 1
     baseHealth: 0
-    health: 5
+    health: 500
     turnSpeed: 500
     armor: 0
     criticalChance: 0
@@ -15626,16 +15701,25 @@ MonoBehaviour:
       skillId: 0
       baseDamage: 10
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 0
     - skillName: Second
       skillType: 0
       skillId: 1
       baseDamage: 25
       baseHeal: 0
+      cooldownTurns: 2
+      currentCooldown: 0
+      maxCooldown: 2
     - skillName: Ulti
       skillType: 0
       skillId: 2
       baseDamage: 50
       baseHeal: 0
+      cooldownTurns: 3
+      currentCooldown: 0
+      maxCooldown: 3
     charAnimator: {fileID: 1397328680}
 --- !u!65 &919132148404106873
 BoxCollider:
@@ -15694,7 +15778,7 @@ MonoBehaviour:
     team: 0
     id: 2
     baseHealth: 0
-    health: 5
+    health: 500
     turnSpeed: 250
     armor: 0
     criticalChance: 0
@@ -15704,16 +15788,25 @@ MonoBehaviour:
       skillId: 0
       baseDamage: 10
       baseHeal: 0
+      cooldownTurns: 0
+      currentCooldown: 0
+      maxCooldown: 0
     - skillName: Advanced Attack
       skillType: 0
       skillId: 1
       baseDamage: 20
       baseHeal: 0
+      cooldownTurns: 2
+      currentCooldown: 0
+      maxCooldown: 2
     - skillName: Ulti
       skillType: 0
       skillId: 2
       baseDamage: 50
       baseHeal: 0
+      cooldownTurns: 3
+      currentCooldown: 0
+      maxCooldown: 3
     charAnimator: {fileID: 33541956}
 --- !u!65 &919132149187277333
 BoxCollider:
