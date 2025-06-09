@@ -3573,6 +3573,7 @@ GameObject:
   - component: {fileID: 879802721}
   - component: {fileID: 879802722}
   - component: {fileID: 879802723}
+  - component: {fileID: 879802724}
   m_Layer: 0
   m_Name: ManagerBros
   m_TagString: Untagged
@@ -3762,6 +3763,18 @@ MonoBehaviour:
   confirmButton: {fileID: 2031040959}
   hourHand: {fileID: 1891847034}
   minuteHand: {fileID: 2012852638}
+--- !u!114 &879802724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879802715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d373a316571b3746b7fbc36d6147377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &916899077
 GameObject:
   m_ObjectHideFlags: 0
@@ -5951,6 +5964,8 @@ MonoBehaviour:
   interactableType: 8
   isOneTimeInteraction: 1
   level: 1
+  canRespawn: 0
+  respawnTime: 10
 --- !u!1 &1172626914
 GameObject:
   m_ObjectHideFlags: 0
@@ -7701,6 +7716,8 @@ MonoBehaviour:
   interactableType: 8
   isOneTimeInteraction: 1
   level: 1
+  canRespawn: 1
+  respawnTime: 10
 --- !u!1 &1441557720
 GameObject:
   m_ObjectHideFlags: 0

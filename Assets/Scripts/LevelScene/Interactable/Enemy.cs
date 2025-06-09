@@ -3,7 +3,13 @@ using UnityEngine;
 public class Enemy : Interactable
 {
     private bool hasInteracted = false;
-    public int level = 1; // Düþmanýn seviyesi, ileride kullanýlabilir
+    public int level = 1;
+
+    [Header("Respawn Settings")]
+    public bool canRespawn = true;
+    public float respawnTime = 10f; // saniye cinsinden
+
+    private float deathTime;
 
     private void Start()
     {
@@ -17,10 +23,9 @@ public class Enemy : Interactable
 
         hasInteracted = true;
 
-        // TODO: Combat sistemine geçiþ yapýlacak burada.
         Debug.Log("Combat baþlatýlýyor... (Combat sistemi henüz yok)");
 
-        // Þu anlýk otomatik olarak savaþý kazanmýþ gibi düþmaný deaktif yap
+        // Geçici savaþ sonucu
         OnCombatEnded(playerWon: true);
     }
 
@@ -28,13 +33,23 @@ public class Enemy : Interactable
     {
         if (playerWon)
         {
-            // Savaþ kazanýldýysa düþmaný deaktif et
             gameObject.SetActive(false);
+
+            if (canRespawn)
+            {
+                deathTime = Time.time;
+                EnemyRespawnManager.Instance.RegisterForRespawn(this, deathTime + respawnTime);
+            }
         }
         else
         {
-            // Savaþ kaybedildiyse bir þey yapma (düþman sahnede kalmaya devam eder)
             Debug.Log("Oyuncu kaybetti, düþman aktif kalýyor.");
         }
+    }
+
+    public void Respawn()
+    {
+        hasInteracted = false; // Etkileþim durumu sýfýrlanýr
+        gameObject.SetActive(true); // Düþman tekrar sahnede görünür
     }
 }
