@@ -30,7 +30,7 @@ public class EnemySpawnManager : MonoBehaviour
         float currentTime = DayNightManager.Instance.currentTime;
         float realtime = Time.time;
 
-        // 1. Respawn zamaný gelmiþ düþmanlarý aktif et
+        // 1. Respawn zamanï¿½ gelmiï¿½ dï¿½ï¿½manlarï¿½ aktif et
         for (int i = respawnQueue.Count - 1; i >= 0; i--)
         {
             var data = respawnQueue[i];
@@ -42,15 +42,15 @@ public class EnemySpawnManager : MonoBehaviour
                 }
                 else
                 {
-                    // Spawn zamaný deðilse listeden silmeden bekletiyoruz
+                    // Spawn zamanï¿½ deï¿½ilse listeden silmeden bekletiyoruz
                     continue;
                 }
 
                 respawnQueue.RemoveAt(i);
             }
         }
-
-        // 2. Zaman aralýðý dýþýnda olan düþmanlarý deaktif et
+return;
+        // 2. Zaman aralï¿½ï¿½ï¿½ dï¿½ï¿½ï¿½nda olan dï¿½ï¿½manlarï¿½ deaktif et
         foreach (var enemy in allEnemies)
         {
             if (enemy.useTimeRestrictions)
@@ -62,7 +62,7 @@ public class EnemySpawnManager : MonoBehaviour
                     enemy.Respawn();
                 }
                 else if (!shouldBeActive && enemy.gameObject.activeSelf)
-                {
+                { 
                     enemy.gameObject.SetActive(false);
                 }
             }

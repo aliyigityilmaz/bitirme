@@ -31,6 +31,7 @@ public class AudioForCombat : MonoBehaviour
     public AudioSource combatMusicSource1;
     public AudioSource combatMusicSource2;
     public AudioSource combatNoteSource;
+    public AudioSource combatSfxSource;
     [Header("Main Combat Sounds")]
     public AudioClip combatMusicClip1;
     public AudioClip combatMusicClip2;
@@ -60,9 +61,16 @@ public class AudioForCombat : MonoBehaviour
     }
 
     #region One‑shot SFX
+    // sadece nota için
     public void PlayNote(AudioClip clip)
     {
         combatNoteSource.PlayOneShot(clip);
+    }
+
+    // sadece combat sfx için
+    public void PlaySfx(AudioClip clip)
+    {
+        combatSfxSource.PlayOneShot(clip);
     }
     #endregion
 

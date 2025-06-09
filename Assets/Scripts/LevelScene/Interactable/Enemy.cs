@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : Interactable
 {
@@ -20,7 +21,7 @@ public class Enemy : Interactable
     {
         interactableType = InteractableType.Enemy;
 
-        // Kayýt ol
+        // Kayï¿½t ol
         EnemySpawnManager.Instance.RegisterEnemy(this);
     }
 
@@ -31,9 +32,11 @@ public class Enemy : Interactable
 
         hasInteracted = true;
 
-        Debug.Log("Combat baþlatýlýyor... (Combat sistemi henüz yok)");
+        EncounterManager.Instance.SetupEncounterForLevel(level);
+        //HeroSaveManager.SaveHeroes(HeroManager.instance.heroList);
+        SceneManager.LoadScene("BCombatScene");
 
-        OnCombatEnded(playerWon: true);
+        //OnCombatEnded(playerWon: true);
     }
 
     public void OnCombatEnded(bool playerWon)
