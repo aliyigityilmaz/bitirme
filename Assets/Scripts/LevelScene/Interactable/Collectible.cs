@@ -20,7 +20,10 @@ public class CollectiblePickup : Interactable
         hasCollected = true;
 
         BackpackManager.Instance.AddItem(itemData, quantity);
-
+        FloatingTextSpawner.Instance.ShowMessage(
+            $"You have collected {itemData.itemName}!",
+            Color.white
+        );
         // Ses, VFX, animasyon gibi þeyler burada olabilir
         Destroy(gameObject);
     }
