@@ -19,7 +19,7 @@ public class OpenWorldCombatDataConnection : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // Sahne adlarına göre karar verelim:
-        if (scene.name == "CombatScene") 
+        if (scene.buildIndex == 1) 
         {
             // Combat sahnesi yükleniyor: Open World'den gelen verileri yükle
             // CombatStateManager.Start() içinde turnOrder oluşturulurken
@@ -27,7 +27,7 @@ public class OpenWorldCombatDataConnection : MonoBehaviour
             HeroSaveManager.LoadHeroes(HeroManager.instance.heroList);
             // CombatStateManager’in Start() içinde turnOrder = HeroManager... sıralaması mevcut
         }
-        else if (scene.name == "OpenWorldScene") 
+        else if (scene.buildIndex == 0) 
         {
             // Open World sahnesi başladı: Combat'tan gelen kayıtlı verileri yükle
             HeroSaveManager.LoadHeroes(HeroManager.instance.heroList);

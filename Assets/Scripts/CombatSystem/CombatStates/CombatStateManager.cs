@@ -31,6 +31,7 @@ public class CombatStateManager : MonoBehaviour
         Instance = this;
         // Başlangıçta Idle state ile başlıyoruz
         turnOrder = HeroManager.instance.heroList
+            .Where(h => h.health > 0)
             .OrderByDescending(h => h.turnSpeed) // turnSpeed’e göre sıralama
             .ToList();
         SetState(new IdleState(this));
@@ -81,6 +82,7 @@ public class CombatStateManager : MonoBehaviour
             selectedSkill = activeHero.GetSkills()[selectedSkillIndex];
             selectedEnemy = hero;
             IsTargetSelectionActive = false;
+
             Debug.Log($"Target Selected: {selectedEnemy.name}");
             selectedEnemy.charAnimator.SetTrigger("TakeDamage");
             SetState(new PlayerInputState(this));
@@ -88,16 +90,16 @@ public class CombatStateManager : MonoBehaviour
     }
     public void EndBattle(bool isWin)
     {
+        // Combat bitmeden önce kahraman verilerini kaydet:
+        HeroSaveManager.SaveHeroes(HeroManager.instance.heroList);
+    
         SetState(new EndBattleState(this));
 
         if (isWin)
-        {
             winPanel.SetActive(true);
-        }
         else
-        {
             losePanel.SetActive(true);
-        }
+
 
     }
     public void CheckBattleEnd()
