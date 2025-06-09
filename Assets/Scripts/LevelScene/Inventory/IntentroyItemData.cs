@@ -11,6 +11,7 @@ public class InventoryItemData : ScriptableObject
 
     public bool IsStackable()
     {
-        return type == ItemType.Collectible;
+        // Collectible, Consumable ve MobDrop türleri stackable olacak
+        return type == ItemType.Collectible || type == ItemType.Consumable || type == ItemType.MobDrop;
     }
 }

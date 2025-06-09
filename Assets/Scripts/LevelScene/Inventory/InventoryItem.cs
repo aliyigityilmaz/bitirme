@@ -4,7 +4,9 @@ public enum ItemType
 {
     CharacterItem = 0,
     QuestItem = 1,
-    Collectible = 2
+    Consumable = 2,
+    MobDrop = 3,
+    Collectible = 4
 }
 
 

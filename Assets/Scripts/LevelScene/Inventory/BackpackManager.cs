@@ -81,8 +81,10 @@ public class BackpackManager : MonoBehaviour
             {
                 case ItemType.CharacterItem: return 0;
                 case ItemType.QuestItem: return 1;
-                case ItemType.Collectible: return 2;
-                default: return 3;
+                case ItemType.Consumable: return 2;
+                case ItemType.MobDrop: return 3;
+                case ItemType.Collectible: return 4;
+                default: return 5;
             }
         }).ToList();
 
@@ -107,6 +109,12 @@ public class BackpackManager : MonoBehaviour
                     frame.sprite = greenFrameNormal;
                     break;
                 case ItemType.Collectible:
+                    frame.sprite = grayFrameNormal;
+                    break;
+                case ItemType.Consumable:
+                    frame.sprite = greenFrameNormal;
+                    break;
+                case ItemType.MobDrop:
                     frame.sprite = grayFrameNormal;
                     break;
             }
@@ -154,6 +162,20 @@ public class BackpackManager : MonoBehaviour
 
             case ItemType.Collectible:
                 selectedItemType.text = "Collectible";
+                if (selectedItemCollectibleIcon != null)
+                {
+                    selectedItemTypeIcon.sprite = selectedItemCollectibleIcon; // veya özel bir ikon
+                }
+                break;
+            case ItemType.Consumable:
+                selectedItemType.text = "Consumable";
+                if (selectedItemCollectibleIcon != null)
+                {
+                    selectedItemTypeIcon.sprite = selectedItemCollectibleIcon; // veya özel bir ikon
+                }
+                break;
+            case ItemType.MobDrop:
+                selectedItemType.text = "Mob Drops";
                 if (selectedItemCollectibleIcon != null)
                 {
                     selectedItemTypeIcon.sprite = selectedItemCollectibleIcon; // veya özel bir ikon

@@ -60,7 +60,11 @@ public class CraftingManager : MonoBehaviour
                 bgImage.sprite = QuestItemBackground;
             else if (recipe.resultItem.type == ItemType.CharacterItem)
                 bgImage.sprite = CharacterItemBackground;
+            else if (recipe.resultItem.type == ItemType.Consumable)
+                bgImage.sprite = QuestItemBackground;
             else if (recipe.resultItem.type == ItemType.Collectible)
+                bgImage.sprite = CollectibleItemBackground;
+            else if (recipe.resultItem.type == ItemType.MobDrop)
                 bgImage.sprite = CollectibleItemBackground;
 
             var btn = go.GetComponent<Button>();
@@ -78,11 +82,15 @@ public class CraftingManager : MonoBehaviour
             RecipeData prevRecipe = recipes.Find(r => r == selectedRecipe);
             Image prevImage = selectedButton.GetComponent<Image>();
 
-            if (prevRecipe.resultItem.type == ItemType.QuestItem)
+            if (recipe.resultItem.type == ItemType.QuestItem)
                 prevImage.sprite = QuestItemBackground;
-            else if (prevRecipe.resultItem.type == ItemType.CharacterItem)
+            else if (recipe.resultItem.type == ItemType.CharacterItem)
                 prevImage.sprite = CharacterItemBackground;
-            else if (prevRecipe.resultItem.type == ItemType.Collectible)
+            else if (recipe.resultItem.type == ItemType.Consumable)
+                prevImage.sprite = QuestItemBackground;
+            else if (recipe.resultItem.type == ItemType.Collectible)
+                prevImage.sprite = CollectibleItemBackground;
+            else if (recipe.resultItem.type == ItemType.MobDrop)
                 prevImage.sprite = CollectibleItemBackground;
             selectedButton.transform.Find("Name").GetComponent<TextMeshProUGUI>().color = Color.white;
         }
@@ -93,6 +101,10 @@ public class CraftingManager : MonoBehaviour
         else if (recipe.resultItem.type == ItemType.CharacterItem)
             newImage.sprite = CharacterItemBackgroundSelected;
         else if (recipe.resultItem.type == ItemType.Collectible)
+            newImage.sprite = CollectibleItemBackgroundSelected;
+        else if (recipe.resultItem.type == ItemType.Consumable)
+            newImage.sprite = QuestItemBackgroundSelected;
+        else if (recipe.resultItem.type == ItemType.MobDrop)
             newImage.sprite = CollectibleItemBackgroundSelected;
         selectedButton = buttonGO;
         selectedButton.transform.Find("Name").GetComponent<TextMeshProUGUI>().color = Color.black;
