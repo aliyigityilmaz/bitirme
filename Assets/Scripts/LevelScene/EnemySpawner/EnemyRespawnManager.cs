@@ -1,45 +1,77 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyRespawnManager : MonoBehaviour
+public class EnemySpawnManager : MonoBehaviour
 {
-    public static EnemyRespawnManager Instance;
+    public static EnemySpawnManager Instance;
 
-    private class RespawnData
-    {
-        public Enemy enemy;
-        public float respawnAt;
-    }
-
-    private List<RespawnData> respawnList = new List<RespawnData>();
+    private List<Enemy> allEnemies = new List<Enemy>();
+    private List<RespawnData> respawnQueue = new List<RespawnData>();
 
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
+        if (Instance != null) Destroy(gameObject);
+        Instance = this;
+    }
+
+    public void RegisterEnemy(Enemy enemy)
+    {
+        if (!allEnemies.Contains(enemy))
+            allEnemies.Add(enemy);
+    }
+
+    public void RegisterForRespawn(Enemy enemy, float respawnAtTime)
+    {
+        respawnQueue.Add(new RespawnData { enemy = enemy, respawnTime = respawnAtTime });
     }
 
     private void Update()
     {
-        float currentTime = Time.time;
-        for (int i = respawnList.Count - 1; i >= 0; i--)
+        float currentTime = DayNightManager.Instance.currentTime;
+        float realtime = Time.time;
+
+        // 1. Respawn zamaný gelmiþ düþmanlarý aktif et
+        for (int i = respawnQueue.Count - 1; i >= 0; i--)
         {
-            if (currentTime >= respawnList[i].respawnAt)
+            var data = respawnQueue[i];
+            if (realtime >= data.respawnTime)
             {
-                respawnList[i].enemy.Respawn(); // Yeni fonksiyon çaðrýlýyor
-                respawnList.RemoveAt(i);
+                if (data.enemy.IsWithinSpawnTime(currentTime))
+                {
+                    data.enemy.Respawn();
+                }
+                else
+                {
+                    // Spawn zamaný deðilse listeden silmeden bekletiyoruz
+                    continue;
+                }
+
+                respawnQueue.RemoveAt(i);
+            }
+        }
+
+        // 2. Zaman aralýðý dýþýnda olan düþmanlarý deaktif et
+        foreach (var enemy in allEnemies)
+        {
+            if (enemy.useTimeRestrictions)
+            {
+                bool shouldBeActive = enemy.IsWithinSpawnTime(currentTime);
+
+                if (shouldBeActive && !enemy.gameObject.activeSelf && !respawnQueue.Exists(e => e.enemy == enemy))
+                {
+                    enemy.Respawn();
+                }
+                else if (!shouldBeActive && enemy.gameObject.activeSelf)
+                {
+                    enemy.gameObject.SetActive(false);
+                }
             }
         }
     }
 
-    public void RegisterForRespawn(Enemy enemy, float respawnAt)
+    private class RespawnData
     {
-        respawnList.Add(new RespawnData
-        {
-            enemy = enemy,
-            respawnAt = respawnAt
-        });
+        public Enemy enemy;
+        public float respawnTime;
     }
 }

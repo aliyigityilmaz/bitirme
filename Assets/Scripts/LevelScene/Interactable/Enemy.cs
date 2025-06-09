@@ -7,13 +7,21 @@ public class Enemy : Interactable
 
     [Header("Respawn Settings")]
     public bool canRespawn = true;
-    public float respawnTime = 10f; // saniye cinsinden
+    public float respawnTime = 10f;
+
+    [Header("Spawn Time Window")]
+    public bool useTimeRestrictions = false;
+    [Range(0f, 24f)] public float spawnStartTime = 0f;
+    [Range(0f, 24f)] public float spawnEndTime = 24f;
 
     private float deathTime;
 
     private void Start()
     {
         interactableType = InteractableType.Enemy;
+
+        // Kayýt ol
+        EnemySpawnManager.Instance.RegisterEnemy(this);
     }
 
     public override void Interact()
@@ -25,7 +33,6 @@ public class Enemy : Interactable
 
         Debug.Log("Combat baþlatýlýyor... (Combat sistemi henüz yok)");
 
-        // Geçici savaþ sonucu
         OnCombatEnded(playerWon: true);
     }
 
@@ -38,18 +45,24 @@ public class Enemy : Interactable
             if (canRespawn)
             {
                 deathTime = Time.time;
-                EnemyRespawnManager.Instance.RegisterForRespawn(this, deathTime + respawnTime);
+                EnemySpawnManager.Instance.RegisterForRespawn(this, deathTime + respawnTime);
             }
-        }
-        else
-        {
-            Debug.Log("Oyuncu kaybetti, düþman aktif kalýyor.");
         }
     }
 
     public void Respawn()
     {
-        hasInteracted = false; // Etkileþim durumu sýfýrlanýr
-        gameObject.SetActive(true); // Düþman tekrar sahnede görünür
+        hasInteracted = false;
+        gameObject.SetActive(true);
+    }
+
+    public bool IsWithinSpawnTime(float currentTime)
+    {
+        if (!useTimeRestrictions) return true;
+
+        if (spawnStartTime < spawnEndTime)
+            return currentTime >= spawnStartTime && currentTime < spawnEndTime;
+        else
+            return currentTime >= spawnStartTime || currentTime < spawnEndTime;
     }
 }
