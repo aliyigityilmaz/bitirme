@@ -56,13 +56,13 @@ public class CameraManager : MonoBehaviour
 
         while (t < 1f)
         {
-            t += Time.deltaTime * zoomSpeed;
+            t += Time.unscaledDeltaTime * zoomSpeed; // ZAMAN ÇARPANI DEÐÝÞTÝ
             cineCamera.Lens.FieldOfView = Mathf.Lerp(startFOV, targetFOV, t);
             yield return null;
         }
 
         cineCamera.Lens.FieldOfView = targetFOV;
-
-        currentZoom = null; // coroutine bittiðinde temizle
+        currentZoom = null;
     }
+
 }

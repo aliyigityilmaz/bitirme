@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Rendering.RenderGraphModule;
+using UnityEngine.SceneManagement;
 
 public class ESCMenuManager : MonoBehaviour
 {
@@ -11,9 +13,14 @@ public class ESCMenuManager : MonoBehaviour
     public GameObject backpackUI;
     public GameObject craftUI;
     public GameObject settingsUI;
-    public GameObject characterUI;
+    public GameObject timeUI;
+   // public GameObject characterUI;
 
     private bool isESCMenuOpen = false;
+    
+    public bool menuOpen = false;
+
+
 
     void Awake()
     {
@@ -32,14 +39,19 @@ public class ESCMenuManager : MonoBehaviour
             ToggleUI(backpackUI);
         }
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.V))
         {
             ToggleUI(craftUI);
         }
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            ToggleUI(characterUI);
+            //ToggleUI(characterUI);
+        }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            ToggleUI(timeUI);
         }
     }
 
@@ -54,72 +66,98 @@ public class ESCMenuManager : MonoBehaviour
             // Diðer UI'lar açýksa onlarý kapat
             CloseAllPanels();
             OpenESCMenu();
+            
         }
     }
 
-    void OpenESCMenu()
+    public void OpenESCMenu()
     {
         menuPanel.SetActive(true);
         isESCMenuOpen = true;
-        UpdateTimeScale();
+        menuOpen = true;
+        CameraManager.Instance.ZoomIn(); // Zoom out
     }
 
 
-    void CloseESCMenu()
+    public void CloseESCMenu()
     {
         menuPanel.SetActive(false);
         isESCMenuOpen = false;
-        UpdateTimeScale();
+        menuOpen = false;
+        CameraManager.Instance.ZoomOut(); // Zoom out
     }
 
 
     public void ToggleUI(GameObject targetUI)
     {
         bool alreadyOpen = targetUI.activeSelf;
+        bool anyUIWasOpen = backpackUI.activeSelf || craftUI.activeSelf || settingsUI.activeSelf /*|| characterUI.activeSelf*/;
 
-        // ESC menüsü açýksa kapat
+        // ESC menüsü açýksa onu kapat (çünkü ESC menüsü dýþý UI açýlýyor)
         if (isESCMenuOpen)
         {
-            CloseESCMenu();
+            CloseESCMenu(); // Bu sadece ESC panelini kapatýyor
         }
 
-        // Diðer UI'larý kapat
-        CloseAllPanels();
+        // Eðer zaten bir UI açýksa kamera zoomu bozmadan diðer panelleri kapat
+        if (anyUIWasOpen)
+        {
+            backpackUI.SetActive(false);
+            craftUI.SetActive(false);
+            settingsUI.SetActive(false);
+            timeUI.SetActive(false);
+            //characterUI.SetActive(false);
+        }
+        else
+        {
+            CloseAllPanels(); // Bu zoom out da yapar
+        }
 
         if (!alreadyOpen)
         {
             targetUI.SetActive(true);
+            if (!anyUIWasOpen)
+            {
+                CameraManager.Instance.ZoomIn(); // Sadece ilk UI açýlýyorsa zoom yap
+            }
+            menuOpen = true;
+            Debug.Log("UI açýldý: " + targetUI.name);
         }
-        UpdateTimeScale();
+        else
+        {
+            CameraManager.Instance.ZoomOut();
+            menuOpen = false;
+            Debug.Log("UI kapatýldý: " + targetUI.name);
+        }
     }
+
+
 
     public void OpenUI(GameObject uiToOpen)
     {
         CloseAllPanels();
         uiToOpen.SetActive(true);
-        Time.timeScale = 1f;
+        CameraManager.Instance.ZoomIn();
+        menuOpen = true;
+        Debug.Log("ESC menu opened/closed");
     }
 
-    private void CloseAllPanels()
+    public void CloseAllPanels()
     {
+        CloseESCMenu();
         backpackUI.SetActive(false);
         craftUI.SetActive(false);
         settingsUI.SetActive(false);
-        characterUI.SetActive(false);
-        UpdateTimeScale();
+        timeUI.SetActive(false);
+        //characterUI.SetActive(false);
+        CameraManager.Instance.ZoomOut(); // Zoom out
+        menuOpen = false;
+        Debug.Log("ESC menu opened/closed");
     }
 
-
-    void UpdateTimeScale()
+    public void QuitGame()
     {
-        if (menuPanel.activeSelf || backpackUI.activeSelf || craftUI.activeSelf || settingsUI.activeSelf || characterUI.activeSelf)
-        {
-            Time.timeScale = 0f;
-        }
-        else
-        {
-            Time.timeScale = 1f;
-        }
+        SceneManager.LoadScene("MainMenu");
     }
 
 
@@ -127,5 +165,6 @@ public class ESCMenuManager : MonoBehaviour
     public void OnBackpackButton() => OpenUI(backpackUI);
     public void OnCraftButton() => OpenUI(craftUI);
     public void OnSettingsButton() => OpenUI(settingsUI);
-    public void OnCharacterButton() => OpenUI(characterUI);
+    public void OnTimeButton() => OpenUI(timeUI);
+    //public void OnCharacterButton() => OpenUI(characterUI);
 }

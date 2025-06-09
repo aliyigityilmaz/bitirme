@@ -38,6 +38,10 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        if (Time.timeScale == 0 || ESCMenuManager.Instance.menuOpen)
+        {
+            return;
+        }
         if (isTalking)
         {
             animator.SetBool("isTalking", true);
@@ -75,16 +79,21 @@ public class PlayerController : MonoBehaviour
 
     void HandleInteraction()
     {
-        if (Input.GetKeyDown(KeyCode.E)) // 'E' tuþuna basýldýðýnda
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Interactable nearestInteractable = FindNearestInteractable();
-            if (nearestInteractable != null && !interactedObjects.Contains(nearestInteractable))
+            if (nearestInteractable != null)
             {
-                nearestInteractable.Interact(); // En yakýn objeyle etkileþim
-                interactedObjects.Add(nearestInteractable); // Objeyi iþaretle, tekrar etkileþime girmesin
+                nearestInteractable.Interact();
+
+                if (nearestInteractable.isOneTimeInteraction)
+                {
+                    interactedObjects.Add(nearestInteractable);
+                }
             }
         }
     }
+
 
     Interactable FindNearestInteractable()
     {
@@ -110,10 +119,14 @@ public class PlayerController : MonoBehaviour
 
     void UpdateInteractableObjects()
     {
-        // Eðer oyuncu etkileþim alanýndan çýktýysa, tekrar etkileþime girebilir
         Collider[] colliders = Physics.OverlapSphere(transform.position, interactionRadius);
-        interactedObjects.RemoveWhere(interactable => !colliders.Any(c => c.GetComponent<Interactable>() == interactable));
+        interactedObjects.RemoveWhere(interactable =>
+            interactable != null &&
+            interactable.isOneTimeInteraction &&
+            !colliders.Any(c => c.GetComponent<Interactable>() == interactable)
+        );
     }
+
 
     void UpdateAnimator(float speed)
     {

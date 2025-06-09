@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9711447333dd8fe4e8db569c565bbc7d, type: 3}
+  m_Name: Lightning Lash
+  m_EditorClassIdentifier: 
+  resultItemName: Lightning Lash
+  resultIcon: {fileID: 21300000, guid: 11bfce4b3adf77647b9f071196a2eb10, type: 3}
+  resultItem: {fileID: 11400000, guid: b91bed6c494eadb43be8ba84906fa5b7, type: 2}
+  ingredients:
+  - item: {fileID: 11400000, guid: deec6475837d2114692bc9b3f50c0bfc, type: 2}
+    quantity: 1
+  - item: {fileID: 11400000, guid: de04a98290d54b64fa962f246ef05888, type: 2}
+    quantity: 1
