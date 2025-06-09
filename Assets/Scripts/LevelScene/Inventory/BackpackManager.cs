@@ -162,19 +162,19 @@ public class BackpackManager : MonoBehaviour
         }
     }
 
-    public bool CheckItem(string itemName)
+    public bool HasItem(InventoryItemData itemData)
     {
-        return items.Any(item => item.ItemName == itemName);
+        return items.Any(item => item.data == itemData);
     }
 
-    public bool RemoveItem(string itemName)
+    public bool RemoveItem(InventoryItemData itemData, int quantity = 1)
     {
-        var targetItem = items.FirstOrDefault(item => item.ItemName == itemName);
+        var targetItem = items.FirstOrDefault(item => item.data == itemData);
         if (targetItem != null)
         {
             if (targetItem.IsStackable())
             {
-                targetItem.quantity--;
+                targetItem.quantity -= quantity;
                 if (targetItem.quantity <= 0)
                     items.Remove(targetItem);
             }
@@ -189,5 +189,17 @@ public class BackpackManager : MonoBehaviour
 
         return false;
     }
+
+
+    public int GetItemCount(InventoryItemData itemData) // YENÝ
+    {
+        foreach (var item in items)
+        {
+            if (item.data == itemData)
+                return item.quantity;
+        }
+        return 0;
+    }
+
 
 }
