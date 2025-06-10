@@ -1,0 +1,187 @@
+using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+
+public class DialogueManager : MonoBehaviour
+{
+    public static DialogueManager Instance;
+
+    [Header("UI")]
+    public GameObject dialogueUI;
+    public TextMeshProUGUI npcNameText;
+    public TextMeshProUGUI dialogueText;
+    public GameObject choiceContainer;
+    public GameObject choicePrefab;
+
+    private DialogueLine[] lines;
+    private int index;
+    private bool isTyping;
+
+    private Coroutine typingCoroutine;
+
+    private List<GameObject> currentChoices = new List<GameObject>();
+    private int selectedChoiceIndex = 0;
+    private bool awaitingChoice = false;
+
+    public bool IsDialogueActive { get; private set; }
+    private bool justClosedDialogue = false;
+    public bool JustClosedDialogue => justClosedDialogue;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
+
+    private void Update()
+    {
+        if (!dialogueUI.activeSelf) return;
+
+        if (awaitingChoice)
+        {
+            HandleChoiceInput();
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (isTyping)
+            {
+                StopCoroutine(typingCoroutine);
+                dialogueText.text = lines[index].text;
+                isTyping = false;
+                ShowChoicesIfAny();
+            }
+            else if (lines[index].choices == null || lines[index].choices.Length == 0)
+            {
+                index++;
+                ShowNextLine();
+            }
+        }
+    }
+
+    public void StartDialogue(string npcName, DialogueLine[] dialogueLines)
+    {
+        if (IsDialogueActive) return; //  Zaten konuþuyorsak yeniden baþlatma
+
+        IsDialogueActive = true;
+        npcNameText.text = npcName;
+        lines = dialogueLines;
+        index = 0;
+        dialogueUI.SetActive(true);
+        ShowNextLine();
+    }
+
+
+    private void ShowNextLine()
+    {
+        ClearChoices();
+
+        if (index >= lines.Length)
+        {
+            EndDialogue();
+            return;
+        }
+
+        typingCoroutine = StartCoroutine(TypeLine(lines[index].text));
+    }
+
+    IEnumerator TypeLine(string line)
+    {
+        isTyping = true;
+        dialogueText.text = "";
+        foreach (char c in line)
+        {
+            dialogueText.text += c;
+            yield return new WaitForSeconds(0.02f);
+        }
+        isTyping = false;
+        ShowChoicesIfAny();
+    }
+
+    private void ShowChoicesIfAny()
+    {
+        var choices = lines[index].choices;
+        if (choices != null && choices.Length > 0)
+        {
+            awaitingChoice = true;
+            for (int i = 0; i < choices.Length; i++)
+            {
+                var choiceObj = Instantiate(choicePrefab, choiceContainer.transform);
+                var text = choiceObj.GetComponentInChildren<TextMeshProUGUI>();
+                text.text = choices[i].choiceText;
+
+                int capturedIndex = i;
+                choiceObj.GetComponent<Button>().onClick.AddListener(() => SelectChoice(capturedIndex));
+                currentChoices.Add(choiceObj);
+            }
+
+            HighlightChoice(0);
+        }
+    }
+
+    private void HandleChoiceInput()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            HighlightChoice((selectedChoiceIndex - 1 + currentChoices.Count) % currentChoices.Count);
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            HighlightChoice((selectedChoiceIndex + 1) % currentChoices.Count);
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            SelectChoice(selectedChoiceIndex);
+        }
+    }
+
+    private void HighlightChoice(int newIndex)
+    {
+        for (int i = 0; i < currentChoices.Count; i++)
+        {
+            var text = currentChoices[i].GetComponentInChildren<TextMeshProUGUI>();
+            text.color = (i == newIndex) ? Color.yellow : Color.white;
+        }
+        selectedChoiceIndex = newIndex;
+    }
+
+    private void SelectChoice(int indexSelected)
+    {
+        var choice = lines[index].choices[indexSelected];
+        if (choice.choiceType == ChoiceType.End)
+        {
+            EndDialogue();
+        }
+        else
+        {
+            index++;
+            awaitingChoice = false;
+            ShowNextLine();
+        }
+    }
+
+    private void ClearChoices()
+    {
+        foreach (var obj in currentChoices)
+            Destroy(obj);
+        currentChoices.Clear();
+        awaitingChoice = false;
+    }
+
+    private void EndDialogue()
+    {
+        ClearChoices();
+        dialogueUI.SetActive(false);
+        IsDialogueActive = false;
+
+        justClosedDialogue = true;
+        StartCoroutine(ResetJustClosedFlag());
+    }
+
+    IEnumerator ResetJustClosedFlag()
+    {
+        yield return new WaitForSeconds(0.2f); // 0.2 saniye sonra tekrar konuþma yapýlabilir
+        justClosedDialogue = false;
+    }
+}
