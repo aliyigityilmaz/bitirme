@@ -29,6 +29,12 @@ public class DialogueManager : MonoBehaviour
     private bool justClosedDialogue = false;
     public bool JustClosedDialogue => justClosedDialogue;
 
+    [Header("Choice Icons")]
+    public Sprite normalIcon;
+    public Sprite endIcon;
+    // ileride: public Sprite eventIcon; vs...
+
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -62,15 +68,19 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(string npcName, DialogueLine[] dialogueLines)
     {
-        if (IsDialogueActive) return; //  Zaten konuþuyorsak yeniden baþlatma
+        if (IsDialogueActive) return;
 
         IsDialogueActive = true;
         npcNameText.text = npcName;
         lines = dialogueLines;
         index = 0;
         dialogueUI.SetActive(true);
+
+        PlayerController.Instance.StartTalking(); // Konuþma baþladýðýnda durdur
+
         ShowNextLine();
     }
+
 
 
     private void ShowNextLine()
@@ -108,9 +118,29 @@ public class DialogueManager : MonoBehaviour
             for (int i = 0; i < choices.Length; i++)
             {
                 var choiceObj = Instantiate(choicePrefab, choiceContainer.transform);
-                var text = choiceObj.GetComponentInChildren<TextMeshProUGUI>();
+
+                // Text bileþenini al
+                var text = choiceObj.transform.Find("Answer").GetComponent<TextMeshProUGUI>();
                 text.text = choices[i].choiceText;
 
+                // Icon bileþenini al
+                var iconImage = choiceObj.transform.Find("Icon").GetComponent<Image>();
+
+                // Ýkonu seç
+                switch (choices[i].choiceType)
+                {
+                    case ChoiceType.Normal:
+                        iconImage.sprite = normalIcon;
+                        break;
+                    case ChoiceType.End:
+                        iconImage.sprite = endIcon;
+                        break;
+                    default:
+                        iconImage.enabled = false;
+                        break;
+                }
+
+                // Buton listener
                 int capturedIndex = i;
                 choiceObj.GetComponent<Button>().onClick.AddListener(() => SelectChoice(capturedIndex));
                 currentChoices.Add(choiceObj);
@@ -119,6 +149,7 @@ public class DialogueManager : MonoBehaviour
             HighlightChoice(0);
         }
     }
+
 
     private void HandleChoiceInput()
     {
@@ -174,7 +205,7 @@ public class DialogueManager : MonoBehaviour
         ClearChoices();
         dialogueUI.SetActive(false);
         IsDialogueActive = false;
-
+        PlayerController.Instance.EndTalking();
         justClosedDialogue = true;
         StartCoroutine(ResetJustClosedFlag());
     }

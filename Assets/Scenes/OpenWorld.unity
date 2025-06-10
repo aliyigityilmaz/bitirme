@@ -3785,6 +3785,8 @@ MonoBehaviour:
   dialogueText: {fileID: 1535535707}
   choiceContainer: {fileID: 934826624}
   choicePrefab: {fileID: 6964967206342601673, guid: fd2313e5dee9eef499e40d6442e4353b, type: 3}
+  normalIcon: {fileID: 21300000, guid: 6b17ed6a489ff944bbeb6c624881a94d, type: 3}
+  endIcon: {fileID: 21300000, guid: 3bc54793f1e9fb947b74444ef0da949f, type: 3}
 --- !u!1 &916899077
 GameObject:
   m_ObjectHideFlags: 0
