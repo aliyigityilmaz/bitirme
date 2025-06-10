@@ -119,7 +119,7 @@ Material:
     - _CastShadows: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Cull: 2
+    - _Cull: 0
     - _CustomDataForDissolve: 0
     - _CustomDataPanning: 0
     - _Cutoff: 0.5

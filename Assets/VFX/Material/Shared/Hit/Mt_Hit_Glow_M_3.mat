@@ -114,7 +114,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _DstBlendAlpha: 0
-    - _EmissionSaturation: 2.59
+    - _EmissionSaturation: 3.68
     - _EnvironmentReflections: 1
     - _FlatDissolve: 0.679
     - _FlowAmmount: 0.15
@@ -141,7 +141,7 @@ Material:
     - _UseFlowmap: 0
     - _UseSoftParticles: 1
     - _UseVertexForAlpha: 1
-    - _UserLerp: 1
+    - _UserLerp: 0
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0
@@ -153,7 +153,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flowmap_Panning: {r: 0, g: 0, b: 0, a: 0}
     - _HighColor: {r: 1, g: 1, b: 1, a: 0}
-    - _MainColor: {r: 0, g: 0, b: 0, a: 0}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 0}
     - _MinMaxSmoothStepDissolve: {r: 0, g: 0, b: 0, a: 0}
     - _Panning: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

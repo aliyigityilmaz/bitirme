@@ -685,7 +685,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"d952fffccd8777f42809bbe22ed63efe\",\"type\":3}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "isMainTexture": false,
@@ -1359,8 +1359,8 @@
         "y": 1.0
     },
     "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0
+        "x": 1.0,
+        "y": 1.0
     },
     "m_Labels": []
 }
@@ -1575,8 +1575,8 @@
         "y": 1.0
     },
     "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0
+        "x": 1.0,
+        "y": 1.0
     },
     "m_Labels": []
 }
@@ -2054,8 +2054,8 @@
     "m_ObjectId": "676beb840a004379a72b8cefbb8859a9",
     "m_Title": "Trail",
     "m_Position": {
-        "x": -2581.0,
-        "y": 904.9999389648438
+        "x": -2581.000244140625,
+        "y": 905.0000610351563
     }
 }
 
@@ -2133,8 +2133,8 @@
     "m_ObjectId": "6ea19f3317924eb2a492c0e569cf04c5",
     "m_Title": "Dissolve",
     "m_Position": {
-        "x": -2906.0,
-        "y": -6.999908447265625
+        "x": -2906.000244140625,
+        "y": -6.999980926513672
     }
 }
 
@@ -2277,7 +2277,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -2636,6 +2636,9 @@
     "m_AlphaClip": false,
     "m_CastShadows": true,
     "m_ReceiveShadows": true,
+    "m_DisableTint": false,
+    "m_AdditionalMotionVectorMode": 0,
+    "m_AlembicMotionVectors": false,
     "m_SupportsLODCrossFade": false,
     "m_CustomEditorGUI": "",
     "m_SupportVFX": false
@@ -3251,8 +3254,8 @@
     "m_ObjectId": "bbffd4bcd2124cbb8140caaaf122c498",
     "m_Title": "Color",
     "m_Position": {
-        "x": -1681.06982421875,
-        "y": -682.1251831054688
+        "x": -1681.0001220703125,
+        "y": -682.0001220703125
     }
 }
 
