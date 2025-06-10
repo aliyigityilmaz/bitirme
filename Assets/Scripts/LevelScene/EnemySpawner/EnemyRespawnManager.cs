@@ -49,7 +49,6 @@ public class EnemySpawnManager : MonoBehaviour
                 respawnQueue.RemoveAt(i);
             }
         }
-return;
         // 2. Zaman aral��� d���nda olan d��manlar� deaktif et
         foreach (var enemy in allEnemies)
         {
