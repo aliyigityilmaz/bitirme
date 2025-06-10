@@ -3501,7 +3501,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 879802723}
+      - m_Target: {fileID: 1194564104}
         m_TargetAssemblyTypeName: DayNightManager, Assembly-CSharp
         m_MethodName: SetTargetTime
         m_Mode: 4
@@ -3564,7 +3564,6 @@ GameObject:
   - component: {fileID: 879802720}
   - component: {fileID: 879802721}
   - component: {fileID: 879802722}
-  - component: {fileID: 879802723}
   - component: {fileID: 879802724}
   - component: {fileID: 879802725}
   m_Layer: 0
@@ -3683,79 +3682,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floatingTextPrefab: {fileID: 685430849303699754, guid: 0c6da2c65481dd64d801f7c51e9507d9, type: 3}
   playerHead: {fileID: 36891959}
---- !u!114 &879802723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879802715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee0ea1d5c5c94974097d6d43d0b5a871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTime: 12
-  timeSpeed: 1
-  lightColorOverDay:
-    serializedVersion: 2
-    key0: {r: 0.17254902, g: 0.18039216, b: 0.39607844, a: 1}
-    key1: {r: 0.8113208, g: 0.33729714, b: 0.25640798, a: 1}
-    key2: {r: 1, g: 0.9459877, b: 0.75, a: 0}
-    key3: {r: 0.8117647, g: 0.3372549, b: 0.25490198, a: 0}
-    key4: {r: 0.1738163, g: 0.18220177, b: 0.3962264, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 13107
-    ctime2: 32768
-    ctime3: 52428
-    ctime4: 65535
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: 0
-    m_NumColorKeys: 5
-    m_NumAlphaKeys: 2
-  lightIntensityOverDay:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  currentTimeText: {fileID: 1372498854}
-  targetTimeText: {fileID: 1916920487}
-  confirmButton: {fileID: 2031040959}
-  hourHand: {fileID: 1891847034}
-  minuteHand: {fileID: 2012852638}
 --- !u!114 &879802724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6239,6 +6165,111 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1194564103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1194564105}
+  - component: {fileID: 1194564104}
+  m_Layer: 0
+  m_Name: LightController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1194564104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194564103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee0ea1d5c5c94974097d6d43d0b5a871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTime: 12
+  timeSpeed: 1
+  lightColorOverDay:
+    serializedVersion: 2
+    key0: {r: 0.17254902, g: 0.18039216, b: 0.39607844, a: 1}
+    key1: {r: 0.8113208, g: 0.33729714, b: 0.25640798, a: 1}
+    key2: {r: 1, g: 0.9459877, b: 0.75, a: 0}
+    key3: {r: 0.8117647, g: 0.3372549, b: 0.25490198, a: 0}
+    key4: {r: 0.1738163, g: 0.18220177, b: 0.3962264, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 13107
+    ctime2: 32768
+    ctime3: 52428
+    ctime4: 65535
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: 0
+    m_NumColorKeys: 5
+    m_NumAlphaKeys: 2
+  lightIntensityOverDay:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  currentTimeText: {fileID: 1372498854}
+  targetTimeText: {fileID: 1916920487}
+  confirmButton: {fileID: 2031040959}
+  hourHand: {fileID: 1891847034}
+  minuteHand: {fileID: 2012852638}
+--- !u!4 &1194564105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194564103}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1214774828
 GameObject:
   m_ObjectHideFlags: 0
@@ -8357,7 +8388,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 879802723}
+      - m_Target: {fileID: 1194564104}
         m_TargetAssemblyTypeName: DayNightManager, Assembly-CSharp
         m_MethodName: SetTargetTime
         m_Mode: 4
@@ -8836,7 +8867,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 879802723}
+      - m_Target: {fileID: 1194564104}
         m_TargetAssemblyTypeName: DayNightManager, Assembly-CSharp
         m_MethodName: SetTargetTime
         m_Mode: 4
@@ -9305,7 +9336,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 879802723}
+      - m_Target: {fileID: 1194564104}
         m_TargetAssemblyTypeName: DayNightManager, Assembly-CSharp
         m_MethodName: SetTargetTime
         m_Mode: 4
@@ -14321,3 +14352,4 @@ SceneRoots:
   - {fileID: 239716026}
   - {fileID: 1851158299}
   - {fileID: 92971771}
+  - {fileID: 1194564105}
