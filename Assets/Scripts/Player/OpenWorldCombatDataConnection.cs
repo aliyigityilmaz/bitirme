@@ -1,7 +1,5 @@
-// OpenWorldCombatDataConnection.cs
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 
 public class OpenWorldCombatDataConnection : MonoBehaviour
 {
@@ -18,41 +16,19 @@ public class OpenWorldCombatDataConnection : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Sahne adlarına göre karar verelim:
-        if (scene.buildIndex == 1) 
+        if (scene.name == "OpenWorldScene")
         {
-            // Combat sahnesi yükleniyor: Open World'den gelen verileri yükle
-            // CombatStateManager.Start() içinde turnOrder oluşturulurken
-            // HeroSaveManager.LoadHeroes, HeroManager.instance.heroList'i günceller.
-            HeroSaveManager.LoadHeroes(HeroManager.instance.heroList);
-            // CombatStateManager’in Start() içinde turnOrder = HeroManager... sıralaması mevcut
-        }
-        else if (scene.buildIndex == 0) 
-        {
-            // Open World sahnesi başladı: Combat'tan gelen kayıtlı verileri yükle
-            HeroSaveManager.LoadHeroes(HeroManager.instance.heroList);
-            // Ölü kahramanları sahnede pasif hale getirebilirsiniz:
-            foreach (var hero in HeroManager.instance.heroList)
+            foreach (var ht in FindObjectsOfType<HeroTargetable>())
             {
-                if (hero.health <= 0)
-                {
-                    // Ölü kahraman için açık dünyadaki objeyi devre dışı bırakın:
-                    var ht = FindHeroTargetableById(hero.id);
-                    if (ht != null) 
-                        ht.gameObject.SetActive(false);
-                }
+                ht.LoadState();
+                if (ht.heroData.health <= 0)
+                    ht.gameObject.SetActive(false);
             }
         }
-    }
-
-    // ID’ye göre sahnedeki HeroTargetable'ı bulur:
-    private HeroTargetable FindHeroTargetableById(int id)
-    {
-        foreach (var ht in GameObject.FindObjectsOfType<HeroTargetable>())
+        else if (scene.name == "BCombatScene")
         {
-            if (ht.heroData != null && ht.heroData.id == id)
-                return ht;
+            foreach (var ht in FindObjectsOfType<HeroTargetable>())
+                ht.LoadState();
         }
-        return null;
     }
 }

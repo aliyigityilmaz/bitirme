@@ -1,8 +1,7 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Experimental.GraphView;
-using Unity.VisualScripting;
 
 public class CombatStateManager : MonoBehaviour
 {
@@ -26,6 +25,8 @@ public class CombatStateManager : MonoBehaviour
     public GameObject winPanel;
     public GameObject losePanel;
 
+    
+
     private void Start()
     {
         Instance = this;
@@ -40,6 +41,11 @@ public class CombatStateManager : MonoBehaviour
     private void Update()
     {
         currentState?.Execute();
+        if (currentTurnIndex >= turnOrder.Count || currentTurnIndex < 0)
+        {
+            Debug.LogError($"currentTurnIndex: {currentTurnIndex}, turnOrder.Count: {turnOrder.Count}");
+            return;
+        }
     }
 
     public void SetState(ICombatState newState)
@@ -103,6 +109,7 @@ public class CombatStateManager : MonoBehaviour
     {
         // Combat bitmeden önce kahraman verilerini kaydet:
         HeroSaveManager.SaveHeroes(HeroManager.instance.heroList);
+        
     
         SetState(new EndBattleState(this));
 
