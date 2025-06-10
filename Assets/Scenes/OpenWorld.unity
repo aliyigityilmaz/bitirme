@@ -3566,6 +3566,7 @@ GameObject:
   - component: {fileID: 879802722}
   - component: {fileID: 879802723}
   - component: {fileID: 879802724}
+  - component: {fileID: 879802725}
   m_Layer: 0
   m_Name: ManagerBros
   m_TagString: Untagged
@@ -3767,6 +3768,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d373a316571b3746b7fbc36d6147377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &879802725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879802715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6662d58249fd2e24b8a283c8c3d73969, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueUI: {fileID: 250812758}
+  npcNameText: {fileID: 1104830602}
+  dialogueText: {fileID: 1535535707}
+  choiceContainer: {fileID: 934826624}
+  choicePrefab: {fileID: 6964967206342601673, guid: fd2313e5dee9eef499e40d6442e4353b, type: 3}
 --- !u!1 &916899077
 GameObject:
   m_ObjectHideFlags: 0
@@ -6431,6 +6449,7 @@ GameObject:
   - component: {fileID: 1240501243}
   - component: {fileID: 1240501242}
   - component: {fileID: 1240501241}
+  - component: {fileID: 1240501245}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -6527,6 +6546,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1240501245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240501239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee370ab91c39df41a7855f001ff051c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactableType: 0
+  isOneTimeInteraction: 0
+  npcName: "Yi\u011Fit usta"
+  dialogueLines:
+  - text: "Naber kanzi nass\u0131n"
+    choices:
+    - choiceText: "\u0130yi knk senden"
+      choiceType: 0
+    - choiceText: "Knk i\u015Fim g\xFCc\xFCm var"
+      choiceType: 1
+  - text: "Abi ge\xE7en noldu bak bak"
+    choices: []
+  - text: "Berkaya bi \xE7akt\u0131m "
+    choices: []
 --- !u!1 &1273407532
 GameObject:
   m_ObjectHideFlags: 0
