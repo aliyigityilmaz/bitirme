@@ -5330,11 +5330,11 @@ Terrain:
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: cee2a3dd2c9d0c14fa45bcb6e3776873, type: 2}
   m_TreeDistance: 5000
-  m_TreeBillboardDistance: 5
+  m_TreeBillboardDistance: 312
   m_TreeCrossFadeLength: 17.4
   m_TreeMaximumFullLODCount: 722
-  m_DetailObjectDistance: 411
-  m_DetailObjectDensity: 0.641
+  m_DetailObjectDistance: 221
+  m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
   m_HeightmapMinimumLODSimplification: 0
