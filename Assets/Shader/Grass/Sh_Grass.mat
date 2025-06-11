@@ -73,15 +73,15 @@ Material:
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 10
-    - _Heigth_Blend: 1.95
+    - _Heigth_Blend: 1.4
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 34.9
     - _SrcBlend: 1
     - _Surface: 1
-    - _Terrain_Offset: 53.98
-    - _Terrain_Size: 54.25
+    - _Terrain_Offset: 30
+    - _Terrain_Size: 41.25
     - _USEBOOLEN: 1
     - _WindHeight: 0.5
     - _WindIntend: 0.2
@@ -92,10 +92,10 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Bottom_Color: {r: 0, g: 1, b: 0.25098038, a: 0}
-    - _FarColor: {r: 0.08410467, g: 0.6603774, b: 0.16224332, a: 0}
+    - _Bottom_Color: {r: 0.10457456, g: 0.8867924, b: 0.3008959, a: 0}
+    - _FarColor: {r: 0.079476655, g: 0.8867924, b: 0.18931562, a: 0}
     - _NearFarRange: {r: 10, g: 100, b: 0, a: 0}
-    - _Near_Color: {r: 0.25943398, g: 1, b: 0.33494276, a: 0}
+    - _Near_Color: {r: 0, g: 1, b: 0.100529194, a: 0}
     - _ShadowColor: {r: 0.105820596, g: 0.3694117, b: 0.7735849, a: 0}
     - _WindNoiseContrast: {r: 0, g: 1, b: 0, a: 0}
     - _WindNoiseScale: {r: 40, g: 100, b: 0, a: 0}
