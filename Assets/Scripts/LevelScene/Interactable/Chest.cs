@@ -99,4 +99,13 @@ public class Chest : Interactable
         }
     }
 
+    protected virtual void OnDestroy()
+    {
+        if (InteractableUIManager.Instance != null)
+        {
+            InteractableUIManager.Instance.HideInteractable(this);
+        }
+    }
+
+
 }

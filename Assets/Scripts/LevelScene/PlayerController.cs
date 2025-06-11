@@ -120,11 +120,26 @@ public class PlayerController : MonoBehaviour
     void UpdateInteractableObjects()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, interactionRadius);
+        foreach (Interactable interactable in FindObjectsOfType<Interactable>())
+        {
+            float distance = Vector3.Distance(transform.position, interactable.transform.position);
+
+            if (distance <= interactionRadius)
+            {
+                InteractableUIManager.Instance.ShowInteractable(interactable);
+            }
+            else
+            {
+                InteractableUIManager.Instance.HideInteractable(interactable);
+            }
+        }
         interactedObjects.RemoveWhere(interactable =>
             interactable != null &&
             interactable.isOneTimeInteraction &&
             !colliders.Any(c => c.GetComponent<Interactable>() == interactable)
+
         );
+
     }
 
 

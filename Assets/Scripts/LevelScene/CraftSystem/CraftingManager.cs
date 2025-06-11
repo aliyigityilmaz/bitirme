@@ -25,6 +25,8 @@ public class CraftingManager : MonoBehaviour
 
     [Header("Craft")]
     public Button craftButton;
+    public Sprite craftButtonNormalSprite;
+    public Sprite craftButtonCraftableSprite;
 
     [Header("Sprites")]
     public Sprite CharacterItemBackground;
@@ -42,6 +44,11 @@ public class CraftingManager : MonoBehaviour
         PopulateRecipeList();
         craftButton.onClick.AddListener(CraftItem); // Tek seferlik baðlanýr
         resultName.text = " ";
+        resultIcon.gameObject.SetActive(false);
+        ingredient1Count.gameObject.SetActive(false);
+        ingredient1Icon.gameObject.SetActive(false);
+        ingredient2Count.gameObject.SetActive(false);
+        ingredient2Icon.gameObject.SetActive(false);
     }
 
     void PopulateRecipeList()
@@ -74,7 +81,7 @@ public class CraftingManager : MonoBehaviour
 
     void ShowRecipe(RecipeData recipe, GameObject buttonGO)
     {
-        
+        resultIcon.gameObject.SetActive(true);
         selectedRecipe = recipe;
 
         if (selectedButton != null)
@@ -154,6 +161,7 @@ public class CraftingManager : MonoBehaviour
         }
 
         craftButton.interactable = canCraft;
+        craftButton.GetComponent<Image>().sprite = canCraft ? craftButtonCraftableSprite : craftButtonNormalSprite;
     }
 
     void CraftItem()

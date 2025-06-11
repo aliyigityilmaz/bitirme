@@ -27,4 +27,13 @@ public class CollectiblePickup : Interactable
         // Ses, VFX, animasyon gibi þeyler burada olabilir
         Destroy(gameObject);
     }
+
+    protected virtual void OnDestroy()
+    {
+        if (InteractableUIManager.Instance != null)
+        {
+            InteractableUIManager.Instance.HideInteractable(this);
+        }
+    }
+
 }
