@@ -34,16 +34,20 @@ public class SkillUIManager : MonoBehaviour
 
                 skillButtons[i].gameObject.SetActive(true);
                 skillButtons[i].interactable = skill.IsAvailable();
-
-                // Ýsteðe baðlý: Cooldown bilgisi UI’da gösterilebilir.
-                Text buttonText = skillButtons[i].GetComponentInChildren<Text>();
-                if (buttonText != null)
+                Image buttonImage = skillButtons[i].GetComponent<Image>();
+                if (buttonImage != null && skill.skillIcon != null)
                 {
-                    if (!skill.IsAvailable())
-                        buttonText.text = $"{skill.skillName} ({skill.currentCooldown})";
-                    else
-                        buttonText.text = skill.skillName;
+                    buttonImage.sprite = skill.skillIcon;
                 }
+                // Ýsteðe baðlý: Cooldown bilgisi UI’da gösterilebilir.
+                //Text buttonText = skillButtons[i].GetComponentInChildren<Text>();
+                //if (buttonText != null)
+                //{
+                //    if (!skill.IsAvailable())
+                //        buttonText.text = $"{skill.skillName} ({skill.currentCooldown})";
+                //    else
+                //        buttonText.text = skill.skillName;
+                //}
             }
             else
             {

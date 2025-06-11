@@ -19,10 +19,12 @@ public class Skill
     public SkillId skillId;
     public int baseDamage;
     public int baseHeal;
-    //Cooldown
+    [Header("Cooldown")]
     public int cooldownTurns;
     public int currentCooldown = 0;
     public int maxCooldown = 3;
+    [Header("Sprite Deðiþimi")]
+    public Sprite skillIcon;
     public void Activate()
     {
         Debug.Log($"{skillName} activated!");
