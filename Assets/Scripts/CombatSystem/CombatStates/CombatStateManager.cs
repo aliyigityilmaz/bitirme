@@ -107,9 +107,11 @@ public class CombatStateManager : MonoBehaviour
     }
     public void EndBattle(bool isWin)
     {
-        // Combat bitmeden önce kahraman verilerini kaydet:
-        HeroSaveManager.SaveHeroes(HeroManager.instance.heroList);
-        
+
+        foreach (var hero in HeroManager.instance.heroList)
+        {
+            HeroPersistent.instance.UpdateHeroData(hero);
+        }
     
         SetState(new EndBattleState(this));
 

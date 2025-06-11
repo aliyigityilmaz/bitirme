@@ -39,5 +39,14 @@ public class Hero
             skill.ReduceCooldown();
         }
     }
+    public HeroData ToHeroData()
+    {
+        return new HeroData(this);
+    }
 
+    public void LoadFromHeroData(HeroData data)
+    {
+        if (data != null)
+            data.ApplyToHero(this);
+    }
 }

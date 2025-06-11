@@ -1,59 +1,41 @@
-using System;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class HeroTargetable : MonoBehaviour
 {
     public Hero heroData;
     private Collider myCollider;
-    
 
     private void Awake()
     {
         myCollider = GetComponent<Collider>();
-        
-        
     }
 
     private void Start()
     {
         LoadState();
+
         if (heroData.health <= 0)
             myCollider.enabled = false;
     }
 
-
     public void SaveState()
     {
-        var save = new HeroSaveData(heroData);
-        HeroPersistent.instance.UpdateHeroData(save);
+        HeroPersistent.instance.UpdateHeroData(heroData);
         Debug.Log("Hero state saved: " + heroData.id);
     }
 
     public void LoadState()
     {
-        if (HeroPersistent.instance == null)
+        var pd = HeroPersistent.instance.GetHeroDataById(heroData.id);
+        if (pd != null)
         {
-            Debug.LogError("HeroPersistentData.instance’da değer yok!");
-            Debug.Log("Loading state for hero " + heroData.id);
-            return;
+            heroData.LoadFromHeroData(pd);
         }
-        if (heroData == null)
-        {
-            Debug.LogError("heroData atanmamış!");
-            return;
-        }
-
-        var pd = HeroPersistent.instance.GetHeroById(heroData.id);
-        if (pd == null)
-            return;
-
-        heroData.health         = pd.health;
-        heroData.baseHealth     = pd.baseHealth;
-        heroData.armor          = pd.armor;
-        heroData.turnSpeed      = pd.turnSpeed;
-        heroData.criticalChance = pd.criticalChance;
     }
+
     public void Die()
     {
         heroData.health = 0;
@@ -63,4 +45,30 @@ public class HeroTargetable : MonoBehaviour
         CombatStateManager.Instance.RemoveFromTurnOrder(heroData);
         CombatStateManager.Instance.CheckBattleEnd();
     }
+
+    private void OnMouseDown()
+    {
+        if (!CombatStateManager.Instance.IsTargetSelectionActive) return;
+
+        Skill selectedSkill = CombatStateManager.Instance.selectedSkill;
+
+        if (selectedSkill == null) return;
+
+        // Heal ise kendi takımına
+        if (selectedSkill.skillType == SkillType.Heal && heroData.team == TeamType.Hero)
+        {
+            CombatStateManager.Instance.OnHeroSelected(heroData);
+            SkillUIManager.Instance.skillPanel.SetActive(false);
+        }
+    }
+
+#if UNITY_EDITOR
+    private void Update()
+    {
+        if (!Application.isPlaying) return;
+
+        // Inspector’da canlı güncelleme için
+        EditorUtility.SetDirty(this);
+    }
+#endif
 }

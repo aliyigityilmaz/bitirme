@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerTurnState : ICombatState
 {
@@ -30,6 +31,15 @@ public class PlayerTurnState : ICombatState
         if (Input.GetKeyDown(KeyCode.Space))
         {
             manager.SetState(new PlayerInputState(manager));
+        }
+
+        foreach (var hero in HeroManager.instance.heroList)
+        {
+            HeroPersistent.instance.UpdateHeroData(hero);
+        }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 

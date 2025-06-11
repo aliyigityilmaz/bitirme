@@ -3,11 +3,8 @@ using UnityEngine;
 
 public class HeroPersistent : MonoBehaviour
 {
-    
-    private Dictionary<int, HeroSaveData> heroDataMap = new Dictionary<int, HeroSaveData>();
-    
-    
-    
+    private Dictionary<int, HeroData> heroDataMap = new Dictionary<int, HeroData>();
+
     private static HeroPersistent _instance;
     public static HeroPersistent instance
     {
@@ -22,7 +19,7 @@ public class HeroPersistent : MonoBehaviour
             return _instance;
         }
     }
-    
+
     private void Awake()
     {
         if (_instance == null)
@@ -31,13 +28,12 @@ public class HeroPersistent : MonoBehaviour
             Destroy(gameObject);
     }
 
-
-    public void UpdateHeroData(HeroSaveData data)
+    public void UpdateHeroData(Hero hero)
     {
-        heroDataMap[data.id] = data;
+        heroDataMap[hero.id] = hero.ToHeroData();
     }
 
-    public HeroSaveData GetHeroById(int id)
+    public HeroData GetHeroDataById(int id)
     {
         heroDataMap.TryGetValue(id, out var data);
         return data;
