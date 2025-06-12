@@ -24,7 +24,14 @@ public class InteractableUIManager : MonoBehaviour
         item.Setup(interactable);
 
         activeUIItems[interactable] = uiItem;
+
+        // Otomatik olarak UI Selector tetiklensin
+        if (InteractableUISelector.Instance != null)
+        {
+            InteractableUISelector.Instance.Invoke("UpdateButtonList", 0.01f); // Sonraki frame'de güncelle
+        }
     }
+
 
     public void HideInteractable(Interactable interactable)
     {

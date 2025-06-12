@@ -3632,6 +3632,7 @@ GameObject:
   - component: {fileID: 879802724}
   - component: {fileID: 879802725}
   - component: {fileID: 879802726}
+  - component: {fileID: 879802727}
   m_Layer: 0
   m_Name: ManagerBros
   m_TagString: Untagged
@@ -3797,6 +3798,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   container: {fileID: 534473250}
   uiItemPrefab: {fileID: 8774825443431898456, guid: 6654a28f59dea244688fb5aeedfdccfb, type: 3}
+--- !u!114 &879802727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879802715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0caa57e7941664e862e62744044818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  highlightColor: {r: 1, g: 0.9665489, b: 0.5801887, a: 1}
 --- !u!1 &916899077
 GameObject:
   m_ObjectHideFlags: 0
@@ -6686,9 +6701,9 @@ MonoBehaviour:
       choiceType: 0
     - choiceText: "Knk i\u015Fim g\xFCc\xFCm var"
       choiceType: 1
-  - text: "Abi ge\xE7en noldu bak bak"
+  - text: '!!!!'
     choices: []
-  - text: "Berkaya bi \xE7akt\u0131m "
+  - text: ...
     choices: []
 --- !u!1 &1273407532
 GameObject:

@@ -81,6 +81,14 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            // Eðer UI'da aktif bir seçim varsa onunla etkileþime geç
+            if (InteractableUISelector.Instance != null)
+            {
+                InteractableUISelector.Instance.TriggerSelected();
+                return;
+            }
+
+            // Aksi halde fiziksel olarak yakýndakiyle etkileþime geç
             Interactable nearestInteractable = FindNearestInteractable();
             if (nearestInteractable != null)
             {
@@ -93,6 +101,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
 
 
     Interactable FindNearestInteractable()
