@@ -18,36 +18,41 @@ public class SkillUIManager : MonoBehaviour
         else
             Destroy(gameObject);
     }
-
     public void InitializeSkills(Hero activeHero)
     {
+        bool isBossPresent = GameObject.FindGameObjectsWithTag("Boss").Length > 0;
+
         Skill[] skills = activeHero.GetSkills();
         for (int i = 0; i < skillButtons.Length; i++)
         {
             if (i < skills.Length)
-            { 
+            {
+                if (i == 3 && !isBossPresent)
+                {
+                    skillButtons[i].gameObject.SetActive(false);
+                    continue;
+                }
+
                 int index = i;
                 Skill skill = skills[i];
 
                 skillButtons[i].onClick.RemoveAllListeners();
-                skillButtons[i].onClick.AddListener(() => OnSkillButtonClicked(index));
+                skillButtons[i].onClick.AddListener(() =>
+                {
+                    Debug.Log($"Skill button clicked: {skill.skillName}, index: {index}");
+                    OnSkillButtonClicked(index);
+                });
 
                 skillButtons[i].gameObject.SetActive(true);
                 skillButtons[i].interactable = skill.IsAvailable();
+
+                Debug.Log($"Skill Button {i} - {skill.skillName} interactable: {skillButtons[i].interactable}");
+
                 Image buttonImage = skillButtons[i].GetComponent<Image>();
                 if (buttonImage != null && skill.skillIcon != null)
                 {
                     buttonImage.sprite = skill.skillIcon;
                 }
-                // Ýsteðe baðlý: Cooldown bilgisi UI’da gösterilebilir.
-                //Text buttonText = skillButtons[i].GetComponentInChildren<Text>();
-                //if (buttonText != null)
-                //{
-                //    if (!skill.IsAvailable())
-                //        buttonText.text = $"{skill.skillName} ({skill.currentCooldown})";
-                //    else
-                //        buttonText.text = skill.skillName;
-                //}
             }
             else
             {
@@ -57,6 +62,7 @@ public class SkillUIManager : MonoBehaviour
 
         skillPanel.SetActive(true);
     }
+
 
 
     public void OnSkillButtonClicked(int index)

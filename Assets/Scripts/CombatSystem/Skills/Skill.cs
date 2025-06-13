@@ -9,7 +9,8 @@ public enum SkillId
 {
     NormalAttack,
     SpecialAttack,
-    Ulti
+    Ulti,
+    Max
 }
 [System.Serializable]
 public class Skill

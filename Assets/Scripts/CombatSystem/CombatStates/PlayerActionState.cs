@@ -37,6 +37,10 @@ public class PlayerActionState : ICombatState
                 else
                     activeHero.charAnimator.SetTrigger("Ulti3");
             }
+            else if (selectedSkill.skillId == SkillId.Max)
+            {
+                activeHero.charAnimator.SetTrigger("Max");
+            }
         }
         else if (activeHero.id == 2)
         {
