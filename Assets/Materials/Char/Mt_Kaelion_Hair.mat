@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Mt_Kaelion_Hair
   m_Shader: {fileID: -6465566751694194690, guid: 5a46bf401921a99429cbe1fa6c94efba, type: 3}
-  m_Parent: {fileID: 2100000, guid: bd6d53fc4bdb7d3489173ff6cce488e2, type: 2}
+  m_Parent: {fileID: 2100000, guid: 8d21ab92e52c03144be616e1192328da, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
