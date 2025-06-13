@@ -73,7 +73,7 @@ Material:
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 10
-    - _Heigth_Blend: 1.4
+    - _Heigth_Blend: 0.9
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -92,11 +92,11 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Bottom_Color: {r: 0.10457456, g: 0.8867924, b: 0.3008959, a: 0}
-    - _FarColor: {r: 0.079476655, g: 0.8867924, b: 0.18931562, a: 0}
+    - _Bottom_Color: {r: 0.10065861, g: 0.5471698, b: 0.21228641, a: 0}
+    - _FarColor: {r: 0.16509432, g: 1, b: 0.27857673, a: 0}
     - _NearFarRange: {r: 10, g: 100, b: 0, a: 0}
-    - _Near_Color: {r: 0, g: 1, b: 0.100529194, a: 0}
-    - _ShadowColor: {r: 0.105820596, g: 0.3694117, b: 0.7735849, a: 0}
+    - _Near_Color: {r: 0.089711644, g: 0.9056604, b: 0.1671375, a: 1}
+    - _ShadowColor: {r: 0.00026699825, g: 0.0075979447, b: 0.01886791, a: 0}
     - _WindNoiseContrast: {r: 0, g: 1, b: 0, a: 0}
     - _WindNoiseScale: {r: 40, g: 100, b: 0, a: 0}
   m_BuildTextureStacks: []
