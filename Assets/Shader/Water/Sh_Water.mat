@@ -61,14 +61,14 @@ Material:
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 10
-    - _Foam_Amount: 1
-    - _Foam_Cutoff: 0.86
-    - _Foam_Scale: 92.7
-    - _Foam_Speed: 5
+    - _Foam_Amount: 101.34
+    - _Foam_Cutoff: 8.7
+    - _Foam_Scale: 59.07
+    - _Foam_Speed: 0.8
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Scale: 1
-    - _Speed: 0.1
+    - _Scale: 9.06
+    - _Speed: 0.01
     - _SrcBlend: 5
     - _Strenght: 1
     - _Surface: 1
@@ -77,8 +77,8 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Depth_Color: {r: 0.042452812, g: 0.55952823, b: 1, a: 0}
+    - _Depth_Color: {r: 0.07075471, g: 0.5728471, b: 1, a: 0}
     - _Foam_Color: {r: 1, g: 1, b: 1, a: 0.4745098}
-    - _Shallow_Color: {r: 0, g: 0.6862745, b: 1, a: 0}
+    - _Shallow_Color: {r: 0.4764151, g: 0.83573806, b: 1, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
