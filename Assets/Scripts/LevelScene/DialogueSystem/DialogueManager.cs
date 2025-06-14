@@ -32,6 +32,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Choice Icons")]
     public Sprite normalIcon;
     public Sprite endIcon;
+    public Sprite acceptQuestIcon;
     // ileride: public Sprite eventIcon; vs...
 
 
@@ -135,6 +136,9 @@ public class DialogueManager : MonoBehaviour
                     case ChoiceType.End:
                         iconImage.sprite = endIcon;
                         break;
+                    case ChoiceType.AcceptQuest:
+                        iconImage.sprite = acceptQuestIcon;
+                        break;
                     default:
                         iconImage.enabled = false;
                         break;
@@ -180,17 +184,28 @@ public class DialogueManager : MonoBehaviour
     private void SelectChoice(int indexSelected)
     {
         var choice = lines[index].choices[indexSelected];
-        if (choice.choiceType == ChoiceType.End)
+
+        switch (choice.choiceType)
         {
-            EndDialogue();
-        }
-        else
-        {
-            index++;
-            awaitingChoice = false;
-            ShowNextLine();
+            case ChoiceType.End:
+                EndDialogue();
+                break;
+
+            case ChoiceType.AcceptQuest:
+                if (choice.questToAccept != null)
+                    QuestManager.Instance.AddQuest(choice.questToAccept);
+                EndDialogue();
+                break;
+
+            case ChoiceType.Normal:
+            default:
+                index++;
+                awaitingChoice = false;
+                ShowNextLine();
+                break;
         }
     }
+
 
     private void ClearChoices()
     {
