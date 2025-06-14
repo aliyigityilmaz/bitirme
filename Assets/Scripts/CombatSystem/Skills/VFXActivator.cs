@@ -5,6 +5,8 @@ public class VFXActivator : MonoBehaviour
 {
     public List<ParticleSystem> vfxList;
     public List<ParticleSystem> vfxOnEnemies;
+    public List<ParticleSystem> projectile;
+    public Transform projectileSpawnPoint;
     public Transform followTarget;
     public static VFXActivator instance;
 
@@ -25,6 +27,7 @@ public class VFXActivator : MonoBehaviour
     void OnEnable()
     {        
         PlayActiveVFX();
+        VFXActivator.instance.FireProjectile();
     }
 
     public void PlayActiveVFX()
@@ -35,6 +38,25 @@ public class VFXActivator : MonoBehaviour
             {
                 vfx.Play();
             }
+        }
+    }
+    public void FireProjectile()
+    {
+        if (projectile.Count == 0 || followTarget == null || projectileSpawnPoint == null) return;
+
+        foreach (var proj in projectile)
+        {
+            proj.Stop();
+            proj.transform.position = projectileSpawnPoint.position;
+            proj.transform.rotation = Quaternion.LookRotation(followTarget.position - projectileSpawnPoint.position);
+
+            ProjectileMover mover = proj.GetComponent<ProjectileMover>();
+            if (mover != null)
+            {
+                mover.Init(followTarget);
+            }
+
+            proj.Play();
         }
     }
 }

@@ -102,8 +102,7 @@ public class CombatStateManager : MonoBehaviour
             IsTargetSelectionActive = false;
 
             Debug.Log($"Target Selected: {selectedEnemy.name}");
-            selectedEnemy.heroHitVFX.Play();
-            selectedEnemy.charAnimator.SetTrigger("TakeDamage");
+            VFXActivator.instance.followTarget.transform.position = new Vector3(selectedEnemy.heroTransform.transform.position.x, 2f, selectedEnemy.heroTransform.transform.position.z);
             SetState(new PlayerInputState(this));
         }
     }

@@ -62,7 +62,6 @@ public class PlayerActionState : ICombatState
             }
             else if (selectedSkill.skillId == SkillId.Ulti)
             {
-                activeHero.charAnimator.SetTrigger("Ulti1");
                 if (multiplier >= 1.4f)
                     activeHero.charAnimator.SetTrigger("Ulti1_3");
                 else if (multiplier >= 0.9f)

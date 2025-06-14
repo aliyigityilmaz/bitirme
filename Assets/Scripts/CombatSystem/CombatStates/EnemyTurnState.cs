@@ -69,6 +69,7 @@ public class EnemyTurnState : ICombatState
 
         int damage = randomSkill.baseDamage;
         targetHero.health -= damage;
+        targetHero.heroHitVFX.Play();
         targetHero.charAnimator.SetTrigger("TakeDamage");
         if (targetHero.health <= 0)
         {
