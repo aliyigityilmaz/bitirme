@@ -35,9 +35,15 @@ public class BackpackManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
+        LoadBackpack(); // sahneye girerken veri yükle
     }
-
     public void ToggleBackpack()
     {
         panel.SetActive(!panel.activeSelf);
@@ -224,5 +230,57 @@ public class BackpackManager : MonoBehaviour
         return 0;
     }
 
+    public void SaveBackpack()
+    {
+        BackpackSaveData saveData = new BackpackSaveData();
+        saveData.items = new List<InventoryItemSerialized>();
+
+        foreach (var item in items)
+        {
+            saveData.items.Add(new InventoryItemSerialized
+            {
+                itemID = item.data.id, // her itemData'da benzersiz `id` olduðuna emin ol
+                quantity = item.quantity
+            });
+        }
+
+        string json = JsonUtility.ToJson(saveData);
+        PlayerPrefs.SetString("BackpackData", json);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadBackpack()
+    {
+        if (!PlayerPrefs.HasKey("BackpackData")) return;
+
+        string json = PlayerPrefs.GetString("BackpackData");
+        BackpackSaveData saveData = JsonUtility.FromJson<BackpackSaveData>(json);
+
+        items.Clear();
+        foreach (var savedItem in saveData.items)
+        {
+            InventoryItemData itemData = ItemDatabase.GetItemByID(savedItem.itemID);
+            if (itemData != null)
+            {
+                items.Add(new InventoryItem { data = itemData, quantity = savedItem.quantity });
+            }
+        }
+
+        RefreshUI();
+    }
 
 }
+
+[System.Serializable]
+public class BackpackSaveData
+{
+    public List<InventoryItemSerialized> items;
+}
+
+[System.Serializable]
+public class InventoryItemSerialized
+{
+    public string itemID;
+    public int quantity;
+}
+
