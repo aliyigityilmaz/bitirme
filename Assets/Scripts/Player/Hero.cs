@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum TeamType
@@ -19,6 +20,8 @@ public class Hero
     public int criticalChance;
     public Skill[] skills;
     public Animator charAnimator;
+    public ParticleSystem heroHitVFX;
+    public Transform heroTransform;
     public Skill[] GetSkills() { return skills; }
 
     public Hero(string name, int id, int health, int turnSpeed, int armor, int criticalChance, TeamType team,int baseHealth)
