@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93002c8810716de4197163912165e9ce, type: 3}
   m_Name: Verdict Elenor
   m_EditorClassIdentifier: 
+  id: 12
   itemName: Verdict Elenor
   description: "First generation magical rifle blending technology and magic. Works
     only with precise aim, reflecting Velora\u2019s uniqueness.  "

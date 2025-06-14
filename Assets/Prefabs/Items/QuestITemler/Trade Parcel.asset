@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93002c8810716de4197163912165e9ce, type: 3}
-  m_Name: Copper Key
+  m_Name: Trade Parcel
   m_EditorClassIdentifier: 
-  itemName: Copper Key
-  description: It may look like its not fit for anything but it can open most of
-    the chests in the open...
+  id: 36
+  itemName: Trade Parcel
+  description: A small package intended for delivery to a trusted merchant.
   icon: {fileID: 0}
-  type: 2
+  type: 1
   defaultQuantity: 1

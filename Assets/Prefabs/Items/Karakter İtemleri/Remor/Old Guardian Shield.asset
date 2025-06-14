@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93002c8810716de4197163912165e9ce, type: 3}
   m_Name: Old Guardian Shield
   m_EditorClassIdentifier: 
+  id: 8
   itemName: Old Guardian Shield
   description: A battered shield, scarred from countless battles. Its protective
     enchantments are faded, but the spirit of defense still lingers within.

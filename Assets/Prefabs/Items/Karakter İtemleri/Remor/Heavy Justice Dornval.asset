@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93002c8810716de4197163912165e9ce, type: 3}
   m_Name: Heavy Justice Dornval
   m_EditorClassIdentifier: 
+  id: 7
   itemName: 'Heavy Justice: Dornval'
   description: A symbol of pure strength, loyalty, and the old world. The mace emits
     anti-magic waves; the shield empowers allies.

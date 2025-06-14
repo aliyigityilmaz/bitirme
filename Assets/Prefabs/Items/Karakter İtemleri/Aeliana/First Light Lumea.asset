@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93002c8810716de4197163912165e9ce, type: 3}
   m_Name: First Light Lumea
   m_EditorClassIdentifier: 
+  id: 2
   itemName: 'First Light: Lumea'
   description: "A rare catalyst preserving magic\u2019s purest form. Resonates with
     Aeliana\u2019s inner peace to unleash its true power."

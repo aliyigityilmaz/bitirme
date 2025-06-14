@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93002c8810716de4197163912165e9ce, type: 3}
   m_Name: Lightning Lash
   m_EditorClassIdentifier: 
+  id: 10
   itemName: Lightning Lash
   description: A sleek and enhanced trigger mechanism that channels bursts of magical
     energy with lightning speed. Accuracy and power are greatly improved.

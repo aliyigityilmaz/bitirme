@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93002c8810716de4197163912165e9ce, type: 3}
   m_Name: Rusty Trigger
   m_EditorClassIdentifier: 
+  id: 11
   itemName: Rusty Trigger
   description: A corroded and unreliable component from an old rifle. It struggles
     to ignite the latent magical essence necessary for a precise shot.

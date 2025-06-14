@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93002c8810716de4197163912165e9ce, type: 3}
   m_Name: Etherium Edge
   m_EditorClassIdentifier: 
+  id: 4
   itemName: Etherium Edge
   description: A finely sharpened sword imbued with unstable magical energy. More
     balanced and powerful than its broken state, it hums faintly with arcane power.

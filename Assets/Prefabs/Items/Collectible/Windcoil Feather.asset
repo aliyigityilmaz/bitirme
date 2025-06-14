@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93002c8810716de4197163912165e9ce, type: 3}
-  m_Name: Stoneheart Shield
+  m_Name: Windcoil Feather
   m_EditorClassIdentifier: 
-  id: 9
-  itemName: Stoneheart Shield
-  description: "A reinforced shield carved from enchanted stone, emitting a subtle
-    aura that wards off dark magic and bolsters the wielder\u2019s resolve."
-  icon: {fileID: 21300000, guid: ba842447955d5a24c8278137ba62f11c, type: 3}
-  type: 0
+  id: 25
+  itemName: Windcoil Feather
+  description: A delicate feather collected from the high-altitude Windcoil birds.
+  icon: {fileID: 21300000, guid: 3bc54793f1e9fb947b74444ef0da949f, type: 3}
+  type: 4
   defaultQuantity: 1

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93002c8810716de4197163912165e9ce, type: 3}
   m_Name: Faded Focus Crystal
   m_EditorClassIdentifier: 
+  id: 1
   itemName: Faded Focus Crystal
   description: A dull and cracked crystal that once held immense magical clarity.
     Its power is diminished, yet its core still pulses faintly with life-giving energy.

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93002c8810716de4197163912165e9ce, type: 3}
   m_Name: Fractured Steel
   m_EditorClassIdentifier: 
+  id: 6
   itemName: Fractured Steel
   description: A cracked and worn piece of blade, unstable and unable to channel
     magic properly. It carries the potential of power but remains incomplete.

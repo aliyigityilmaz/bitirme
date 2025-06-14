@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93002c8810716de4197163912165e9ce, type: 3}
-  m_Name: Sunflower
+  m_Name: Neon Husk
   m_EditorClassIdentifier: 
-  itemName: Sunflower
-  description: As fresh as any other sunflower you can find
+  id: 21
+  itemName: Neon Husk
+  description: The glowing exoskeleton left behind by synthetic insects.
   icon: {fileID: 21300000, guid: 3bc54793f1e9fb947b74444ef0da949f, type: 3}
   type: 4
   defaultQuantity: 1

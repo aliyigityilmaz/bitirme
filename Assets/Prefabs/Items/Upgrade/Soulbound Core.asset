@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93002c8810716de4197163912165e9ce, type: 3}
   m_Name: Soulbound Core
   m_EditorClassIdentifier: 
+  id: 17
   itemName: Soulbound Core
   description: A rare essence that strengthens the spiritual bond between a warrior
     and their weapon. Found within ancient ruins, earned through pivotal decisions,
