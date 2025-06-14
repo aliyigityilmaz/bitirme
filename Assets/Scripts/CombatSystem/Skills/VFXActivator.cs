@@ -6,6 +6,7 @@ public class VFXActivator : MonoBehaviour
     public List<ParticleSystem> vfxList;
     public List<ParticleSystem> vfxOnEnemies;
     public List<ParticleSystem> projectile;
+    public List<ParticleSystem> lookAt;
     public Transform projectileSpawnPoint;
     public Transform followTarget;
     public static VFXActivator instance;
@@ -22,6 +23,10 @@ public class VFXActivator : MonoBehaviour
             {
                 vfx.transform.position = new Vector3(followTarget.transform.position.x, 2.2f, followTarget.transform.position.z);
             }
+        }
+        foreach (var vfx in lookAt)
+        {
+            vfx.transform.LookAt(followTarget.transform);
         }
     }
     void OnEnable()

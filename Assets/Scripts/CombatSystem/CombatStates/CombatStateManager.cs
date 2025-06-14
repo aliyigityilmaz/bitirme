@@ -85,6 +85,7 @@ public class CombatStateManager : MonoBehaviour
             Debug.Log("Selected skill: " + selectedSkill.skillName);
             Debug.Log("Selected enemy: " + enemy.name);
             selectedEnemy = enemy;
+            activeHero.heroTransform.LookAt(selectedEnemy.heroTransform);
             VFXActivator.instance.followTarget.transform.position = new Vector3(selectedEnemy.heroTransform.transform.position.x, 2f, selectedEnemy.heroTransform.transform.position.z);
             IsTargetSelectionActive = false;
             SetState(new PlayerInputState(this));
