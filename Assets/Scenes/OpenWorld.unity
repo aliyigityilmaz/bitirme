@@ -3784,6 +3784,7 @@ MonoBehaviour:
   choicePrefab: {fileID: 6964967206342601673, guid: fd2313e5dee9eef499e40d6442e4353b, type: 3}
   normalIcon: {fileID: 21300000, guid: f8071185fd2b9714fb477a7a7d4769c5, type: 3}
   endIcon: {fileID: 21300000, guid: d49cd7a038a39f545a52c1ce02228c72, type: 3}
+  acceptQuestIcon: {fileID: 21300000, guid: 2ded8ea56f6ecf545b00606a9fe7931e, type: 3}
 --- !u!114 &879802726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6275,6 +6276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1194564105}
   - component: {fileID: 1194564104}
+  - component: {fileID: 1194564106}
   m_Layer: 0
   m_Name: LightController
   m_TagString: Untagged
@@ -6370,6 +6372,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1194564106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194564103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b381dcc33fbd34381c75a6b7bbe5b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1214774828
 GameObject:
   m_ObjectHideFlags: 0
@@ -6699,12 +6713,24 @@ MonoBehaviour:
     choices:
     - choiceText: "\u0130yi knk senden"
       choiceType: 0
+      quest: {fileID: 0}
     - choiceText: "Knk i\u015Fim g\xFCc\xFCm var"
       choiceType: 1
+      quest: {fileID: 0}
   - text: '!!!!'
     choices: []
   - text: ...
-    choices: []
+    choices:
+    - choiceText: "Adams\u0131n babba"
+      choiceType: 2
+      quest: {fileID: 11400000, guid: 2a9d6ca0c7282bf49a62e0135c7b809a, type: 2}
+    - choiceText: "Yapt\u0131m usta"
+      choiceType: 3
+      quest: {fileID: 11400000, guid: 2a9d6ca0c7282bf49a62e0135c7b809a, type: 2}
+    - choiceText: Eyw
+      choiceType: 1
+      quest: {fileID: 0}
+  quest: {fileID: 11400000, guid: 2a9d6ca0c7282bf49a62e0135c7b809a, type: 2}
 --- !u!1 &1273407532
 GameObject:
   m_ObjectHideFlags: 0

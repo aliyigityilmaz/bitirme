@@ -27,22 +27,32 @@ public class TalkableNPC : Interactable
 
     private DialogueLine[] GetFilteredDialogue()
     {
-        // Görev daha önce alýndýysa AcceptQuest tipindeki cevaplarý filtrele
-        if (quest == null || !QuestManager.Instance.HasQuest(quest.questID))
-            return dialogueLines;
-
         var modifiedLines = new List<DialogueLine>();
+
         foreach (var line in dialogueLines)
         {
             if (line.choices != null && line.choices.Length > 0)
             {
                 var filteredChoices = new List<DialogueChoice>();
+
                 foreach (var choice in line.choices)
                 {
-                    if (choice.choiceType == ChoiceType.AcceptQuest && QuestManager.Instance.HasQuest(quest.questID))
-                        continue;
+                    bool skip = false;
 
-                    filteredChoices.Add(choice);
+                    if (choice.choiceType == ChoiceType.AcceptQuest && choice.quest != null)
+                    {
+                        if (QuestManager.Instance.HasQuest(choice.quest.questID))
+                            skip = true;
+                    }
+
+                    if (choice.choiceType == ChoiceType.CompleteQuest && choice.quest != null)
+                    {
+                        if (!QuestManager.Instance.HasQuest(choice.quest.questID) || QuestManager.Instance.IsQuestCompleted(choice.quest.questID))
+                            skip = true;
+                    }
+
+                    if (!skip)
+                        filteredChoices.Add(choice);
                 }
 
                 modifiedLines.Add(new DialogueLine
@@ -56,8 +66,10 @@ public class TalkableNPC : Interactable
                 modifiedLines.Add(line);
             }
         }
+
         return modifiedLines.ToArray();
     }
+
 }
 
 
@@ -75,7 +87,7 @@ public class DialogueChoice
 {
     public string choiceText;
     public ChoiceType choiceType;
-    public Quest questToAccept; // AcceptQuest için atanýr
+    public Quest quest; // ?? Hem accept hem complete için
 }
 
 
@@ -83,6 +95,7 @@ public enum ChoiceType
 {
     Normal,
     End,
-    AcceptQuest // Yeni eklendi
+    AcceptQuest,
+    CompleteQuest // ?? Yeni tamamla seçeneði
 }
 

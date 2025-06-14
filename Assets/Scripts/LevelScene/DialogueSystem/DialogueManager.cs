@@ -139,6 +139,7 @@ public class DialogueManager : MonoBehaviour
                     case ChoiceType.AcceptQuest:
                         iconImage.sprite = acceptQuestIcon;
                         break;
+
                     default:
                         iconImage.enabled = false;
                         break;
@@ -190,13 +191,19 @@ public class DialogueManager : MonoBehaviour
             case ChoiceType.End:
                 EndDialogue();
                 break;
-
             case ChoiceType.AcceptQuest:
-                if (choice.questToAccept != null)
-                    QuestManager.Instance.AddQuest(choice.questToAccept);
+                if (choice.quest != null)
+                    QuestManager.Instance.AddQuest(choice.quest);
                 EndDialogue();
                 break;
-
+            case ChoiceType.CompleteQuest:
+                if (choice.quest != null)
+                {
+                    QuestManager.Instance.CompleteQuest(choice.quest);
+                    QuestManager.Instance.PrintActiveQuests(); // Opsiyonel
+                }
+                EndDialogue();
+                break;
             case ChoiceType.Normal:
             default:
                 index++;

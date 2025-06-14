@@ -42,6 +42,16 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    public void CompleteQuest(Quest quest)
+    {
+        if (acquiredQuests.Contains(quest.questID) && !completedQuests.Contains(quest.questID))
+        {
+            completedQuests.Add(quest.questID);
+            Debug.Log($"Görev tamamlandý: {quest.questName} (ID: {quest.questID})");
+        }
+    }
+
+
 
     public bool HasQuest(string questID) => acquiredQuests.Contains(questID);
 
