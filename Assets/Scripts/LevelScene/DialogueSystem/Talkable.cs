@@ -93,11 +93,12 @@ public class TalkableNPC : Interactable
 [System.Serializable]
 public class DialogueLine
 {
+    public string speakerName; // Ekledik
     [TextArea]
     public string text;
-
-    public DialogueChoice[] choices; // null veya boþsa cevap yok
+    public DialogueChoice[] choices;
 }
+
 
 [System.Serializable]
 public class DialogueChoice

@@ -34,7 +34,7 @@ public class DialogueManager : MonoBehaviour
     public Sprite endIcon;
     public Sprite acceptQuestIcon;
     // ileride: public Sprite eventIcon; vs...
-
+    private string currentNPCName; // Bu deðiþkeni sýnýf düzeyine ekle
 
     private void Awake()
     {
@@ -71,16 +71,16 @@ public class DialogueManager : MonoBehaviour
     {
         if (IsDialogueActive) return;
 
-        IsDialogueActive = true;
-        npcNameText.text = npcName;
+        currentNPCName = npcName; // Burada kaydet
         lines = dialogueLines;
         index = 0;
+        IsDialogueActive = true;
         dialogueUI.SetActive(true);
 
-        PlayerController.Instance.StartTalking(); // Konuþma baþladýðýnda durdur
-
+        PlayerController.Instance.StartTalking();
         ShowNextLine();
     }
+
 
 
 
@@ -94,8 +94,13 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
+        string speaker = string.IsNullOrEmpty(lines[index].speakerName) ? currentNPCName : lines[index].speakerName;
+        npcNameText.text = speaker;
+
+
         typingCoroutine = StartCoroutine(TypeLine(lines[index].text));
     }
+
 
     IEnumerator TypeLine(string line)
     {
