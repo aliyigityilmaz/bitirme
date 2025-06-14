@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CombatTutorialManager : MonoBehaviour
 {
@@ -10,8 +9,6 @@ public class CombatTutorialManager : MonoBehaviour
     [SerializeField] private GameObject tutorialCanvas;
     [SerializeField] private GameObject step1Panel;
     [SerializeField] private GameObject step2Panel;
-    [SerializeField] private Toggle    step2Toggle;
-    
 
     private bool Step1Shown;
     private bool Step2Shown;
@@ -26,12 +23,8 @@ public class CombatTutorialManager : MonoBehaviour
         step2Panel.SetActive(false);
     }
 
-    /// <summary>
-    /// EncounterManager’dan çağrılacak wrapper.
-    /// </summary>
     public void StartTutorial()
     {
-        // bayrakları sıfırla (eğer yeniden göstermek gerekirse)
         Step1Shown = false;
         Step2Shown = false;
         ShowStep1();
@@ -43,16 +36,7 @@ public class CombatTutorialManager : MonoBehaviour
         Step1Shown = true;
         tutorialCanvas.SetActive(true);
         step1Panel.SetActive(true);
-        StartCoroutine(WaitForMouseClickToHideStep1());
-    }
-
-    private IEnumerator WaitForMouseClickToHideStep1()
-    {
-        while (!Input.GetMouseButtonDown(0))
-            yield return null;
-
-        step1Panel.SetActive(false);
-        tutorialCanvas.SetActive(false);
+        StartCoroutine(WaitForAnyKeyToHideStep(step1Panel));
     }
 
     public void ShowStep2()
@@ -62,24 +46,28 @@ public class CombatTutorialManager : MonoBehaviour
         tutorialCanvas.SetActive(true);
         step2Panel.SetActive(true);
         Time.timeScale = 0f;
-        step2Toggle.isOn = false;
-        step2Toggle.onValueChanged.AddListener(OnStep2Toggled);
+        StartCoroutine(WaitForAnyKeyToHideStep(step2Panel, true));
     }
 
-    private void OnStep2Toggled(bool isOn)
+    private IEnumerator WaitForAnyKeyToHideStep(GameObject panel, bool resumeTime = false)
     {
-        if (!isOn) return;
-        step2Toggle.onValueChanged.RemoveListener(OnStep2Toggled);
-        step2Panel.SetActive(false);
+        yield return null; // frame bekle
+
+        while (!Input.anyKeyDown)
+            yield return null;
+
+        panel.SetActive(false);
         tutorialCanvas.SetActive(false);
-        Time.timeScale = 1f;
+
+        if (resumeTime)
+            Time.timeScale = 1f;
     }
+
     public void HideTutorial()
     {
         tutorialCanvas.SetActive(false);
         step1Panel.SetActive(false);
         step2Panel.SetActive(false);
         Time.timeScale = 1f;
-        step2Toggle.onValueChanged.RemoveListener(OnStep2Toggled);
     }
 }
