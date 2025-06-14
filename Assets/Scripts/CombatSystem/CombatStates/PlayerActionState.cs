@@ -6,6 +6,7 @@ public class PlayerActionState : ICombatState
     private float damageTimer = 2f;
     private bool isAnimStarted = false;
     private CombatCameraManager cameraManager;
+
     //skil vurması
     public PlayerActionState(CombatStateManager manager)
     {
@@ -31,11 +32,18 @@ public class PlayerActionState : ICombatState
             else if (selectedSkill.skillId == SkillId.Ulti)
             {
                 if (multiplier >= 1.4f)
-                    activeHero.charAnimator.SetTrigger("Ulti1");
-                else if (multiplier >= 0.9f)
-                    activeHero.charAnimator.SetTrigger("Ulti2");
-                else
+                {
                     activeHero.charAnimator.SetTrigger("Ulti3");
+                }
+
+                else if (multiplier >= 0.9f)
+                {
+                    activeHero.charAnimator.SetTrigger("Ulti2");
+                }
+                else
+                {
+                    activeHero.charAnimator.SetTrigger("Ulti1");
+                }
             }
             else if (selectedSkill.skillId == SkillId.Max)
             {
@@ -139,6 +147,7 @@ public class PlayerActionState : ICombatState
             {
                 manager.selectedEnemy.health -= (int)finalValue;
                 manager.selectedEnemy.charAnimator.SetTrigger("TakeDamage");
+
                 if (manager.selectedEnemy.health <= 0)
                 {
                     Debug.Log($"{manager.selectedEnemy.name} has died!");
@@ -161,7 +170,7 @@ public class PlayerActionState : ICombatState
         else if (selectedSkill.skillType == SkillType.Heal)
         {
             if (manager.selectedEnemy != null)
-            {
+            {   
                 manager.selectedEnemy.health += (int)finalValue;
                 Debug.Log($"{activeHero.name} {manager.selectedEnemy.name} üzerinde {(int)finalValue} iyileştirme yaptı.");
                 manager.NextTurn();
