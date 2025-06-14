@@ -2163,6 +2163,7 @@ GameObject:
   - component: {fileID: 564209832}
   - component: {fileID: 564209831}
   - component: {fileID: 564209830}
+  - component: {fileID: 564209834}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -2259,6 +2260,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &564209834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564209829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee370ab91c39df41a7855f001ff051c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactableType: 0
+  isOneTimeInteraction: 0
+  npcName: "\xD6ld\xFCr\xFCc\xFC "
+  dialogueLines:
+  - text: "Git adam \xF6ld\xFCr getir bana"
+    choices:
+    - choiceText: Tamam abi
+      choiceType: 2
+      quest: {fileID: 11400000, guid: 8ad41dcd44e14ad49898197b8271214a, type: 2}
+    - choiceText: "Gettim goyam m\u0131"
+      choiceType: 3
+      quest: {fileID: 11400000, guid: 8ad41dcd44e14ad49898197b8271214a, type: 2}
+    - choiceText: "Yok abi kals\u0131n"
+      choiceType: 1
+      quest: {fileID: 0}
+  quest: {fileID: 11400000, guid: 8ad41dcd44e14ad49898197b8271214a, type: 2}
+  requiredEnemies:
+  - {fileID: 1107898679}
 --- !u!1 &582205495
 GameObject:
   m_ObjectHideFlags: 0
@@ -3449,6 +3480,7 @@ MonoBehaviour:
       choiceType: 1
       quest: {fileID: 0}
   quest: {fileID: 0}
+  requiredEnemies: []
 --- !u!1 &866893549
 GameObject:
   m_ObjectHideFlags: 0
@@ -6771,6 +6803,7 @@ MonoBehaviour:
       choiceType: 1
       quest: {fileID: 0}
   quest: {fileID: 11400000, guid: 2a9d6ca0c7282bf49a62e0135c7b809a, type: 2}
+  requiredEnemies: []
 --- !u!1 &1273407532
 GameObject:
   m_ObjectHideFlags: 0

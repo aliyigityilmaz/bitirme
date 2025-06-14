@@ -66,15 +66,17 @@ public class QuestManager : MonoBehaviour
         if (!HasQuest(quest.questID) || IsQuestCompleted(quest.questID))
             return false;
 
+        // Eðer item gerekiyorsa:
         if (quest.requiredItem != null)
         {
             int playerItemCount = BackpackManager.Instance.GetItemCount(quest.requiredItem);
             return playerItemCount >= quest.requiredItemCount;
         }
 
-        // Eðer item yoksa, yani sadece konuþarak tamamlanabiliyorsa:
+        // Sadece konuþma göreviyse:
         return true;
     }
+
 
 
 

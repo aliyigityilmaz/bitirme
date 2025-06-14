@@ -9,6 +9,10 @@ public class TalkableNPC : Interactable
 
     private bool hasInteracted = false;
 
+    [Header("Bu NPC'nin görevinde öldürülmesi gereken düþmanlar")]
+    public List<GameObject> requiredEnemies; // Sahnedeki düþmanlar
+
+
     private void Start()
     {
         interactableType = InteractableType.Talkable;
@@ -47,9 +51,21 @@ public class TalkableNPC : Interactable
 
                     if (choice.choiceType == ChoiceType.CompleteQuest && choice.quest != null)
                     {
-                        if (!QuestManager.Instance.CanCompleteQuest(choice.quest))
+                        if (requiredEnemies != null && requiredEnemies.Count > 0)
+                        {
+                            bool anyAlive = requiredEnemies.Exists(enemy => enemy != null && enemy.activeSelf);
+                            if (anyAlive)
+                            {
+                                skip = true;
+                            }
+                        }
+                        else if (!QuestManager.Instance.CanCompleteQuest(choice.quest))
+                        {
                             skip = true;
+                        }
                     }
+
+
 
 
                     if (!skip)
@@ -88,7 +104,7 @@ public class DialogueChoice
 {
     public string choiceText;
     public ChoiceType choiceType;
-    public Quest quest; // ?? Hem accept hem complete için
+    public Quest quest; // Hem accept hem complete için
 }
 
 
@@ -97,6 +113,6 @@ public enum ChoiceType
     Normal,
     End,
     AcceptQuest,
-    CompleteQuest // ?? Yeni tamamla seçeneði
+    CompleteQuest //  Yeni tamamla seçeneði
 }
 
