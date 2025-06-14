@@ -24,6 +24,9 @@ public class CombatStateManager : MonoBehaviour
     [Header("End Screen")]
     public GameObject winPanel;
     public GameObject losePanel;
+    [Header("Multipler Input")]
+    public float perfectMultiplier;
+    public float goodMultiplier;
 
     
 

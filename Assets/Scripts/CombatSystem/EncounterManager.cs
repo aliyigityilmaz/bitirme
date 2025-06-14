@@ -21,6 +21,7 @@ public class LevelSpawnConfig
 public class EncounterManager : MonoBehaviour
 {
     public static EncounterManager Instance;
+    private static bool tutorialShown = false;
 
     [Header("Level Bazlı Spawn Ayarları")]
     [SerializeField]
@@ -85,7 +86,22 @@ public class EncounterManager : MonoBehaviour
 
         // 2) Planlanan enemy’leri instantiate et
         SpawnEnemiesInCombat();
+        
+        
+           
+        if (scene.buildIndex != 1) return; 
+
+        // İlk gelişi yakala
+        if (!tutorialShown)
+        {
+            tutorialShown = true;
+            CombatTutorialManager.Instance.StartTutorial();
+        }
+
+        // sonra normal spawn’ına devam et
+        SpawnEnemiesInCombat();
     }
+   
 
     private void SpawnEnemiesInCombat()
     {

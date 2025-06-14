@@ -13,6 +13,7 @@ public class PlayerTurnState : ICombatState
 
     public void Enter()
     {
+        CombatTutorialManager.Instance.ShowStep1();
         manager.StartCoroutine(DelayedEnter());
     }
 

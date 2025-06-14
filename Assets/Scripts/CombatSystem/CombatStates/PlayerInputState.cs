@@ -35,6 +35,7 @@ public class PlayerInputState : ICombatState
     
     public void Enter()
     {
+       
         instance = this;
         afc = AudioForCombat.Instance;
         Debug.Log("Yeni ritim mekaniği ile PlayerInputState'e girildi");
@@ -43,9 +44,12 @@ public class PlayerInputState : ICombatState
 
         // Turn-based sistemde sıradaki aktif kahraman alınır.
         Hero activeHero = manager.turnOrder[manager.currentTurnIndex];
-
-        // Aktif kahramanın kendine özgü şarkı notalarını almak için HeroSongNotes kullanılır.
-        songNotesTime = HeroSongNotes.GetSongNotesForHero(activeHero);
+         float[] possibleDurations = new float[] { 0.6f, 0.9f, 1.2f, 1.5f, 1.8f };
+        songNotesTime = new float[requiredPresses];
+        for (int i = 0; i < songNotesTime.Length; i++)
+        {
+            songNotesTime[i] = possibleDurations[Random.Range(0, possibleDurations.Length)];
+        }
         if (activeHero.id == 1)
         {
             songNotes = afc.heroMainNotes;
@@ -85,7 +89,7 @@ public class PlayerInputState : ICombatState
         requiredPresses = 6;
         currentPressCount = 0; 
         totalMultiplier = 0f;
-
+        CombatTutorialManager.Instance.ShowStep2();
         SetupNextRound();
     }
     
@@ -138,12 +142,18 @@ public class PlayerInputState : ICombatState
         float deviation = Mathf.Abs(elapsedTime - (noteDuration / 2f));
         float multiplier;
 
-        if (deviation <= noteDuration * 0.1f)
+        
+        if (deviation <= noteDuration * manager.perfectMultiplier)
         {
             multiplier = 1.5f;
             Debug.Log("Perfect timing! (Mükemmel vurma)");
         }
-        else if (deviation <= noteDuration * 0.2f)
+        else if (deviation <= noteDuration * manager.goodMultiplier)
+        {
+            multiplier = 1.0f;
+            Debug.Log("Good timing! (İyi vurma)");
+        }
+        else if (deviation <= noteDuration * 1.5f)
         {
             multiplier = 1.0f;
             Debug.Log("Normal timing! (Normal vurma)");
