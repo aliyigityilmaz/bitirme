@@ -44,11 +44,36 @@ public class QuestManager : MonoBehaviour
 
     public void CompleteQuest(Quest quest)
     {
-        if (acquiredQuests.Contains(quest.questID) && !completedQuests.Contains(quest.questID))
+        if (!CanCompleteQuest(quest)) return;
+
+        if (!completedQuests.Contains(quest.questID))
         {
             completedQuests.Add(quest.questID);
+
+            // Eðer item gerekiyorsa, düþür
+            if (quest.requiredItem != null && quest.requiredItemCount > 0)
+            {
+                BackpackManager.Instance.RemoveItem(quest.requiredItem, quest.requiredItemCount);
+            }
+
             Debug.Log($"Görev tamamlandý: {quest.questName} (ID: {quest.questID})");
         }
+    }
+
+
+    public bool CanCompleteQuest(Quest quest)
+    {
+        if (!HasQuest(quest.questID) || IsQuestCompleted(quest.questID))
+            return false;
+
+        if (quest.requiredItem != null)
+        {
+            int playerItemCount = BackpackManager.Instance.GetItemCount(quest.requiredItem);
+            return playerItemCount >= quest.requiredItemCount;
+        }
+
+        // Eðer item yoksa, yani sadece konuþarak tamamlanabiliyorsa:
+        return true;
     }
 
 

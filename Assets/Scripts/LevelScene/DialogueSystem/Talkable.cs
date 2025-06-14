@@ -47,9 +47,10 @@ public class TalkableNPC : Interactable
 
                     if (choice.choiceType == ChoiceType.CompleteQuest && choice.quest != null)
                     {
-                        if (!QuestManager.Instance.HasQuest(choice.quest.questID) || QuestManager.Instance.IsQuestCompleted(choice.quest.questID))
+                        if (!QuestManager.Instance.CanCompleteQuest(choice.quest))
                             skip = true;
                     }
+
 
                     if (!skip)
                         filteredChoices.Add(choice);

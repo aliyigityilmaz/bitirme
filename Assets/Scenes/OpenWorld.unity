@@ -3313,6 +3313,7 @@ GameObject:
   - component: {fileID: 859865741}
   - component: {fileID: 859865740}
   - component: {fileID: 859865739}
+  - component: {fileID: 859865743}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -3409,6 +3410,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &859865743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859865737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee370ab91c39df41a7855f001ff051c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactableType: 0
+  isOneTimeInteraction: 0
+  npcName: "Usta yi\u011Fit"
+  dialogueLines:
+  - text: S s s
+    choices:
+    - choiceText: aaaa
+      choiceType: 0
+      quest: {fileID: 0}
+    - choiceText: bbbb
+      choiceType: 0
+      quest: {fileID: 0}
+    - choiceText: cccc
+      choiceType: 0
+      quest: {fileID: 0}
+  - text: zzz
+    choices:
+    - choiceText: "laz\u0131ms\u0131n"
+      choiceType: 2
+      quest: {fileID: 11400000, guid: d2523253994d22e4eba4ca5ff68636cd, type: 2}
+    - choiceText: "laz\u0131m\u0131z usta"
+      choiceType: 3
+      quest: {fileID: 11400000, guid: d2523253994d22e4eba4ca5ff68636cd, type: 2}
+    - choiceText: bays
+      choiceType: 1
+      quest: {fileID: 0}
+  quest: {fileID: 0}
 --- !u!1 &866893549
 GameObject:
   m_ObjectHideFlags: 0
