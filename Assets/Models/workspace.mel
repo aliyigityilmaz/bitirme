@@ -1,0 +1,4 @@
+//Maya 2025 Project Definition
+
+workspace -fr "templates" "";
+workspace -fr "particles" "particles";
