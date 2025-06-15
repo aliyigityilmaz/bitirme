@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 27
   itemName: Solar Core Fragment
   description: A rare fragment from the core of a powerful solar entity.
-  icon: {fileID: 21300000, guid: 3bc54793f1e9fb947b74444ef0da949f, type: 3}
+  icon: {fileID: 21300000, guid: df2af1527c4f71947af3e9d9ccbb1cf4, type: 3}
   type: 3
   defaultQuantity: 1

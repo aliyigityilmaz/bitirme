@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 29
   itemName: Skyglass Shard
   description: A venomous gland harvested from poisonous creatures.
-  icon: {fileID: 21300000, guid: 3bc54793f1e9fb947b74444ef0da949f, type: 3}
+  icon: {fileID: 21300000, guid: 74028e8a42c6db14282070bcb5458ffe, type: 3}
   type: 3
   defaultQuantity: 1

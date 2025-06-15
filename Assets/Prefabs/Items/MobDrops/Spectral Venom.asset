@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 28
   itemName: Spectral Venom
   description: A mysterious venom with ghostly properties, dropped by ethereal foes.
-  icon: {fileID: 21300000, guid: 3bc54793f1e9fb947b74444ef0da949f, type: 3}
+  icon: {fileID: 21300000, guid: 6564b5b0c58508842ace55733185802f, type: 3}
   type: 3
   defaultQuantity: 1
