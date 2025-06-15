@@ -51,14 +51,19 @@ public class DayNightManager : MonoBehaviour
     void Update()
     {
         UpdateClockHands();
+
         if (isTransitioningTime && targetTime.HasValue)
         {
-            int direction = GetShortestDirection(currentTime, targetTime.Value);
+            float previousTime = currentTime;
+            currentTime = (currentTime + Time.deltaTime * timeSpeed + 24f) % 24f;
 
-            currentTime += Time.deltaTime * timeSpeed * direction;
+            // Hedefi geçip geçmediðini kontrol et
+            float deltaBefore = (targetTime.Value - previousTime + 24f) % 24f;
+            float deltaAfter = (targetTime.Value - currentTime + 24f) % 24f;
 
-            float timeDifference = Mathf.Abs((currentTime - targetTime.Value + 24f) % 24f);
-            if (timeDifference < 0.1f)
+            bool passedTarget = deltaAfter > deltaBefore; // zaman hedefin "önünden geçtiyse"
+
+            if (passedTarget || deltaAfter < 0.1f)
             {
                 currentTime = targetTime.Value;
                 targetTime = null;
@@ -67,19 +72,19 @@ public class DayNightManager : MonoBehaviour
                 targetTimeText.text = "00:00";
             }
 
-
             UpdateLighting();
-            UpdateCurrentTimeText(); // Ekle: geçiþ sýrasýnda da zamaný göster
+            UpdateCurrentTimeText();
             return;
         }
 
-        currentTime += Time.deltaTime * timeSpeed / 60f;
-        if (currentTime >= 24f) currentTime -= 24f;
 
+        // Normal zaman akýþý
+        currentTime = (currentTime + Time.deltaTime * timeSpeed / 60f) % 24f;
 
         UpdateLighting();
-        UpdateCurrentTimeText(); // Ekle: normal akýþta da zamaný göster
+        UpdateCurrentTimeText();
     }
+
 
     void UpdateClockHands()
     {

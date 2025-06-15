@@ -66,16 +66,37 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        // Isometric hareket için eksenleri dönüþtür
-        moveDirection = new Vector3(horizontal, 0, vertical).normalized;
-        Vector3 isoDirection = new Vector3(moveDirection.x - moveDirection.z, 0, moveDirection.x + moveDirection.z);
+        Vector3 input = new Vector3(horizontal, 0f, vertical).normalized;
 
-        if (isoDirection != Vector3.zero)
+        // Kameranýn yönüne göre input dönüþümü
+        if (input.magnitude >= 0.1f)
         {
-            transform.forward = isoDirection; // Karakterin hareket yönüne bakmasýný saðlar
-        }
+            // Ana kamera üzerinden bakýþ yönlerini al
+            Transform cam = Camera.main.transform;
 
-        transform.position += isoDirection * moveSpeed * Time.deltaTime;
+            // Kamera yönlerinden düzlem üzerinde olanlarý al
+            Vector3 camForward = cam.forward;
+            Vector3 camRight = cam.right;
+
+            camForward.y = 0f;
+            camRight.y = 0f;
+
+            camForward.Normalize();
+            camRight.Normalize();
+
+            // Hareket yönünü oluþtur
+            moveDirection = camForward * input.z + camRight * input.x;
+
+            // Yön bakýþý
+            transform.forward = moveDirection;
+
+            // Pozisyonu güncelle
+            transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        }
+        else
+        {
+            moveDirection = Vector3.zero;
+        }
     }
 
     void HandleInteraction()
