@@ -1415,7 +1415,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &230545862
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1692,7 +1692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &248677436
 Transform:
   m_ObjectHideFlags: 0
@@ -1803,6 +1803,10 @@ PrefabInstance:
     - target: {fileID: 5926106732275669146, guid: 7a51a2d115301c441bee457e3c724bbf, type: 3}
       propertyPath: m_Name
       value: Ps_Cut_Slash
+      objectReference: {fileID: 0}
+    - target: {fileID: 5926106732275669146, guid: 7a51a2d115301c441bee457e3c724bbf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6729810476630267934, guid: 7a51a2d115301c441bee457e3c724bbf, type: 3}
       propertyPath: randomSeed
@@ -4592,6 +4596,7 @@ Transform:
   - {fileID: 671615056}
   - {fileID: 555421550}
   - {fileID: 631024837}
+  - {fileID: 1890432314}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &648808148 stripped
@@ -5305,7 +5310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &777489108
 Transform:
   m_ObjectHideFlags: 0
@@ -10661,6 +10666,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cr_General_Fractus
       objectReference: {fileID: 0}
+    - target: {fileID: 4002575818745086356, guid: 2a81e23861cd32d478cd3b09ced3e872, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -11596,7 +11605,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890432313}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 216.59254, y: -73.55257, z: -37.358353}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11610,7 +11619,7 @@ Transform:
   - {fileID: 1588368384}
   - {fileID: 606786806}
   - {fileID: 1230916107}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 639120636}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1896479233
 PrefabInstance:
@@ -12094,7 +12103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1981280239
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12225,6 +12234,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 294479045}
     m_Modifications:
+    - target: {fileID: 4534688389715271960, guid: 031845514602c354397560cf5ed47339, type: 3}
+      propertyPath: randomSeed
+      value: 8794
+      objectReference: {fileID: 0}
+    - target: {fileID: 4534688389715271960, guid: 031845514602c354397560cf5ed47339, type: 3}
+      propertyPath: autoRandomSeed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7035342707502051533, guid: 031845514602c354397560cf5ed47339, type: 3}
       propertyPath: m_Name
       value: Ps_F_Up
@@ -18716,10 +18733,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ps_Velora_Special_B_Beam
       objectReference: {fileID: 0}
-    - target: {fileID: 3805539430171189829, guid: 44d7cc468584a504a98d39224e295b3d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 1560597053a4d8c488ea2a6e1130409d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19473,7 +19486,6 @@ SceneRoots:
   - {fileID: 310824267}
   - {fileID: 94609006}
   - {fileID: 639120636}
-  - {fileID: 1890432314}
   - {fileID: 1829465749}
   - {fileID: 230545865}
   - {fileID: 1981280242}
