@@ -8166,7 +8166,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder/mixamorig:RightArm/mixamorig:RightForeArm/mixamorig:RightHand/Remor_Mace/Ps_Muzzle_Ice
+    path: mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder/mixamorig:RightArm/mixamorig:RightForeArm/mixamorig:RightHand/Remor_Mace/Ps_Muzzle_Stone
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -8205,7 +8205,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Ps_R_Ice_Expo
+    path: Ps_R_Stone_Expo
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -8425,7 +8425,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3905360353
+      path: 1084468810
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -8434,7 +8434,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3297381970
+      path: 301336168
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -41865,7 +41865,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder/mixamorig:RightArm/mixamorig:RightForeArm/mixamorig:RightHand/Remor_Mace/Ps_Muzzle_Ice
+    path: mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder/mixamorig:RightArm/mixamorig:RightForeArm/mixamorig:RightHand/Remor_Mace/Ps_Muzzle_Stone
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -41904,7 +41904,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Ps_R_Ice_Expo
+    path: Ps_R_Stone_Expo
     classID: 1
     script: {fileID: 0}
     flags: 0

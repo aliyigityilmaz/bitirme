@@ -5,9 +5,13 @@ public class VFXActivator : MonoBehaviour
 {
     public List<ParticleSystem> vfxList;
     public List<ParticleSystem> vfxOnEnemies;
-    public List<ParticleSystem> projectile;
+    public List<ParticleSystem> projectileForAeliana;
+    public List<ParticleSystem> projectileForVelora;
+    public List<ParticleSystem> projectileForKaelion;
     public List<ParticleSystem> lookAt;
-    public Transform projectileSpawnPoint;
+    public Transform projectileSpawnPointForAeliana;
+    public Transform projectileSpawnPointForVelora;
+    public Transform projectileSpawnPointForKaelion;
     public Transform followTarget;
     public static VFXActivator instance;
 
@@ -32,7 +36,9 @@ public class VFXActivator : MonoBehaviour
     void OnEnable()
     {        
         PlayActiveVFX();
-        VFXActivator.instance.FireProjectile();
+        VFXActivator.instance.FireProjectileForAeliana();
+        VFXActivator.instance.FireProjectileForVelora();
+        VFXActivator.instance.FireProjectileForKaelion();
     }
 
     public void PlayActiveVFX()
@@ -45,15 +51,53 @@ public class VFXActivator : MonoBehaviour
             }
         }
     }
-    public void FireProjectile()
+    public void FireProjectileForAeliana()
     {
-        if (projectile.Count == 0 || followTarget == null || projectileSpawnPoint == null) return;
+        if (projectileForAeliana.Count == 0 || followTarget == null || projectileSpawnPointForAeliana == null) return;
 
-        foreach (var proj in projectile)
+        foreach (var proj in projectileForAeliana)
         {
             proj.Stop();
-            proj.transform.position = projectileSpawnPoint.position;
-            proj.transform.rotation = Quaternion.LookRotation(followTarget.position - projectileSpawnPoint.position);
+            proj.transform.position = projectileSpawnPointForAeliana.position;
+            proj.transform.rotation = Quaternion.LookRotation(followTarget.position - projectileSpawnPointForAeliana.position);
+
+            ProjectileMover mover = proj.GetComponent<ProjectileMover>();
+            if (mover != null)
+            {
+                mover.Init(followTarget);
+            }
+
+            proj.Play();
+        }
+    }
+    public void FireProjectileForVelora()
+    {
+        if (projectileForVelora.Count == 0 || followTarget == null || projectileSpawnPointForVelora == null) return;
+
+        foreach (var proj in projectileForVelora)
+        {
+            proj.Stop();
+            proj.transform.position = projectileSpawnPointForVelora.position;
+            proj.transform.rotation = Quaternion.LookRotation(followTarget.position - projectileSpawnPointForVelora.position);
+
+            ProjectileMover mover = proj.GetComponent<ProjectileMover>();
+            if (mover != null)
+            {
+                mover.Init(followTarget);
+            }
+
+            proj.Play();
+        }
+    }
+    public void FireProjectileForKaelion()
+    {
+        if (projectileForKaelion.Count == 0 || followTarget == null || projectileSpawnPointForKaelion == null) return;
+
+        foreach (var proj in projectileForKaelion)
+        {
+            proj.Stop();
+            proj.transform.position = projectileSpawnPointForKaelion.position;
+            proj.transform.rotation = Quaternion.LookRotation(followTarget.position - projectileSpawnPointForKaelion.position);
 
             ProjectileMover mover = proj.GetComponent<ProjectileMover>();
             if (mover != null)

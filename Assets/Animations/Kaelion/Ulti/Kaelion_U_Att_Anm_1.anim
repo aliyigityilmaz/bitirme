@@ -8859,7 +8859,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.3
+        time: 0.96666664
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -8871,7 +8871,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder/mixamorig:RightArm/mixamorig:RightForeArm/mixamorig:RightHand/Ps_K_Fire_Muzzle
+    path: mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder/mixamorig:RightArm/mixamorig:RightForeArm/mixamorig:RightHand/Kaelion_Sword/Ps_K_Fire_Muzzle
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -9352,7 +9352,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 272918981
+      path: 85838263
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -45159,7 +45159,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.3
+        time: 0.96666664
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -45171,7 +45171,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder/mixamorig:RightArm/mixamorig:RightForeArm/mixamorig:RightHand/Ps_K_Fire_Muzzle
+    path: mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder/mixamorig:RightArm/mixamorig:RightForeArm/mixamorig:RightHand/Kaelion_Sword/Ps_K_Fire_Muzzle
     classID: 1
     script: {fileID: 0}
     flags: 0
