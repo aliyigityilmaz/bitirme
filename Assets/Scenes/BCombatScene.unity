@@ -753,7 +753,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5884502873569719777, guid: 56dc8692070ed1b4592650dcccc99215, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1665233024}
   m_SourcePrefab: {fileID: 100100000, guid: 56dc8692070ed1b4592650dcccc99215, type: 3}
 --- !u!4 &121889493 stripped
 Transform:
@@ -1149,7 +1152,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8872772540609694487, guid: 25754d41746f3db4c9c9ea87c6be434e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1212535910}
   m_SourcePrefab: {fileID: 100100000, guid: 25754d41746f3db4c9c9ea87c6be434e, type: 3}
 --- !u!4 &221218920 stripped
 Transform:
@@ -4064,6 +4070,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1827282267793888473, guid: 44d7cc468584a504a98d39224e295b3d, type: 3}
   m_PrefabInstance: {fileID: 677992322}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &682051833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8872772540609694487, guid: 25754d41746f3db4c9c9ea87c6be434e, type: 3}
+  m_PrefabInstance: {fileID: 221218919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &758317612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4881,7 +4892,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4190534904489404618, guid: fd8e818f079ba8441a30ed577fd302c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2002121834}
   m_SourcePrefab: {fileID: 100100000, guid: fd8e818f079ba8441a30ed577fd302c1, type: 3}
 --- !u!4 &908424019 stripped
 Transform:
@@ -6692,6 +6706,9 @@ MonoBehaviour:
   - {fileID: 828086763}
   - {fileID: 1455998896}
   - {fileID: 1941045291}
+  - {fileID: 2002121832}
+  - {fileID: 249435962}
+  - {fileID: 1212535908}
   projectileForKaelion:
   - {fileID: 2073184742}
   - {fileID: 848847764}
@@ -6752,11 +6769,11 @@ Transform:
   m_GameObject: {fileID: 1114175775}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.182, y: 2.63, z: -7.46}
+  m_LocalPosition: {x: -0.20572758, y: 1.4129739, z: 1.7869997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 543450653708691625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1143746165
 PrefabInstance:
@@ -7417,6 +7434,19 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 5937663423764254980, guid: 25754d41746f3db4c9c9ea87c6be434e, type: 3}
   m_PrefabInstance: {fileID: 221218919}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1212535910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682051833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06bcecbc3ec57c849aca69f81f835b32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
 --- !u!198 &1223288671 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 4232696742091337918, guid: 44d7cc468584a504a98d39224e295b3d, type: 3}
@@ -10046,7 +10076,7 @@ MonoBehaviour:
     id: 5
     baseHealth: 0
     health: 500
-    turnSpeed: 300000
+    turnSpeed: 500
     armor: 0
     criticalChance: 0
     skills:
@@ -10871,6 +10901,11 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7165448336671161775, guid: 73cadc29d9683bb4ea55e306336c4eaf, type: 3}
   m_PrefabInstance: {fileID: 1650934255}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1646670810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4190534904489404618, guid: fd8e818f079ba8441a30ed577fd302c1, type: 3}
+  m_PrefabInstance: {fileID: 908424018}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1650934255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11153,6 +11188,24 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1966736929609127041, guid: eaaa1d9b4b04c214b803aea24df35c02, type: 3}
   m_PrefabInstance: {fileID: 1663818308}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1665233022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5884502873569719777, guid: 56dc8692070ed1b4592650dcccc99215, type: 3}
+  m_PrefabInstance: {fileID: 121889492}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1665233024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665233022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06bcecbc3ec57c849aca69f81f835b32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
 --- !u!1 &1667713328
 GameObject:
   m_ObjectHideFlags: 0
@@ -13182,6 +13235,19 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1365391164742063019, guid: fd8e818f079ba8441a30ed577fd302c1, type: 3}
   m_PrefabInstance: {fileID: 908424018}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2002121834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646670810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06bcecbc3ec57c849aca69f81f835b32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
 --- !u!1001 &2009934994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14700,6 +14766,7 @@ Transform:
   - {fileID: 5465940246506817597}
   - {fileID: 617976711}
   - {fileID: 2864608791876070242}
+  - {fileID: 1114175776}
   - {fileID: 1005696607}
   - {fileID: 638807543}
   - {fileID: 1375127553}
@@ -15033,7 +15100,7 @@ MonoBehaviour:
     id: 3
     baseHealth: 0
     health: 500
-    turnSpeed: 200
+    turnSpeed: 999999999
     armor: 0
     criticalChance: 0
     skills:
@@ -22884,7 +22951,6 @@ SceneRoots:
   - {fileID: 1198598716}
   - {fileID: 1527808231}
   - {fileID: 384721543}
-  - {fileID: 1114175776}
   - {fileID: 34883984}
   - {fileID: 1110363112}
   - {fileID: 330638955}
