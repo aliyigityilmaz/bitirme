@@ -24512,7 +24512,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+  - {fileID: 2100000, guid: 89b5408877b52ce45ad802048e7d8b0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -34771,6 +34771,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.8779901
       objectReference: {fileID: 0}
+    - target: {fileID: -8172757602363355056, guid: 166882f449a6a584eb933aa28698fb02, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 89b5408877b52ce45ad802048e7d8b0c, type: 2}
+    - target: {fileID: -5691436510692832352, guid: 166882f449a6a584eb933aa28698fb02, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 89b5408877b52ce45ad802048e7d8b0c, type: 2}
     - target: {fileID: -1730606638834487430, guid: 166882f449a6a584eb933aa28698fb02, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.8779901
@@ -34783,6 +34791,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6076302408614261076, guid: 166882f449a6a584eb933aa28698fb02, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 89b5408877b52ce45ad802048e7d8b0c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35150,6 +35162,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8469644715566487948, guid: f8020e4bf7d449740934adaa27fdfa8e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 89b5408877b52ce45ad802048e7d8b0c, type: 2}
+    - target: {fileID: -3056041028626425089, guid: f8020e4bf7d449740934adaa27fdfa8e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 89b5408877b52ce45ad802048e7d8b0c, type: 2}
+    - target: {fileID: -1813745532873143000, guid: f8020e4bf7d449740934adaa27fdfa8e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 89b5408877b52ce45ad802048e7d8b0c, type: 2}
+    - target: {fileID: -834187254592780434, guid: f8020e4bf7d449740934adaa27fdfa8e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 89b5408877b52ce45ad802048e7d8b0c, type: 2}
+    - target: {fileID: -578983848474227005, guid: f8020e4bf7d449740934adaa27fdfa8e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 89b5408877b52ce45ad802048e7d8b0c, type: 2}
     - target: {fileID: 919132149155446097, guid: f8020e4bf7d449740934adaa27fdfa8e, type: 3}
       propertyPath: m_Name
       value: "Sand\u0131k_1"
@@ -35158,6 +35190,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5964765146244460296, guid: f8020e4bf7d449740934adaa27fdfa8e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 89b5408877b52ce45ad802048e7d8b0c, type: 2}
+    - target: {fileID: 8655718295261454741, guid: f8020e4bf7d449740934adaa27fdfa8e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 89b5408877b52ce45ad802048e7d8b0c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -42892,6 +42932,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.21
       objectReference: {fileID: 0}
+    - target: {fileID: -1033853629111475639, guid: d9c13a6ba47a4d64a8a3c9eb2221703f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 89b5408877b52ce45ad802048e7d8b0c, type: 2}
+    - target: {fileID: 228996984461631718, guid: d9c13a6ba47a4d64a8a3c9eb2221703f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 89b5408877b52ce45ad802048e7d8b0c, type: 2}
     - target: {fileID: 919132149155446097, guid: d9c13a6ba47a4d64a8a3c9eb2221703f, type: 3}
       propertyPath: m_Name
       value: "Sand\u0131k_3"
