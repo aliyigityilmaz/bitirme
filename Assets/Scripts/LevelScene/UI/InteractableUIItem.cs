@@ -31,6 +31,10 @@ public class InteractableUIItem : MonoBehaviour
                 iconImage.sprite = collectibleIcon;
                 descriptionText.text = "Pick up " + interactable.GetComponent<CollectiblePickup>().itemData.itemName;
                 break;
+            case Interactable.InteractableType.Pickup:
+                iconImage.sprite = collectibleIcon;
+                descriptionText.text = "Pick up " + interactable.GetComponent<CollectiblePickup>().itemData.itemName;
+                break;
             case Interactable.InteractableType.Torch:
                 iconImage.sprite = torchIcon;
                 descriptionText.text = "Light the torch";

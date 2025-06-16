@@ -68,13 +68,10 @@ public class PlayerController : MonoBehaviour
 
         Vector3 input = new Vector3(horizontal, 0f, vertical).normalized;
 
-        // Kameranýn yönüne göre input dönüþümü
         if (input.magnitude >= 0.1f)
         {
-            // Ana kamera üzerinden bakýþ yönlerini al
             Transform cam = Camera.main.transform;
 
-            // Kamera yönlerinden düzlem üzerinde olanlarý al
             Vector3 camForward = cam.forward;
             Vector3 camRight = cam.right;
 
@@ -84,13 +81,14 @@ public class PlayerController : MonoBehaviour
             camForward.Normalize();
             camRight.Normalize();
 
-            // Hareket yönünü oluþtur
             moveDirection = camForward * input.z + camRight * input.x;
 
-            // Yön bakýþý
-            transform.forward = moveDirection;
+            // Akýcý dönüþ
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+            float rotateSpeed = 10f; // Daha yavaþ veya hýzlý döndürmek için bu deðeri artýr/azalt
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotateSpeed);
 
-            // Pozisyonu güncelle
+            // Hareket
             transform.position += moveDirection * moveSpeed * Time.deltaTime;
         }
         else
@@ -98,6 +96,7 @@ public class PlayerController : MonoBehaviour
             moveDirection = Vector3.zero;
         }
     }
+
 
     void HandleInteraction()
     {
