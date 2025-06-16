@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 34
   itemName: Old Diary Page
   description: A torn page from a forgotten diary, hinting at hidden secrets.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: cf92287e42cad8c47a7b0b838f3c3a8c, type: 3}
   type: 1
   defaultQuantity: 1

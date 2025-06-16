@@ -16,6 +16,6 @@ MonoBehaviour:
   itemName: Synthleaf Inhaler
   description: An inhaler that quickly restores vitality by releasing a synthetic
     herbal mist.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 71a7c73fb69a7f8428b20d748e6bb557, type: 3}
   type: 2
   defaultQuantity: 1

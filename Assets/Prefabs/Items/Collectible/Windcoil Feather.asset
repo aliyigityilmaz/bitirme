@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 25
   itemName: Windcoil Feather
   description: A delicate feather collected from the high-altitude Windcoil birds.
-  icon: {fileID: 21300000, guid: 3bc54793f1e9fb947b74444ef0da949f, type: 3}
+  icon: {fileID: 21300000, guid: 4b6d0bd63cfbd5944ae3ea6defe52042, type: 3}
   type: 4
   defaultQuantity: 1

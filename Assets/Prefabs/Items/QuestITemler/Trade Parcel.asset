@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 36
   itemName: Trade Parcel
   description: A small package intended for delivery to a trusted merchant.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f9aa1aaea6a76ea45bb029525557e449, type: 3}
   type: 1
   defaultQuantity: 1

@@ -16,6 +16,6 @@ MonoBehaviour:
   itemName: Solar Bloom Tea
   description: A soothing tea brewed from solar-infused flowers, gradually restoring
     health.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 740068cf9934dbc42b745e572b7fa2e7, type: 3}
   type: 2
   defaultQuantity: 1

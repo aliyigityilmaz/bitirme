@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 32
   itemName: Botanic ID Badge
   description: An old access badge granting entry to secured botanical facilities.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 3cc1302e876781d44a29b65de6e6e747, type: 3}
   type: 1
   defaultQuantity: 1

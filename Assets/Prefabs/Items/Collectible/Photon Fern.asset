@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 22
   itemName: Photon Fern
   description: A rare light-absorbing plant. Can interact with energy sources.
-  icon: {fileID: 21300000, guid: 3bc54793f1e9fb947b74444ef0da949f, type: 3}
+  icon: {fileID: 21300000, guid: 6f0ba3284750af04ba1e0fc44b7c3bbf, type: 3}
   type: 4
   defaultQuantity: 1

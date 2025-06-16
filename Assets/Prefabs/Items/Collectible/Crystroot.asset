@@ -16,6 +16,6 @@ MonoBehaviour:
   itemName: Crystroot
   description: A translucent root commonly found near crystalline grounds. Ideal
     for crafting.
-  icon: {fileID: 21300000, guid: 3bc54793f1e9fb947b74444ef0da949f, type: 3}
+  icon: {fileID: 21300000, guid: a47ab2bae0e27974ca92b0424e3a8bd3, type: 3}
   type: 4
   defaultQuantity: 1

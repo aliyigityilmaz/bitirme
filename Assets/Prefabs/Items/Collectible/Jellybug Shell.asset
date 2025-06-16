@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 20
   itemName: Jellybug Shell
   description: A colorful shell shed by bioluminescent jellybugs.
-  icon: {fileID: 21300000, guid: 3bc54793f1e9fb947b74444ef0da949f, type: 3}
+  icon: {fileID: 21300000, guid: cba52a5c7dfa68b4c969f24957885fc3, type: 3}
   type: 4
   defaultQuantity: 1

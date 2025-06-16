@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 21
   itemName: Neon Husk
   description: The glowing exoskeleton left behind by synthetic insects.
-  icon: {fileID: 21300000, guid: 3bc54793f1e9fb947b74444ef0da949f, type: 3}
+  icon: {fileID: 21300000, guid: 7aa0a0c66382a924fae0af0446a319fb, type: 3}
   type: 4
   defaultQuantity: 1
