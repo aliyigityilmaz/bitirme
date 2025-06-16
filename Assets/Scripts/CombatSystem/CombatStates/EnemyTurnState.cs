@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,8 +59,14 @@ public class EnemyTurnState : ICombatState
 
         int randomTargetIndex = Random.Range(0, potentialTargets.Count);
         Hero targetHero = potentialTargets[randomTargetIndex];
+        EnemyTargetable enemyTargetable = Object.FindObjectsOfType<EnemyTargetable>()
+            .FirstOrDefault(ht => ht.enemyData == enemyHero);
 
-        enemyHero.charAnimator.SetTrigger("BasicAttack");
+        bool isBoss = enemyTargetable != null && enemyTargetable.CompareTag("Boss");
+
+        string triggerName = isBoss ? randomSkill.skillName : "BasicAttack";
+
+        enemyHero.charAnimator.SetTrigger(triggerName);
 
 
         Debug.Log($"{enemyHero.name} uses {randomSkill.skillName} on {targetHero.name}");
