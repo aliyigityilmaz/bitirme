@@ -2,7 +2,7 @@ using UnityEngine;
 
 public enum ChestUnlockType
 {
-    Free,       // Direkt açýlýr
+    Free,
     RequiresItem,
     RequiresEnemyKill
 }
@@ -19,7 +19,6 @@ public class Chest : Interactable
     [Header("Items to Give")]
     public ChestReward[] itemRewards;
 
-
     [Header("Chest Settings")]
     public ChestUnlockType unlockType = ChestUnlockType.Free;
 
@@ -31,6 +30,12 @@ public class Chest : Interactable
     public GameObject[] enemiesToKill;
 
     private bool hasCollected = false;
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Reset()
     {
@@ -42,20 +47,29 @@ public class Chest : Interactable
         if (hasCollected || itemRewards == null) return;
 
         if (!CanBeOpened())
-            return; // CanBeOpened içinde mesaj gösterilecek
+            return;
 
         hasCollected = true;
+
+        if (animator != null)
+        {
+            animator.SetTrigger("OpenChest");
+        }
+
+        StartCoroutine(OpenAndCollect());
+    }
+
+    private System.Collections.IEnumerator OpenAndCollect()
+    {
+        yield return new WaitForSeconds(2.5f); // animasyon süresi
 
         foreach (var reward in itemRewards)
         {
             BackpackManager.Instance.AddItem(reward.itemData, reward.quantity);
         }
 
-        // Ses, VFX, animasyon vb.
-        Destroy(gameObject);
+        Destroy(gameObject); // sandýðý yok et
     }
-
-
 
     private bool CanBeOpened()
     {
@@ -106,6 +120,4 @@ public class Chest : Interactable
             InteractableUIManager.Instance.HideInteractable(this);
         }
     }
-
-
 }
