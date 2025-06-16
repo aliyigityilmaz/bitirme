@@ -55,6 +55,7 @@ public class EncounterManager : MonoBehaviour
     // Overworld’dan Combat’a geçmeden önce çağıracağın metot
     public void SetupEncounterForLevel(int level)
     {
+        EncounterLevelTracker.currentLevel = level; 
         prefabSpawnPlan.Clear();
 
         // Inspector’daki config listesinden seviye eşleşmesini al

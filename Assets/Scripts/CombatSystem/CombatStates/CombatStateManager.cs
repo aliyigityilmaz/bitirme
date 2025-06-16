@@ -112,6 +112,7 @@ public class CombatStateManager : MonoBehaviour
     }
     public void EndBattle(bool isWin)
     {
+        EncounterResultData.SetResult(EncounterLevelTracker.currentLevel, isWin);
 
         foreach (var hero in HeroManager.instance.heroList)
         {
