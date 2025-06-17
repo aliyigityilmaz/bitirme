@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,10 @@ public class Enemy : Interactable
     public bool useTimeRestrictions = false;
     [Range(0f, 24f)] public float spawnStartTime = 0f;
     [Range(0f, 24f)] public float spawnEndTime = 24f;
+
+    [Header("Drop Settings")]
+    public List<EnemyDrop> dropTable = new List<EnemyDrop>();
+
 
     private float deathTime;
 
@@ -43,6 +48,8 @@ public class Enemy : Interactable
     {
         if (playerWon)
         {
+            DropItems(); // 📦 ITEM DROPLARI
+
             gameObject.SetActive(false);
 
             if (canRespawn)
@@ -52,6 +59,20 @@ public class Enemy : Interactable
             }
         }
     }
+
+    private void DropItems()
+    {
+        foreach (var drop in dropTable)
+        {
+            float roll = Random.value;
+            if (roll <= drop.dropChance)
+            {
+                int quantity = Random.Range(drop.minQuantity, drop.maxQuantity + 1);
+                BackpackManager.Instance.AddItem(drop.itemData, quantity);
+            }
+        }
+    }
+
 
     public void Respawn()
     {
@@ -69,3 +90,13 @@ public class Enemy : Interactable
             return currentTime >= spawnStartTime || currentTime < spawnEndTime;
     }
 }
+
+[System.Serializable]
+public class EnemyDrop
+{
+    public InventoryItemData itemData;
+    public int minQuantity = 1;
+    public int maxQuantity = 1;
+    [Range(0f, 1f)] public float dropChance = 1f; // 1 = %100
+}
+
