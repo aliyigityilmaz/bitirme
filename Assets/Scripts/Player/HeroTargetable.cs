@@ -19,6 +19,8 @@ public class HeroTargetable : MonoBehaviour
 
         if (heroData.health <= 0)
             myCollider.enabled = false;
+
+        heroData.UpdateHealthBar();
     }
 
     public void SaveState()

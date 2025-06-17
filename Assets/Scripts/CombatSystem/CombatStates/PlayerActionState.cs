@@ -183,12 +183,16 @@ public class PlayerActionState : ICombatState
         selectedSkill.Activate();
         manager.selectedSkill = selectedSkill;
         float finalValue = selectedSkill.baseDamage * finalMultiplier;
+        float finalHealthValue = selectedSkill.baseHeal * finalMultiplier;
 
         if (selectedSkill.skillType == SkillType.Damage)
         {
             if (manager.selectedEnemy != null)
             {
                 manager.selectedEnemy.health -= (int)finalValue;
+                int roundedValue = Mathf.RoundToInt(finalValue);
+                manager.selectedEnemy.ShowHealthChangeText(roundedValue, false);
+                manager.selectedEnemy.UpdateHealthBar();
                 manager.selectedEnemy.charAnimator.SetTrigger("TakeDamage");
 
                 if (manager.selectedEnemy.health <= 0)
@@ -214,7 +218,12 @@ public class PlayerActionState : ICombatState
         {
             if (manager.selectedEnemy != null)
             {   
-                manager.selectedEnemy.health += (int)finalValue;
+                manager.selectedEnemy.health += (int)finalHealthValue;
+                if (manager.selectedEnemy.health > manager.selectedEnemy.baseHealth)
+                    manager.selectedEnemy.health = manager.selectedEnemy.baseHealth;
+                int roundedValue = Mathf.RoundToInt(finalHealthValue);
+                manager.selectedEnemy.ShowHealthChangeText(roundedValue, true);
+                manager.selectedEnemy.UpdateHealthBar();
                 Debug.Log($"{activeHero.name} {manager.selectedEnemy.name} üzerinde {(int)finalValue} iyileştirme yaptı.");
                 manager.NextTurn();
                 manager.SetState(new IdleState(manager));

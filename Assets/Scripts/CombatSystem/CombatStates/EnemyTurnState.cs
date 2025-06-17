@@ -29,7 +29,7 @@ public class EnemyTurnState : ICombatState
     }
     private IEnumerator DelayedEnemyActionStart()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         yield return manager.StartCoroutine(PerformEnemyAction());
     }
     private IEnumerator PerformEnemyAction()
@@ -75,6 +75,8 @@ public class EnemyTurnState : ICombatState
 
         int damage = randomSkill.baseDamage;
         targetHero.health -= damage;
+        targetHero.ShowHealthChangeText(damage, false);
+        targetHero.UpdateHealthBar();
         targetHero.heroHitVFX.Play();
         targetHero.charAnimator.SetTrigger("TakeDamage");
         if (targetHero.health <= 0)
