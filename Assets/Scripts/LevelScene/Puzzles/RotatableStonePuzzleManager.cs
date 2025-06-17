@@ -26,10 +26,10 @@ public class RotatableStonePuzzleManager : MonoBehaviour
                 return;
         }
 
-        Vector3 firstDirection = stones[0].GetFacingDirection();
+        int firstIndex = stones[0].GetRotationIndex();
         foreach (var stone in stones)
         {
-            if (stone.GetFacingDirection() != firstDirection)
+            if (stone.GetRotationIndex() != firstIndex)
                 return;
         }
 
@@ -37,4 +37,5 @@ public class RotatableStonePuzzleManager : MonoBehaviour
         chest.SetActive(true);
         FloatingTextSpawner.Instance.ShowMessage("Rotation Puzzle Completed!", Color.cyan);
     }
+
 }

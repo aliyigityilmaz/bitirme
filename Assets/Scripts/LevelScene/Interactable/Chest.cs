@@ -66,10 +66,16 @@ public class Chest : Interactable
         foreach (var reward in itemRewards)
         {
             BackpackManager.Instance.AddItem(reward.itemData, reward.quantity);
+
+            // Ödül mesajý
+            FloatingTextSpawner.Instance.ShowMessage($"+{reward.quantity} {reward.itemData.itemName}", Color.yellow);
+
+            yield return new WaitForSeconds(0.5f); // Her item arasýnda bekleme süresi
         }
 
-        Destroy(gameObject); // sandýðý yok et
+        Destroy(gameObject); // Sandýðý yok et
     }
+
 
     private bool CanBeOpened()
     {

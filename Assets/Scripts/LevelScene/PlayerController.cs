@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject); // Singleton deseni için, baþka bir örnek varsa yok et
         }
-        DontDestroyOnLoad(gameObject);
     }
     void Start()
     {

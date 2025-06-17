@@ -49,7 +49,7 @@ public class RotatableStone : Interactable
         StartCoroutine(RotateSmooth(true));
     }
 
-    private IEnumerator RotateSmooth(bool triggeredByInteraction = true)
+    private IEnumerator RotateSmooth(bool triggeredByInteraction = true, bool allowChain = true)
     {
         isRotating = true;
 
@@ -67,11 +67,14 @@ public class RotatableStone : Interactable
         currentRotationIndex = (currentRotationIndex + 1) % directions.Length;
         transform.forward = directions[currentRotationIndex]; // Snap yön
 
-        // Baðlý taþlarý da döndür (ama zincirleme olduðunu belirterek)
-        foreach (var linked in linkedStones)
+        // Sadece zincire izin veriliyorsa baðlý taþlarý döndür
+        if (allowChain)
         {
-            if (!linked.isRotating)
-                linked.StartCoroutine(linked.RotateSmooth(false));
+            foreach (var linked in linkedStones)
+            {
+                if (!linked.isRotating)
+                    linked.StartCoroutine(linked.RotateSmooth(false, false)); // Zinciri burada kesiyoruz
+            }
         }
 
         isRotating = false;
@@ -79,6 +82,7 @@ public class RotatableStone : Interactable
         if (triggeredByInteraction)
             manager.CheckPuzzle();
     }
+
 
     private void ApplyRotationImmediate()
     {
@@ -89,4 +93,10 @@ public class RotatableStone : Interactable
     {
         return directions[currentRotationIndex];
     }
+
+    public int GetRotationIndex()
+    {
+        return currentRotationIndex;
+    }
+
 }
