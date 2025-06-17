@@ -12,6 +12,7 @@ public class BackpackManager : MonoBehaviour
     public GameObject panel;
     public Transform contentGrid;
     public GameObject itemSlotPrefab;
+    public Button useButton;
 
     [Header("Frame Styles")]
     public Sprite redFrameNormal;
@@ -24,6 +25,9 @@ public class BackpackManager : MonoBehaviour
     public Image selectedItemTypeIcon;
     public Image selectedItemIcon;
     public TextMeshProUGUI selectedItemDescription;
+
+    [Header("Selected Item UI")]
+    public GameObject selectedItemPanel; // Tüm seçili item alanlarının parent'ı
 
     public Sprite selectedItemQuestIcon;
     public Sprite selectedItemCharacterIcon;
@@ -42,14 +46,24 @@ public class BackpackManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        LoadBackpack(); // sahneye girerken veri yükle
+        LoadBackpack();
+
+        selectedItemPanel.SetActive(false); // UI başlangıçta gizli
     }
+
     public void ToggleBackpack()
     {
         panel.SetActive(!panel.activeSelf);
         if (panel.activeSelf)
+        {
             RefreshUI();
+        }
+        else
+        {
+            selectedItemPanel.SetActive(false); // Çanta kapanınca sıfırla
+        }
     }
+
 
     public void AddItem(InventoryItemData newItemData, int quantity = 1)
     {
@@ -143,6 +157,7 @@ public class BackpackManager : MonoBehaviour
 
     public void ShowSelectedItem(InventoryItem item)
     {
+        selectedItemPanel.SetActive(true);
         // Temel bilgileri güncelle
         selectedItemName.text = item.ItemName;
         selectedItemDescription.text = item.Description;
@@ -152,6 +167,8 @@ public class BackpackManager : MonoBehaviour
         switch (item.Type)
         {
             case ItemType.CharacterItem:
+                useButton.interactable = false;
+                useButton.onClick.RemoveAllListeners();
                 selectedItemType.text = "Character Item";
                 if (selectedItemCharacterIcon != null)
                 {
@@ -160,6 +177,8 @@ public class BackpackManager : MonoBehaviour
                 break;
 
             case ItemType.QuestItem:
+                useButton.interactable = false;
+                useButton.onClick.RemoveAllListeners();
                 selectedItemType.text = "Quest Item";
                 if (selectedItemQuestIcon != null)
                 {
@@ -168,6 +187,8 @@ public class BackpackManager : MonoBehaviour
                 break;
 
             case ItemType.Collectible:
+                useButton.interactable = false;
+                useButton.onClick.RemoveAllListeners();
                 selectedItemType.text = "Collectible";
                 if (selectedItemCollectibleIcon != null)
                 {
@@ -175,6 +196,8 @@ public class BackpackManager : MonoBehaviour
                 }
                 break;
             case ItemType.Consumable:
+                useButton.onClick.RemoveAllListeners();
+                useButton.onClick.AddListener(() => UseSelectedItem(item));
                 selectedItemType.text = "Consumable";
                 if (selectedItemConsumableIcon != null)
                 {
@@ -182,6 +205,8 @@ public class BackpackManager : MonoBehaviour
                 }
                 break;
             case ItemType.MobDrop:
+                useButton.interactable = false;
+                useButton.onClick.RemoveAllListeners();
                 selectedItemType.text = "Mob Drops";
                 if (selectedItemMobDropIcon != null)
                 {
@@ -190,7 +215,11 @@ public class BackpackManager : MonoBehaviour
                 break;
         }
     }
-
+    private void UseSelectedItem(InventoryItem item)
+    {
+        RemoveItem(item.data, 1);
+        selectedItemPanel.SetActive(false); // UI'yi kapat
+    }
     public bool HasItem(InventoryItemData itemData)
     {
         return items.Any(item => item.data == itemData);

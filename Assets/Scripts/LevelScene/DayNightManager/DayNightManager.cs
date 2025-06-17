@@ -31,6 +31,23 @@ public class DayNightManager : MonoBehaviour
     public Transform minuteHand;
 
 
+    private void OnEnable()
+    {
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
+    {
+        directionalLight = FindObjectOfType<Light>();
+        UpdateLighting(); // yeni ýþýða güncel ayarlarý uygula
+    }
+
+
     private void Awake()
     {
         if (Instance != null)

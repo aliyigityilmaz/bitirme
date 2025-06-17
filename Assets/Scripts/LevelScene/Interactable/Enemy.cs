@@ -36,6 +36,7 @@ public class Enemy : Interactable
             return;
 
         hasInteracted = true;
+        DayNightManager.Instance.timeSpeed = 0f;
 
         EncounterManager.Instance.SetupEncounterForLevel(level);
         //HeroSaveManager.SaveHeroes(HeroManager.instance.heroList);
@@ -46,6 +47,8 @@ public class Enemy : Interactable
 
     public void OnCombatEnded(bool playerWon)
     {
+        DayNightManager.Instance.timeSpeed = 1f;
+
         if (playerWon)
         {
             DropItems(); // ITEM DROPLARI
