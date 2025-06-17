@@ -28,6 +28,6 @@ public class Torch : Interactable
     public void SetLit(bool lit)
     {
         isLit = lit;
-        rend.material.color = lit ? Color.cyan : Color.blue;
+        rend.material.color = lit ? Color.cyan : Color.white;
     }
 }
