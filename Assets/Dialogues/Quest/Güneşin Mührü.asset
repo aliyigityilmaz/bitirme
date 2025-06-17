@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac2ae3794731b44d9b6e41184ded3e2, type: 3}
+  m_Name: "G\xFCne\u015Fin M\xFChr\xFC"
+  m_EditorClassIdentifier: 
+  questID: 34
+  questName: "G\xFCne\u015Fin M\xFChr\xFC"
+  description: "Elian, eski bir m\xFCh\xFCr par\xE7as\u0131n\u0131 ara\u015Ft\u0131r\u0131yor.
+    Bir par\xE7as\u0131 kay\u0131p."
+  requiredItem: {fileID: 11400000, guid: 6ba91409aa48dbc4f955de804a04cda0, type: 2}
+  requiredItemCount: 1
