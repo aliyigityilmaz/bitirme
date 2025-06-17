@@ -46,10 +46,16 @@ public class Chest : Interactable
 
     public override void Interact()
     {
-        if (hasCollected || itemRewards == null) return;
+        if (hasCollected) return;
 
         if (!CanBeOpened())
             return;
+
+        if (itemRewards == null || itemRewards.Length == 0)
+        {
+            Debug.LogWarning("Ödül listesi boþ!");
+            return;
+        }
 
         hasCollected = true;
 
@@ -62,6 +68,7 @@ public class Chest : Interactable
 
         StartCoroutine(OpenAndCollect());
     }
+
 
     private System.Collections.IEnumerator OpenAndCollect()
     {
@@ -108,15 +115,24 @@ public class Chest : Interactable
                 }
 
             case ChestUnlockType.RequiresEnemyKill:
+                if (enemiesToKill == null || enemiesToKill.Length == 0)
+                {
+                    Debug.LogWarning("Enemy listesi boþ, ama sandýk düþman gerektiriyor!");
+                    return false;
+                }
+
                 foreach (GameObject enemy in enemiesToKill)
                 {
-                    if (enemy != null && enemy.activeSelf)
+                    if (enemy != null && enemy.activeInHierarchy)
                     {
+                        Debug.Log($"Düþman aktif: {enemy.name}");
                         FloatingTextSpawner.Instance.ShowMessage("Tüm düþmanlar ölmeden bu sandýðý açamazsýn!", Color.red);
                         return false;
                     }
                 }
+
                 return true;
+
 
             default:
                 return false;
