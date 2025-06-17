@@ -32,6 +32,8 @@ public class Chest : Interactable
     private bool hasCollected = false;
     private Animator animator;
 
+    public GameObject openVFX;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -54,6 +56,8 @@ public class Chest : Interactable
         if (animator != null)
         {
             animator.SetTrigger("OpenChest");
+            GameObject vfx = Instantiate(openVFX, transform.position, Quaternion.identity);
+            Destroy(vfx, 2.5f); // VFX'i 2 saniye sonra yok et
         }
 
         StartCoroutine(OpenAndCollect());

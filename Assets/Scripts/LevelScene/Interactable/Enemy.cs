@@ -48,7 +48,7 @@ public class Enemy : Interactable
     {
         if (playerWon)
         {
-            DropItems(); // 📦 ITEM DROPLARI
+            DropItems(); // ITEM DROPLARI
 
             gameObject.SetActive(false);
 

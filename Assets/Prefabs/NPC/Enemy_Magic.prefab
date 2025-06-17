@@ -1600,7 +1600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395318760b7344f45abf161e3bb9a98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableType: 0
+  interactableType: 8
   isOneTimeInteraction: 1
   level: 1
   canRespawn: 1
