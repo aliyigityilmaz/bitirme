@@ -461,7 +461,7 @@ MonoBehaviour:
   isOneTimeInteraction: 1
   level: 1
   canRespawn: 1
-  respawnTime: 10
+  respawnTime: 600
   useTimeRestrictions: 0
   spawnStartTime: 0
   spawnEndTime: 24

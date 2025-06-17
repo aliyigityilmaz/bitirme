@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   torchesInOrder:
   - {fileID: 6385434226130431428}
-  chest: {fileID: 0}
+  chest: {fileID: 2183044180674659009}
 --- !u!1001 &989423739426844168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -179,6 +179,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1bfb0787cbc5534dae2bb7974592995, type: 3}
+--- !u!1 &2183044180674659009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3606737174254910732, guid: d1bfb0787cbc5534dae2bb7974592995, type: 3}
+  m_PrefabInstance: {fileID: 3190254172711698381}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6334689243560740334 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8912440085452765731, guid: d1bfb0787cbc5534dae2bb7974592995, type: 3}
