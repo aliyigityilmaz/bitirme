@@ -10,18 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 15003, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SYLVARA
+  m_Name: SYLVARA 0.1
   m_EditorClassIdentifier: 
   m_AssetVersion: 1
   m_BuildTarget: 19
   m_Subtarget: 2
   m_PlatformId: 4e3c793746204150860bf175a9a41a05
   m_PlatformBuildProfile:
-    rid: 3441167028152696895
+    rid: 3441167229432627470
   m_OverrideGlobalSceneList: 1
   m_Scenes:
   - m_enabled: 1
-    m_path: Assets/Scenes/COpenWorld.unity
+    m_path: Assets/Scenes/Levels/Open World Level.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/BCombatScene.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings:
@@ -317,7 +319,7 @@ MonoBehaviour:
     - line: '|   - m_BuildTarget: '
     - line: '|     m_Icons:'
     - line: '|     - serializedVersion: 2'
-    - line: '|       m_Icon: {fileID: 2800000, guid: 3c301e793b70ff849a1d3d4b4168718f,
+    - line: '|       m_Icon: {fileID: 2800000, guid: 63eaea44d6bb4864aad4dbe459ce94cb,
         type: 3}'
     - line: '|       m_Width: 128'
     - line: '|       m_Height: 128'
@@ -849,7 +851,24 @@ MonoBehaviour:
     - line: '|   webGLWebAssemblyBigInt: 0'
     - line: '|   webGLCloseOnQuit: 0'
     - line: '|   webWasm2023: 0'
-    - line: '|   scriptingDefineSymbols: {}'
+    - line: '|   scriptingDefineSymbols:'
+    - line: '|     Android: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN'
+    - line: '|     EmbeddedLinux: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN'
+    - line: '|     GameCoreScarlett: DOTWEEN'
+    - line: '|     GameCoreXboxOne: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN'
+    - line: '|     LinuxHeadlessSimulation: DOTWEEN'
+    - line: '|     Nintendo Switch: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN'
+    - line: '|     PS4: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN'
+    - line: '|     PS5: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN'
+    - line: '|     QNX: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN'
+    - line: '|     ReservedCFE: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN'
+    - line: '|     Standalone: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN'
+    - line: '|     VisionOS: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN'
+    - line: '|     WebGL: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN'
+    - line: '|     Windows Store Apps: DOTWEEN'
+    - line: '|     XboxOne: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN'
+    - line: '|     iPhone: DOTWEEN'
+    - line: '|     tvOS: UNITY_POST_PROCESSING_STACK_V2;DOTWEEN'
     - line: '|   additionalCompilerArguments: {}'
     - line: '|   platformArchitecture: {}'
     - line: '|   scriptingBackend:'
@@ -967,7 +986,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 3441167028152696895
+    - rid: 3441167229432627470
       type: {class: WindowsPlatformSettings, ns: UnityEditor.WindowsStandalone, asm: UnityEditor.WindowsStandalone.Extensions}
       data:
         m_Development: 0

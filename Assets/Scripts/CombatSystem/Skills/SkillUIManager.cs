@@ -1,3 +1,4 @@
+using CombatSystem.CombatStates;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,9 +8,10 @@ public class SkillUIManager : MonoBehaviour
     public GameObject skillPanel;
     public Button[] skillButtons;
 
-    // PlayerInputState için eklenen UI elemanlarý
-    public Text keyText;           // Hangi tuþa basýlacaðýný gösteren metin
-    public Slider timingSlider;    // Zamanlamayý gösteren slider
+    // PlayerInputState iï¿½in eklenen UI elemanlarï¿½
+
+    // public Slider timingSlider;    // Zamanlamayï¿½ gï¿½steren slider
+    public TimingCircle timingCircle;
 
     private void Awake()
     {
@@ -18,6 +20,7 @@ public class SkillUIManager : MonoBehaviour
         else
             Destroy(gameObject);
     }
+
     public void InitializeSkills(Hero activeHero)
     {
         bool isBossPresent = GameObject.FindGameObjectsWithTag("Boss").Length > 0;
@@ -64,7 +67,6 @@ public class SkillUIManager : MonoBehaviour
     }
 
 
-
     public void OnSkillButtonClicked(int index)
     {
         CombatStateManager.Instance.selectedSkillIndex = index;
@@ -74,7 +76,32 @@ public class SkillUIManager : MonoBehaviour
         Debug.Log($"Skill Selected: {CombatStateManager.Instance.selectedSkill.skillName}");
     }
 
-    // PlayerInputState'ten çaðrýlarak slider ve text'i ayarlar
+    public void TimingCircleConnect(char targetKey, float maxTime)
+    {
+        if (timingCircle != null)
+        {
+            timingCircle.ResetCircle();
+            timingCircle.StartTiming(targetKey, maxTime);
+        }
+        else
+        {
+            Debug.LogWarning("Timing Slider is not assigned in SkillUIManager!");
+        }
+    }
+
+    public void SetCircleColor(Color color)
+    {
+        if (timingCircle != null)
+        {
+            timingCircle.SetCircleColor(color);
+        }
+        else
+        {
+            Debug.LogWarning("Timing Circle is not assigned in SkillUIManager!");
+        }
+    }
+
+    /* PlayerInputState'ten ï¿½aï¿½rï¿½larak slider ve text'i ayarlar
     public void SliderConnect(char targetKey, float maxTime)
     {
         if (keyText != null)
@@ -91,33 +118,31 @@ public class SkillUIManager : MonoBehaviour
             timingSlider.gameObject.SetActive(true);
             timingSlider.minValue = 0;
             timingSlider.maxValue = maxTime;
-            timingSlider.value = 0; // Baþlangýçta slider deðeri 0 olsun.
+            timingSlider.value = 0; // Baï¿½langï¿½ï¿½ta slider deï¿½eri 0 olsun.
         }
         else
         {
             Debug.LogWarning("Timing Slider is not assigned in SkillUIManager!");
         }
-    }
+    }*/
 
-    // Slider'ý güncellemek için metod (PlayerInputState Execute'inde çaðrýlýr)
+    /*// Slider'ï¿½ gï¿½ncellemek iï¿½in metod (PlayerInputState Execute'inde ï¿½aï¿½rï¿½lï¿½r)
     public void UpdateSlider(float value)
     {
         if (timingSlider != null)
         {
             timingSlider.value = value;
         }
-    }
+    }*/
 
-    // Ýþlem bittiðinde UI elemanlarýný kapatýr
+    // ï¿½ï¿½lem bittiï¿½inde UI elemanlarï¿½nï¿½ kapatï¿½r
     public void HideSlider()
     {
-        if (timingSlider != null)
+        /*if (timingSlider != null)
         {
             timingSlider.gameObject.SetActive(false);
-        }
-        if (keyText != null)
-        {
-            keyText.text = "";
-        }
+        }*/
+
+        timingCircle.ResetCircle();
     }
 }

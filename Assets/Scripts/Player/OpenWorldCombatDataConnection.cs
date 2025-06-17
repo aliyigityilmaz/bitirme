@@ -16,7 +16,7 @@ public class OpenWorldCombatDataConnection : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "OpenWorld" || scene.name == "BCombatScene")
+        if (scene.name == "Open World Level" || scene.name == "BCombatScene")
         {
             foreach (var ht in FindObjectsOfType<HeroTargetable>())
             {
@@ -27,18 +27,18 @@ public class OpenWorldCombatDataConnection : MonoBehaviour
                     ht.gameObject.SetActive(false);
             }
             // 👇 SADECE OpenWorld için level sonucu bilgisi
-            if (scene.name == "OpenWorld")
+            if (scene.name == "Open World Level")
             {
                 int level = EncounterLevelTracker.currentLevel;
 
                 if (EncounterResultData.HasResult(level))
                 {
                     bool won = EncounterResultData.GetResult(level);
-                    Debug.Log($"OpenWorld’e dönüldü → Level {level} sonucu: {(won ? "KAZANDI" : "KAYBETTİ")}");
+                    Debug.Log($"Open World Level’e dönüldü → Level {level} sonucu: {(won ? "KAZANDI" : "KAYBETTİ")}");
                 }
                 else
                 {
-                    Debug.Log("OpenWorld’e dönüldü ama level sonucu bulunamadı.");
+                    Debug.Log("Open World Level’e dönüldü ama level sonucu bulunamadı.");
                 }
             }
         }

@@ -1,15 +1,18 @@
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerInputState : ICombatState
 {
     public static PlayerInputState instance;
+
     private CombatStateManager manager;
+
     // Kullanılacak tuşlar: W, A, S, D
     private char[] allowedKeys = new char[] { 'W', 'A', 'S', 'D' };
-    private char targetKey;         // Seçilen tuş
-    private float roundStartTime;   // Round başlangıç zamanı
+    private char targetKey; // Seçilen tuş
+    private float roundStartTime; // Round başlangıç zamanı
     private bool inputProcessed = false;
 
     // Şarkı notaları – her kahramanın kendine ait 6 notası; burada ilk 3 nota kullanılacak.
@@ -26,31 +29,30 @@ public class PlayerInputState : ICombatState
     private AudioForCombat afc;
     private AudioClip currentAudioClip;
     public float finalDamage;
-    
+
 
     public PlayerInputState(CombatStateManager manager)
     {
         this.manager = manager;
     }
-    
+
     public void Enter()
     {
-       
         instance = this;
         afc = AudioForCombat.Instance;
         Debug.Log("Yeni ritim mekaniği ile PlayerInputState'e girildi");
-        afc.PlayMusicWithCrossFade(afc.combatMusicClip2,0f);
+        afc.PlayMusicWithCrossFade(afc.combatMusicClip2, 0f);
         combatCameraManager = CombatCameraManager.instance;
-        
+
         requiredPresses = 6;
 
         // Turn-based sistemde sıradaki aktif kahraman alınır.
         Hero activeHero = manager.turnOrder[manager.currentTurnIndex];
-         float[] easyDurations = new float[] { 0.8f, 0.9f, 1.2f, 1.5f,  };
-         float[] middleDurations = new float[] { 0.7f, 0.8f, 1f, 1.2f };
-         float[] hardDurations = new float[] {  0.6f, 0.9f, 1f };
-         float[] bossDurations = new float[] { 0.5f, 0.6f, 0.7f, };
-         float[] miniBossDurations = new float[] { 0.6f, 0.7f, 0.8f, 0.9f };
+        float[] easyDurations = new float[] { 0.8f, 0.9f, 1.2f, 1.5f, };
+        float[] middleDurations = new float[] { 0.7f, 0.8f, 1f, 1.2f };
+        float[] hardDurations = new float[] { 0.6f, 0.9f, 1f };
+        float[] bossDurations = new float[] { 0.5f, 0.6f, 0.7f, };
+        float[] miniBossDurations = new float[] { 0.6f, 0.7f, 0.8f, 0.9f };
         songNotesTime = new float[requiredPresses];
         for (int i = 0; i < songNotesTime.Length; i++)
         {
@@ -62,7 +64,7 @@ public class PlayerInputState : ICombatState
                 case LevelDifficultyType.Medium:
                     songNotesTime[i] = middleDurations[Random.Range(0, middleDurations.Length)];
                     break;
-                case LevelDifficultyType.Hard: 
+                case LevelDifficultyType.Hard:
                     songNotesTime[i] = hardDurations[Random.Range(0, hardDurations.Length)];
                     break;
                 case LevelDifficultyType.Boss:
@@ -72,9 +74,8 @@ public class PlayerInputState : ICombatState
                     songNotesTime[i] = miniBossDurations[Random.Range(0, miniBossDurations.Length)];
                     break;
             }
-            
-            
         }
+
         if (activeHero.id == 1)
         {
             songNotes = afc.heroMainNotes;
@@ -102,22 +103,22 @@ public class PlayerInputState : ICombatState
             songs = afc.heroHealerSong;
             combatCameraManager.SetCameraPosition(combatCameraManager.cameraTransformHero4);
         }
+
         // Eğer yeterli nota yoksa default bir dizi tanımlanır.
-        if (songNotesTime == null || songNotesTime.Length < 3)       
+        if (songNotesTime == null || songNotesTime.Length < 3)
         {
-            songNotesTime = new float[] { 1.0f, 1.2f, 0.8f, 1.0f, 1.1f, 0.9f }; 
-            
+            songNotesTime = new float[] { 1.0f, 1.2f, 0.8f, 1.0f, 1.1f, 0.9f };
         }
-        
+
 
         // Örnekte, round sayısını 2 ile 6 arasında rastgele belirleyip 3 round ile sınırlandırıyoruz.
-        
-        currentPressCount = 0; 
+
+        currentPressCount = 0;
         totalMultiplier = 0f;
         CombatTutorialManager.Instance.ShowStep2();
         SetupNextRound();
     }
-    
+
     private void SetupNextRound()
     {
         // Round başında, rastgele bir tuş seçilir.
@@ -128,12 +129,12 @@ public class PlayerInputState : ICombatState
 
         // Aktif round için nota süresi, kahramanın şarkı notası dizisindeki ilgili notadan alınır.
         currentNoteDuration = songNotesTime[currentPressCount];
-        currentAudioClip=songNotes[currentPressCount];
+        currentAudioClip = songNotes[currentPressCount];
 
         // SkillUIManager üzerinden UI ayarları yapılır:
         // SliderConnect metodu, tuş metnini (ör. "Press W") günceller ve slider'ın minimum, maksimum değerlerini ayarlar.
-        SkillUIManager.Instance.SliderConnect(targetKey, currentNoteDuration);
-        Debug.Log("Round " + (currentPressCount + 1) + " of " + requiredPresses + 
+        SkillUIManager.Instance.TimingCircleConnect(targetKey, currentNoteDuration);
+        Debug.Log("Round " + (currentPressCount + 1) + " of " + requiredPresses +
                   ": Basılması gereken tuş: " + targetKey + ", Nota süresi: " + currentNoteDuration);
     }
 
@@ -143,7 +144,7 @@ public class PlayerInputState : ICombatState
         {
             float elapsedTime = Time.time - roundStartTime;
             // Round boyunca slider’ın değeri güncellenir.
-            SkillUIManager.Instance.UpdateSlider(elapsedTime);
+            // SkillUIManager.Instance.UpdateSlider(elapsedTime);
 
             // Seçilen tuş kontrol edilir.
             KeyCode keyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), targetKey.ToString());
@@ -164,57 +165,62 @@ public class PlayerInputState : ICombatState
     {
         inputProcessed = true;
         // İdeal vuruş zamanı, nota süresinin tam yarısıdır.
-        float deviation = Mathf.Abs(elapsedTime - (noteDuration / 2f));
+        float deviation = Mathf.Abs(elapsedTime - noteDuration);
         float multiplier;
+        Color timingCircleColor;
 
-        
-        if (deviation <= noteDuration * manager.perfectMultiplier)
+        if (deviation <= noteDuration * CombatStateManager.Instance.perfectMultiplier)
         {
             multiplier = 1.5f;
+            timingCircleColor = Color.green;
             Debug.Log("Perfect timing! (Mükemmel vurma)");
         }
-        else if (deviation <= noteDuration * manager.goodMultiplier)
+        else if (deviation <= noteDuration * CombatStateManager.Instance.goodMultiplier)
         {
             multiplier = 1.0f;
+            timingCircleColor = Color.yellow;
             Debug.Log("Good timing! (İyi vurma)");
-        }
-        else if (deviation <= noteDuration * 1.5f)
-        {
-            multiplier = 1.0f;
-            Debug.Log("Normal timing! (Normal vurma)");
         }
         else
         {
             multiplier = 0.5f;
+            timingCircleColor = Color.red;
             Debug.Log("Poor timing! (Zayıf vurma)");
         }
+
+        Debug.Log($"Deviation: {deviation}, Note Duration: {noteDuration}, Multiplier: {multiplier}");
+
+        SkillUIManager.Instance.SetCircleColor(timingCircleColor);
+
 
         totalMultiplier += multiplier;
         currentPressCount++;
 
         if (currentPressCount < requiredPresses)
         {
-            SetupNextRound();
+            DOVirtual.DelayedCall(.3f, SetupNextRound);
         }
         else
         {
             float finalMultiplier = totalMultiplier / requiredPresses;
             Debug.Log("Tüm roundlar tamamlandı. Final multiplier: " + finalMultiplier);
-            if (1f<finalMultiplier && finalMultiplier<=1.5)
+            if (1f < finalMultiplier && finalMultiplier <= 1.5)
             {
                 afc.PlayMusicWithCrossFade(songs[2]);
             }
-            if (0.5<finalMultiplier && finalMultiplier<=1)
+
+            if (0.5 < finalMultiplier && finalMultiplier <= 1)
             {
                 afc.PlayMusicWithCrossFade(songs[1]);
             }
-            if ( finalMultiplier <=0.5)
+
+            if (finalMultiplier <= 0.5)
             {
                 afc.PlayMusicWithCrossFade(songs[0]);
             }
+
             finalDamage = finalMultiplier;
             manager.SetState(new PlayerActionState(manager));
-            
         }
     }
 

@@ -38,10 +38,6 @@ public class PlayerTurnState : ICombatState
         {
             HeroPersistent.instance.UpdateHeroData(hero);
         }
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            SceneManager.LoadScene(0);
-        }
     }
 
     public void Exit()

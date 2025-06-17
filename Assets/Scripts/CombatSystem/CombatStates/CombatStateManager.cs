@@ -10,7 +10,7 @@ public class CombatStateManager : MonoBehaviour
     [SerializeField] private string currentStateName;
 
     private ICombatState currentState;
-    
+
     public List<Hero> turnOrder = new List<Hero>();
     public int currentTurnIndex = 0;
 
@@ -21,14 +21,14 @@ public class CombatStateManager : MonoBehaviour
     public Skill selectedSkill;
     public Hero selectedEnemy;
 
-    [Header("End Screen")]
-    public GameObject winPanel;
+    [Header("End Screen")] public GameObject winPanel;
     public GameObject losePanel;
-    [Header("Multipler Input")]
-    public float perfectMultiplier;
-    public float goodMultiplier;
 
-    
+    [Header("Multipler Input")] [Range(0, 1)]
+    public float perfectMultiplier;
+
+    [Range(0, 1)] public float goodMultiplier;
+
 
     private void Start()
     {
@@ -57,12 +57,14 @@ public class CombatStateManager : MonoBehaviour
         {
             currentState.Exit();
         }
+
         currentState = newState;
         currentState.Enter();
         // Aktif state'in ismini güncelliyoruz
         currentStateName = currentState.GetType().Name;
         Debug.Log("Combat State changed to: " + currentStateName);
     }
+
     public void StartTurn()
     {
         //hero cooldown için
@@ -72,13 +74,14 @@ public class CombatStateManager : MonoBehaviour
         {
             skill.ReduceCooldown();
         }
-
     }
+
     public void NextTurn()
     {
         currentTurnIndex = (currentTurnIndex + 1) % turnOrder.Count;
         StartTurn();
     }
+
     public void OnEnemySelected(Hero enemy)
     {
         if (selectedSkillIndex != -1)
@@ -89,13 +92,14 @@ public class CombatStateManager : MonoBehaviour
             Debug.Log("Selected enemy: " + enemy.name);
             selectedEnemy = enemy;
             activeHero.heroTransform.LookAt(selectedEnemy.heroTransform);
-            VFXActivator.instance.followTarget.transform.position = new Vector3(selectedEnemy.heroTransform.transform.position.x, 2f, selectedEnemy.heroTransform.transform.position.z);
+            VFXActivator.instance.followTarget.transform.position = new Vector3(
+                selectedEnemy.heroTransform.transform.position.x, 2f, selectedEnemy.heroTransform.transform.position.z);
             IsTargetSelectionActive = false;
             SetState(new PlayerInputState(this));
         }
     }
     // Add this method to CombatStateManager
-   
+
     public void OnHeroSelected(Hero hero)
     {
         if (selectedSkillIndex != -1)
@@ -106,10 +110,12 @@ public class CombatStateManager : MonoBehaviour
             IsTargetSelectionActive = false;
 
             Debug.Log($"Target Selected: {selectedEnemy.name}");
-            VFXActivator.instance.followTarget.transform.position = new Vector3(selectedEnemy.heroTransform.transform.position.x, 2f, selectedEnemy.heroTransform.transform.position.z);
+            VFXActivator.instance.followTarget.transform.position = new Vector3(
+                selectedEnemy.heroTransform.transform.position.x, 2f, selectedEnemy.heroTransform.transform.position.z);
             SetState(new PlayerInputState(this));
         }
     }
+
     public void EndBattle(bool isWin)
     {
         EncounterResultData.SetResult(EncounterLevelTracker.currentLevel, isWin);
@@ -118,16 +124,15 @@ public class CombatStateManager : MonoBehaviour
         {
             HeroPersistent.instance.UpdateHeroData(hero);
         }
-    
+
         SetState(new EndBattleState(this));
 
         if (isWin)
             winPanel.SetActive(true);
         else
             losePanel.SetActive(true);
-
-
     }
+
     public void CheckBattleEnd()
     {
         bool heroesAlive = HeroManager.instance.heroList.Any(h => h.team == TeamType.Hero && h.health > 0);
@@ -144,6 +149,7 @@ public class CombatStateManager : MonoBehaviour
             EndBattle(true);
         }
     }
+
     public void RemoveFromTurnOrder(Hero h)
     {
         int removedIndex = turnOrder.IndexOf(h);
@@ -155,6 +161,7 @@ public class CombatStateManager : MonoBehaviour
         {
             currentTurnIndex--;
         }
+
         if (turnOrder.Count == 0)
         {
             currentTurnIndex = 0;

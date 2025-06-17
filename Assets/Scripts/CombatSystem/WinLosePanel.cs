@@ -9,6 +9,6 @@ using UnityEngine.SceneManagement;
         {
             winPanel.SetActive(false);
             losePanel.SetActive(false);
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("Open World Level");
         }
     }
