@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawnManager : MonoBehaviour
 {
@@ -7,11 +8,50 @@ public class EnemySpawnManager : MonoBehaviour
 
     private List<Enemy> allEnemies = new List<Enemy>();
     private List<RespawnData> respawnQueue = new List<RespawnData>();
+    private HashSet<string> deadEnemies = new HashSet<string>();
+
+    public void RegisterDeadEnemy(string enemyID)
+    {
+        if (!deadEnemies.Contains(enemyID))
+        {
+            deadEnemies.Add(enemyID);
+            SaveDeadEnemies();
+        }
+    }
+
+    public bool IsEnemyDead(string enemyID)
+    {
+        return deadEnemies.Contains(enemyID);
+    }
+
+    private void SaveDeadEnemies()
+    {
+        string data = string.Join(",", deadEnemies);
+        PlayerPrefs.SetString("DeadEnemies", data);
+    }
+
+    private void LoadDeadEnemies()
+    {
+        deadEnemies.Clear();
+        if (PlayerPrefs.HasKey("DeadEnemies"))
+        {
+            string data = PlayerPrefs.GetString("DeadEnemies");
+            deadEnemies = new HashSet<string>(data.Split(','));
+        }
+    }
 
     private void Awake()
     {
-        if (Instance != null) Destroy(gameObject);
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
+        DontDestroyOnLoad(gameObject); // sahneler arası kalıcı
+
+        LoadDeadEnemies(); // <- ÖNEMLİ!
     }
 
     public void RegisterEnemy(Enemy enemy)
@@ -27,6 +67,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     private void Update()
     {
+        if (SceneManager.GetActiveScene().name == "BCombatScene") return;
         float currentTime = DayNightManager.Instance.currentTime;
         float realtime = Time.time;
 
@@ -52,6 +93,13 @@ public class EnemySpawnManager : MonoBehaviour
         // 2. Zaman aral��� d���nda olan d��manlar� deaktif et
         foreach (var enemy in allEnemies)
         {
+            // Zaten ölü ve yeniden doğma zamanı bekliyorsa skip
+            if (IsEnemyDead(enemy.enemyID) && !respawnQueue.Exists(e => e.enemy == enemy))
+            {
+                enemy.gameObject.SetActive(false);
+                continue;
+            }
+
             if (enemy.useTimeRestrictions)
             {
                 bool shouldBeActive = enemy.IsWithinSpawnTime(currentTime);
@@ -61,11 +109,12 @@ public class EnemySpawnManager : MonoBehaviour
                     enemy.Respawn();
                 }
                 else if (!shouldBeActive && enemy.gameObject.activeSelf)
-                { 
+                {
                     enemy.gameObject.SetActive(false);
                 }
             }
         }
+
     }
 
     private class RespawnData

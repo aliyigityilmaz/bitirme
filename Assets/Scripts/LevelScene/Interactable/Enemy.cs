@@ -19,9 +19,20 @@ public class Enemy : Interactable
     [Header("Drop Settings")]
     public List<EnemyDrop> dropTable = new List<EnemyDrop>();
 
+    [HideInInspector] public string enemyID;
 
     private float deathTime;
-
+    private void Awake()
+    {
+        if (string.IsNullOrEmpty(enemyID))
+        {
+            enemyID = GenerateUniqueID();
+        }
+    }
+    private string GenerateUniqueID()
+    {
+        return gameObject.scene.name + "_" + transform.position.ToString();
+    }
     private void Start()
     {
         interactableType = InteractableType.Enemy;
@@ -37,6 +48,7 @@ public class Enemy : Interactable
 
         hasInteracted = true;
         DayNightManager.Instance.timeSpeed = 0f;
+        BackpackManager.Instance.SaveBackpack();
 
         EncounterManager.Instance.SetupEncounterForLevel(level);
         //HeroSaveManager.SaveHeroes(HeroManager.instance.heroList);
@@ -51,9 +63,11 @@ public class Enemy : Interactable
 
         if (playerWon)
         {
-            DropItems(); // ITEM DROPLARI
-
+            DropItems();
             gameObject.SetActive(false);
+
+            // KAYIT
+            EnemySpawnManager.Instance.RegisterDeadEnemy(enemyID);
 
             if (canRespawn)
             {

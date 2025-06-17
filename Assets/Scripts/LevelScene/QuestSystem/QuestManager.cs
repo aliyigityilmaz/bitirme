@@ -13,11 +13,15 @@ public class QuestManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject); // Manager sahneler arasýnda kaybolmasýn
+
         }
         else
         {
             Destroy(gameObject);
         }
+        LoadQuests();
+
     }
 
     void Update()
@@ -35,6 +39,8 @@ public class QuestManager : MonoBehaviour
             acquiredQuests.Add(quest.questID);
             Debug.Log($"Görev alýndý: {quest.questName} (ID: {quest.questID})");
             RefreshUI();
+            SaveQuests();
+
         }
         else
         {
@@ -76,6 +82,8 @@ public class QuestManager : MonoBehaviour
 
             Debug.Log($"Görev tamamlandý: {quest.questName} (ID: {quest.questID})");
             RefreshUI();
+            SaveQuests();
+
         }
     }
 
@@ -124,6 +132,40 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    private void SaveQuests()
+    {
+        PlayerPrefs.SetString("AcquiredQuests", string.Join(",", acquiredQuests));
+        PlayerPrefs.SetString("CompletedQuests", string.Join(",", completedQuests));
+    }
+
+    private void LoadQuests()
+    {
+        acquiredQuests.Clear();
+        completedQuests.Clear();
+
+        if (PlayerPrefs.HasKey("AcquiredQuests"))
+        {
+            string[] acquired = PlayerPrefs.GetString("AcquiredQuests").Split(',');
+            foreach (string id in acquired)
+            {
+                if (!string.IsNullOrWhiteSpace(id))
+                    acquiredQuests.Add(id);
+            }
+        }
+
+        if (PlayerPrefs.HasKey("CompletedQuests"))
+        {
+            string[] completed = PlayerPrefs.GetString("CompletedQuests").Split(',');
+            foreach (string id in completed)
+            {
+                if (!string.IsNullOrWhiteSpace(id))
+                    completedQuests.Add(id);
+            }
+        }
+
+        // UI'yi yeniden oluþtur
+        RefreshUI();
+    }
 
     public List<string> GetAllAcquiredQuests() => new List<string>(acquiredQuests);
 }
