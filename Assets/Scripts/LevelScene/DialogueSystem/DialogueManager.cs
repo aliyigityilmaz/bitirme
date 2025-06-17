@@ -204,6 +204,7 @@ public class DialogueManager : MonoBehaviour
             case ChoiceType.CompleteQuest:
                 if (choice.quest != null)
                 {
+                    
                     QuestManager.Instance.CompleteQuest(choice.quest);
                     QuestManager.Instance.PrintActiveQuests(); // Opsiyonel
                 }

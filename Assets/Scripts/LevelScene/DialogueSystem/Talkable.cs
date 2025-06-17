@@ -12,11 +12,21 @@ public class TalkableNPC : Interactable
     [Header("Bu NPC'nin görevinde öldürülmesi gereken düþmanlar")]
     public List<GameObject> requiredEnemies; // Sahnedeki düþmanlar
 
+    public GameObject questIconPrefab;
+    private GameObject questIconInstance;
 
     private void Start()
     {
         interactableType = InteractableType.Talkable;
+
+        if (quest != null && questIconPrefab != null)
+        {
+            // Ýkonu NPC'nin baþýnýn biraz üstüne yerleþtir
+            questIconInstance = Instantiate(questIconPrefab, transform);
+            questIconInstance.transform.localPosition = new Vector3(0, 2.5f, 0); // Yüksekliði ayarlayabilirsin
+        }
     }
+
 
     public override void Interact()
     {

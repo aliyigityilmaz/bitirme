@@ -13,7 +13,6 @@ public class QuestManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Sahne geçiþlerinde korunur
         }
         else
         {
@@ -35,11 +34,30 @@ public class QuestManager : MonoBehaviour
         {
             acquiredQuests.Add(quest.questID);
             Debug.Log($"Görev alýndý: {quest.questName} (ID: {quest.questID})");
+            RefreshUI();
         }
         else
         {
             Debug.Log($"Zaten sahip olunan görev: {quest.questName} (ID: {quest.questID})");
         }
+
+        
+    }
+
+    private void RefreshUI()
+    {
+        List<Quest> questList = new List<Quest>();
+
+        foreach (string id in acquiredQuests)
+        {
+            // Sahnedeki tüm quest'leri bul ve ID eþleþeni al
+            Quest[] allQuests = Resources.FindObjectsOfTypeAll<Quest>();
+            Quest quest = System.Array.Find(allQuests, q => q.questID == id);
+            if (quest != null)
+                questList.Add(quest);
+        }
+
+        QuestUIController.Instance?.RefreshQuestUI(questList);
     }
 
     public void CompleteQuest(Quest quest)
@@ -57,6 +75,7 @@ public class QuestManager : MonoBehaviour
             }
 
             Debug.Log($"Görev tamamlandý: {quest.questName} (ID: {quest.questID})");
+            RefreshUI();
         }
     }
 

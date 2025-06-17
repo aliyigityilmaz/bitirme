@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b034f2ebf8320a49b94fd7e5ad97419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableType: 0
+  interactableType: 7
   isOneTimeInteraction: 1
   linkedStones: []
 --- !u!1 &7446854619329811596

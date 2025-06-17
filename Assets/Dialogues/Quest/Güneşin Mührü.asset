@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questID: 34
   questName: "G\xFCne\u015Fin M\xFChr\xFC"
-  description: "Elian, eski bir m\xFCh\xFCr par\xE7as\u0131n\u0131 ara\u015Ft\u0131r\u0131yor.
-    Bir par\xE7as\u0131 kay\u0131p."
+  description: "Elian, eski bir yadigar\u0131 bulmaya \xE7al\u0131\u015F\u0131yor.
+    Bu \u015Fey \u0130mparatorlu\u011Fun eline ge\xE7memeli."
   requiredItem: {fileID: 11400000, guid: 6ba91409aa48dbc4f955de804a04cda0, type: 2}
   requiredItemCount: 1
