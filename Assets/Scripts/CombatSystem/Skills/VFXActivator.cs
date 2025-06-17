@@ -23,6 +23,56 @@ public class VFXActivator : MonoBehaviour
     {
         instance = this;
     }
+    void Start()
+    {
+        AutoPopulateVFXLists();
+    }
+    void AutoPopulateVFXLists()
+    {
+        vfxList = new List<ParticleSystem>();
+        vfxOnEnemies = new List<ParticleSystem>();
+        projectileForAeliana = new List<ParticleSystem>();
+        projectileForVelora = new List<ParticleSystem>();
+        projectileForKaelion = new List<ParticleSystem>();
+        projectileForEnemy1 = new List<ParticleSystem>();
+        projectileForEnemy2 = new List<ParticleSystem>();
+        lookAt = new List<ParticleSystem>();
+
+        VFXIdentifier[] vfxIdentifiers = FindObjectsOfType<VFXIdentifier>();
+
+        foreach (var identifier in vfxIdentifiers)
+        {
+            var ps = identifier.GetComponent<ParticleSystem>();
+            if (ps == null) continue;
+
+            vfxList.Add(ps);
+
+            switch (identifier.type)
+            {
+                case VFXType.OnEnemy:
+                    vfxOnEnemies.Add(ps);
+                    break;
+                case VFXType.AelianaProjectile:
+                    projectileForAeliana.Add(ps);
+                    break;
+                case VFXType.VeloraProjectile:
+                    projectileForVelora.Add(ps);
+                    break;
+                case VFXType.KaelionProjectile:
+                    projectileForKaelion.Add(ps);
+                    break;
+                case VFXType.Enemy1Projectile:
+                    projectileForEnemy1.Add(ps);
+                    break;
+                case VFXType.Enemy2Projectile:
+                    projectileForEnemy2.Add(ps);
+                    break;
+                case VFXType.LookAt:
+                    lookAt.Add(ps);
+                    break;
+            }
+        }
+    }
     private void Update()
     {
         if (followTarget != null)
