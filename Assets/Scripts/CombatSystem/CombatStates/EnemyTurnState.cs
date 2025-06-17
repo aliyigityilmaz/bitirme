@@ -70,7 +70,14 @@ public class EnemyTurnState : ICombatState
 
 
         Debug.Log($"{enemyHero.name} uses {randomSkill.skillName} on {targetHero.name}");
-
+        if (VFXActivator.instance != null && VFXActivator.instance.followTarget != null)
+        {
+            VFXActivator.instance.followTarget.position = new Vector3(
+                targetHero.heroTransform.position.x,
+                2f,
+                targetHero.heroTransform.position.z
+            );
+        }
         yield return new WaitForSeconds(2f);
 
         int damage = randomSkill.baseDamage;

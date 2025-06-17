@@ -8,10 +8,14 @@ public class VFXActivator : MonoBehaviour
     public List<ParticleSystem> projectileForAeliana;
     public List<ParticleSystem> projectileForVelora;
     public List<ParticleSystem> projectileForKaelion;
+    public List<ParticleSystem> projectileForEnemy1;
+    public List<ParticleSystem> projectileForEnemy2;
     public List<ParticleSystem> lookAt;
     public Transform projectileSpawnPointForAeliana;
     public Transform projectileSpawnPointForVelora;
     public Transform projectileSpawnPointForKaelion;
+    public Transform projectileSpawnPointForEnemy1;
+    public Transform projectileSpawnPointForEnemy2;
     public Transform followTarget;
     public static VFXActivator instance;
 
@@ -39,6 +43,8 @@ public class VFXActivator : MonoBehaviour
         VFXActivator.instance.FireProjectileForAeliana();
         VFXActivator.instance.FireProjectileForVelora();
         VFXActivator.instance.FireProjectileForKaelion();
+        VFXActivator.instance.FireProjectileForEnemy1();
+        VFXActivator.instance.FireProjectileForEnemy2();
     }
 
     public void PlayActiveVFX()
@@ -98,6 +104,44 @@ public class VFXActivator : MonoBehaviour
             proj.Stop();
             proj.transform.position = projectileSpawnPointForKaelion.position;
             proj.transform.rotation = Quaternion.LookRotation(followTarget.position - projectileSpawnPointForKaelion.position);
+
+            ProjectileMover mover = proj.GetComponent<ProjectileMover>();
+            if (mover != null)
+            {
+                mover.Init(followTarget);
+            }
+
+            proj.Play();
+        }
+    }
+    public void FireProjectileForEnemy1()
+    {
+        if (projectileForEnemy1.Count == 0 || followTarget == null || projectileSpawnPointForEnemy1 == null) return;
+
+        foreach (var proj in projectileForEnemy1)
+        {
+            proj.Stop();
+            proj.transform.position = projectileSpawnPointForEnemy1.position;
+            proj.transform.rotation = Quaternion.LookRotation(followTarget.position - projectileSpawnPointForEnemy1.position);
+
+            ProjectileMover mover = proj.GetComponent<ProjectileMover>();
+            if (mover != null)
+            {
+                mover.Init(followTarget);
+            }
+
+            proj.Play();
+        }
+    }
+    public void FireProjectileForEnemy2()
+    {
+        if (projectileForEnemy2.Count == 0 || followTarget == null || projectileSpawnPointForEnemy2 == null) return;
+
+        foreach (var proj in projectileForEnemy2)
+        {
+            proj.Stop();
+            proj.transform.position = projectileSpawnPointForEnemy2.position;
+            proj.transform.rotation = Quaternion.LookRotation(followTarget.position - projectileSpawnPointForEnemy2.position);
 
             ProjectileMover mover = proj.GetComponent<ProjectileMover>();
             if (mover != null)
