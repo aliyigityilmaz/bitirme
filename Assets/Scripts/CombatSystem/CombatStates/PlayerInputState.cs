@@ -41,14 +41,39 @@ public class PlayerInputState : ICombatState
         Debug.Log("Yeni ritim mekaniği ile PlayerInputState'e girildi");
         afc.PlayMusicWithCrossFade(afc.combatMusicClip2,0f);
         combatCameraManager = CombatCameraManager.instance;
+        
+        requiredPresses = 6;
 
         // Turn-based sistemde sıradaki aktif kahraman alınır.
         Hero activeHero = manager.turnOrder[manager.currentTurnIndex];
-         float[] possibleDurations = new float[] { 0.6f, 0.9f, 1.2f, 1.5f, 1.8f };
+         float[] easyDurations = new float[] { 0.8f, 0.9f, 1.2f, 1.5f,  };
+         float[] middleDurations = new float[] { 0.7f, 0.8f, 1f, 1.2f };
+         float[] hardDurations = new float[] {  0.6f, 0.9f, 1f };
+         float[] bossDurations = new float[] { 0.5f, 0.6f, 0.7f, };
+         float[] miniBossDurations = new float[] { 0.6f, 0.7f, 0.8f, 0.9f };
         songNotesTime = new float[requiredPresses];
         for (int i = 0; i < songNotesTime.Length; i++)
         {
-            songNotesTime[i] = possibleDurations[Random.Range(0, possibleDurations.Length)];
+            switch (EncounterManager.Instance.LevelDifficulty)
+            {
+                case LevelDifficultyType.Easy:
+                    songNotesTime[i] = easyDurations[Random.Range(0, easyDurations.Length)];
+                    break;
+                case LevelDifficultyType.Medium:
+                    songNotesTime[i] = middleDurations[Random.Range(0, middleDurations.Length)];
+                    break;
+                case LevelDifficultyType.Hard: 
+                    songNotesTime[i] = hardDurations[Random.Range(0, hardDurations.Length)];
+                    break;
+                case LevelDifficultyType.Boss:
+                    songNotesTime[i] = bossDurations[Random.Range(0, bossDurations.Length)];
+                    break;
+                case LevelDifficultyType.MiniBoss:
+                    songNotesTime[i] = miniBossDurations[Random.Range(0, miniBossDurations.Length)];
+                    break;
+            }
+            
+            
         }
         if (activeHero.id == 1)
         {
@@ -86,7 +111,7 @@ public class PlayerInputState : ICombatState
         
 
         // Örnekte, round sayısını 2 ile 6 arasında rastgele belirleyip 3 round ile sınırlandırıyoruz.
-        requiredPresses = 6;
+        
         currentPressCount = 0; 
         totalMultiplier = 0f;
         CombatTutorialManager.Instance.ShowStep2();

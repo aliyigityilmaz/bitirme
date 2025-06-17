@@ -15,7 +15,17 @@ public class PrefabCount
 public class LevelSpawnConfig
 {
     public int               level;
+    public LevelDifficultyType               levelDifficulty; 
     public List<PrefabCount> spawns = new List<PrefabCount>();
+    
+}
+public enum LevelDifficultyType
+{
+    Easy,
+    Medium,
+    Hard,
+    Boss,
+    MiniBoss
 }
 
 public class EncounterManager : MonoBehaviour
@@ -32,6 +42,8 @@ public class EncounterManager : MonoBehaviour
 
     // Planlanan prefab ve adet bilgisi
     private Dictionary<GameObject,int> prefabSpawnPlan = new Dictionary<GameObject,int>();
+
+    public LevelDifficultyType LevelDifficulty { get; private set; }
 
     private void Awake()
     {
@@ -55,6 +67,7 @@ public class EncounterManager : MonoBehaviour
     // Overworld’dan Combat’a geçmeden önce çağıracağın metot
     public void SetupEncounterForLevel(int level)
     {
+        
         EncounterLevelTracker.currentLevel = level; 
         prefabSpawnPlan.Clear();
 
@@ -72,6 +85,7 @@ public class EncounterManager : MonoBehaviour
             if (pc.prefab != null && pc.count > 0)
                 prefabSpawnPlan[pc.prefab] = pc.count;
         }
+       LevelDifficulty= cfg.levelDifficulty;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
