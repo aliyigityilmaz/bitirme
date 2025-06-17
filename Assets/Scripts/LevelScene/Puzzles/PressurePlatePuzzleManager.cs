@@ -32,7 +32,7 @@ public class PressurePlatePuzzleManager : MonoBehaviour
         {
             puzzleCompleted = true;
             chest.SetActive(true);
-            FloatingTextSpawner.Instance.ShowMessage("Puzzle Completed!", Color.white);
+            FloatingTextSpawner.Instance.ShowMessage("Puzzle Completed!", Color.cyan);
         }
     }
 

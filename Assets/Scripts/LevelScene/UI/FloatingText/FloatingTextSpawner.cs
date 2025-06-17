@@ -25,5 +25,6 @@ public class FloatingTextSpawner : MonoBehaviour
 
         GameObject obj = Instantiate(floatingTextPrefab, playerHead.position + Vector3.up * 1.5f, Quaternion.identity);
         obj.GetComponent<FloatingText>().Setup(message, color);
+        Destroy(obj, 3f); // 2 saniye sonra yok et
     }
 }

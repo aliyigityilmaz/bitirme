@@ -19,7 +19,7 @@ public class PlayerTurnState : ICombatState
 
     private IEnumerator DelayedEnter()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
 
         SkillUIManager.Instance.skillPanel.SetActive(true);
         Debug.Log("Entering Player Turn State");

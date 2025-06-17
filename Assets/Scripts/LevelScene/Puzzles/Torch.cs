@@ -4,11 +4,12 @@ public class Torch : Interactable
 {
     private TorchPuzzleManager puzzleManager;
     private Renderer rend;
+    public GameObject crystal;
     private bool isLit = false;
 
     private void Awake()
     {
-        rend = GetComponent<Renderer>();
+        rend = crystal.GetComponent<Renderer>();
     }
 
     public void AssignManager(TorchPuzzleManager manager)
@@ -27,6 +28,6 @@ public class Torch : Interactable
     public void SetLit(bool lit)
     {
         isLit = lit;
-        rend.material.color = lit ? Color.yellow : Color.white;
+        rend.material.color = lit ? Color.cyan : Color.white;
     }
 }

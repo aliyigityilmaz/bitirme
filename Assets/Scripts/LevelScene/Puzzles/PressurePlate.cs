@@ -3,6 +3,7 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour
 {
     private PressurePlatePuzzleManager puzzleManager;
+    public GameObject plateSymbols;
 
     [SerializeField]    
     private bool playerOnTop = false;
@@ -29,6 +30,6 @@ public class PressurePlate : MonoBehaviour
 
     public void ChangeColor(Color color)
     {
-        GetComponent<Renderer>().material.color = color;
+        plateSymbols.GetComponent<Renderer>().material.color = color;
     }
 }
