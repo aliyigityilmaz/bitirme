@@ -5,8 +5,8 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     [Header("Audio Sources")]
-    private AudioSource musicSource;
-    private AudioSource sfxSource;
+    public AudioSource musicSource;
+    public AudioSource sfxSource;
 
     [Header("Audio Clips")]
     public AudioClip[] musicClips;
@@ -93,6 +93,22 @@ public class AudioManager : MonoBehaviour
         source.Play();
 
         Destroy(tempGO, clip.length);
+    }
+
+    //get playing music clips index
+    public int GetCurrentMusicIndex()
+    {
+        if (musicSource.isPlaying && musicSource.clip != null)
+        {
+            for (int i = 0; i < musicClips.Length; i++)
+            {
+                if (musicClips[i] == musicSource.clip)
+                {
+                    return i;
+                }
+            }
+        }
+        return -1; // Playing no music
     }
 
 }

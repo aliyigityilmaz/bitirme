@@ -38,6 +38,8 @@ public class Chest : Interactable
 
     public GameObject unlockVFXPrefab;
     private GameObject unlockVFXInstance;
+
+    
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -75,7 +77,7 @@ public class Chest : Interactable
         if (unlockVFXInstance != null)
             Destroy(unlockVFXInstance);
 
-        
+        AudioManager.Instance.PlaySFX(2); // Sandýk açma sesi
 
         if (itemRewards == null || itemRewards.Length == 0)
         {
@@ -86,7 +88,6 @@ public class Chest : Interactable
         hasCollected = true;
         PlayerPrefs.SetInt("ChestOpened_" + generatedID, 1);
         PlayerPrefs.Save();
-
         if (animator != null)
         {
             animator.SetTrigger("OpenChest");

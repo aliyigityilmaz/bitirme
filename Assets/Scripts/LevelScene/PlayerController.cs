@@ -17,6 +17,11 @@ public class PlayerController : MonoBehaviour
     public bool isTalking = false;
     private bool isInteracting = false;
 
+    private float stepTimer = 0f;
+    public float stepInterval = 0.4f; // Adým sesleri arasýndaki süre
+    private int stepIndex = 0; // 0: Step1, 1: Step2
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -58,6 +63,45 @@ public class PlayerController : MonoBehaviour
         UpdateInteractableObjects();
 
         UpdateAnimator(moveDirection.magnitude);
+        HandleFootsteps();
+
+    }
+    void HandleFootsteps()
+    {
+        // Hareket ediyorsa ve yürümeye devam ediyorsa
+        if (moveDirection.magnitude > 0.1f && !isTalking && !isInteracting)
+        {
+            stepTimer -= Time.deltaTime;
+
+            if (stepTimer <= 0f)
+            {
+                stepTimer = stepInterval;
+
+                // Sýradaki adým sesini çal
+                if (AudioManager.Instance != null)
+                {
+                    int clipIndex = (stepIndex % 2 == 0) ? GetSFXIndexByName("Step1") : GetSFXIndexByName("Step2");
+                    if (clipIndex != -1)
+                    {
+                        AudioManager.Instance.PlaySFX(clipIndex);
+                    }
+                    stepIndex++;
+                }
+            }
+        }
+        else
+        {
+            stepTimer = 0f; // Yürümüyorsa sýfýrla
+        }
+    }
+    int GetSFXIndexByName(string name)
+    {
+        for (int i = 0; i < AudioManager.Instance.sfxClips.Length; i++)
+        {
+            if (AudioManager.Instance.sfxClips[i] != null && AudioManager.Instance.sfxClips[i].name == name)
+                return i;
+        }
+        return -1;
     }
 
     void HandleMovement()
