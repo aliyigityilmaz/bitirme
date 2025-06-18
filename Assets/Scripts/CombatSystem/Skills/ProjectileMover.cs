@@ -4,7 +4,7 @@ public class ProjectileMover : MonoBehaviour
 {
     public float speed = 10f;
     private Transform target;
-
+    private bool hasStartedMoving = false;
     void Start()
     {
         if (VFXActivator.instance != null)
@@ -19,25 +19,63 @@ public class ProjectileMover : MonoBehaviour
     }
     public void Init()
     {
-       
+
+    }
+    void OnEnable()
+    {
+        hasStartedMoving = false;
+        if (VFXActivator.instance != null)
+        {
+            target = VFXActivator.instance.followTarget;
+
+            Transform spawnPoint = FindSpawnPointForThisProjectile();
+
+            if (spawnPoint != null)
+            {
+                transform.position = spawnPoint.position;
+                transform.rotation = Quaternion.LookRotation(target.position - spawnPoint.position);
+            }
+            hasStartedMoving = true;
+        }
+
     }
 
     void Update()
     {
-        if (target == null)
+        if (!hasStartedMoving || target != null)
         {
-            Debug.LogWarning("ProjectileMover: Target is null.");
-            return;
+            Vector3 direction = (target.position - transform.position).normalized;
+            transform.position += direction * speed * Time.deltaTime;
+
+            float distance = Vector3.Distance(transform.position, target.position);
+            if (distance < 0.1f)
+            {
+                hasStartedMoving = true;
+            }
         }
 
-        Vector3 direction = (target.position - transform.position).normalized;
-        transform.position += direction * speed * Time.deltaTime;
+    }
 
-        float distance = Vector3.Distance(transform.position, target.position);
-        if (distance < 0.1f)
+    Transform FindSpawnPointForThisProjectile()
+    {
+        string name = gameObject.name;
+
+        if (name.Contains("Aeliana"))
+            return VFXActivator.instance.projectileSpawnPointForAeliana;
+        if (name.Contains("Velora"))
+            return VFXActivator.instance.projectileSpawnPointForVelora;
+        if (name.Contains("Kaelion"))
+            return VFXActivator.instance.projectileSpawnPointForKaelion;
+
+        EnemyTargetable[] enemies = GameObject.FindObjectsOfType<EnemyTargetable>();
+        foreach (var enemy in enemies)
         {
-            Debug.Log("Projectile reached target. Disabling.");
-            gameObject.SetActive(false);
+            if (enemy.name.Contains("Rifler") && name.Contains("Enemy1"))
+                return enemy.assignedSpawnPoint;
+            if (enemy.name.Contains("Magic") && name.Contains("Enemy2"))
+                return enemy.assignedSpawnPoint;
         }
+
+        return null;
     }
 }

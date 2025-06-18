@@ -16,6 +16,17 @@ public class VFXIdentifier : MonoBehaviour
     private void OnEnable()
     {
         RegisterToVFXActivator();
+
+        var ps = GetComponent<ParticleSystem>();
+        if (ps != null && type.ToString().Contains("Projectile"))
+        {
+            Transform spawnPoint = GetSpawnPoint();
+            if (spawnPoint != null)
+            {
+                ps.transform.position = spawnPoint.position;
+                ps.transform.rotation = Quaternion.LookRotation(VFXActivator.instance.followTarget.position - spawnPoint.position);
+            }
+        }
     }
 
     private void OnDisable()
@@ -84,5 +95,24 @@ public class VFXIdentifier : MonoBehaviour
         VFXActivator.instance.projectileForEnemy2.Remove(ps);
         VFXActivator.instance.lookAt.Remove(ps);
     }
+    Transform GetSpawnPoint()
+    {
+        if (VFXActivator.instance == null) return null;
 
+        switch (type)
+        {
+            case VFXType.AelianaProjectile:
+                return VFXActivator.instance.projectileSpawnPointForAeliana;
+            case VFXType.VeloraProjectile:
+                return VFXActivator.instance.projectileSpawnPointForVelora;
+            case VFXType.KaelionProjectile:
+                return VFXActivator.instance.projectileSpawnPointForKaelion;
+            case VFXType.Enemy1Projectile:
+            case VFXType.Enemy2Projectile:
+                var enemy = GetComponentInParent<EnemyTargetable>();
+                return enemy != null ? enemy.assignedSpawnPoint : null;
+            default:
+                return null;
+        }
+    }
 }
