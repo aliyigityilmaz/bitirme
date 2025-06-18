@@ -20,6 +20,7 @@ public class Enemy : Interactable
 
     private float deathTime;
 
+
     private void Awake()
     {
         if (string.IsNullOrEmpty(enemyID))
@@ -46,6 +47,7 @@ public class Enemy : Interactable
         if (isOneTimeInteraction && hasInteracted)
             return;
 
+
         SceneTransitionController.Instance.PlayTransition(() =>
         {
             hasInteracted = true;
@@ -63,7 +65,6 @@ public class Enemy : Interactable
     public void OnCombatEnded(bool playerWon)
     {
         DayNightManager.Instance.timeSpeed = 1f;
-
         if (playerWon)
         {
             DropItems();
@@ -119,3 +120,4 @@ public class EnemyDrop
     public int maxQuantity = 1;
     [Range(0f, 1f)] public float dropChance = 1f; // 1 = %100
 }
+
