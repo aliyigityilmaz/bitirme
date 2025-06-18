@@ -73,12 +73,10 @@ public class Enemy : Interactable
     public void OnCombatEnded(bool playerWon)
     {
         DayNightManager.Instance.timeSpeed = 1f;
+
         if (playerWon)
         {
             DropItems();
-            gameObject.SetActive(false);
-
-            // KAYIT
             EnemySpawnManager.Instance.RegisterDeadEnemy(enemyID);
 
             if (canRespawn)
@@ -86,21 +84,25 @@ public class Enemy : Interactable
                 deathTime = Time.time;
                 EnemySpawnManager.Instance.RegisterForRespawn(this, deathTime + respawnTime);
             }
+
+            // DÜŞMANI GÖRÜNMEZ YAP
+            gameObject.SetActive(false);
         }
     }
+
 
     private void DropItems()
     {
         foreach (var drop in dropTable)
         {
-            float roll = Random.value;
-            if (roll <= drop.dropChance)
+            int quantity = Random.Range(drop.minQuantity, drop.maxQuantity + 1);
+            if (quantity > 0)
             {
-                int quantity = Random.Range(drop.minQuantity, drop.maxQuantity + 1);
                 BackpackManager.Instance.AddItem(drop.itemData, quantity);
             }
         }
     }
+
 
 
     public void Respawn()
