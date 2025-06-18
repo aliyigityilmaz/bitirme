@@ -34,6 +34,10 @@ public class Chest : Interactable
 
     public GameObject openVFX;
     private string generatedID;
+
+
+    public GameObject unlockVFXPrefab;
+    private GameObject unlockVFXInstance;
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -45,7 +49,16 @@ public class Chest : Interactable
             Destroy(gameObject);
             return;
         }
+
+        if (unlockType == ChestUnlockType.RequiresItem || unlockType == ChestUnlockType.RequiresEnemyKill)
+        {
+            if (unlockVFXPrefab != null)
+            {
+                unlockVFXInstance = Instantiate(unlockVFXPrefab, transform.position, Quaternion.identity, transform);
+            }
+        }
     }
+
 
     private void Reset()
     {
@@ -58,6 +71,11 @@ public class Chest : Interactable
 
         if (!CanBeOpened())
             return;
+
+        if (unlockVFXInstance != null)
+            Destroy(unlockVFXInstance);
+
+        
 
         if (itemRewards == null || itemRewards.Length == 0)
         {
@@ -117,6 +135,8 @@ public class Chest : Interactable
                 {
                     if (consumeItem)
                         BackpackManager.Instance.RemoveItem(requiredItem);
+                    if (unlockVFXInstance != null)
+                        Destroy(unlockVFXInstance);
                     return true;
                 }
                 else
@@ -141,7 +161,8 @@ public class Chest : Interactable
                         return false;
                     }
                 }
-
+                if (unlockVFXInstance != null)
+                    Destroy(unlockVFXInstance);
                 return true;
 
 
