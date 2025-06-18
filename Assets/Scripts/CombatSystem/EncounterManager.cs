@@ -110,7 +110,7 @@ public class EncounterManager : MonoBehaviour
         if (!tutorialShown)
         {
             tutorialShown = true;
-            CombatTutorialManager.Instance.StartTutorial();
+           CombatTutorialManager.Instance.StartTutorial();
         }
 
         // sonra normal spawn’ına devam et

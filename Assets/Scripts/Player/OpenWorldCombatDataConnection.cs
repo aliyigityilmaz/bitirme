@@ -3,8 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class OpenWorldCombatDataConnection : MonoBehaviour
 {
+    public static OpenWorldCombatDataConnection instance;
     private void Awake()
     {
+        if(instance == null)
+        instance = this;
+        else
+        {
+            Destroy(gameObject);
+        }
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
