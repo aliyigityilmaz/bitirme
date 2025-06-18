@@ -15259,7 +15259,7 @@ ParticleSystem:
     startRotationY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5707963
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -39795,7 +39795,7 @@ ParticleSystem:
     startRotationY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4.712389
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -49143,6 +49143,7 @@ GameObject:
   - component: {fileID: 8416455938165319844}
   - component: {fileID: 1957361888004149516}
   - component: {fileID: 2387788646321973911}
+  - component: {fileID: 7358771623531904907}
   m_Layer: 0
   m_Name: Ps_Ivy
   m_TagString: Untagged
@@ -53969,3 +53970,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &7358771623531904907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8630663859210067248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ac310fa0a53ad468d1af6ac25cfaa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
