@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,18 +15,33 @@ public class VFXActivator : MonoBehaviour
     public Transform projectileSpawnPointForAeliana;
     public Transform projectileSpawnPointForVelora;
     public Transform projectileSpawnPointForKaelion;
-    public Transform projectileSpawnPointForEnemy1;
-    public Transform projectileSpawnPointForEnemy2;
+    public List<Transform> projectileSpawnPointsForEnemies;
     public Transform followTarget;
     public static VFXActivator instance;
 
     void Awake()
     {
         instance = this;
+        if (followTarget == null)
+        {
+            GameObject ft = GameObject.Find("FollowTarget");
+            if (ft != null)
+            {
+                followTarget = ft.transform;
+                Debug.Log($"[VFXActivator] Found and assigned FollowTarget: {followTarget.name}");
+            }
+            else
+            {
+                Debug.LogWarning("VFXActivator: followTarget bulunamadý.");
+            }
+        }
     }
-    void Start()
+    IEnumerator Start()
     {
+        yield return new WaitForEndOfFrame();
         AutoPopulateVFXLists();
+
+
     }
     void AutoPopulateVFXLists()
     {
@@ -37,6 +53,16 @@ public class VFXActivator : MonoBehaviour
         projectileForEnemy1 = new List<ParticleSystem>();
         projectileForEnemy2 = new List<ParticleSystem>();
         lookAt = new List<ParticleSystem>();
+        projectileSpawnPointsForEnemies = new List<Transform>();
+
+        // Enemy spawn pointlerini tag ya da isim bazlý bul
+        foreach (var t in FindObjectsOfType<Transform>())
+        {
+            if (t.CompareTag("EnemyProjectileSpawn"))
+            {
+                projectileSpawnPointsForEnemies.Add(t);
+            }
+        }
 
         VFXIdentifier[] vfxIdentifiers = FindObjectsOfType<VFXIdentifier>();
 
@@ -93,8 +119,7 @@ public class VFXActivator : MonoBehaviour
         VFXActivator.instance.FireProjectileForAeliana();
         VFXActivator.instance.FireProjectileForVelora();
         VFXActivator.instance.FireProjectileForKaelion();
-        VFXActivator.instance.FireProjectileForEnemy1();
-        VFXActivator.instance.FireProjectileForEnemy2();
+        FireProjectilesForEnemies();
     }
 
     public void PlayActiveVFX()
@@ -118,10 +143,7 @@ public class VFXActivator : MonoBehaviour
             proj.transform.rotation = Quaternion.LookRotation(followTarget.position - projectileSpawnPointForAeliana.position);
 
             ProjectileMover mover = proj.GetComponent<ProjectileMover>();
-            if (mover != null)
-            {
-                mover.Init(followTarget);
-            }
+
 
             proj.Play();
         }
@@ -137,10 +159,7 @@ public class VFXActivator : MonoBehaviour
             proj.transform.rotation = Quaternion.LookRotation(followTarget.position - projectileSpawnPointForVelora.position);
 
             ProjectileMover mover = proj.GetComponent<ProjectileMover>();
-            if (mover != null)
-            {
-                mover.Init(followTarget);
-            }
+
 
             proj.Play();
         }
@@ -156,50 +175,60 @@ public class VFXActivator : MonoBehaviour
             proj.transform.rotation = Quaternion.LookRotation(followTarget.position - projectileSpawnPointForKaelion.position);
 
             ProjectileMover mover = proj.GetComponent<ProjectileMover>();
-            if (mover != null)
-            {
-                mover.Init(followTarget);
-            }
+
 
             proj.Play();
         }
     }
-    public void FireProjectileForEnemy1()
+    public void FireProjectilesForEnemies()
     {
-        if (projectileForEnemy1.Count == 0 || followTarget == null || projectileSpawnPointForEnemy1 == null) return;
-
-        foreach (var proj in projectileForEnemy1)
+        Debug.Log("Firing enemy projectiles...");
+        if (followTarget == null)
         {
-            proj.Stop();
-            proj.transform.position = projectileSpawnPointForEnemy1.position;
-            proj.transform.rotation = Quaternion.LookRotation(followTarget.position - projectileSpawnPointForEnemy1.position);
+            Debug.LogWarning("FollowTarget is null in FireProjectilesForEnemies!");
+            return;
+        }
+        var enemies = FindObjectsOfType<EnemyTargetable>();
 
-            ProjectileMover mover = proj.GetComponent<ProjectileMover>();
-            if (mover != null)
+        foreach (var enemy in enemies)
+        {
+            if (enemy.assignedSpawnPoint == null)
             {
-                mover.Init(followTarget);
+                Debug.LogWarning($"{enemy.name} has no spawn point assigned.");
+                continue;
             }
 
-            proj.Play();
-        }
-    }
-    public void FireProjectileForEnemy2()
-    {
-        if (projectileForEnemy2.Count == 0 || followTarget == null || projectileSpawnPointForEnemy2 == null) return;
+            List<ParticleSystem> projectiles = null;
+            if (enemy.name.Contains("Rifler Enemy Combat"))
+                projectiles = projectileForEnemy1;
+            else if (enemy.name.Contains("Magic Enemy Combat"))
+                projectiles = projectileForEnemy2;
 
-        foreach (var proj in projectileForEnemy2)
-        {
-            proj.Stop();
-            proj.transform.position = projectileSpawnPointForEnemy2.position;
-            proj.transform.rotation = Quaternion.LookRotation(followTarget.position - projectileSpawnPointForEnemy2.position);
-
-            ProjectileMover mover = proj.GetComponent<ProjectileMover>();
-            if (mover != null)
+            if (projectiles == null || projectiles.Count == 0)
             {
-                mover.Init(followTarget);
+                Debug.LogWarning($"No projectiles found for enemy: {enemy.name}");
+                continue;
             }
 
-            proj.Play();
+            foreach (var proj in projectiles)
+            {
+                if (proj == null)
+                {
+                    Debug.LogWarning("Projectile is null in list");
+                    continue;
+                }
+
+                proj.Stop();
+                proj.transform.position = enemy.assignedSpawnPoint.position;
+                proj.transform.rotation = Quaternion.LookRotation(followTarget.position - enemy.assignedSpawnPoint.position);
+
+                ProjectileMover mover = proj.GetComponent<ProjectileMover>();
+
+
+                proj.gameObject.SetActive(true);
+                proj.Play();
+            }
         }
     }
+
 }
