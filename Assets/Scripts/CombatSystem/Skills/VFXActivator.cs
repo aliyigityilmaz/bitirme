@@ -105,7 +105,7 @@ public class VFXActivator : MonoBehaviour
         {
             foreach (var vfx in vfxOnEnemies)
             {
-                vfx.transform.position = new Vector3(followTarget.transform.position.x, 2.2f, followTarget.transform.position.z);
+                vfx.transform.position = new Vector3(followTarget.transform.position.x, 3f, followTarget.transform.position.z);
             }
         }
         foreach (var vfx in lookAt)
