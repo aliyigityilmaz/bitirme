@@ -21,6 +21,8 @@ MonoBehaviour:
   m_OverrideGlobalSceneList: 1
   m_Scenes:
   - m_enabled: 1
+    m_path: Assets/Scenes/Cinematic.unity
+  - m_enabled: 1
     m_path: Assets/Scenes/Levels/MainMenu.unity
   - m_enabled: 1
     m_path: Assets/Scenes/Levels/Open World Level.unity

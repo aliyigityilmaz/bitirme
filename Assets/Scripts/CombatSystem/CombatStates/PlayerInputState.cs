@@ -192,6 +192,7 @@ public class PlayerInputState : ICombatState
         Debug.Log($"Deviation: {deviation}, Note Duration: {noteDuration}, Multiplier: {multiplier}");
 
         SkillUIManager.Instance.SetCircleColor(timingCircleColor);
+        SkillUIManager.Instance.DoPunchCircle();
 
 
         totalMultiplier += multiplier;
