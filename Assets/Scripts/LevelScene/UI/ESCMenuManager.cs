@@ -24,7 +24,15 @@ public class ESCMenuManager : MonoBehaviour
 
     void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+
+        }
+        else
+        {
+            Destroy(gameObject); // Ayný objeden birden fazla olmasýn diye
+        }
     }
 
     void Update()
