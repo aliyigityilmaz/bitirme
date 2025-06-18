@@ -29,12 +29,14 @@ public class PlayerTurnState : ICombatState
         Debug.Log("Entering Player Turn State");
         Hero activeHero = manager.turnOrder[manager.currentTurnIndex];
         SkillUIManager.Instance.InitializeSkills(activeHero);
+        
     }
 
     public void Execute()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+           
             manager.SetState(new PlayerInputState(manager));
         }
 

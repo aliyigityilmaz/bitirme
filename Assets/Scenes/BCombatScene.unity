@@ -8376,6 +8376,7 @@ MonoBehaviour:
     charAnimator: {fileID: 0}
     heroHitVFX: {fileID: 0}
     heroTransform: {fileID: 0}
+    outline: {fileID: 0}
   winPanel: {fileID: 1385272608}
   losePanel: {fileID: 961568322}
   perfectMultiplier: 0.4
@@ -8449,6 +8450,7 @@ MonoBehaviour:
     charAnimator: {fileID: 0}
     heroHitVFX: {fileID: 0}
     heroTransform: {fileID: 0}
+    outline: {fileID: 0}
   - name: Hero 2
     team: 0
     id: 1
@@ -8472,6 +8474,7 @@ MonoBehaviour:
     charAnimator: {fileID: 0}
     heroHitVFX: {fileID: 0}
     heroTransform: {fileID: 0}
+    outline: {fileID: 0}
   - name: Hero 3
     team: 0
     id: 2
@@ -8495,6 +8498,7 @@ MonoBehaviour:
     charAnimator: {fileID: 0}
     heroHitVFX: {fileID: 0}
     heroTransform: {fileID: 0}
+    outline: {fileID: 0}
   - name: Hero 4
     team: 0
     id: 3
@@ -8518,6 +8522,7 @@ MonoBehaviour:
     charAnimator: {fileID: 0}
     heroHitVFX: {fileID: 0}
     heroTransform: {fileID: 0}
+    outline: {fileID: 0}
   - name: Enemy 1
     team: 1
     id: 4
@@ -8541,6 +8546,7 @@ MonoBehaviour:
     charAnimator: {fileID: 0}
     heroHitVFX: {fileID: 0}
     heroTransform: {fileID: 0}
+    outline: {fileID: 0}
   - name: Enemy 2
     team: 1
     id: 5
@@ -8564,6 +8570,7 @@ MonoBehaviour:
     charAnimator: {fileID: 0}
     heroHitVFX: {fileID: 0}
     heroTransform: {fileID: 0}
+    outline: {fileID: 0}
   - name: Enemy 3
     team: 1
     id: 6
@@ -8587,6 +8594,7 @@ MonoBehaviour:
     charAnimator: {fileID: 0}
     heroHitVFX: {fileID: 0}
     heroTransform: {fileID: 0}
+    outline: {fileID: 0}
   - name: Enemy 4
     team: 1
     id: 7
@@ -8610,6 +8618,7 @@ MonoBehaviour:
     charAnimator: {fileID: 0}
     heroHitVFX: {fileID: 0}
     heroTransform: {fileID: 0}
+    outline: {fileID: 0}
 --- !u!114 &1110363114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17386,6 +17395,7 @@ MonoBehaviour:
     charAnimator: {fileID: 1698648971}
     heroHitVFX: {fileID: 1254049578}
     heroTransform: {fileID: 543450652035134562}
+    outline: {fileID: 7185259011670743762}
 --- !u!65 &919132147496939226
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17480,6 +17490,7 @@ MonoBehaviour:
     charAnimator: {fileID: 919132148123116052}
     heroHitVFX: {fileID: 1663818310}
     heroTransform: {fileID: 543450652583753896}
+    outline: {fileID: 8516682573190977020}
 --- !u!95 &919132148123116052
 Animator:
   serializedVersion: 7
@@ -17605,6 +17616,7 @@ MonoBehaviour:
     charAnimator: {fileID: 1397328680}
     heroHitVFX: {fileID: 758317614}
     heroTransform: {fileID: 543450652344642765}
+    outline: {fileID: 6514833497711538294}
 --- !u!65 &919132148404106873
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17699,6 +17711,7 @@ MonoBehaviour:
     charAnimator: {fileID: 33541956}
     heroHitVFX: {fileID: 2115842328}
     heroTransform: {fileID: 543450653708691625}
+    outline: {fileID: 2278792929392626704}
 --- !u!65 &919132149187277333
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18534,6 +18547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 156821227335439743}
   - component: {fileID: 6514833497711538293}
+  - component: {fileID: 6514833497711538294}
   m_Layer: 0
   m_Name: Man_01
   m_TagString: Untagged
@@ -18948,6 +18962,7 @@ GameObject:
   m_Component:
   - component: {fileID: 794487595186539946}
   - component: {fileID: 1318680841200658834}
+  - component: {fileID: 2278792929392626704}
   m_Layer: 0
   m_Name: Women01_body
   m_TagString: Untagged
@@ -18955,6 +18970,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2278792929392626704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2278792929392626703}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.8062601, b: 1, a: 1}
+  outlineWidth: 7.5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!198 &2312301273167732837 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1698149895127806145, guid: dfefa60997ff7c842a5b6506ef35e748, type: 3}
@@ -20400,6 +20433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2254253904297465241}
   - component: {fileID: 7185259011670743761}
+  - component: {fileID: 7185259011670743762}
   m_Layer: 0
   m_Name: Man_02
   m_TagString: Untagged
@@ -23112,6 +23146,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.065271854, y: -0.09893936, z: 0.25668317}
     m_Extent: {x: 0.6795819, y: 1.6000128, z: 0.75372094}
   m_DirtyAABB: 0
+--- !u!114 &6514833497711538294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807161567577847609}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.8062601, b: 1, a: 1}
+  outlineWidth: 7.5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &6515712191897243547
 Transform:
   m_ObjectHideFlags: 0
@@ -23648,6 +23700,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.010206044, y: -0.12047112, z: 0.29816768}
     m_Extent: {x: 1.2378452, y: 1.6191417, z: 0.79316294}
   m_DirtyAABB: 0
+--- !u!114 &7185259011670743762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3569377475279388755}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.8062601, b: 1, a: 1}
+  outlineWidth: 7.5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!198 &7283978445879706711 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1905101139895175822, guid: 41f63c09bee1327419799d0bf26ac069, type: 3}
@@ -25060,6 +25130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2501710829477883199}
   - component: {fileID: 7808483966462324119}
+  - component: {fileID: 8516682573190977020}
   m_Layer: 0
   m_Name: Women_02_Hair
   m_TagString: Untagged
@@ -25067,6 +25138,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8516682573190977020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8516682573190977019}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.8062601, b: 1, a: 1}
+  outlineWidth: 7.5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!198 &8636563130364628366 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 3827198342667597761, guid: 41f63c09bee1327419799d0bf26ac069, type: 3}

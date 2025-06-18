@@ -26,6 +26,7 @@ public class Hero
     public Animator charAnimator;
     public ParticleSystem heroHitVFX;
     public Transform heroTransform;
+    public Outline outline;
     public Skill[] GetSkills() { return skills; }
 
     public Hero(string name, int id, int health, int turnSpeed, int armor, int criticalChance, TeamType team, int baseHealth, Image healthBar, TextMeshProUGUI healthChangeText)

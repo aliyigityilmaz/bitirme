@@ -27,6 +27,7 @@ public class IdleState : ICombatState
         // heroEnemy alanına göre hangi state'e geçeceğimize karar veriyoruz
         if (currentHero.team == TeamType.Hero)
         {
+            manager.turnOrder[manager.currentTurnIndex].outline.enabled = true;
             Debug.Log("Karakter Hero. PlayerTurnState'e geçiliyor.");
             manager.SetState(new PlayerTurnState(manager));
         }

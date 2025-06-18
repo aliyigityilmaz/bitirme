@@ -7,7 +7,7 @@ public class HeroTargetable : MonoBehaviour
 {
     public Hero heroData;
     private Collider myCollider;
-
+    
     private void Awake()
     {
         myCollider = GetComponent<Collider>();
@@ -15,6 +15,8 @@ public class HeroTargetable : MonoBehaviour
 
     private void Start()
     {
+        heroData.outline.enabled = false;
+        
         LoadState();
 
         if (heroData.health <= 0)
@@ -63,6 +65,7 @@ public class HeroTargetable : MonoBehaviour
             SkillUIManager.Instance.skillPanel.SetActive(false);
         }
     }
+    
 
 #if UNITY_EDITOR
     private void Update()

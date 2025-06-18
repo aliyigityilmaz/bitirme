@@ -117,6 +117,7 @@ public class PlayerInputState : ICombatState
         totalMultiplier = 0f;
         CombatTutorialManager.Instance.ShowStep2();
         SetupNextRound();
+        manager.turnOrder[manager.currentTurnIndex].outline.enabled = false;
     }
 
     private void SetupNextRound()
