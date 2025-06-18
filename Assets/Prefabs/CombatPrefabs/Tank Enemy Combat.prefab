@@ -10755,7 +10755,7 @@ MonoBehaviour:
   enemyData:
     name: Enemy1
     team: 1
-    id: 1
+    id: 5
     baseHealth: 100
     health: 100
     healthBar: {fileID: 3704870870216701313}
@@ -10785,6 +10785,8 @@ MonoBehaviour:
     charAnimator: {fileID: 4436045477159696048}
     heroHitVFX: {fileID: 1132736631030315679}
     heroTransform: {fileID: 5359871584648496226}
+    outline: {fileID: 0}
+  assignedSpawnPoint: {fileID: 0}
 --- !u!95 &4436045477159696048
 Animator:
   serializedVersion: 7

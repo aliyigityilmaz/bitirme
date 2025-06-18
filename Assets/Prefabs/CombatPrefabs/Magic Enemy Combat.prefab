@@ -76248,7 +76248,6 @@ GameObject:
   - component: {fileID: 7273196905759977168}
   - component: {fileID: 6253257095516796410}
   - component: {fileID: 7151596841587838070}
-  - component: {fileID: 851601038106387104}
   m_Layer: 0
   m_Name: Magic Enemy Combat
   m_TagString: Untagged
@@ -76314,7 +76313,7 @@ MonoBehaviour:
   enemyData:
     name: Enemy4
     team: 1
-    id: 4
+    id: 8
     baseHealth: 100
     health: 100
     healthBar: {fileID: 6883079153212563740}
@@ -76344,6 +76343,7 @@ MonoBehaviour:
     charAnimator: {fileID: 7151596841587838070}
     heroHitVFX: {fileID: 3610318359788576295}
     heroTransform: {fileID: 4405295979659031227}
+    outline: {fileID: 0}
   assignedSpawnPoint: {fileID: 6992468844194632219}
 --- !u!95 &7151596841587838070
 Animator:
@@ -76367,18 +76367,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &851601038106387104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9101375114434562504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1b98ab8f9c21f644ba757dd6856f757, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9112684702393666752
 GameObject:
   m_ObjectHideFlags: 0

@@ -279,7 +279,6 @@ GameObject:
   - component: {fileID: 6666352337965176883}
   - component: {fileID: 6041534617325600459}
   - component: {fileID: 6487966582431873929}
-  - component: {fileID: 4442418575613455860}
   m_Layer: 0
   m_Name: Rifler Enemy Combat
   m_TagString: Untagged
@@ -345,7 +344,7 @@ MonoBehaviour:
   enemyData:
     name: Enemy2
     team: 1
-    id: 2
+    id: 6
     baseHealth: 100
     health: 100
     healthBar: {fileID: 5501029933922139162}
@@ -375,6 +374,7 @@ MonoBehaviour:
     charAnimator: {fileID: 6487966582431873929}
     heroHitVFX: {fileID: 3495367140241114985}
     heroTransform: {fileID: 2354221771852822094}
+    outline: {fileID: 0}
   assignedSpawnPoint: {fileID: 8041701553410096741}
 --- !u!95 &6487966582431873929
 Animator:
@@ -398,18 +398,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4442418575613455860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 739968726992004612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1b98ab8f9c21f644ba757dd6856f757, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &828752355664178966
 GameObject:
   m_ObjectHideFlags: 0
