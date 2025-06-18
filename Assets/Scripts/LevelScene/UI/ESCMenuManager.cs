@@ -74,7 +74,7 @@ public class ESCMenuManager : MonoBehaviour
             // Diðer UI'lar açýksa onlarý kapat
             CloseAllPanels();
             OpenESCMenu();
-            
+
         }
     }
 
@@ -139,7 +139,7 @@ public class ESCMenuManager : MonoBehaviour
         }
     }
 
-
+    
 
     public void OpenUI(GameObject uiToOpen)
     {
@@ -160,7 +160,7 @@ public class ESCMenuManager : MonoBehaviour
         //characterUI.SetActive(false);
         CameraManager.Instance.ZoomOut(); // Zoom out
         menuOpen = false;
-        Debug.Log("ESC menu opened/closed");
+
     }
 
     public void QuitGame()

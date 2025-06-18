@@ -56,12 +56,13 @@ public class QuestManager : MonoBehaviour
 
         foreach (string id in acquiredQuests)
         {
-            // Sahnedeki tüm quest'leri bul ve ID eþleþeni al
             Quest[] allQuests = Resources.FindObjectsOfTypeAll<Quest>();
             Quest quest = System.Array.Find(allQuests, q => q.questID == id);
             if (quest != null)
                 questList.Add(quest);
         }
+
+
 
         QuestUIController.Instance?.RefreshQuestUI(questList);
     }
@@ -81,6 +82,7 @@ public class QuestManager : MonoBehaviour
             }
 
             Debug.Log($"Görev tamamlandý: {quest.questName} (ID: {quest.questID})");
+            CompleteQuest(quest.questID); // Quest ID'yi tamamlanmýþ olarak iþaretle
             RefreshUI();
             SaveQuests();
 
@@ -115,6 +117,7 @@ public class QuestManager : MonoBehaviour
     {
         if (acquiredQuests.Contains(questID))
             completedQuests.Add(questID);
+        acquiredQuests.Remove(questID);
     }
 
     public void PrintActiveQuests()

@@ -123,17 +123,23 @@ public class DialogueManager : MonoBehaviour
             awaitingChoice = true;
             for (int i = 0; i < choices.Length; i++)
             {
+                var choiceData = choices[i];
+
+                // Eðer bu bir CompleteQuest ise ve gerekli item yoksa gösterme
+                if (choiceData.choiceType == ChoiceType.CompleteQuest)
+                {
+                    if (choiceData.quest == null || !BackpackManager.Instance.HasItem(choiceData.quest.requiredItem, choiceData.quest.requiredItemCount))
+                    {
+                        continue;
+                    }
+                }
+
                 var choiceObj = Instantiate(choicePrefab, choiceContainer.transform);
-
-                // Text bileþenini al
                 var text = choiceObj.transform.Find("Answer").GetComponent<TextMeshProUGUI>();
-                text.text = choices[i].choiceText;
+                text.text = choiceData.choiceText;
 
-                // Icon bileþenini al
                 var iconImage = choiceObj.transform.Find("Icon").GetComponent<Image>();
-
-                // Ýkonu seç
-                switch (choices[i].choiceType)
+                switch (choiceData.choiceType)
                 {
                     case ChoiceType.Normal:
                         iconImage.sprite = normalIcon;
@@ -144,13 +150,14 @@ public class DialogueManager : MonoBehaviour
                     case ChoiceType.AcceptQuest:
                         iconImage.sprite = acceptQuestIcon;
                         break;
-
+                    case ChoiceType.CompleteQuest:
+                        iconImage.sprite = acceptQuestIcon; // veya farklý bir ikon
+                        break;
                     default:
                         iconImage.enabled = false;
                         break;
                 }
 
-                // Buton listener
                 int capturedIndex = i;
                 choiceObj.GetComponent<Button>().onClick.AddListener(() => SelectChoice(capturedIndex));
                 currentChoices.Add(choiceObj);
@@ -159,6 +166,8 @@ public class DialogueManager : MonoBehaviour
             HighlightChoice(0);
         }
     }
+
+
 
 
     private void HandleChoiceInput()
@@ -196,20 +205,22 @@ public class DialogueManager : MonoBehaviour
             case ChoiceType.End:
                 EndDialogue();
                 break;
+
             case ChoiceType.AcceptQuest:
                 if (choice.quest != null)
                     QuestManager.Instance.AddQuest(choice.quest);
                 EndDialogue();
                 break;
+
             case ChoiceType.CompleteQuest:
                 if (choice.quest != null)
                 {
-                    
-                    QuestManager.Instance.CompleteQuest(choice.quest);
-                    QuestManager.Instance.PrintActiveQuests(); // Opsiyonel
+                    var quest = choice.quest;
+                    QuestManager.Instance.CompleteQuest(quest);
                 }
                 EndDialogue();
                 break;
+
             case ChoiceType.Normal:
             default:
                 index++;
@@ -218,6 +229,7 @@ public class DialogueManager : MonoBehaviour
                 break;
         }
     }
+
 
 
     private void ClearChoices()

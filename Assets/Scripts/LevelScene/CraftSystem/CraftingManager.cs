@@ -206,7 +206,7 @@ public class CraftingManager : MonoBehaviour
         {
             for (int i = 0; i < ing.quantity; i++)
             {
-                if (!BackpackManager.Instance.RemoveItem(ing.item))
+                if (!BackpackManager.Instance.HasItem(ing.item, ing.quantity))
                 {
                     Debug.LogWarning("Beklenmeyen hata: Malzeme silinemedi.");
                     return;

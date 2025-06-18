@@ -131,10 +131,10 @@ public class Chest : Interactable
                     return false;
                 }
 
-                if (BackpackManager.Instance.HasItem(requiredItem))
+                if (BackpackManager.Instance.HasItem(requiredItem, 1))
                 {
                     if (consumeItem)
-                        BackpackManager.Instance.RemoveItem(requiredItem);
+                        BackpackManager.Instance.RemoveItem(requiredItem, 1);
                     if (unlockVFXInstance != null)
                         Destroy(unlockVFXInstance);
                     return true;

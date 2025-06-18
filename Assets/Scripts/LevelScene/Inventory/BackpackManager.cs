@@ -142,7 +142,7 @@ public class BackpackManager : MonoBehaviour
 
             // Sayý gösterimi
             var quantityText = slot.transform.Find("Count")?.GetComponent<TextMeshProUGUI>();
-            if ((item.Type == ItemType.Collectible || item.Type == ItemType.Consumable || item.Type == ItemType.MobDrop) && item.quantity > 1)
+            if ((item.Type == ItemType.Collectible || item.Type == ItemType.Consumable || item.Type == ItemType.MobDrop || item.Type == ItemType.QuestItem) && item.quantity > 1)
             {
                 quantityText.text = item.quantity.ToString();
                 quantityText.gameObject.SetActive(true);
@@ -220,33 +220,26 @@ public class BackpackManager : MonoBehaviour
         RemoveItem(item.data, 1);
         selectedItemPanel.SetActive(false); // UI'yi kapat
     }
-    public bool HasItem(InventoryItemData itemData)
+    public bool HasItem(InventoryItemData itemData, int quantity)
     {
-        return items.Any(item => item.data == itemData);
+        var item = items.FirstOrDefault(i => i.data == itemData);
+        return item != null && item.quantity >= quantity;
     }
 
-    public bool RemoveItem(InventoryItemData itemData, int quantity = 1)
+    public void RemoveItem(InventoryItemData itemData, int quantity)
     {
-        var targetItem = items.FirstOrDefault(item => item.data == itemData);
-        if (targetItem != null)
+        var item = items.FirstOrDefault(i => i.data == itemData);
+        if (item != null)
         {
-            if (targetItem.IsStackable())
+            item.quantity -= quantity;
+            if (item.quantity <= 0)
             {
-                targetItem.quantity -= quantity;
-                if (targetItem.quantity <= 0)
-                    items.Remove(targetItem);
+                items.Remove(item);
             }
-            else
-            {
-                items.Remove(targetItem);
-            }
-
             RefreshUI();
-            return true;
         }
-
-        return false;
     }
+
 
 
     public int GetItemCount(InventoryItemData itemData) // YENÝ
@@ -296,6 +289,11 @@ public class BackpackManager : MonoBehaviour
         }
 
         RefreshUI();
+    }
+    public bool HasEnoughItem(InventoryItemData itemData, int requiredCount)
+    {
+        var existingItem = items.FirstOrDefault(i => i.data == itemData);
+        return existingItem != null && existingItem.quantity >= requiredCount;
     }
 
 }
