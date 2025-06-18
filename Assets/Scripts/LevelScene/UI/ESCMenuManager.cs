@@ -157,7 +157,7 @@ public class ESCMenuManager : MonoBehaviour
 
     public void QuitGame()
     {
-        SceneManager.LoadScene("MainMenu");
+        Application.Quit();
     }
 
 
