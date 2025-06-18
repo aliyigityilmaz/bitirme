@@ -76,7 +76,7 @@ public class Enemy : Interactable
         if (playerWon)
         {
             DropItems();
-            gameObject.SetActive(false);
+            
 
             // KAYIT
             EnemySpawnManager.Instance.RegisterDeadEnemy(enemyID);
