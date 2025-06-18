@@ -9,6 +9,18 @@ public class EnemySpawnManager : MonoBehaviour
     private List<Enemy> allEnemies = new List<Enemy>();
     private List<RespawnData> respawnQueue = new List<RespawnData>();
     private HashSet<string> deadEnemies = new HashSet<string>();
+    private HashSet<int> defeatedLevels = new HashSet<int>();
+
+    public bool IsLevelDefeated(int level)
+    {
+        return defeatedLevels.Contains(level);
+    }
+
+    public void MarkLevelAsDefeated(int level)
+    {
+        if (!defeatedLevels.Contains(level))
+            defeatedLevels.Add(level);
+    }
 
     public void RegisterDeadEnemy(string enemyID)
     {

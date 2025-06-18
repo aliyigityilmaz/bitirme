@@ -38,14 +38,27 @@ public class Enemy : Interactable
     {
         interactableType = InteractableType.Enemy;
 
-        // Kay�t ol
         EnemySpawnManager.Instance.RegisterEnemy(this);
-        
+
+        // Eğer bu level zaten yenildiyse, direkt combat sonu davranışı tetikle
+        if (EnemySpawnManager.Instance.IsLevelDefeated(level))
+        {
+            OnCombatEnded(true);
+            return;
+        }
+
+        // İlk defa sahne yüklendiğinde o level için sonuç kaydedildiyse
         if (EncounterResultData.HasResult(level))
         {
             bool won = EncounterResultData.GetResult(level);
-            OnCombatEnded(won);
 
+            // Eğer kazanıldıysa, bu levelı yenilmiş olarak işaretle
+            if (won)
+            {
+                EnemySpawnManager.Instance.MarkLevelAsDefeated(level);
+            }
+
+            OnCombatEnded(won);
         }
     }
 
@@ -76,6 +89,9 @@ public class Enemy : Interactable
 
         if (playerWon)
         {
+            // Bu level artık yenildi
+            EnemySpawnManager.Instance.MarkLevelAsDefeated(level);
+
             DropItems();
             EnemySpawnManager.Instance.RegisterDeadEnemy(enemyID);
 
@@ -85,10 +101,10 @@ public class Enemy : Interactable
                 EnemySpawnManager.Instance.RegisterForRespawn(this, deathTime + respawnTime);
             }
 
-            // DÜŞMANI GÖRÜNMEZ YAP
             gameObject.SetActive(false);
         }
     }
+
 
 
     private void DropItems()
