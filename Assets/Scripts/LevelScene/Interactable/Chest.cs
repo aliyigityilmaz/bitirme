@@ -33,10 +33,18 @@ public class Chest : Interactable
     private Animator animator;
 
     public GameObject openVFX;
-
+    private string generatedID;
     private void Awake()
     {
         animator = GetComponent<Animator>();
+
+        generatedID = $"{UnityEngine.SceneManagement.SceneManager.GetActiveScene().name}_Chest_{transform.position.x}_{transform.position.y}_{transform.position.z}";
+
+        if (PlayerPrefs.GetInt("ChestOpened_" + generatedID, 0) == 1)
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
     private void Reset()
@@ -58,10 +66,13 @@ public class Chest : Interactable
         }
 
         hasCollected = true;
+        PlayerPrefs.SetInt("ChestOpened_" + generatedID, 1);
+        PlayerPrefs.Save();
 
         if (animator != null)
         {
             animator.SetTrigger("OpenChest");
+
             GameObject vfx = Instantiate(openVFX, transform.position, Quaternion.identity);
             Destroy(vfx, 2.5f); // VFX'i 2 saniye sonra yok et
         }
