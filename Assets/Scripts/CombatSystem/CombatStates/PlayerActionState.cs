@@ -28,7 +28,7 @@ public class PlayerActionState : ICombatState
                 else if (multiplier >= 0.9f)
                     activeHero.charAnimator.SetTrigger("NormalAttack2");
                 else
-                    activeHero.charAnimator.SetTrigger("NormalAttack1");
+                    activeHero.charAnimator.SetTrigger("NormalAttack");
             }
             else if (selectedSkill.skillId == SkillId.SpecialAttack)
             {
