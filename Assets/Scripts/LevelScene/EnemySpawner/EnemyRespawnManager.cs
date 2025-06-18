@@ -93,10 +93,13 @@ public class EnemySpawnManager : MonoBehaviour
         // 2. Zaman aral��� d���nda olan d��manlar� deaktif et
         foreach (var enemy in allEnemies)
         {
+            if (enemy == null) continue; // Ekledik
+
             // Zaten ölü ve yeniden doğma zamanı bekliyorsa skip
             if (IsEnemyDead(enemy.enemyID) && !respawnQueue.Exists(e => e.enemy == enemy))
             {
-                enemy.gameObject.SetActive(false);
+                if (enemy != null && enemy.gameObject != null) // 💡 Güvenli kontrol
+                    enemy.gameObject.SetActive(false);
                 continue;
             }
 
@@ -114,6 +117,7 @@ public class EnemySpawnManager : MonoBehaviour
                 }
             }
         }
+
 
     }
 
