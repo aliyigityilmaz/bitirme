@@ -228,6 +228,7 @@ MonoBehaviour:
   consumeItem: 1
   enemiesToKill: []
   openVFX: {fileID: 7778858825378171437, guid: 595763f87c10cb545a01115b2a8fbb19, type: 3}
+  unlockVFXPrefab: {fileID: 3096379080648019985, guid: 60e0fb14c0fe7f6488f5bab96ae49d46, type: 3}
 --- !u!95 &-999866556381599439
 Animator:
   serializedVersion: 7
