@@ -7,21 +7,19 @@ public class Enemy : Interactable
     private bool hasInteracted = false;
     public int level = 1;
 
-    [Header("Respawn Settings")]
-    public bool canRespawn = true;
+    [Header("Respawn Settings")] public bool canRespawn = true;
     public float respawnTime = 10f;
 
-    [Header("Spawn Time Window")]
-    public bool useTimeRestrictions = false;
+    [Header("Spawn Time Window")] public bool useTimeRestrictions = false;
     [Range(0f, 24f)] public float spawnStartTime = 0f;
     [Range(0f, 24f)] public float spawnEndTime = 24f;
 
-    [Header("Drop Settings")]
-    public List<EnemyDrop> dropTable = new List<EnemyDrop>();
+    [Header("Drop Settings")] public List<EnemyDrop> dropTable = new List<EnemyDrop>();
 
     [HideInInspector] public string enemyID;
 
     private float deathTime;
+
     private void Awake()
     {
         if (string.IsNullOrEmpty(enemyID))
@@ -29,10 +27,12 @@ public class Enemy : Interactable
             enemyID = GenerateUniqueID();
         }
     }
+
     private string GenerateUniqueID()
     {
         return gameObject.scene.name + "_" + transform.position.ToString();
     }
+
     private void Start()
     {
         interactableType = InteractableType.Enemy;
@@ -46,13 +46,16 @@ public class Enemy : Interactable
         if (isOneTimeInteraction && hasInteracted)
             return;
 
-        hasInteracted = true;
-        DayNightManager.Instance.timeSpeed = 0f;
-        BackpackManager.Instance.SaveBackpack();
+        SceneTransitionController.Instance.PlayTransition(() =>
+        {
+            hasInteracted = true;
+            DayNightManager.Instance.timeSpeed = 0f;
+            BackpackManager.Instance.SaveBackpack();
 
-        EncounterManager.Instance.SetupEncounterForLevel(level);
-        //HeroSaveManager.SaveHeroes(HeroManager.instance.heroList);
-        SceneManager.LoadScene("BCombatScene");
+            EncounterManager.Instance.SetupEncounterForLevel(level);
+            //HeroSaveManager.SaveHeroes(HeroManager.instance.heroList);
+            SceneManager.LoadScene("BCombatScene");
+        });
 
         //OnCombatEnded(playerWon: true);
     }
@@ -116,4 +119,3 @@ public class EnemyDrop
     public int maxQuantity = 1;
     [Range(0f, 1f)] public float dropChance = 1f; // 1 = %100
 }
-

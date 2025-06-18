@@ -32,6 +32,7 @@ public class CombatStateManager : MonoBehaviour
 
     private void Start()
     {
+        
         Instance = this;
         // Başlangıçta Idle state ile başlıyoruz
         turnOrder = HeroManager.instance.heroList
