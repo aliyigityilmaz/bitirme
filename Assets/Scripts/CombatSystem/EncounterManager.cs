@@ -90,7 +90,7 @@ public class EncounterManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.buildIndex !=1 ) return;
+        if (scene.buildIndex !=2 ) return;
 
         // 1) Tag ile Combat sahnesindeki SpawnPoint objelerini bul
         spawnPoints = GameObject
@@ -104,7 +104,7 @@ public class EncounterManager : MonoBehaviour
         
         
            
-        if (scene.buildIndex != 1) return; 
+        if (scene.buildIndex != 2) return; 
 
         // İlk gelişi yakala
         if (!tutorialShown)

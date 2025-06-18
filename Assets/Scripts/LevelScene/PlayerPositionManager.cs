@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerPositionManager : MonoBehaviour
 {
@@ -12,19 +13,31 @@ public class PlayerPositionManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Sahne geçiþlerinde kaybolmasýn
+            DontDestroyOnLoad(gameObject); // Sahne geï¿½iï¿½lerinde kaybolmasï¿½n
         }
         else
         {
             Destroy(gameObject);
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Open World Level") // Ana sahne adï¿½nï¿½ gir
+        {
+            TryRestorePosition(PlayerController.Instance.gameObject);
+        }
+    }
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void Start()
     {
-        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Open World Level") // Ana sahne adýný gir
+        //if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Open World Level") // Ana sahne adï¿½nï¿½ gir
         {
-            TryRestorePosition(PlayerController.Instance.gameObject);
+      //      TryRestorePosition(PlayerController.Instance.gameObject);
         }
     }
 

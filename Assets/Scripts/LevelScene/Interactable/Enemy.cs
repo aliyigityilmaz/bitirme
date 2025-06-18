@@ -40,6 +40,13 @@ public class Enemy : Interactable
 
         // Kay�t ol
         EnemySpawnManager.Instance.RegisterEnemy(this);
+        
+        if (EncounterResultData.HasResult(level))
+        {
+            bool won = EncounterResultData.GetResult(level);
+            OnCombatEnded(won);
+
+        }
     }
 
     public override void Interact()
