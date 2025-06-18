@@ -36,7 +36,7 @@ public class IdleState : ICombatState
             manager.SetState(new EnemyTurnState(manager));
         }
 
-        afc.PlayMusicWithCrossFade(afc.combatMusicClip1);
+       
     }
     
 

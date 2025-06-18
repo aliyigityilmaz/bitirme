@@ -206,7 +206,7 @@ public class PlayerInputState : ICombatState
             Debug.Log("Tüm roundlar tamamlandı. Final multiplier: " + finalMultiplier);
             if (1f < finalMultiplier && finalMultiplier <= 1.5)
             {
-                afc.PlayMusicWithCrossFade(songs[2]);
+                afc.PlayMusicWithCrossFade(songs[0]);
             }
 
             if (0.5 < finalMultiplier && finalMultiplier <= 1)
@@ -216,7 +216,7 @@ public class PlayerInputState : ICombatState
 
             if (finalMultiplier <= 0.5)
             {
-                afc.PlayMusicWithCrossFade(songs[0]);
+                afc.PlayMusicWithCrossFade(songs[2]);
             }
 
             finalDamage = finalMultiplier;

@@ -95,7 +95,7 @@ public class AudioForCombat : MonoBehaviour
     }
 
     
-    public void PlayMusicWithCrossFade(AudioClip newClip, float transitionTime = 1f)
+    public void PlayMusicWithCrossFade(AudioClip newClip, float transitionTime = 0.3f)
     {
         AudioSource from = firstMusicSourcePlayin ? combatMusicSource1 : combatMusicSource2;
         AudioSource to   = firstMusicSourcePlayin ? combatMusicSource2 : combatMusicSource1;

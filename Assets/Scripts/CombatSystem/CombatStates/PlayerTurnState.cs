@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 public class PlayerTurnState : ICombatState
 {
     private CombatStateManager manager;
+    private AudioForCombat afc;
+    
 
     public PlayerTurnState(CombatStateManager manager)
     {
@@ -13,6 +15,8 @@ public class PlayerTurnState : ICombatState
 
     public void Enter()
     {
+        afc = AudioForCombat.Instance;
+        afc.PlayMusicWithFade(afc.combatMusicClip1);
         CombatTutorialManager.Instance.ShowStep1();
         manager.StartCoroutine(DelayedEnter());
     }

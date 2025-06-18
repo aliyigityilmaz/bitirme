@@ -8487,56 +8487,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ddbc639258439046aea69bf973d40b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatMusicSource1: {fileID: 260015781}
-  combatMusicSource2: {fileID: 957146792}
+  combatMusicSource1: {fileID: 957146792}
+  combatMusicSource2: {fileID: 260015781}
   combatNoteSource: {fileID: 394400687}
   combatSfxSource: {fileID: 0}
-  combatMusicClip1: {fileID: 0}
-  combatMusicClip2: {fileID: 0}
+  combatMusicClip1: {fileID: 8300000, guid: f8f161156e828e145bd8caf3c07ed11f, type: 3}
+  combatMusicClip2: {fileID: 8300000, guid: f8f161156e828e145bd8caf3c07ed11f, type: 3}
   heroMainSong:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 8e924086eb6b4934fbfbb6a9c7104172, type: 3}
+  - {fileID: 8300000, guid: 134d14e2843c11e4d94fc7cc58435e14, type: 3}
+  - {fileID: 8300000, guid: 11a88712016c01a4598318379b681d44, type: 3}
   heroMainNotes:
-  - {fileID: 8300000, guid: 780fa2ead3c36e649b0a68ed01456bc8, type: 3}
-  - {fileID: 8300000, guid: 665e2e58b4b8d144e8793bff9b3f210c, type: 3}
-  - {fileID: 8300000, guid: 073a849d63b532a4483fdaf8f1f6a14f, type: 3}
-  - {fileID: 8300000, guid: 7188de62e70b9d943b85d61bb8a7dab4, type: 3}
-  - {fileID: 8300000, guid: e9ef877fb8d5c3342a0b871b16aa5d07, type: 3}
-  - {fileID: 8300000, guid: dd8afee7f38e5d44c9461594d8e30ab7, type: 3}
+  - {fileID: 8300000, guid: 8d8ab0a5e30c5d04f8af0b5ac7477d3e, type: 3}
+  - {fileID: 8300000, guid: 8c033883849ebf84dad330e70072aa59, type: 3}
+  - {fileID: 8300000, guid: 8c033883849ebf84dad330e70072aa59, type: 3}
+  - {fileID: 8300000, guid: 8c033883849ebf84dad330e70072aa59, type: 3}
+  - {fileID: 8300000, guid: 574ad626bdd01654d953442019788dbf, type: 3}
+  - {fileID: 8300000, guid: cb9c504af44101742b3abfd44f95663f, type: 3}
   heroSniperSong:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: b4cfe58574822e64fa64490b17fcd643, type: 3}
+  - {fileID: 8300000, guid: 71d4f68b696b5d24981c69bd774e9fc8, type: 3}
+  - {fileID: 8300000, guid: 393ae754081a45a4bbde614659588a57, type: 3}
   heroSniperNotes:
-  - {fileID: 8300000, guid: 780fa2ead3c36e649b0a68ed01456bc8, type: 3}
-  - {fileID: 8300000, guid: 665e2e58b4b8d144e8793bff9b3f210c, type: 3}
-  - {fileID: 8300000, guid: 073a849d63b532a4483fdaf8f1f6a14f, type: 3}
-  - {fileID: 8300000, guid: 7188de62e70b9d943b85d61bb8a7dab4, type: 3}
-  - {fileID: 8300000, guid: e9ef877fb8d5c3342a0b871b16aa5d07, type: 3}
-  - {fileID: 8300000, guid: dd8afee7f38e5d44c9461594d8e30ab7, type: 3}
+  - {fileID: 8300000, guid: 84afb52c0be6e184399a0261034c39d9, type: 3}
+  - {fileID: 8300000, guid: 84afb52c0be6e184399a0261034c39d9, type: 3}
+  - {fileID: 8300000, guid: 84afb52c0be6e184399a0261034c39d9, type: 3}
+  - {fileID: 8300000, guid: 84afb52c0be6e184399a0261034c39d9, type: 3}
+  - {fileID: 8300000, guid: 22770beb863751b479019a19430fb295, type: 3}
+  - {fileID: 8300000, guid: 22770beb863751b479019a19430fb295, type: 3}
   heroTankSong:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: d8495edd67484e041ba3c325796c3f73, type: 3}
+  - {fileID: 8300000, guid: 0ef1ec72bda9fc44fa1255e58fb76768, type: 3}
+  - {fileID: 8300000, guid: e26e285e94f14614594cf413d0362ce1, type: 3}
   heroTankNotes:
-  - {fileID: 8300000, guid: 780fa2ead3c36e649b0a68ed01456bc8, type: 3}
-  - {fileID: 8300000, guid: 665e2e58b4b8d144e8793bff9b3f210c, type: 3}
-  - {fileID: 8300000, guid: 073a849d63b532a4483fdaf8f1f6a14f, type: 3}
-  - {fileID: 8300000, guid: 7188de62e70b9d943b85d61bb8a7dab4, type: 3}
-  - {fileID: 8300000, guid: e9ef877fb8d5c3342a0b871b16aa5d07, type: 3}
-  - {fileID: 8300000, guid: dd8afee7f38e5d44c9461594d8e30ab7, type: 3}
+  - {fileID: 8300000, guid: 1dd4519a2ac0e1345964fcb017f70f2f, type: 3}
+  - {fileID: 8300000, guid: 1dd4519a2ac0e1345964fcb017f70f2f, type: 3}
+  - {fileID: 8300000, guid: 1dd4519a2ac0e1345964fcb017f70f2f, type: 3}
+  - {fileID: 8300000, guid: 1dd4519a2ac0e1345964fcb017f70f2f, type: 3}
+  - {fileID: 8300000, guid: 1dd4519a2ac0e1345964fcb017f70f2f, type: 3}
+  - {fileID: 8300000, guid: 1dd4519a2ac0e1345964fcb017f70f2f, type: 3}
   heroHealerSong:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 3e056b6315ca1aa4bb20adf97802232c, type: 3}
+  - {fileID: 8300000, guid: 08dc150572a45c04f93598675bf308b1, type: 3}
+  - {fileID: 8300000, guid: e1c8405ae24c2824993296dec5b75e38, type: 3}
   heroHealerNotes:
-  - {fileID: 8300000, guid: 780fa2ead3c36e649b0a68ed01456bc8, type: 3}
-  - {fileID: 8300000, guid: 665e2e58b4b8d144e8793bff9b3f210c, type: 3}
-  - {fileID: 8300000, guid: 073a849d63b532a4483fdaf8f1f6a14f, type: 3}
-  - {fileID: 8300000, guid: 7188de62e70b9d943b85d61bb8a7dab4, type: 3}
-  - {fileID: 8300000, guid: e9ef877fb8d5c3342a0b871b16aa5d07, type: 3}
-  - {fileID: 8300000, guid: dd8afee7f38e5d44c9461594d8e30ab7, type: 3}
+  - {fileID: 8300000, guid: dca8b0e77910d164e831b5f034a2dabd, type: 3}
+  - {fileID: 8300000, guid: dca8b0e77910d164e831b5f034a2dabd, type: 3}
+  - {fileID: 8300000, guid: 02929dbd0e85047439f3603524b7f8b6, type: 3}
+  - {fileID: 8300000, guid: 02929dbd0e85047439f3603524b7f8b6, type: 3}
+  - {fileID: 8300000, guid: 2a8c481a3f8a20043a2daa2d7c8559c3, type: 3}
+  - {fileID: 8300000, guid: 2a8c481a3f8a20043a2daa2d7c8559c3, type: 3}
 --- !u!114 &1110363116
 MonoBehaviour:
   m_ObjectHideFlags: 0
