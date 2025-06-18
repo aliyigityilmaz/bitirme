@@ -22,7 +22,10 @@ public class CombatTutorialManager : MonoBehaviour
         step1Panel.SetActive(false);
         step2Panel.SetActive(false);
     }
-
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     public void StartTutorial()
     {
         Step1Shown = false;
