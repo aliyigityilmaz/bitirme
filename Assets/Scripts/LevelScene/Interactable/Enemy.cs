@@ -47,6 +47,7 @@ public class Enemy : Interactable
         if (isOneTimeInteraction && hasInteracted)
             return;
 
+        PlayerPositionManager.Instance.SavePosition(PlayerController.Instance.transform.position);
 
         SceneTransitionController.Instance.PlayTransition(() =>
         {
