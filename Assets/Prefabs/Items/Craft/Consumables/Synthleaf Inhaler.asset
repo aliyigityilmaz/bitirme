@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9711447333dd8fe4e8db569c565bbc7d, type: 3}
+  m_Name: Synthleaf Inhaler
+  m_EditorClassIdentifier: 
+  resultItemName: Synthleaf Inhaler
+  resultIcon: {fileID: 21300000, guid: 71a7c73fb69a7f8428b20d748e6bb557, type: 3}
+  resultItem: {fileID: 11400000, guid: 12b7948d98ee8b04289c5a05f7c1cccd, type: 2}
+  ingredients:
+  - item: {fileID: 11400000, guid: 2c62cbab1d254ac4c9c7b02dfbe5c07f, type: 2}
+    quantity: 1
+  - item: {fileID: 11400000, guid: 73d2f0e94a801af4e870872aa8b8e99a, type: 2}
+    quantity: 1

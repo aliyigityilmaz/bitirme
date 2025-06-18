@@ -82,44 +82,63 @@ public class CraftingManager : MonoBehaviour
     void ShowRecipe(RecipeData recipe, GameObject buttonGO)
     {
         resultIcon.gameObject.SetActive(true);
-        selectedRecipe = recipe;
 
-        if (selectedButton != null)
+        // Önceki butonun arka planýný eski türüne göre sýfýrla
+        if (selectedButton != null && selectedRecipe != null)
         {
-            RecipeData prevRecipe = recipes.Find(r => r == selectedRecipe);
             Image prevImage = selectedButton.GetComponent<Image>();
+            switch (selectedRecipe.resultItem.type)
+            {
+                case ItemType.QuestItem:
+                    prevImage.sprite = QuestItemBackground;
+                    break;
+                case ItemType.CharacterItem:
+                    prevImage.sprite = CharacterItemBackground;
+                    break;
+                case ItemType.Consumable:
+                    prevImage.sprite = QuestItemBackground;
+                    break;
+                case ItemType.Collectible:
+                    prevImage.sprite = CollectibleItemBackground;
+                    break;
+                case ItemType.MobDrop:
+                    prevImage.sprite = CollectibleItemBackground;
+                    break;
+            }
 
-            if (recipe.resultItem.type == ItemType.QuestItem)
-                prevImage.sprite = QuestItemBackground;
-            else if (recipe.resultItem.type == ItemType.CharacterItem)
-                prevImage.sprite = CharacterItemBackground;
-            else if (recipe.resultItem.type == ItemType.Consumable)
-                prevImage.sprite = QuestItemBackground;
-            else if (recipe.resultItem.type == ItemType.Collectible)
-                prevImage.sprite = CollectibleItemBackground;
-            else if (recipe.resultItem.type == ItemType.MobDrop)
-                prevImage.sprite = CollectibleItemBackground;
             selectedButton.transform.Find("Name").GetComponent<TextMeshProUGUI>().color = Color.white;
         }
 
-        Image newImage = buttonGO.GetComponent<Image>();
-        if (recipe.resultItem.type == ItemType.QuestItem)
-            newImage.sprite = QuestItemBackgroundSelected;
-        else if (recipe.resultItem.type == ItemType.CharacterItem)
-            newImage.sprite = CharacterItemBackgroundSelected;
-        else if (recipe.resultItem.type == ItemType.Collectible)
-            newImage.sprite = CollectibleItemBackgroundSelected;
-        else if (recipe.resultItem.type == ItemType.Consumable)
-            newImage.sprite = QuestItemBackgroundSelected;
-        else if (recipe.resultItem.type == ItemType.MobDrop)
-            newImage.sprite = CollectibleItemBackgroundSelected;
+        selectedRecipe = recipe; // Þimdi güncelle
         selectedButton = buttonGO;
+
+        // Yeni butonun arka planýný tipine göre ayarla
+        Image newImage = buttonGO.GetComponent<Image>();
+        switch (recipe.resultItem.type)
+        {
+            case ItemType.QuestItem:
+                newImage.sprite = QuestItemBackgroundSelected;
+                break;
+            case ItemType.CharacterItem:
+                newImage.sprite = CharacterItemBackgroundSelected;
+                break;
+            case ItemType.Consumable:
+                newImage.sprite = QuestItemBackgroundSelected;
+                break;
+            case ItemType.Collectible:
+                newImage.sprite = CollectibleItemBackgroundSelected;
+                break;
+            case ItemType.MobDrop:
+                newImage.sprite = CollectibleItemBackgroundSelected;
+                break;
+        }
+
         selectedButton.transform.Find("Name").GetComponent<TextMeshProUGUI>().color = Color.black;
 
         resultIcon.sprite = recipe.resultIcon;
         resultName.text = recipe.resultItemName;
 
-       
+
 
         // Ingredient 1
         if (recipe.ingredients.Length > 0)

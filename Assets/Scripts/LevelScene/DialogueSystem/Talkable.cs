@@ -15,6 +15,8 @@ public class TalkableNPC : Interactable
     public GameObject questIconPrefab;
     private GameObject questIconInstance;
 
+    public GameObject namePrefab; // NPC'nin adýný göstermek için kullanýlacak prefab
+
     private void Start()
     {
         interactableType = InteractableType.Talkable;
@@ -24,6 +26,20 @@ public class TalkableNPC : Interactable
             // Ýkonu NPC'nin baþýnýn biraz üstüne yerleþtir
             questIconInstance = Instantiate(questIconPrefab, transform);
             questIconInstance.transform.localPosition = new Vector3(0, 2.5f, 0); // Yüksekliði ayarlayabilirsin
+        }
+        else if (npcName != null && quest == null)
+        {
+            // NPC'nin adýný göstermek için prefab'ý instantiate et
+            if (namePrefab != null)
+            {
+                GameObject nameInstance = Instantiate(namePrefab, transform);
+                nameInstance.transform.localPosition = new Vector3(0, 2.5f, 0); // Yüksekliði ayarlayabilirsin
+                var textComponent = nameInstance.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+                if (textComponent != null)
+                {
+                    textComponent.text = npcName;
+                }
+            }
         }
     }
 
