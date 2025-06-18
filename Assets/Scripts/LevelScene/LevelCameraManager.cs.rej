@@ -1,0 +1,37 @@
+diff a/Assets/Scripts/LevelScene/LevelCameraManager.cs b/Assets/Scripts/LevelScene/LevelCameraManager.cs	(rejected hunks)
+@@ -73,7 +73,7 @@ public class CameraManager : MonoBehaviour
+ 
+     private void TryAssignCinemachine()
+     {
+-        // Yeni sahnede Cinemachine kameray� bul
++        // Yeni sahnede Cinemachine kameray� bul
+         cineCamera = FindObjectOfType<CinemachineCamera>();
+         if (cineCamera == null)
+         {
+@@ -81,16 +81,16 @@ public class CameraManager : MonoBehaviour
+             return;
+         }
+ 
+-        // Yeni sahnede player'� bul ve target olarak ayarla
+-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+-        if (player != null)
+-        {
+-            cineCamera.Follow = player.transform;
+-            cineCamera.LookAt = player.transform;
+-
+-            // (�ste�e ba�l�) Kameray� ba�lang�� pozisyonuna getir
+-            cineCamera.transform.position = player.transform.position + new Vector3(0, 5, -10);
+-        }
++        // // Yeni sahnede player'� bul ve target olarak ayarla
++        // GameObject player = GameObject.FindGameObjectWithTag("Player");
++        // if (player != null)
++        // {
++        //     cineCamera.Follow = player.transform;
++        //     cineCamera.LookAt = player.transform;
++        //
++        //     // (�ste�e ba�l�) Kameray� ba�lang�� pozisyonuna getir
++        //     cineCamera.transform.position = player.transform.position + new Vector3(0, 5, -10);
++        // }
+     }
+ 
+     private void OnDestroy()

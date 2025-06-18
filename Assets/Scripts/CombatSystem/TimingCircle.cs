@@ -31,6 +31,11 @@ namespace CombatSystem.CombatStates
                 }).SetAutoKill(true);
         }
 
+        public void DoPunch()
+        {
+            transform.DOPunchScale(Vector3.one * 1.05f, 0.15f).SetAutoKill(true);
+        }
+
         public void ResetCircle()
         {
             DOTween.Kill(outCircle.rectTransform);

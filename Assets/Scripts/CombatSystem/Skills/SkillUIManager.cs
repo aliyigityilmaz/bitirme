@@ -89,6 +89,11 @@ public class SkillUIManager : MonoBehaviour
         }
     }
 
+    public void DoPunchCircle()
+    {
+        timingCircle.DoPunch();
+    }
+
     public void SetCircleColor(Color color)
     {
         if (timingCircle != null)
