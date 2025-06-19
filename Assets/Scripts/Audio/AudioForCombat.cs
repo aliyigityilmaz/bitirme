@@ -58,18 +58,22 @@ public class AudioForCombat : MonoBehaviour
     {
         combatMusicSource1.loop = true;
         combatMusicSource2.loop = true;
+
     }
 
     #region One‑shot SFX
     // sadece nota için
     public void PlayNote(AudioClip clip)
     {
+        combatNoteSource.volume = PlayerPrefs.GetInt("MusicVolume", 5) / 10f;
         combatNoteSource.PlayOneShot(clip);
+
     }
 
     // sadece combat sfx için
     public void PlaySfx(AudioClip clip)
     {
+        combatSfxSource.volume = PlayerPrefs.GetInt("SFXVolume", 5) / 10f;
         combatSfxSource.PlayOneShot(clip);
     }
     #endregion
@@ -78,7 +82,7 @@ public class AudioForCombat : MonoBehaviour
     public void PlayMusic(AudioClip musicClip)
     {
         AudioSource activeSource = (firstMusicSourcePlayin) ? combatMusicSource1 : combatMusicSource2;
-
+        activeSource.volume = PlayerPrefs.GetInt("MusicVolume", 5) / 10f;
         activeSource.clip = musicClip;
         activeSource.volume = 1f;
         activeSource.Play();
@@ -91,14 +95,21 @@ public class AudioForCombat : MonoBehaviour
     public void PlayMusicWithFade(AudioClip newClip, float transitionTime = 1f)
     {
         AudioSource activeSource = firstMusicSourcePlayin ? combatMusicSource1 : combatMusicSource2;
+
+        activeSource.volume = PlayerPrefs.GetInt("MusicVolume", 5) / 10f;
         StartCoroutine(FadeOutIn(activeSource, newClip, transitionTime));
     }
 
     
     public void PlayMusicWithCrossFade(AudioClip newClip, float transitionTime = 0.3f)
     {
+        
         AudioSource from = firstMusicSourcePlayin ? combatMusicSource1 : combatMusicSource2;
         AudioSource to   = firstMusicSourcePlayin ? combatMusicSource2 : combatMusicSource1;
+
+        from.volume = PlayerPrefs.GetInt("MusicVolume", 5) / 10f;
+        to.volume = PlayerPrefs.GetInt("MusicVolume", 5) / 10f;
+
 
         to.clip = newClip;
         StartCoroutine(CrossFade(from, to, transitionTime));
